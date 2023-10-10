@@ -15,9 +15,7 @@ export default async function NamePage({ params }: { params: { id: string } }) {
   const page = pageRes[0]!;
   return (
     <>
-      <head>
-        <title key="title">{page?.title} اسم</title>
-      </head>
+      <title key="title">{page?.title} اسم</title>
       <div className="mb-4 w-full border-b border-zinc-200 pb-1 flex-row-between">
         <h2 className="text-3xl font-bold text-zinc-700">{page?.title}</h2>
         <Link
