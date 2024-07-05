@@ -1,0 +1,29 @@
+[
+  {
+    "owner": "Vercel",
+    "name": "Official Nextjs Course",
+    "description": "Master the fundamentals of Next.js 14 and the App Router",
+    "homepage": "https://fireship.io/courses/nextjs",
+    "category": "Learn",
+    "tags": ["free", "course"],
+    "createdBy": "Vercel"
+  },
+  {
+    "owner": "Fireship",
+    "name": "Nextjs Full Course",
+    "description": "Master the fundamentals of Next.js 14 and the App Router",
+    "homepage": "https://fireship.io/courses/nextjs",
+    "category": "Learn",
+    "tags": ["premium", "course"],
+    "createdBy": "Fireship"
+  },
+  {
+    "owner": "Bytegrad",
+    "name": "Professional React & Next.js",
+    "description": "An all-in-one course: start from scratch and go to a senior level",
+    "homepage": "https://bytegrad.com/courses/professional-react-nextjs",
+    "category": "Learn",
+    "tags": ["premium", "course"],
+    "createdBy": "Bytegrad"
+  }
+]
