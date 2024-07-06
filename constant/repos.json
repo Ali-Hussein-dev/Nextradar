@@ -259,4 +259,12 @@
     "category": "real-world-apps",
     "tags": ["SaaS","Security"]
   }
+  ,"vercel/style-guide": {
+    "owner": "vercel",
+    "repoName":"style-guide",
+    "name": "Vercel Style Guide",
+    "stars": 0,
+    "category": "Tools",
+    "tags": ["workflow"]
+  }
 }
