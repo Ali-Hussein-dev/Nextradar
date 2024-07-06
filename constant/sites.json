@@ -25,5 +25,14 @@
     "category": "Learn",
     "tags": ["premium", "course"],
     "createdBy": "Bytegrad"
+  },
+  {
+    "owner": "DevelopedByEd",
+    "name": "Ultimate Next.js Course 2024 Edition",
+    "description": "Unlock Your Potential with Our Up-to-Date Full Stack React Course",
+    "homepage": "https://developedbyed.com/p/the-full-stack-react-course",
+    "category": "Learn",
+    "tags": ["premium", "course"],
+    "createdBy": "DevelopedByEd"
   }
 ]

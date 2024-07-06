@@ -1,41 +1,23 @@
+import { Button } from "@/components/button"
 import Link from "next/link"
 
 export default function HomePage() {
   return (
     <main className="min-h-screen flex flex-col justify-center items-center">
-      <div className="flex flex-col justify-center text-center">
-        <h1 className="mb-4 text-2xl font-extrabold md:text-4xl lg:text-6xl tracking-tighter">
-          Find the Right Thing <br /> in Seconds, not Hours
+      <div className="flex flex-col justify-center text-center animate-in">
+        <h1 className="mb-4 text-2xl font-extrabold md:text-4xl lg:text-5xl tracking-tighter text-center max-w-2xl text-balance mx-auto">
+          Curated Next.js Tools & Resources for focused devs
         </h1>
-        <p className="text-lg">
-          Hand-picked resources for every <b>Nextjs devs</b>
+        <p className="text-lg text-center max-w-2xl mx-auto dark:text-zinc-400">
+          Keeping up with Next.js ecosystem can be overwhelming. We filter the
+          noise, delivering only what matters.
         </p>
-        <Link href="docs">Discover</Link>
-      </div>
-      <div className="mx-auto max-w-xl py-12">
-        <h2 className="mb-2 text-2xl font-bold">Why I built this project?</h2>
-        <p className="">
-          The Nextjs ecosystem is growing rapidly. It's hard to keep up with the
-          latest resources. The Social media is distracting environement, and
-          it's hard to find the right thing in short time without being
-          distracted.
-        </p>
-      </div>
-      <div className="grid grid-cols-2 gap-4 pt-10">
-        {[
-          { href: "/docs/learn", label: "Learn" },
-          { href: "/docs/utility", label: "Utility" },
-          { href: "/docs/plugin", label: "Plugin" },
-          { href: "/docs/built-with-nextjs", label: "Built with Nextjs" },
-        ].map((item) => (
-          <Link
-            href={item.href}
-            key={item.label}
-            className="rounded-lg px-8 py-4 border"
-          >
-            {item.label}
-          </Link>
-        ))}
+        <Button
+          asChild
+          className="mt-4 max-w-[13rem] font-semibold w-full mx-auto"
+        >
+          <Link href="/docs/latest">Discover</Link>
+        </Button>
       </div>
     </main>
   )
