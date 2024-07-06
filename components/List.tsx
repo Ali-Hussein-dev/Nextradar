@@ -1,4 +1,4 @@
-import { Repo, getByCategory } from "@/lib/utils"
+import { Repo, getByCategory } from "@/lib/repos"
 import { CiStar } from "react-icons/ci"
 import { TbExternalLink } from "react-icons/tb"
 
