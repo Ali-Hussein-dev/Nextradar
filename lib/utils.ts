@@ -2,6 +2,8 @@ import sites from '@/constant/sites.json';
 import { Octokit } from "@octokit/rest"
 import repos from "@/constant/repos.json"
 import { cache } from "react"
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 const octokit = new Octokit()
 
@@ -50,3 +52,7 @@ export const getByCategory = async (category: string) => {
 
 }
 
+
+export function cn(...inputs: ClassValue[]) {
+    return twMerge(clsx(inputs));
+}
