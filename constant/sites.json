@@ -28,11 +28,20 @@
   },
   {
     "owner": "DevelopedByEd",
-    "name": "Ultimate Next.js Course 2024 Edition",
-    "description": "Unlock Your Potential with Our Up-to-Date Full Stack React Course",
-    "homepage": "https://developedbyed.com/p/the-full-stack-react-course",
+    "name": "Ultimate Next.js Full stack Course",
+    "description": "Learn to create a full stack e-commerce website with cutting edge tech!",
+    "homepage": "https://www.ultimatenextjs.com/",
     "category": "Learn",
     "tags": ["premium", "course"],
     "createdBy": "DevelopedByEd"
+  }
+  ,{
+    "owner": "Scott Moss",
+    "name": "Intermediate Next.js",
+    "description": "Learn to create a full stack e-commerce website with cutting edge tech!",
+    "homepage": "https://frontendmasters.com/workshops/intermediate-nextjs/",
+    "category": "Learn",
+    "tags": ["premium", "course"],
+    "createdBy": "Scott Moss - Frontend Masters"
   }
 ]
