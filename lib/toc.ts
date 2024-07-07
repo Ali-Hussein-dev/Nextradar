@@ -52,7 +52,7 @@ export const genCustomToc = (key: Pathname) => {
                 .map((item) => ({
                     title: item.name,
                     depth: 3,
-                    url: `#${slugify(item.name)}`,
+                    url: `#${slugger.slug(item.name)}`,
                 }))
         const videos = [
             { title: "Videos", depth: 2, url: "#videos" },
