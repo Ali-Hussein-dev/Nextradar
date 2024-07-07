@@ -1,10 +1,12 @@
-import { slugify } from "@/lib/utils"
+import Slugger from 'github-slugger';
+
 import repos from "@/constant/repos.json"
 import latest from "@/constant/latest.json"
 import archive2024_6 from "@/constant/archive/2024-6.json"
 import sites from "@/constant/sites.json"
 import { CardProps } from "@/components/resource-card"
 
+const slugger = new Slugger();
 // const set = new Set(Object.values(repos).map((o) => o.category))
 
 // export const tocList = Array.from(set).map((c) => ({
@@ -40,7 +42,7 @@ export const genCustomToc = (key: Pathname) => {
         return list.map((item) => ({
             title: item.name,
             depth: 2,
-            url: `#${slugify(item.name)}`,
+            url: `#${slugger.slug(item.name)}`,
         }))
     } else {
 
