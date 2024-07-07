@@ -228,6 +228,14 @@
     "category": "real-world-apps",
     "tags": ["SaaS", "Security"]
   },
+  "liveblocks/liveblocks": {
+    "owner": "liveblocks",
+    "repoName": "liveblocks",
+    "name": "Liveblocks",
+    "stars": 0,
+    "category": "real-world-apps",
+    "tags": ["Collaboration"]
+  },
   "hirosystems/docs": {
     "owner": "hirosystems",
     "repoName": "docs",
