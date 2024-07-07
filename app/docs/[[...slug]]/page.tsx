@@ -2,9 +2,13 @@ import { getPage, getPages } from '@/app/source';
 import type { Metadata } from 'next';
 import { DocsPage, DocsBody } from 'fumadocs-ui/page';
 import { notFound } from 'next/navigation';
-import { tocList } from "@/constant/toc"
+import { Pathname, genCustomToc } from "@/lib/toc"
 
-export default async function Page({ params }: { params: { slug?: string[] } }) {
+export default async function Page({
+  params,
+}: {
+  params: { slug?: string[] }
+}) {
   const page = getPage(params.slug)
 
   if (page == null) {
@@ -12,13 +16,14 @@ export default async function Page({ params }: { params: { slug?: string[] } }) 
   }
 
   const MDX = page.data.exports.default
-  const currentPage = page.url
-  const defaultToc = page.data.exports.toc
-  const toc = currentPage == "/docs" ? tocList : defaultToc
+  const currentPage = page.url as Pathname
+
+  // const defaultToc = page.data.exports.toc
+  const toc = genCustomToc(currentPage)
   return (
     <DocsPage toc={toc} full={page.data.full}>
       <DocsBody>
-        <h1>{page.data.title}</h1>
+        {/* <h1 className="text-lg">{page.data.title}</h1> */}
         <MDX />
       </DocsBody>
     </DocsPage>
