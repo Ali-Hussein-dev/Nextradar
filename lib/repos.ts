@@ -3,7 +3,9 @@ import { Octokit } from "@octokit/rest"
 import repos from "@/constant/repos.json"
 import { cache } from "react"
 
-const octokit = new Octokit()
+const octokit = new Octokit({
+    auth: process.env.GITHUB_ACCESS_TOKEN as string
+})
 
 export type Repo = {
     owner: string
@@ -49,3 +51,4 @@ export const getByCategory = async (category: string) => {
     return Object.values(reposGroupedByCategory).flat()
 
 }
+
