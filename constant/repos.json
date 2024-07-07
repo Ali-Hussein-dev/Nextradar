@@ -1,28 +1,28 @@
 {
-  "joulev/nextjs-faq":{
+  "joulev/nextjs-faq": {
     "owner": "joulev",
-    "repoName":"nextjs-faq",
+    "repoName": "nextjs-faq",
     "name": "Nextjs FAQ",
     "stars": 0,
     "category": "Learn"
   },
   "fuma-nama/fumadocs": {
     "owner": "fuma-nama",
-    "repoName":"fumadocs",
+    "repoName": "fumadocs",
     "name": "Fumadocs",
     "stars": 0,
-    "category": "Docs"
+    "category": "Tools"
   },
   "shuding/nextra": {
     "owner": "shuding",
-    "repoName":"nextra",
+    "repoName": "nextra",
     "name": "Nextra",
     "stars": 0,
-    "category": "Docs"
+    "category": "Tools"
   },
   "iamvishnusankar/next-sitemap": {
     "owner": "iamvishnusankar",
-    "repoName":"next-sitemap",
+    "repoName": "next-sitemap",
     "name": "Next-sitemap",
     "stars": 0,
     "category": "Tools",
@@ -30,30 +30,30 @@
   },
   "garmeeh/next-seo": {
     "owner": "garmeeh",
-    "repoName":"next-seo",
+    "repoName": "next-seo",
     "name": "Next-seo",
     "stars": 0,
     "category": "Tools",
     "tags": ["SEO"]
   },
-  "t3-oss/create-t3-app":{
+  "t3-oss/create-t3-app": {
     "owner": "t3-oss",
-    "repoName":"create-t3-app",
+    "repoName": "create-t3-app",
     "name": "create-t3-app",
     "stars": 0,
     "category": "Tools"
   },
-  "shadowwalker/next-pwa":{
+  "shadowwalker/next-pwa": {
     "owner": "shadowwalker",
-    "repoName":"next-pwa",
+    "repoName": "next-pwa",
     "name": "next-pwa",
     "stars": 0,
     "category": "Tools",
     "tags": ["PWA"]
   },
-  "serwist/serwist":{
+  "serwist/serwist": {
     "owner": "serwist",
-    "repoName":"serwist",
+    "repoName": "serwist",
     "name": "Serwist",
     "stars": 0,
     "category": "Tools",
@@ -61,31 +61,31 @@
   },
   "hashicorp/next-mdx-remote": {
     "owner": "hashicorp",
-    "repoName":"next-mdx-remote",
+    "repoName": "next-mdx-remote",
     "name": "next-mdx-remote",
     "stars": 0,
     "category": "Plugin",
     "tags": ["MDX"]
   },
-  "kentcdodds/mdx-bundler":{
+  "kentcdodds/mdx-bundler": {
     "owner": "kentcdodds",
-    "repoName":"mdx-bundler",
+    "repoName": "mdx-bundler",
     "name": "mdx-bundler",
     "stars": 0,
     "category": "Plugin",
     "tags": ["MDX"]
   },
-  "sdorra/content-collections":{
+  "sdorra/content-collections": {
     "owner": "sdorra",
-    "repoName":"content-collections",
+    "repoName": "content-collections",
     "name": "Content Collections",
     "stars": 0,
     "category": "Tools",
     "tags": ["MDX"]
   },
-  "PaulieScanlon/mdx-embed":{
+  "PaulieScanlon/mdx-embed": {
     "owner": "PaulieScanlon",
-    "repoName":"mdx-embed",
+    "repoName": "mdx-embed",
     "name": "mdx-embed",
     "stars": 0,
     "category": "Plugin",
@@ -93,7 +93,7 @@
   },
   "aralroca/next-translate": {
     "owner": "aralroca",
-    "repoName":"next-translate",
+    "repoName": "next-translate",
     "name": "next-translate",
     "stars": 0,
     "category": "Plugin",
@@ -101,35 +101,35 @@
   },
   "ricokahler/next-plugin-preval": {
     "owner": "ricokahler",
-    "repoName":"next-plugin-preval",
+    "repoName": "next-plugin-preval",
     "name": "next-plugin-preval",
     "stars": 0,
     "category": "Plugin"
   },
   "umami-software/next-basics": {
     "owner": "umami-software",
-    "repoName":"next-basics",
+    "repoName": "next-basics",
     "name": "next-basics",
     "stars": 0,
     "category": "Tools"
   },
-  "andreizanik/cookies-next":{
+  "andreizanik/cookies-next": {
     "owner": "andreizanik",
-    "repoName":"cookies-next",
+    "repoName": "cookies-next",
     "name": "cookies-next",
     "stars": 0,
     "category": "Tools"
   },
   "t3-oss/t3-env": {
     "owner": "t3-oss",
-    "repoName":"t3-env",
+    "repoName": "t3-env",
     "name": "t3-env",
     "stars": 0,
     "category": "Tools"
   },
   "i18next/next-i18next": {
     "owner": "i18next",
-    "repoName":"next-i18next",
+    "repoName": "next-i18next",
     "name": "next-i18next",
     "stars": 0,
     "category": "Plugin",
@@ -137,21 +137,21 @@
   },
   "vercel/swr": {
     "owner": "vercel",
-    "repoName":"swr",
+    "repoName": "swr",
     "name": "swr",
     "stars": 0,
     "category": "Tools"
   },
   "blitz-js/blitz": {
     "owner": "blitz-js",
-    "repoName":"blitz",
+    "repoName": "blitz",
     "name": "blitz",
     "stars": 0,
     "category": "Tools"
   },
   "vercel/turbo": {
     "owner": "vercel",
-    "repoName":"turbo",
+    "repoName": "turbo",
     "name": "turbo",
     "stars": 0,
     "category": "Tools",
@@ -159,7 +159,7 @@
   },
   "nrwl/nx": {
     "owner": "nrwl",
-    "repoName":"Nx",
+    "repoName": "Nx",
     "name": "nx",
     "stars": 0,
     "category": "Tools",
@@ -167,7 +167,7 @@
   },
   "TheSGJ/nextjs-toploader": {
     "owner": "TheSGJ",
-    "repoName":"nextjs-toploader",
+    "repoName": "nextjs-toploader",
     "name": "nextjs-toploader",
     "stars": 0,
     "category": "Tools",
@@ -175,7 +175,7 @@
   },
   "richardsolomou/next-safe-route": {
     "owner": "richardsolomou",
-    "repoName":"next-safe-route",
+    "repoName": "next-safe-route",
     "name": "next-safe-route",
     "stars": 0,
     "category": "Tools",
@@ -183,21 +183,14 @@
   },
   "cyrilwanner/next-compose-plugins": {
     "owner": "cyrilwanner",
-    "repoName":"next-compose-plugins",
+    "repoName": "next-compose-plugins",
     "name": "next-compose-plugins",
     "stars": 0,
     "category": "Plugin"
   },
-  "opencollective/opencollective-frontend": {
-    "owner": "opencollective",
-    "repoName":"opencollective-frontend",
-    "name": "opencollective-frontend",
-    "stars": 0,
-    "category": "real-world-apps"
-  },
   "skillrecordings/egghead-next": {
     "owner": "skillrecordings",
-    "repoName":"egghead-next",
+    "repoName": "egghead-next",
     "name": "Egghead",
     "stars": 0,
     "category": "real-world-apps",
@@ -205,7 +198,7 @@
   },
   "planetscale/docs": {
     "owner": "planetscale",
-    "repoName":"docs",
+    "repoName": "docs",
     "name": "PlanetScale docs",
     "stars": 0,
     "category": "real-world-apps",
@@ -213,39 +206,15 @@
   },
   "100mslive/100ms-docs": {
     "owner": "100mslive",
-    "repoName":"100ms-docs",
+    "repoName": "100ms-docs",
     "name": "100ms-docs",
     "stars": 0,
     "category": "real-world-apps",
     "tags": ["documenation"]
   },
-  "hirosystems/docs": {
-    "owner": "hirosystems",
-    "repoName":"docs",
-    "name": "Hiro systems docs",
-    "stars": 0,
-    "category": "real-world-apps",
-    "tags": ["documenation"]
-  },
-  "AykutSarac/jsoncrack.com": {
-    "owner": "AykutSarac",
-    "repoName":"jsoncrack.com",
-    "name": "Jsoncrack.com",
-    "stars": 0,
-    "category": "real-world-apps",
-    "tags": ["blog"]
-  },
-  "Mayandev/notion-avatar": {
-    "owner": "Mayandev",
-    "repoName":"notion-avatar",
-    "name": "Notion Avatar",
-    "stars": 0,
-    "category": "real-world-apps",
-    "tags": ["generator"]
-  },
   "dubinc/dub": {
     "owner": "dubinc",
-    "repoName":"dub",
+    "repoName": "dub",
     "name": "Dub",
     "stars": 0,
     "category": "real-world-apps",
@@ -253,15 +222,46 @@
   },
   "unkeyed/unkey": {
     "owner": "unkeyed",
-    "repoName":"unkey",
+    "repoName": "unkey",
     "name": "Unkey",
     "stars": 0,
     "category": "real-world-apps",
-    "tags": ["SaaS","Security"]
-  }
-  ,"vercel/style-guide": {
+    "tags": ["SaaS", "Security"]
+  },
+  "hirosystems/docs": {
+    "owner": "hirosystems",
+    "repoName": "docs",
+    "name": "Hiro systems docs",
+    "stars": 0,
+    "category": "real-world-apps",
+    "tags": ["documenation"]
+  },
+  "AykutSarac/jsoncrack.com": {
+    "owner": "AykutSarac",
+    "repoName": "jsoncrack.com",
+    "name": "Jsoncrack.com",
+    "stars": 0,
+    "category": "real-world-apps",
+    "tags": ["blog"]
+  },
+  "Mayandev/notion-avatar": {
+    "owner": "Mayandev",
+    "repoName": "notion-avatar",
+    "name": "Notion Avatar",
+    "stars": 0,
+    "category": "real-world-apps",
+    "tags": ["generator"]
+  },
+  "opencollective/opencollective-frontend": {
+    "owner": "opencollective",
+    "repoName": "opencollective-frontend",
+    "name": "opencollective-frontend",
+    "stars": 0,
+    "category": "real-world-apps"
+  },
+  "vercel/style-guide": {
     "owner": "vercel",
-    "repoName":"style-guide",
+    "repoName": "style-guide",
     "name": "Vercel Style Guide",
     "stars": 0,
     "category": "Tools",

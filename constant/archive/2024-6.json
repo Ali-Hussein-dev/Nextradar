@@ -1,0 +1,45 @@
+[
+    {
+    "name": "Data Fetching Patterns in SPA",
+    "description": "When a single-page application needs to fetch data from a remote source, it needs to do so while remaining responsive and providing feedback to the user during an often slow query. Five patterns help with this.",
+    "author": "Juntao QIU - Software Engineer at Atlassian",
+    "href": "https://martinfowler.com/articles/data-fetch-spa.html",
+    "type": "article"
+  },
+  {
+  
+    "name": "Cleaner components with useSuspenseQuery",
+    "description": "When a single-page application needs to fetch data from a remote source, it needs to do so while remaining responsive and providing feedback to the user during an often slow query. Five patterns help with this.",
+    "author": "Swizec Teller",
+    "href": "https://swizec.com/blog/cleaner-components-with-use-suspense-query/",
+    "type": "article"
+  },
+  {
+    "name": "Structured logging for Next.js",
+    "description": "Using the Pino logging library to add structured logging to Next.js. How to set up logging to JSON for Next.js.",
+    "author": "David Mytton - Arcjet",
+    "href": "https://blog.arcjet.com/structured-logging-in-json-for-next-js/",
+    "type": "article"
+  },
+  {
+    "name": "How To Add Page Transitions To NextJS 14",
+    "description": "flexible page transitions with the NextJS 14 app router. We'll do this without any fancy animation framework tricks.",
+    "author": "Tom Is Loading - Youtube",
+    "src": "https://www.youtube.com/embed/fx6KMItwJAw?si=e2Atc7aQIskpbzd7",
+    "type": "youtube"
+  },
+  {
+    "name": "Authentication (Best Practices)",
+    "description": "Best practices for authentication in Modern Next.js and React: **Server Components**, **Server Actions**, **Middleware**.",
+    "author": "Delba de Oliveira - Vercel",
+    "src": "https://www.youtube.com/embed/N_sUsq_y10U?si=RYwXXpFyeoO1yiDK",
+    "type": "youtube"
+  },
+  {
+    "name":"Deploy without breaking existing apps",
+    "description":"How to deploy a new version of your app without breaking existing",
+    "author":"Vercel",
+    "src":"https://www.youtube.com/embed/99U78rS1LeQ?si=5CrhM5Zv7wk7rH6B",
+    "type":"youtube"
+  }
+]
