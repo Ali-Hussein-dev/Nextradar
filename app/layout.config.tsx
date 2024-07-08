@@ -4,7 +4,7 @@ import { pageTree } from "@/app/source"
 // shared configuration
 export const baseOptions: BaseLayoutProps = {
   nav: {
-    title: "NextHub",
+    title: "NxtHub",
   },
 }
 
