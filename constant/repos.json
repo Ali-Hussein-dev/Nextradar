@@ -212,6 +212,14 @@
     "category": "real-world-apps",
     "tags": ["courses platform"]
   },
+  "aidenybai/million": {
+    "owner": "aidenybai",
+    "repoName": "million",
+    "name": "million",
+    "stars": 0,
+    "category": "real-world-apps",
+    "tags": ["SaaS"]
+  },
   "niledatabase/niledatabase": {
     "owner": "niledatabase",
     "repoName": "niledatabase",

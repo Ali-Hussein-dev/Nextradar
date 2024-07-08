@@ -1,5 +1,12 @@
 [
   {
+    "name": "Next Server Theme",
+    "description": "New theming lib for Next with no rehydration",
+    "author": "Reddit - r/nextjs",
+    "href": "https://www.reddit.com/r/nextjs/comments/1dy0enr/new_theming_library_specifically_for_next_with_no/",
+    "type": "article"
+  },
+  {
     "name": "Understanding Vercel Functions",
     "description": "Vercel Functions run code in response to user traffic without the need to manage your own infrastructure, provision servers, or manage hardware.",
     "author": "Lee Robinson - Vercel",
