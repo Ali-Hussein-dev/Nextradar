@@ -21,6 +21,22 @@
     "type": "article"
   },
   {
+    "name": "Protect your app the professional way",
+    "description": "Next.js Auth with Roles & Permissions (RBAC / Authorization)",
+    "src": "https://www.youtube.com/embed/3GJYIzoKwEw?si=U4HHZRo4tNeeM54w",
+    "author": "ByteGrad",
+    "href": "https://www.youtube.com/watch?v=3GJYIzoKwEw&ab_channel=ByteGrad",
+    "type": "youtube"
+  },
+  {
+    "name": "Rate Limiting in NextJs with Middleware, Vercel KV Storage & Upstash",
+    "description": "we'll look at rate limiting your NextJs application using edge middleware functions, Vercel KV (Kay value storage), and the Upstash rate limiting package.",
+    "src": "https://www.youtube.com/embed/6Xdya_1rnCU?si=Z6gwodFEr8E_fQu6",
+    "author": "Hamed Bahram",
+    "href": "https://www.youtube.com/watch?v=6Xdya_1rnCU&ab_channel=HamedBahram",
+    "type": "youtube"
+  },
+  {
     "name": "Caching in NextJs ft Delba Oliveira from Vercel",
     "description": "Caching in NextJs with Delba Oliveira, developer advocate at Vercel, and the beautiful mind behind NextJs documentation.",
     "src": "https://www.youtube.com/embed/DFwLGLmLuFg?si=3lqBOyiCxgt-5FeM",

@@ -12,7 +12,8 @@ export type Repo = {
     repoName?: string
     name: string
     description: string
-    homepage: string
+    homepage?: string
+    gh?: string
     category: string
     tags: string[]
     createdBy?: string
@@ -28,7 +29,8 @@ const getRepos = cache(async (list: Repo[]) => {
                 ...repo,
                 stars: data.stargazers_count as number,
                 description: data.description,
-                homepage: data.homepage || `https://github.com/${owner}/${repoName}`,
+                homepage: data.homepage,
+                gh: `https://github.com/${repo.owner}/${repo.repoName}`
             }
         })
     )

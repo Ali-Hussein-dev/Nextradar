@@ -3,6 +3,7 @@ import { slugify } from "@/lib/utils"
 import { CiStar } from "react-icons/ci"
 import { TbExternalLink } from "react-icons/tb"
 import { Button } from "./button"
+import { FaGithub } from "react-icons/fa"
 
 export const RepoCard = ({ repo }: { repo: Repo }) => {
   const slug = slugify(repo.name)
@@ -38,17 +39,31 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
             {tag}
           </span>
         ))}
-        <div className="flex-row-end grow">
-          <Button
-            asChild
-            variant={"outline"}
-            className="rounded-lg gap-2 no-underline"
-          >
-            <a href={repo.homepage} target="_blank" rel="noopener noreferrer">
-              Learn more
-              <TbExternalLink size="15" />
-            </a>
-          </Button>
+        <div className="flex-row-end grow gap-3">
+          {repo?.gh && (
+            <Button
+              size="icon"
+              asChild
+              variant="outline"
+              className="rounded-lg"
+            >
+              <a href={repo.gh} target="_blank" rel="noopener noreferrer">
+                <FaGithub size="17" />
+              </a>
+            </Button>
+          )}
+          {repo?.homepage && (
+            <Button
+              asChild
+              variant={"outline"}
+              className="rounded-lg gap-2 no-underline"
+            >
+              <a href={repo.homepage} target="_blank">
+                Visit
+                <TbExternalLink size="15" />
+              </a>
+            </Button>
+          )}
         </div>
       </div>
     </div>
