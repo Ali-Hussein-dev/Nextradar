@@ -1,5 +1,12 @@
 [
   {
+    "name": "Understanding Vercel Functions",
+    "description": "Vercel Functions run code in response to user traffic without the need to manage your own infrastructure, provision servers, or manage hardware.",
+    "author": "Lee Robinson - Vercel",
+    "href": "https://vercel.com/blog/understanding-vercel-functions",
+    "type": "article"
+  },
+  {
     "name": "Security advice for self-hosting Next.js in Docker",
     "description": "Learn how to improve the security of your self-hosted Next.js applications. This guide covers Docker container image best practices, secret management, vulnerability mitigation, and more, so your Next.js projects are better protected from threats.",
     "author": "DAVID MYTTON - Arcjet",

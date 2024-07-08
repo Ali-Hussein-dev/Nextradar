@@ -22,7 +22,7 @@ export const ResourceCard = ({
   return (
     <div className="border dark:border-zinc-800/80 px-3 pt-4 pb-1 rounded-md shadow-sm">
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 w-full pb-2">
-        <div>
+        <div className="w-full">
           <h3
             id={`${slug}`}
             className="text-lg font-extrabold mt-0 mb-1 tracking-tight text-balance scroll-m-20"
@@ -31,7 +31,7 @@ export const ResourceCard = ({
           </h3>
           <p className="mb-1 dark:text-zinc-400 text-zinc-700">{description}</p>
           {/* --------------------------------Bottom */}
-          <div className="flex-row-between gap-2">
+          <div className="flex-row-between gap-2 w-full">
             <span className="dark:text-zinc-500 text-zinc-400">{author}</span>
             <Button
               variant={"outline"}

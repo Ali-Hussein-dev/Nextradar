@@ -173,6 +173,14 @@
     "category": "Tools",
     "tags": ["UI"]
   },
+  "nextauthjs/next-auth": {
+    "owner": "nextauthjs",
+    "repoName": "next-auth",
+    "name": "Next Auth",
+    "stars": 0,
+    "category": "Tools",
+    "tags": ["Auth"]
+  },
   "richardsolomou/next-safe-route": {
     "owner": "richardsolomou",
     "repoName": "next-safe-route",
@@ -188,6 +196,14 @@
     "stars": 0,
     "category": "Plugin"
   },
+  "umami-software/umami": {
+    "owner": "umami-software",
+    "repoName": "umami",
+    "name": "Umami",
+    "stars": 0,
+    "category": "real-world-apps",
+    "tags": ["Analytics"]
+  },
   "skillrecordings/egghead-next": {
     "owner": "skillrecordings",
     "repoName": "egghead-next",
@@ -195,6 +211,14 @@
     "stars": 0,
     "category": "real-world-apps",
     "tags": ["courses platform"]
+  },
+  "niledatabase/niledatabase": {
+    "owner": "niledatabase",
+    "repoName": "niledatabase",
+    "name": "Nile Database",
+    "stars": 0,
+    "category": "real-world-apps",
+    "tags": ["DB"]
   },
   "planetscale/docs": {
     "owner": "planetscale",

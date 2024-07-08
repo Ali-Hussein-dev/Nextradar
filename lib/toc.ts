@@ -2,6 +2,7 @@ import Slugger from 'github-slugger';
 
 import repos from "@/constant/repos.json"
 import latest from "@/constant/latest.json"
+import recommended from "@/constant/recommended.json"
 import archive2024_6 from "@/constant/archive/2024-6.json"
 import sites from "@/constant/sites.json"
 import { CardProps } from "@/components/resource-card"
@@ -19,6 +20,7 @@ const reposList = Object.values(repos) as any[]
 const articlesPages = {
     "/docs/latest": latest,
     "/docs/archive/2024-6": archive2024_6,
+    "/docs/recommended": recommended,
 }
 const pages = {
     "/docs/learn": sites,
