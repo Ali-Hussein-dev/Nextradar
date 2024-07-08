@@ -26,7 +26,7 @@ const pages = {
     "/docs/learn": sites,
     "/docs/plugin": reposList.filter((o) => o.category === "Plugin"),
     "/docs/tools": reposList.filter((o) => o.category === "Tools"),
-    "/docs/os-apps": reposList.filter((o) => o.category === "real-world-apps"),
+    "/docs/real-world-apps": reposList.filter((o) => o.category === "real-world-apps"),
 }
 
 type KeyPage = keyof typeof pages
