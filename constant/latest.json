@@ -1,5 +1,19 @@
 [
   {
+    "name": "How to Leverage Next.js Middleware Matcher",
+    "description": "Middleware allows developers to execute custom logic before a request is completed, enabling them to modify the response by rewriting, redirecting, or even responding directly.",
+    "author": "Ankit Virani - DhiWise",
+    "href": "https://www.dhiwise.com/post/how-to-leverage-nextjs-middleware-matcher-for-web-development",
+    "type": "article"
+  },
+  {
+    "name": "Understanding Nextjs cache management",
+    "description": "To better understand caching, I should start by explaining that Next.js uses 4 different caches (Router cache, Full Route cache, Request Memoization cache, and Data cache). These are divided into 1 at the client level and 3 at the server level, as shown in the image.",
+    "author": "DuneDev - dev.to",
+    "href": "https://dev.to/dunedev/understanding-nextjs-cache-management-54o8",
+    "type": "article"
+  },
+  {
     "name": "Next Server Theme",
     "description": "New theming lib for Next with no rehydration",
     "author": "Reddit - r/nextjs",
@@ -19,6 +33,14 @@
     "author": "DAVID MYTTON - Arcjet",
     "href": "https://blog.arcjet.com/security-advice-for-self-hosting-next-js-in-docker",
     "type": "article"
+  },
+  {
+    "name": "Using React 19 with Vite and Next.js",
+    "description": "In this demo, we'll start with a client-only React application using Vite and walk through how React 19 simplifies your application logic and helps create a better UX.",
+    "src": "https://www.youtube.com/embed/AdkNcFUsRQQ?si=23yKQEMtj5dcTw3x",
+    "author": "Vercel",
+    "href": "https://www.youtube.com/watch?v=AdkNcFUsRQQ&ab_channel=Vercel",
+    "type": "youtube"
   },
   {
     "name": "Protect your app the professional way",
