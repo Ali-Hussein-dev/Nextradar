@@ -64,6 +64,6 @@ export const genCustomToc = (key: Pathname) => {
             { title: "Articles", depth: 2, url: "#articles" },
             ...filterAndMapByType("article"),
         ]
-        return [...articles, ...videos]
+        return [...videos, ...articles]
     }
 }
