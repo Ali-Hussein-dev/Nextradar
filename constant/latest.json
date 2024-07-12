@@ -1,5 +1,12 @@
 [
   {
+    "name": "5 Misconceptions about React Server Components",
+    "description": "Server Components run only on the server and have zero impact on bundle-size.",
+    "author": "Vishwas Gopinath - Builder.io",
+    "href": "https://www.builder.io/blog/nextjs-react-server-components",
+    "type": "article"
+  },
+  {
     "name": "How to Leverage Next.js Middleware Matcher",
     "description": "Middleware allows developers to execute custom logic before a request is completed, enabling them to modify the response by rewriting, redirecting, or even responding directly.",
     "author": "Ankit Virani - DhiWise",
@@ -33,6 +40,22 @@
     "author": "DAVID MYTTON - Arcjet",
     "href": "https://blog.arcjet.com/security-advice-for-self-hosting-next-js-in-docker",
     "type": "article"
+  },
+  {
+    "name": "Build a Next.js Blog",
+    "description": "Build a Next.js Blog (WordPress Headless, SSG & ISR, Cloudways by DigitalOcean)",
+    "src": "https://www.youtube.com/embed/AJu7CaSROXk?si=vAvWsU-wc4UFLGtq",
+    "author": "ByteGrad",
+    "href": "https://www.youtube.com/watch?v=AJu7CaSROXk&ab_channel=ByteGrad",
+    "type": "youtube"
+  },
+  {
+    "name": "Build a Next.js E-Commerce Site",
+    "description": "Build a Next.js E-Commerce Site (WooCommerce, SSG & ISR, Cloudways by DigitalOcean)",
+    "src": "https://www.youtube.com/embed/75oXnWzhJts?si=0PPBCUUe6OH-4bLm",
+    "author": "ByteGrad",
+    "href": "https://www.youtube.com/watch?v=75oXnWzhJts&ab_channel=ByteGrad",
+    "type": "youtube"
   },
   {
     "name": "Using React 19 with Vite and Next.js",
