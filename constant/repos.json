@@ -196,6 +196,14 @@
     "stars": 0,
     "category": "Plugin"
   },
+  "raycast/ray-so": {
+    "owner": "raycast",
+    "repoName": "ray-so",
+    "name": "ray-so",
+    "stars": 0,
+    "category": "real-world-apps",
+    "tags": ["generator"]
+  },
   "umami-software/umami": {
     "owner": "umami-software",
     "repoName": "umami",
