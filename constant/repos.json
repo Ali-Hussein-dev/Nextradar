@@ -11,14 +11,16 @@
     "repoName": "fumadocs",
     "name": "Fumadocs",
     "stars": 0,
-    "category": "Tools"
+    "category": "Tools",
+    "tags": ["Docs"]
   },
   "shuding/nextra": {
     "owner": "shuding",
     "repoName": "nextra",
     "name": "Nextra",
     "stars": 0,
-    "category": "Tools"
+    "category": "Tools",
+    "tags": ["Docs"]
   },
   "iamvishnusankar/next-sitemap": {
     "owner": "iamvishnusankar",
@@ -91,14 +93,6 @@
     "category": "Plugin",
     "tags": ["MDX"]
   },
-  "aralroca/next-translate": {
-    "owner": "aralroca",
-    "repoName": "next-translate",
-    "name": "next-translate",
-    "stars": 0,
-    "category": "Plugin",
-    "tags": ["i18n"]
-  },
   "ricokahler/next-plugin-preval": {
     "owner": "ricokahler",
     "repoName": "next-plugin-preval",
@@ -134,13 +128,6 @@
     "stars": 0,
     "category": "Plugin",
     "tags": ["i18n"]
-  },
-  "vercel/swr": {
-    "owner": "vercel",
-    "repoName": "swr",
-    "name": "swr",
-    "stars": 0,
-    "category": "Tools"
   },
   "blitz-js/blitz": {
     "owner": "blitz-js",
@@ -188,6 +175,30 @@
     "stars": 0,
     "category": "Tools",
     "tags": ["API"]
+  },
+  "amannn/next-intl": {
+    "owner": "amannn",
+    "repoName": "next-intl",
+    "name": "next-intl",
+    "stars": 0,
+    "category": "Tools",
+    "tags": ["Internationalization", "i18n"]
+  },
+  "i18next/react-i18next": {
+    "owner": "i18next",
+    "repoName": "react-i18next",
+    "name": "react-i18next",
+    "stars": 0,
+    "category": "Tools",
+    "tags": ["Internationalization", "i18n"]
+  },
+  "aralroca/next-translate": {
+    "owner": "aralroca",
+    "repoName": "next-translate",
+    "name": "next-translate",
+    "stars": 0,
+    "category": "Tools",
+    "tags": ["Internationalization", "i18n"]
   },
   "cyrilwanner/next-compose-plugins": {
     "owner": "cyrilwanner",
