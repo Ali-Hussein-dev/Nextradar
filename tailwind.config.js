@@ -10,5 +10,8 @@ export default {
     './node_modules/fumadocs-ui/dist/**/*.js',
   ],
   presets: [createPreset({ preset: "default" })],
-  plugins: [require("tailwind-custom-utilities")]
+  plugins: [
+    require("tailwind-custom-utilities"),
+    require("@tailwindcss/typography"),
+  ]
 };

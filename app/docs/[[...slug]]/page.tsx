@@ -17,11 +17,11 @@ export default async function Page({
 
   const MDX = page.data.exports.default
   const currentPage = page.url as Pathname
-
+  const isJobsPage = currentPage === "/docs/jobs"
   // const defaultToc = page.data.exports.toc
-  const toc = genCustomToc(currentPage)
+  const toc = !isJobsPage ? genCustomToc(currentPage) : []
   return (
-    <DocsPage toc={toc} full={page.data.full}>
+    <DocsPage toc={toc} full={!isJobsPage ? page.data.full : true}>
       <DocsBody>
         {/* <h1 className="text-lg">{page.data.title}</h1> */}
         <MDX />

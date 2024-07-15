@@ -9,15 +9,23 @@
   },
   "dependencies": {
     "@octokit/rest": "^21.0.0",
+    "@portabletext/react": "^3.1.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "@sanity/image-url": "1",
+    "@sanity/vision": "3",
+    "@tailwindcss/typography": "^0.5.13",
     "class-variance-authority": "^0.7.0",
     "fumadocs-core": "12.3.3",
     "fumadocs-mdx": "8.2.33",
     "fumadocs-ui": "12.3.3",
     "next": "^14.2.4",
+    "next-sanity": "9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-icons": "^5.2.1"
+    "react-icons": "^5.2.1",
+    "sanity": "3",
+    "styled-components": "6",
+    "vaul": "^0.9.1"
   },
   "devDependencies": {
     "@types/mdx": "^2.0.13",
