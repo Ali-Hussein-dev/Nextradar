@@ -1,5 +1,12 @@
 [
   {
+    "name": "SECRET KNOWLEDGE TO SELF-HOST NEXT.JS",
+    "description": "'Self-hosting' Next.js is commonly used to describe hosting it anywhere besides Vercel. In reality, it’s all just hosting, but whatever. ",
+    "author": "Brandon Bayer - Flightcontrol",
+    "href": "https://www.flightcontrol.dev/blog/secret-knowledge-to-self-host-nextjs",
+    "type": "article"
+  },
+  {
     "name": "5 Misconceptions about React Server Components",
     "description": "Server Components run only on the server and have zero impact on bundle-size.",
     "author": "Vishwas Gopinath - Builder.io",

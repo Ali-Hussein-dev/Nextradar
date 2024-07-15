@@ -34,8 +34,8 @@
     "category": "Learn",
     "tags": ["premium", "course"],
     "createdBy": "DevelopedByEd"
-  }
-  ,{
+  },
+  {
     "owner": "Scott Moss",
     "name": "Intermediate Next.js",
     "description": "Learn to create a full stack e-commerce website with cutting edge tech!",
