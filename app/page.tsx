@@ -1,5 +1,11 @@
 import { Button } from "@/components/button"
 import Link from "next/link"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "NextRadar",
+  description: "Curated Next.js Tools & Resources for focused devs",
+}
 
 export default function HomePage() {
   return (

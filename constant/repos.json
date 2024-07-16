@@ -1,4 +1,12 @@
 {
+  "nextauthjs/next-auth": {
+    "owner": "nextauthjs",
+    "repoName": "next-auth",
+    "name": "Next Auth",
+    "stars": 0,
+    "category": "Tools",
+    "tags": ["Auth"]
+  },
   "joulev/nextjs-faq": {
     "owner": "joulev",
     "repoName": "nextjs-faq",
@@ -160,14 +168,6 @@
     "category": "Tools",
     "tags": ["UI"]
   },
-  "nextauthjs/next-auth": {
-    "owner": "nextauthjs",
-    "repoName": "next-auth",
-    "name": "Next Auth",
-    "stars": 0,
-    "category": "Tools",
-    "tags": ["Auth"]
-  },
   "richardsolomou/next-safe-route": {
     "owner": "richardsolomou",
     "repoName": "next-safe-route",
@@ -214,6 +214,14 @@
     "stars": 0,
     "category": "real-world-apps",
     "tags": ["generator"]
+  },
+  "payloadcms/payload": {
+    "owner": "payloadcms",
+    "repoName": "payload",
+    "name": "Payload",
+    "stars": 0,
+    "category": "real-world-apps",
+    "tags": ["CMS"]
   },
   "umami-software/umami": {
     "owner": "umami-software",
