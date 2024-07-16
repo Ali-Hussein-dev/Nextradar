@@ -215,6 +215,14 @@
     "category": "real-world-apps",
     "tags": ["generator"]
   },
+  "payloadcms/payload": {
+    "owner": "payloadcms",
+    "repoName": "payload",
+    "name": "Payload",
+    "stars": 0,
+    "category": "real-world-apps",
+    "tags": ["CMS"]
+  },
   "umami-software/umami": {
     "owner": "umami-software",
     "repoName": "umami",

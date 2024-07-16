@@ -49,6 +49,14 @@
     "type": "article"
   },
   {
+    "name": "Payload: The Complete Backend for NextJS",
+    "description": "Payload is a fantastic CMS. Their new 3.0 release is fully integrated with the NextJS App Router.",
+    "src": "https://www.youtube.com/embed/121FJ9mov-4?si=x1uFQyv_W-vK3K3W",
+    "author": "Jack Herrington",
+    "href": "https://www.youtube.com/watch?v=121FJ9mov-4&ab_channel=JackHerrington",
+    "type": "youtube"
+  },
+  {
     "name": "Build a Next.js Blog",
     "description": "Build a Next.js Blog (WordPress Headless, SSG & ISR, Cloudways by DigitalOcean)",
     "src": "https://www.youtube.com/embed/AJu7CaSROXk?si=vAvWsU-wc4UFLGtq",
