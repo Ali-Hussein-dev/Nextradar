@@ -120,7 +120,16 @@
     "repoName": "cookies-next",
     "name": "cookies-next",
     "stars": 0,
-    "category": "Tools"
+    "category": "Tools",
+    "tags": ["cookies"]
+  },
+  "vvo/iron-session": {
+    "owner": "vvo",
+    "repoName": "iron-session",
+    "name": "",
+    "stars": 0,
+    "category": "Tools",
+    "tags": ["cookies"]
   },
   "t3-oss/t3-env": {
     "owner": "t3-oss",

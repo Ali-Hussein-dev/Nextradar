@@ -2,7 +2,7 @@ import { getJobPosts } from "@/sanity/lib/get-job-posts"
 import { JobCard } from "./job-card"
 
 
-export const revalidate = 10000
+export const revalidate = 5000
 //======================================
 export const JobPosts = async () => {
   const list = await getJobPosts()
