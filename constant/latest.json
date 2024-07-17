@@ -1,5 +1,12 @@
 [
   {
+    "name": "New utilities to work with Vercel Functions",
+    "description": "Learn about available APIs when working with Vercel Functions.",
+    "author": "Kiko Beats - Vercel",
+    "href": "https://vercel.com/changelog/new-utilities-to-work-with-vercel-functions",
+    "type": "article"
+  },
+  {
     "name": "SECRET KNOWLEDGE TO SELF-HOST NEXT.JS",
     "description": "'Self-hosting' Next.js is commonly used to describe hosting it anywhere besides Vercel. In reality, it’s all just hosting, but whatever. ",
     "author": "Brandon Bayer - Flightcontrol",
