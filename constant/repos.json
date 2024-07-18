@@ -7,13 +7,6 @@
     "category": "Tools",
     "tags": ["Auth"]
   },
-  "joulev/nextjs-faq": {
-    "owner": "joulev",
-    "repoName": "nextjs-faq",
-    "name": "Nextjs FAQ",
-    "stars": 0,
-    "category": "Learn"
-  },
   "fuma-nama/fumadocs": {
     "owner": "fuma-nama",
     "repoName": "fumadocs",
@@ -51,7 +44,8 @@
     "repoName": "create-t3-app",
     "name": "create-t3-app",
     "stars": 0,
-    "category": "Tools"
+    "category": "Tools",
+    "tags": ["starter"]
   },
   "shadowwalker/next-pwa": {
     "owner": "shadowwalker",
@@ -115,6 +109,13 @@
     "stars": 0,
     "category": "Tools"
   },
+  "joulev/nextjs-faq": {
+    "owner": "joulev",
+    "repoName": "nextjs-faq",
+    "name": "Nextjs FAQ",
+    "stars": 0,
+    "category": "Learn"
+  },
   "andreizanik/cookies-next": {
     "owner": "andreizanik",
     "repoName": "cookies-next",
@@ -130,6 +131,14 @@
     "stars": 0,
     "category": "Tools",
     "tags": ["cookies"]
+  },
+  "pcattori/vite-env-only": {
+    "owner": "andreizanik",
+    "repoName": "vite-env-only",
+    "name": "vite-env-only",
+    "stars": 0,
+    "category": "Tools",
+    "tags": ["security"]
   },
   "t3-oss/t3-env": {
     "owner": "t3-oss",
