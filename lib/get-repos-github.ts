@@ -1,7 +1,6 @@
-import sites from '@/constant/sites.json';
-import { Octokit } from "@octokit/rest"
-import repos from "@/constant/repos.json"
 import { cache } from "react"
+import { Octokit } from "@octokit/rest"
+import { getSites, getReposList } from '@/sanity/lib/getters';
 
 const octokit = new Octokit({
     auth: process.env.GITHUB_ACCESS_TOKEN as string
@@ -20,6 +19,7 @@ export type Repo = {
     stars?: number
 }
 
+
 const getRepos = cache(async (list: Repo[]) => {
     return await Promise.all(
         list.map(async (repo) => {
@@ -36,6 +36,7 @@ const getRepos = cache(async (list: Repo[]) => {
     )
 })
 
+
 const groupByCategory = (repos: Repo[]) => {
     return repos.reduce((acc, repo) => {
         ; (acc[repo.category] = acc[repo.category] || []).push(repo)
@@ -43,14 +44,11 @@ const groupByCategory = (repos: Repo[]) => {
     }, {} as Record<string, Repo[]>)
 }
 
-export const getByCategory = async (category: string) => {
-    const list = Object.values(repos) as Repo[]
+export const getReposGitHubByCategory = async (category: string) => {
+    const list = await getReposList()
     const filteredRepos = list.filter((repo: Repo) => repo.category === category) as Repo[]
-
+    const sites = category === "Learn" ? await getSites() : []
     const fetchedRepos = await getRepos(filteredRepos as Repo[])
-    const filteredSites = sites.filter((site) => site.category === category)
-    const reposGroupedByCategory = groupByCategory([...filteredSites, ...fetchedRepos] as Repo[])
+    const reposGroupedByCategory = groupByCategory([...fetchedRepos, ...sites] as Repo[])
     return Object.values(reposGroupedByCategory).flat()
-
 }
-

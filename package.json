@@ -5,6 +5,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "lint": "next lint",
     "start": "next start"
   },
   "dependencies": {
@@ -34,6 +35,8 @@
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
     "clsx": "^2.1.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
     "github-slugger": "^2.0.0",
     "postcss": "^8.4.38",
     "tailwind-custom-utilities": "^1.0.5",
