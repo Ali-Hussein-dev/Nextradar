@@ -25,11 +25,13 @@ export const ResourceCard = ({
         <div className="w-full">
           <h3
             id={`${slug}`}
-            className="text-lg font-extrabold mt-0 mb-1 tracking-tight text-balance scroll-m-20"
+            className="text-xl font-extrabold mt-0 mb-1 text-pretty scroll-m-20 md:text-xl"
           >
-            <a href={`#${slug}`}>{name}</a>
+            <a href={`#${slug}`} className="dark:text-zinc-300/90">
+              {name}
+            </a>
           </h3>
-          <p className="mb-1 dark:text-zinc-400 text-zinc-700">{description}</p>
+          <p className="mb-1 dark:text-zinc-500 text-zinc-700">{description}</p>
           {/* --------------------------------Bottom */}
           <div className="flex-row-between gap-2 w-full">
             <span className="dark:text-zinc-500 text-zinc-400">{author}</span>
