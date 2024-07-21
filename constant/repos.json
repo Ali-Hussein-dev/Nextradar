@@ -313,14 +313,6 @@
     "category": "real-world-apps",
     "tags": ["Collaboration"]
   },
-  "hirosystems/docs": {
-    "owner": "hirosystems",
-    "repoName": "docs",
-    "name": "Hiro systems docs",
-    "stars": 0,
-    "category": "real-world-apps",
-    "tags": ["documenation"]
-  },
   "AykutSarac/jsoncrack.com": {
     "owner": "AykutSarac",
     "repoName": "jsoncrack.com",

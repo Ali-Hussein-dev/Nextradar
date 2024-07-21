@@ -1,8 +1,8 @@
-import { Repo } from "@/lib/repos"
+import { Repo } from "@/lib/get-repos-github"
 import { slugify } from "@/lib/utils"
 import { CiStar } from "react-icons/ci"
 import { TbExternalLink } from "react-icons/tb"
-import { Button } from "./button"
+import { Button } from "@/components/button"
 import { FaGithub } from "react-icons/fa"
 
 export const RepoCard = ({ repo }: { repo: Repo }) => {
