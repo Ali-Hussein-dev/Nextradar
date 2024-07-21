@@ -14,6 +14,21 @@ export const getReposList = async () => (
     )
 )
 
+// used in toc
+export const getSitesNames = async () => (
+    client.fetch(`*[_type == "sites"] | order(_createdAt asc) {
+        name, category
+        }`
+    )
+)
+// used in toc
+export const getReposNames = async () => (
+    client.fetch(`*[_type == "repos"] | order(_createdAt asc) {
+        name, category
+        }`
+    )
+)
+
 export const getJobPosts = async (): Promise<any[]> => {
     return client.fetch(`*[_type == "jobPost"] | order(_createdAt desc) {
         jobTitle,

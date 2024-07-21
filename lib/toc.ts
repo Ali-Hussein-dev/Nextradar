@@ -1,27 +1,22 @@
 import Slugger from 'github-slugger';
 
-import repos from "@/constant/repos.json"
 import latest from "@/constant/latest.json"
 import recommended from "@/constant/recommended.json"
 import archive2024_6 from "@/constant/archive/2024-6.json"
-import sites from "@/constant/sites.json"
 import { CardProps } from "@/components/resource-card"
+import { getReposNames, getSitesNames } from '@/sanity/lib/getters';
 
 const slugger = new Slugger();
-// const set = new Set(Object.values(repos).map((o) => o.category))
 
-// export const tocList = Array.from(set).map((c) => ({
-//     title: c,
-//     depth: 2,
-//     url: `#${c}`,
-// }))
+const reposList = await getReposNames() as { name: string; category: string }[]
+const sites = await getSitesNames() as { name: string; category: string }[]
 
-const reposList = Object.values(repos) as any[]
 const articlesPages = {
     "/docs/latest": latest,
     "/docs/archive/2024-6": archive2024_6,
     "/docs/recommended": recommended,
 }
+
 const pages = {
     "/docs/learn": sites,
     "/docs/plugin": reposList.filter((o) => o.category === "Plugin"),
