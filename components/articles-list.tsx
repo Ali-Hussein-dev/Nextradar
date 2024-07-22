@@ -1,6 +1,7 @@
 import { getRecommendedSources, getSources } from "@/sanity/lib/getters"
 import { CardProps, ResourceCard } from "./resource-card"
 
+export const revalidate = 1800
 //======================================
 export const ArticlesList = async ({
   filterBy = "youtube",

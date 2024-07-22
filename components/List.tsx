@@ -1,6 +1,8 @@
 import { Repo } from "@/lib/get-repos-github"
 import { RepoCard } from "@/components/repo-card"
 import { getReposGitHubByCategory } from "@/lib/get-repos-github"
+
+export const revalidate = 3600
 //======================================
 export const ItemsList = async ({ category }: { category: string }) => {
   const list = (await getReposGitHubByCategory(category)) as Repo[]
