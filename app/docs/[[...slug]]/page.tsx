@@ -4,6 +4,7 @@ import { DocsPage, DocsBody } from 'fumadocs-ui/page';
 import { notFound } from 'next/navigation';
 import { Pathname, genCustomToc } from "@/lib/toc"
 
+export const revalidate = 3600
 export default async function Page({
   params,
 }: {
