@@ -19,7 +19,7 @@ const faqs = [
 //======================================
 export const Faqs = () => {
   return (
-    <section className="mx-auto max-w-2xl py-8 md:pb-24">
+    <section className="mx-auto max-w-2xl py-8 md:pb-24 px-2">
       <h2 className="text-xl sm:text-2xl md:text-3xl mb-4 font-bold tracking-tighter text-center">
         Some questions you might have!
       </h2>

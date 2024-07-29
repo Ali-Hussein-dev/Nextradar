@@ -23,7 +23,7 @@ const Footer = () => (
 
 export default async function HomePage() {
   return (
-    <main className="min-h-screen ">
+    <main className="min-h-screen">
       <div className="h-[80vh] flex-col-center ">
         <div className="flex flex-col justify-center text-center animate-in">
           <h1 className="mb-4 text-2xl font-extrabold md:text-4xl lg:text-5xl tracking-tight text-center max-w-2xl text-balance mx-auto">
@@ -40,7 +40,7 @@ export default async function HomePage() {
             <Link href="/docs/latest">Discover</Link>
           </Button>
         </div>
-        <p className="pt-2">
+        <p className="pt-2 text-center dark:text-zinc-500">
           This site is not endorsed by or affiliated with Vercel.
         </p>
       </div>
