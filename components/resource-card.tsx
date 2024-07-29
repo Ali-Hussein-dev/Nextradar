@@ -36,10 +36,10 @@ export const ResourceCard = ({
           <div className="flex-row-between gap-2 w-full">
             <span className="dark:text-zinc-500 text-zinc-400">{author}</span>
             <Button
-              variant={"outline"}
+              variant={"secondary"}
               asChild
               size="sm"
-              className="rounded-lg gap-2 no-underline"
+              className="gap-3 no-underline"
             >
               <a href={href} target="_blank" rel="noopener noreferrer">
                 Visit
