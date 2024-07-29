@@ -55,8 +55,8 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
           {repo?.homepage && (
             <Button
               asChild
-              variant={"outline"}
-              className="rounded-lg gap-2 no-underline"
+              variant={"secondary"}
+              className="rounded-lg gap-3 no-underline"
             >
               <a href={repo.homepage} target="_blank">
                 Visit
