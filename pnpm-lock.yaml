@@ -15,6 +15,7 @@ specifiers:
   autoprefixer: ^10.4.19
   class-variance-authority: ^0.7.0
   clsx: ^2.1.1
+  date-fns: ^3.6.0
   eslint: ^8
   eslint-config-next: 14.2.5
   fumadocs-core: 13.0.1
@@ -46,6 +47,7 @@ dependencies:
   '@sanity/vision': 3.52.2_orfykjr4ud45k3xv2xxc4qdtfe
   '@tailwindcss/typography': 0.5.13_tailwindcss@3.4.7
   class-variance-authority: 0.7.0
+  date-fns: 3.6.0
   fumadocs-core: 13.0.1_s3xahw7lmqr2uoqypz7pfz54re
   fumadocs-mdx: 8.2.33_6i6z5ojddjg3yqxgsraeayciki
   fumadocs-ui: 13.0.1_3rqpvn2tuqqhy7wjgwa4dc7p6a
@@ -5301,6 +5303,10 @@ packages:
     engines: {node: '>=0.11'}
     dependencies:
       '@babel/runtime': 7.25.0
+    dev: false
+
+  /date-fns/3.6.0:
+    resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
     dev: false
 
   /date-now/1.0.1:

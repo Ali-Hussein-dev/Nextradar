@@ -1,3 +1,4 @@
+import { getFormattedTime } from "@/lib/get-formatted-time"
 import { Button } from "./button"
 import { JobPostDrawer } from "./job-post-drawer"
 import { type TypedObject } from "sanity"
@@ -23,6 +24,7 @@ export type JobPost = {
   jobType: string[]
   shortDescription: string
   contractType: string
+  publishedAt: string
 }
 //======================================
 export const JobCard = ({
@@ -45,6 +47,7 @@ export const JobCard = ({
   requirements,
   whyJoinUs,
   hiringProcess,
+  publishedAt,
 }: JobPost & JobPostLong) => {
   return (
     <div className="rounded-xl p-4 pt-6 dark:bg-zinc-800/20 shadow flex-col-start w-full">
@@ -68,22 +71,29 @@ export const JobCard = ({
             ) : null}
           </div>
         </div>
-        <p className="dark:text-zinc-300">{shortDescription}</p>
+        <p className="dark:text-zinc-400 text-lg line-clamp-2">
+          {shortDescription}
+        </p>
       </div>
-      <div className="flex-row-end gap-4 border-t pt-4 dark:border-zinc-900 border-dashed w-full">
-        <JobPostDrawer
-          aboutCompany={aboutCompany}
-          aboutRole={aboutRole}
-          benefits={benefits}
-          responsibilities={responsibilities}
-          requirements={requirements}
-          whyJoinUs={whyJoinUs}
-          hiringProcess={hiringProcess}
-          jobTitle={jobTitle}
-        />
-        <Button asChild size="sm">
-          <a href={applyUrl}>Apply</a>
-        </Button>
+      <div className="flex-row-between gap-4 border-t pt-4 dark:border-zinc-800 border-dashed w-full">
+        <span className="dark:text-zinc-500 text-zinc-600 text-sm">
+          Published {getFormattedTime(publishedAt)}
+        </span>
+        <div className="flex-row-end gap-2">
+          <JobPostDrawer
+            aboutCompany={aboutCompany}
+            aboutRole={aboutRole}
+            benefits={benefits}
+            responsibilities={responsibilities}
+            requirements={requirements}
+            whyJoinUs={whyJoinUs}
+            hiringProcess={hiringProcess}
+            jobTitle={jobTitle}
+          />
+          <Button asChild size="sm">
+            <a href={applyUrl}>Apply</a>
+          </Button>
+        </div>
       </div>
     </div>
   )

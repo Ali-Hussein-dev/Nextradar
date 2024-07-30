@@ -6,7 +6,7 @@ export const JobPosts = async () => {
   const list = await getJobPosts()
   return (
     <>
-      <section className="max-w-5xl mx-auto">
+      <section className="max-w-6xl mx-auto">
         <h2 className="mb-4 text-center text-lg">
           Awesome{" "}
           <span className="bg-orange-800/60 px-0.5">job opportunities</span> for

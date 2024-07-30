@@ -62,7 +62,7 @@ export const getRecommendedSources = async (fields = "name, description, type, h
 
 //------------------------------------------------------------Jobs-Posts
 export const getJobPosts = async (): Promise<any[]> => {
-    return client.fetch(`*[_type == "jobPost"] | order(_createdAt desc) {
+    return client.fetch(`*[_type == "jobPost"] | order(publishedAt desc) {
         jobTitle,
         companyName,
         location,
@@ -70,6 +70,7 @@ export const getJobPosts = async (): Promise<any[]> => {
         salaryMin,
         salaryMax,
         currency,
+        publishedAt,
         applyUrl,
         jobType,
         contractType,

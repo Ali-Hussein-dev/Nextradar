@@ -30,6 +30,12 @@ const JobPost = {
             initialValue: "full-time",
         },
         {
+            name: 'publishedAt',
+            type: 'datetime',
+            initialValue: () => (new Date()).toISOString(),
+            // initialValue: () => new Date().toISOString().split('T')[0],
+        },
+        {
             name: "salaryMin",
             title: "Minimum Salary yearly",
             type: "number",

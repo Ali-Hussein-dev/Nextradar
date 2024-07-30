@@ -47,11 +47,11 @@ export const JobPostDrawer = ({
           Read More
         </Button>
       </DrawerTrigger>
-      <DrawerContent className="max-w-4xl mx-auto">
+      <DrawerContent className="max-w-4xl mx-auto dark:bg-zinc-900 bg-zinc-100">
         <DrawerHeader>
           <DrawerTitle>{jobTitle}</DrawerTitle>
         </DrawerHeader>
-        <article className="prose max-h-[70vh] overflow-y-scroll px-4 ">
+        <article className="prose max-h-[70vh] overflow-y-scroll px-4 md:px-6">
           <Block title="About Role" section={aboutRole} />
           <Block title="Requirements" section={requirements} />
           <Block title="Benefits" section={benefits} />
