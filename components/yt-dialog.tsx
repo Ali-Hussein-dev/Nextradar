@@ -25,9 +25,9 @@ export const YtDialog = ({ href, src }: { src: string; href: string }) => {
       <DialogTrigger asChild>
         <PlayBtn videoId={videoId} />
       </DialogTrigger>
-      <DialogContent className="max-w-6xl h-full max-h-[80vh] p-0 dark:bg-zinc-900 bg-zinc-100 overflow-hidden">
+      <DialogContent className="w-full max-w-7xl h-full max-h-[760px] p-0 dark:bg-zinc-900 bg-zinc-100 overflow-hidden aspect-video">
         <iframe
-          src={src}
+          src={src + "&autoplay=1"}
           width={560}
           height={315}
           title="YouTube video player"
