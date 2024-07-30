@@ -1,6 +1,7 @@
 import { FaExternalLinkAlt } from "react-icons/fa"
-import { Button } from "./button"
+import { Button } from "@/components/button"
 import { slugify } from "@/lib/utils"
+import { YtDialog } from "@/components/yt-dialog"
 
 export type CardProps = {
   name: string
@@ -11,17 +12,11 @@ export type CardProps = {
   href: string
 }
 //======================================
-export const ResourceCard = ({
-  name = "",
-  description = "",
-  author = "",
-  href = "",
-  src = "",
-}: CardProps) => {
+export const ResourceCard = ({ name, description, author, href, src }: CardProps) => {
   const slug = slugify(name)
   return (
-    <div className="border dark:border-zinc-800/80 px-3 pt-4 pb-1 rounded-md shadow-sm">
-      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 w-full pb-2">
+    <div className="border dark:border-zinc-800/80 px-3 pt-4 pb-4 rounded-md shadow-sm">
+      <div className="flex flex-col sm:flex-row items-start sm:items-start gap-4 w-full">
         <div className="w-full">
           <h3
             id={`${slug}`}
@@ -31,9 +26,11 @@ export const ResourceCard = ({
               {name}
             </a>
           </h3>
-          <p className="mb-1 dark:text-zinc-500 text-zinc-700">{description}</p>
+          <p className="mb-1 dark:text-zinc-500 text-pretty line-clamp-3 text-zinc-700">
+            {description}
+          </p>
           {/* --------------------------------Bottom */}
-          <div className="flex-row-between gap-2 w-full">
+          <div className="flex-row-between gap-2 w-full pt-1">
             <span className="dark:text-zinc-500 text-zinc-400">{author}</span>
             <Button
               variant={"secondary"}
@@ -50,15 +47,8 @@ export const ResourceCard = ({
         </div>
         {/* --------------------------------YT-Embed */}
         {src && (
-          <div className="aspect-[560/315] grow size-fit rounded overflow-hidden w-full md:max-w-[18rem] order-first sm:order-last">
-            <iframe
-              src={src}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              className="rounded size-full"
-            ></iframe>
+          <div className="aspect-[560/315] grow size-fit rounded-md overflow-hidden w-full md:max-w-[18rem] order-first sm:order-last">
+            <YtDialog src={src} href={href} />
           </div>
         )}
       </div>

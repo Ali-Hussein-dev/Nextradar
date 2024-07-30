@@ -1,0 +1,42 @@
+/* eslint-disable @next/next/no-img-element */
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { FaPlay } from "react-icons/fa"
+
+const PlayBtn = ({ videoId }: { videoId: string }) => (
+  <div className="relative size-full">
+    <img
+      src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+      alt="YouTube video thumbnail"
+      className="absolute inset-0 size-full object-cover m-0"
+    />
+    <div className="z-10 size-full center isolate dark:bg-zinc-900/20">
+      <button className="bg-black shadow-lg py-4 rounded-2xl center px-7">
+        <FaPlay className="size-6" />
+      </button>
+    </div>
+  </div>
+)
+//======================================
+export const YtDialog = ({ href, src }: { src: string; href: string }) => {
+  // src= https://img.youtube.com/vi/75oXnWzhJts/hqdefault.jpg
+  const videoId = href.split("v=")[1].split("&")[0]
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <PlayBtn videoId={videoId} />
+      </DialogTrigger>
+      <DialogContent className="max-w-6xl h-full max-h-[80vh] p-0 dark:bg-zinc-900 bg-zinc-100 overflow-hidden">
+        <iframe
+          src={src}
+          width={560}
+          height={315}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          className="rounded size-full"
+        ></iframe>
+      </DialogContent>
+    </Dialog>
+  )
+}
