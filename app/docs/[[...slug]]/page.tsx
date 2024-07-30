@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { DocsPage, DocsBody } from 'fumadocs-ui/page';
 import { notFound } from 'next/navigation';
 import { Pathname, genCustomToc } from "@/lib/toc"
+import { Sponsor } from "@/components/sponsor"
 
 export const revalidate = 3600
 export default async function Page({
@@ -23,8 +24,8 @@ export default async function Page({
   const toc = !isJobsPage ? genCustomToc(currentPage) : []
   return (
     <DocsPage toc={toc} full={!isJobsPage ? page.data.full : true}>
+      <Sponsor />
       <DocsBody>
-        {/* <h1 className="text-lg">{page.data.title}</h1> */}
         <MDX />
       </DocsBody>
     </DocsPage>
