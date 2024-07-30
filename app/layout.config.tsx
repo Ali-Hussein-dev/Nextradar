@@ -1,17 +1,17 @@
-import { type BaseLayoutProps, type DocsLayoutProps } from "fumadocs-ui/layout"
+import { type DocsLayoutProps } from "fumadocs-ui/layout"
 import { pageTree } from "@/app/source"
 
 // shared configuration
-export const baseOptions: BaseLayoutProps = {
+export const baseOptions: DocsLayoutProps = {
   nav: {
     title: "NextRadar",
   },
+  tree: pageTree,
 }
 
 // docs layout configuration
 export const docsOptions: DocsLayoutProps = {
   ...baseOptions,
-  tree: pageTree,
   sidebar: {
     enabled: true,
   },
