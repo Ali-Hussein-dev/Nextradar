@@ -42,11 +42,11 @@ export default async function HomePage() {
             <Link href="/docs/latest">Discover</Link>
           </Button>
         </div>
-        <p className="pt-2 text-center dark:text-zinc-500">
-          This site is not endorsed by or affiliated with Vercel.
-        </p>
       </div>
       <Faqs />
+      <p className="py-4 text-center dark:text-zinc-500">
+        This site is not endorsed by or affiliated with Vercel.
+      </p>
       <Footer />
     </main>
   )
