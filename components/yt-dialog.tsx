@@ -35,6 +35,7 @@ export const YtDialog = ({ href, src }: { src: string; href: string }) => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
           className="rounded size-full"
+          allowFullScreen
         ></iframe>
       </DialogContent>
     </Dialog>
