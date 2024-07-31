@@ -11,7 +11,7 @@ const PlayBtn = ({ videoId }: { videoId: string }) => (
     />
     <div className="z-10 size-full center isolate dark:bg-zinc-900/20">
       <button className="bg-black shadow-lg py-4 rounded-2xl center px-7">
-        <FaPlay className="size-6" />
+        <FaPlay className="size-6 text-white" />
       </button>
     </div>
   </div>
