@@ -2,7 +2,7 @@ const faqs = [
   {
     question: "What NextRadar is not?",
     answer:
-      "It is not an alterantive to YT or search engines, but a place to navigate the Next.js ecosystem.",
+      "It is not an alterantive to YouTube or Google, but a collection of high quality tutorials and resources to stay up to date and to master Nextjs fast.",
   },
   {
     question: "How do I evaluate a resource/tool?",
@@ -12,7 +12,7 @@ const faqs = [
   {
     question: "It's free, who pay for that?",
     answer:
-      "No one, it doesn't take much time to maintain at the moment, I may add sponsored resources in the future with clear.",
+      "No one, it doesn't take much time to maintain at the moment, I may add sponsored resources in the future.",
   },
 ]
 
