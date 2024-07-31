@@ -39,12 +39,13 @@ export const JobPostDrawer = ({
   jobTitle,
   hiringProcess,
   whyJoinUs,
+  longDescription,
 }: JobPostLong & { jobTitle: string }) => {
   return (
     <Drawer>
       <DrawerTrigger asChild>
         <Button size="sm" variant={"outline"}>
-          Read More
+          Read more
         </Button>
       </DrawerTrigger>
       <DrawerContent className="max-w-4xl mx-auto dark:bg-zinc-900 bg-zinc-100">
@@ -52,13 +53,19 @@ export const JobPostDrawer = ({
           <DrawerTitle>{jobTitle}</DrawerTitle>
         </DrawerHeader>
         <article className="prose max-h-[70vh] overflow-y-scroll px-4 md:px-6">
-          <Block title="About Role" section={aboutRole} />
-          <Block title="Requirements" section={requirements} />
-          <Block title="Benefits" section={benefits} />
-          <Block title="Qualifications" section={responsibilities} />
-          <Block title="Hiring Process" section={hiringProcess} />
-          <Block title="Why work with us" section={whyJoinUs} />
-          <Block title="About Company" section={aboutCompany} />
+          {longDescription ? (
+            <Block title="About Role" section={longDescription} />
+          ) : (
+            <>
+              <Block title="About Role" section={aboutRole} />
+              <Block title="Requirements" section={requirements} />
+              <Block title="Benefits" section={benefits} />
+              <Block title="Qualifications" section={responsibilities} />
+              <Block title="Hiring Process" section={hiringProcess} />
+              <Block title="Why work with us" section={whyJoinUs} />
+              <Block title="About Company" section={aboutCompany} />
+            </>
+          )}
         </article>
         <DrawerFooter>
           <DrawerClose>

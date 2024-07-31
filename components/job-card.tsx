@@ -11,6 +11,7 @@ export type JobPostLong = {
   aboutCompany: TypedObject[]
   hiringProcess: TypedObject[]
   whyJoinUs: TypedObject[]
+  longDescription: TypedObject[]
 }
 export type JobPost = {
   jobTitle: string
@@ -38,6 +39,7 @@ export const JobCard = ({
   salaryMax,
   salaryMin,
   shortDescription,
+  longDescription,
   contractType,
   // drawer props
   aboutRole,
@@ -88,6 +90,7 @@ export const JobCard = ({
             requirements={requirements}
             whyJoinUs={whyJoinUs}
             hiringProcess={hiringProcess}
+            longDescription={longDescription}
             jobTitle={jobTitle}
           />
           <Button asChild size="sm">
