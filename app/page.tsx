@@ -2,6 +2,7 @@ import { Button } from "@/components/button"
 import Link from "next/link"
 import { Metadata } from "next"
 import { Faqs } from "@/components/faqs"
+import { Authors } from "@/components/authors"
 
 export const metadata: Metadata = {
   title: "NextRadar",
@@ -43,6 +44,7 @@ export default async function HomePage() {
           </Button>
         </div>
       </div>
+      <Authors />
       <Faqs />
       <p className="py-4 text-center dark:text-zinc-500">
         This site is not endorsed by or affiliated with Vercel.

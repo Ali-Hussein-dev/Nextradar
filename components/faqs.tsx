@@ -27,7 +27,7 @@ export const Faqs = () => {
         {faqs.map((faq, i) => (
           <div
             key={i}
-            className="border border-dashed rounded dark:border-zinc-700 p-4"
+            className="border border-dashed rounded border-zinc-400 dark:border-zinc-700 p-4"
           >
             <h3 className="font-semibold text-lg">{faq.question}</h3>
             <p className="dark:text-zinc-500">{faq.answer}</p>
