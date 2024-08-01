@@ -1,5 +1,5 @@
 import Slugger from "github-slugger"
-import archive2024_6 from "@/constant/archive/2024-6.json"
+// import archive2024_6 from "@/constant/archive/2024-6.json"
 import { CardProps } from "@/components/resource-card"
 import {
     getReposNames,
@@ -24,12 +24,20 @@ const latest = (await getSources({
     month: date.getMonth() + 1,
     fields: "name, type",
 })) as CardProps[]
+
+const archive2024_7 = (await getSources({
+    year: 2024,
+    month: 7,
+    fields: "name, type",
+})) as CardProps[]
+
 const recommended = await getRecommendedSources("name, type")
 
 //------------------------------
 const articlesPages = {
     "/docs/latest": latest,
-    "/docs/archive/2024-6": archive2024_6,
+    // "/docs/archive/2024-6": archive2024_6,
+    "/docs/archive/2024-7": archive2024_7,
     "/docs/recommended": recommended,
 }
 
