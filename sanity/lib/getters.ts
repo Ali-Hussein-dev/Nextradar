@@ -85,3 +85,12 @@ export const getJobPosts = async (): Promise<any[]> => {
         whyJoinUs,
         }`)
 }
+
+
+//------------------------------------------------------------Integrations
+
+export const getIntegrationsByCategory = async (categoryId: number) => {
+    return client.fetch(`*[_type == "integration" && category.id == ${categoryId}] {
+        name, description, logoUrl, url, paid, sponsored
+        }`)
+}
