@@ -26,7 +26,6 @@ export const ArticlesList = async ({
   const month = date.getMonth() + 1
 
   const list = (await getSources({ year, month: 7 })) as CardProps[]
-  console.log(list)
   return (
     <div className="space-y-4">
       {list
