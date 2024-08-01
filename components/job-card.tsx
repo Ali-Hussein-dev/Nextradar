@@ -2,6 +2,7 @@ import { getFormattedTime } from "@/lib/get-formatted-time"
 import { Button } from "./button"
 import { JobPostDrawer } from "./job-post-drawer"
 import { type TypedObject } from "sanity"
+import { CardWrapper } from "@/components/ui/card-wrapper"
 
 export type JobPostLong = {
   aboutRole: TypedObject[]
@@ -52,7 +53,7 @@ export const JobCard = ({
   publishedAt,
 }: JobPost & JobPostLong) => {
   return (
-    <div className="rounded-xl p-4 pt-6 dark:bg-zinc-800/20 shadow flex-col-start w-full">
+    <CardWrapper>
       <div className="grow">
         <span className="text-lg font-bold">{jobTitle}</span>
         <div className="flex-row-between dark:text-zinc-600 text-zinc-500">
@@ -98,6 +99,6 @@ export const JobCard = ({
           </Button>
         </div>
       </div>
-    </div>
+    </CardWrapper>
   )
 }
