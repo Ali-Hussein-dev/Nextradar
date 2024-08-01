@@ -4,11 +4,12 @@ import { CiStar } from "react-icons/ci"
 import { TbExternalLink } from "react-icons/tb"
 import { Button } from "@/components/button"
 import { FaGithub } from "react-icons/fa"
+import { CardWrapper } from "@/components/ui/card-wrapper"
 
 export const RepoCard = ({ repo }: { repo: Repo }) => {
   const slug = slugify(repo.name)
   return (
-    <div className="rounded-lg border dark:border-zinc-900 p-4">
+    <CardWrapper>
       <div className="flex-row-between">
         <h3 id={slug} className="my-0 scroll-m-20">
           <a href={`#${slug}`} className="font-bold text-xl capitalize">
@@ -66,6 +67,6 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
           )}
         </div>
       </div>
-    </div>
+    </CardWrapper>
   )
 }

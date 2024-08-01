@@ -19,11 +19,13 @@ export default async function Page({
 
   const MDX = page.data.exports.default
   const currentPage = page.url as Pathname
-  const isJobsPage = currentPage === "/docs/jobs"
+  const isIntegrationPage = currentPage.startsWith("/docs/integrations/")
+  const isJobPage = currentPage.startsWith("/docs/jobs")
+  const isBlackList = isIntegrationPage || isJobPage
   // const defaultToc = page.data.exports.toc
-  const toc = !isJobsPage ? genCustomToc(currentPage) : []
+  const toc = isBlackList ? [] : genCustomToc(currentPage)
   return (
-    <DocsPage toc={toc} full={!isJobsPage ? page.data.full : true}>
+    <DocsPage toc={toc} full={isBlackList ? true : page.data.full}>
       <Sponsor />
       <DocsBody>
         <MDX />

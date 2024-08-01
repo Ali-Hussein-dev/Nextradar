@@ -3,7 +3,8 @@ import JobPost from '@/sanity/job-post-schema'
 import RepoSchema from '@/sanity/repos-schema'
 import SiteSchema from '@/sanity/site-schema'
 import SourceSchema from '@/sanity/source-schema'
+import IntegrationSchema from '@/sanity/schemas/integration-schema'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [JobPost, RepoSchema, SiteSchema, SourceSchema],
+  types: [JobPost, RepoSchema, SiteSchema, SourceSchema, IntegrationSchema],
 }

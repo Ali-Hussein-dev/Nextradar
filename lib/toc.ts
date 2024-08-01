@@ -56,6 +56,7 @@ type KeyArticlePage = keyof typeof articlesPages
 export type Pathname = KeyPage | KeyArticlePage
 
 export const genCustomToc = (key: Pathname) => {
+    if (key.includes("integrations")) return []
     // Function to filter and map items based on type
     const isArticleTypePage = key.includes("archive") || key.includes("latest")
     const list = (articlesPages[key as KeyArticlePage] ||

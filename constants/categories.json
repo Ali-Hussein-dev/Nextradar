@@ -1,0 +1,14 @@
+{
+    "headlessCMS": {
+        "name": "Headless CMS",
+        "id": "1001"
+    },
+    "hosting": {
+        "name": "Hosting",
+        "id": "1002"
+    },
+    "database":{
+        "name": "Static Site Generator",
+        "id": "1003"
+    }
+}
