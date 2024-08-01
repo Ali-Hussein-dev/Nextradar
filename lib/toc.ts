@@ -1,5 +1,4 @@
 import Slugger from "github-slugger"
-// import archive2024_6 from "@/constant/archive/2024-6.json"
 import { CardProps } from "@/components/resource-card"
 import {
     getReposNames,
