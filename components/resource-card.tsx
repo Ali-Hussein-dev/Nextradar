@@ -2,6 +2,7 @@ import { FaExternalLinkAlt } from "react-icons/fa"
 import { Button } from "@/components/button"
 import { slugify } from "@/lib/utils"
 import { YtDialog } from "@/components/yt-dialog"
+import { CardWrapper } from "@/components/ui/card-wrapper"
 
 export type CardProps = {
   name: string
@@ -12,10 +13,16 @@ export type CardProps = {
   href: string
 }
 //======================================
-export const ResourceCard = ({ name, description, author, href, src }: CardProps) => {
+export const ResourceCard = ({
+  name,
+  description,
+  author,
+  href,
+  src,
+}: CardProps) => {
   const slug = slugify(name)
   return (
-    <div className="border dark:border-zinc-800/80 px-3 pt-4 pb-4 rounded-md shadow-sm">
+    <CardWrapper className="flex-none">
       <div className="flex flex-col sm:flex-row items-start sm:items-start gap-4 w-full">
         <div className="w-full">
           <h3
@@ -52,6 +59,6 @@ export const ResourceCard = ({ name, description, author, href, src }: CardProps
           </div>
         )}
       </div>
-    </div>
+    </CardWrapper>
   )
 }
