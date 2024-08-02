@@ -48,10 +48,9 @@ export const getSources = async ({
     const nextYear = month === 12 ? year + 1 : year
     const endDate = `${nextYear}-${nextMonthPadded}-01T00:00:00Z`
 
-    // const recommendedQuery = !recommended ? `&& recommended == ${recommended}` : '';
-
+    const recommendedQuery = !!recommended ? `&& recommended == ${recommended}` : "";
     const dateQuery = `&& _createdAt >= "${startDate}" && _createdAt < "${endDate}"`
-    return client.fetch(`*[_type == "source" ${dateQuery} && recommended==false] | order(_createdAt desc) {
+    return client.fetch(`*[_type == "source" ${dateQuery} ${recommendedQuery} ] | order(_createdAt desc) {
     ${fields}
     }`)
 }

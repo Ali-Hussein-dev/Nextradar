@@ -22,7 +22,7 @@ export const ResourceCard = ({
 }: CardProps) => {
   const slug = slugify(name)
   return (
-    <CardWrapper className="flex-none">
+    <CardWrapper className="flex-none p-3 md:p-5">
       <div className="flex flex-col sm:flex-row items-start sm:items-start gap-4 w-full">
         <div className="w-full">
           <h3
