@@ -1,3 +1,4 @@
+import { start } from "repl"
 import { client } from "./client"
 
 
@@ -47,9 +48,10 @@ export const getSources = async ({
     const nextYear = month === 12 ? year + 1 : year
     const endDate = `${nextYear}-${nextMonthPadded}-01T00:00:00Z`
 
-    const recommendedQuery = !recommended ? `&& recommended == ${recommended}` : '';
+    // const recommendedQuery = !recommended ? `&& recommended == ${recommended}` : '';
 
-    return client.fetch(`*[_type == "source" ${recommendedQuery} && _createdAt >= "${startDate}" && _createdAt < "${endDate}"] | order(_createdAt desc) {
+    const dateQuery = `&& _createdAt >= "${startDate}" && _createdAt < "${endDate}"`
+    return client.fetch(`*[_type == "source" ${dateQuery} && recommended==false] | order(_createdAt desc) {
     ${fields}
     }`)
 }
