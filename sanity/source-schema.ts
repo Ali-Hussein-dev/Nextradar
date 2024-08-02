@@ -25,7 +25,7 @@ const SourceSchema = {
         },
         {
             name: 'type',
-            title: 'Type: article or video',
+            title: 'Type: article or youtube',
             type: 'string',
         },
         {

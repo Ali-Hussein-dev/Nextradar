@@ -10,5 +10,9 @@
     "database":{
         "name": "Static Site Generator",
         "id": "1003"
+    },
+    "testing": {
+        "name": "Testing",
+        "id": "1004"
     }
 }
