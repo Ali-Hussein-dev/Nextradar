@@ -54,7 +54,7 @@ export const JobPostDrawer = ({
         </DrawerHeader>
         <article className="prose max-h-[70vh] overflow-y-scroll px-4 md:px-6">
           {longDescription ? (
-            <Block title="About Role" section={longDescription} />
+            <Block title="" section={longDescription} />
           ) : (
             <>
               <Block title="About Role" section={aboutRole} />
