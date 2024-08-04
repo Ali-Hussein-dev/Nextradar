@@ -5,8 +5,8 @@ import { Faqs } from "@/components/faqs"
 import { Authors } from "@/components/authors"
 
 export const metadata: Metadata = {
-  title: "NextRadar",
-  description: "Curated Next.js Tools & Resources for focused devs",
+  title: "Navigate the Next.js Ecosystem with ease",
+  description: "Stay up to date with the latest Next.js tools and resources.",
 }
 const Footer = () => (
   <footer className="text-center py-4 border-t text-sm dark:text-zinc-500">

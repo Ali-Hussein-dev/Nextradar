@@ -10,8 +10,10 @@ const PlayBtn = ({ videoId }: { videoId: string }) => (
       className="absolute inset-0 size-full object-cover m-0"
     />
     <div className="z-10 size-full center isolate dark:bg-zinc-900/20">
-      <button className="bg-black shadow-lg py-4 rounded-2xl center px-7">
-        <FaPlay className="size-6 text-white" />
+      <button className="size-full relative">
+        <div className="bg-black absolute bottom-2 right-2 shadow-lg rounded-3xl center p-2.5 center">
+          <FaPlay className="size-3 text-white" />
+        </div>
       </button>
     </div>
   </div>
