@@ -1,3 +1,4 @@
+import { getJobPosts } from "@/sanity/lib/getters"
 import { getFormattedTime } from "@/lib/get-formatted-time"
 import { Button } from "./button"
 import { JobPostDrawer } from "./job-post-drawer"
@@ -100,5 +101,35 @@ export const JobCard = ({
         </div>
       </div>
     </CardWrapper>
+  )
+}
+const TextHighlight = ({ children }) => (
+  <span className="dark:bg-zinc-800/50 px-0.5 dark:text-green-300 backdrop-blur-lg text-green-500 bg-green-100/80 font-medium">
+    {children}
+  </span>
+)
+//======================================
+export const JobPostsSection = async () => {
+  const list = await getJobPosts()
+  return (
+    <>
+      <section className="max-w-6xl mx-auto">
+        <div className="mb-8 pl-2 md:pl-6">
+          <h2 className="mb-1 text-xl mt-0 md:text-2xl text-center">
+            Fresh job opportunities <br /> only for{" "}
+            <TextHighlight>Nextjs</TextHighlight> &{" "}
+            <TextHighlight>React</TextHighlight> devs
+          </h2>
+          {/* <h3 className="dark:text-zinc-400 font-medium text-base">
+            Bypass the middleman and apply directly to startups and employers.
+          </h3> */}
+        </div>
+        <div className="grid gap-5 md:grid-cols-2">
+          {list.map((job, i) => (
+            <JobCard key={i} {...job} />
+          ))}
+        </div>
+      </section>
+    </>
   )
 }
