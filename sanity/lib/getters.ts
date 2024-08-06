@@ -95,3 +95,12 @@ export const getIntegrationsByCategory = async (categoryId: number) => {
         name, description, logoUrl, url, paid, sponsored
         }`)
 }
+
+export const getLatestRepos = async () => {
+    const date = new Date()
+    date.setDate(date.getDate() - 10)
+    const dateString = date.toISOString()
+    return client.fetch(`*[_type == "repos" && _createdAt > "${dateString}"] | order(_createdAt desc) {
+        owner, repoName, name, stars, category, tags
+        }`)
+}
