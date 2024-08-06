@@ -1,6 +1,6 @@
 import { TypedObject } from "sanity"
 import { Button } from "@/components/button"
-import { JobPostLong } from "@/components/job-card"
+import { JobPostLong } from "@/components/job-posts-section"
 import {
   Drawer,
   DrawerClose,

@@ -1,9 +1,10 @@
 import { getJobPosts } from "@/sanity/lib/getters"
 import { getFormattedTime } from "@/lib/get-formatted-time"
-import { Button } from "./button"
-import { JobPostDrawer } from "./job-post-drawer"
+import { Button } from "@/components/button"
+import { JobPostDrawer } from "@/components/job-post-drawer"
 import { type TypedObject } from "sanity"
 import { CardWrapper } from "@/components/ui/card-wrapper"
+import React from "react"
 
 export type JobPostLong = {
   aboutRole: TypedObject[]
@@ -103,7 +104,7 @@ export const JobCard = ({
     </CardWrapper>
   )
 }
-const TextHighlight = ({ children }) => (
+const TextHighlight = ({ children }: { children: React.ReactNode }) => (
   <span className="dark:bg-zinc-800/50 px-0.5 dark:text-green-300 backdrop-blur-lg text-green-500 bg-green-100/80 font-medium">
     {children}
   </span>
