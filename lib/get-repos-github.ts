@@ -1,6 +1,6 @@
 import { cache } from "react"
 import { Octokit } from "@octokit/rest"
-import { getSites, getReposList } from '@/sanity/lib/getters';
+import { getSites, getReposList, } from '@/sanity/lib/getters';
 
 const octokit = new Octokit({
     auth: process.env.GITHUB_ACCESS_TOKEN as string
@@ -20,7 +20,7 @@ export type Repo = {
 }
 
 
-const getRepos = cache(async (list: Repo[]) => {
+export const getRepos = cache(async (list: Repo[]) => {
     return await Promise.all(
         list.map(async (repo) => {
             const { owner, repoName } = repo
