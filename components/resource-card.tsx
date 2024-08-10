@@ -25,13 +25,8 @@ export const ResourceCard = ({
     <CardWrapper className="flex-none p-3 md:p-5">
       <div className="flex flex-col sm:flex-row items-start sm:items-start gap-4 w-full">
         <div className="w-full">
-          <h3
-            id={`${slug}`}
-            className="text-xl font-extrabold mt-0 mb-1 text-pretty scroll-m-20 md:text-xl"
-          >
-            <a href={`#${slug}`} className="dark:text-zinc-300/90">
-              {name}
-            </a>
+          <h3 className="text-xl font-extrabold mt-0 mb-1 text-pretty scroll-m-20 md:text-xl dark:text-zinc-300/90">
+            {name}
           </h3>
           <p className="mb-1 dark:text-zinc-500 text-pretty line-clamp-3 text-zinc-700">
             {description}

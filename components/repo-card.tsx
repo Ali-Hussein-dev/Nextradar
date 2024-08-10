@@ -11,10 +11,8 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
   return (
     <CardWrapper>
       <div className="flex-row-between">
-        <h3 id={slug} className="my-0 scroll-m-20">
-          <a href={`#${slug}`} className="font-bold text-xl capitalize">
-            {repo.name}
-          </a>
+        <h3 className="my-0 scroll-m-20 font-bold text-xl capitalize">
+          {repo.name}
         </h3>
         {repo?.stars && (
           <span className="flex-row-start gap-1">
