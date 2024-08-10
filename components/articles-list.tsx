@@ -14,7 +14,7 @@ export const ArticlesList = async ({
   if (recommended) {
     const list = (await getRecommendedSources()) as CardProps[]
     return (
-      <div className="space-y-4">
+      <div className="space-y-4 max-w-4xl">
         {list
           .filter((o) => o.type == filterBy)
           .map((o) => (
@@ -29,7 +29,7 @@ export const ArticlesList = async ({
 
   const list = (await getSources({ year, month })) as CardProps[]
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 max-w-4xl">
       {list.length > 0 ? (
         list
           .filter((o) => o.type == filterBy)
