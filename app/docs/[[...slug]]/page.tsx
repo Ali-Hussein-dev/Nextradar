@@ -18,14 +18,21 @@ export default async function Page({
   }
 
   const MDX = page.data.exports.default
-  const currentPage = page.url as Pathname
-  const isIntegrationPage = currentPage.startsWith("/docs/integrations/")
-  const isJobPage = currentPage.startsWith("/docs/jobs")
-  const isBlackList = isIntegrationPage || isJobPage
+  // const currentPage = page.url as Pathname
+  // const isIntegrationPage = currentPage.startsWith("/docs/integrations/")
+  // const isJobPage = currentPage.startsWith("/docs/jobs")
+  // const isBlackList = isIntegrationPage || isJobPage
   // const defaultToc = page.data.exports.toc
-  const toc = isBlackList ? [] : genCustomToc(currentPage)
+  // const toc = isBlackList ? [] : genCustomToc(currentPage)
   return (
-    <DocsPage toc={toc} full={isBlackList ? true : page.data.full}>
+    <DocsPage
+      tableOfContent={{
+        enabled: false,
+      }}
+      // toc={toc}
+      // full={isBlackList ? true : page.data.full}
+      full={page.data.full}
+    >
       <Sponsor />
       <DocsBody>
         <MDX />
