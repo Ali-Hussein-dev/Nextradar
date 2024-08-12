@@ -25,6 +25,7 @@ specifiers:
   lucide-react: ^0.417.0
   next: ^14.2.4
   next-sanity: '9'
+  nuqs: ^1.17.8
   postcss: ^8.4.38
   react: ^18.3.1
   react-dom: ^18.3.1
@@ -54,6 +55,7 @@ dependencies:
   lucide-react: 0.417.0_react@18.3.1
   next: 14.2.5_nnrd3gsncyragczmpvfhocinkq
   next-sanity: 9.4.2_tf6ftxghq7f4t5nbgstismwavy
+  nuqs: 1.17.8_next@14.2.5
   react: 18.3.1
   react-dom: 18.3.1_react@18.3.1
   react-icons: 5.2.1_react@18.3.1
@@ -8482,6 +8484,10 @@ packages:
       through2: 3.0.2
     dev: false
 
+  /mitt/3.0.1:
+    resolution: {integrity: sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==}
+    dev: false
+
   /mkdirp-classic/0.5.3:
     resolution: {integrity: sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A==}
     dev: false
@@ -8689,6 +8695,15 @@ packages:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
     dependencies:
       boolbase: 1.0.0
+    dev: false
+
+  /nuqs/1.17.8_next@14.2.5:
+    resolution: {integrity: sha512-JqsnzO+hJyjJE7ebuhpHMLA2iGY48e2xr0oJQFhj7kjUmDABL2XOup47rxF5TL/5b9jEsmU2t0lAKin1VdK1/A==}
+    peerDependencies:
+      next: '>=13.4 <14.0.2 || ^14.0.3'
+    dependencies:
+      mitt: 3.0.1
+      next: 14.2.5_nnrd3gsncyragczmpvfhocinkq
     dev: false
 
   /object-assign/4.1.1:

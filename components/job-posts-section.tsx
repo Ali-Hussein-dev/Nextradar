@@ -6,16 +6,6 @@ import { type TypedObject } from "sanity"
 import { CardWrapper } from "@/components/ui/card-wrapper"
 import React from "react"
 
-export type JobPostLong = {
-  aboutRole: TypedObject[]
-  requirements: TypedObject[]
-  benefits: TypedObject[]
-  responsibilities: TypedObject[]
-  aboutCompany: TypedObject[]
-  hiringProcess: TypedObject[]
-  whyJoinUs: TypedObject[]
-  longDescription: TypedObject[]
-}
 export type JobPost = {
   jobTitle: string
   companyName: string
@@ -29,31 +19,25 @@ export type JobPost = {
   shortDescription: string
   contractType: string
   publishedAt: string
+  longDescription: TypedObject[]
+  _id: string
 }
 //======================================
-export const JobCard = ({
-  jobTitle,
-  companyName,
-  location,
-  currency,
-  applyUrl,
-  branch,
-  jobType,
-  salaryMax,
-  salaryMin,
-  shortDescription,
-  longDescription,
-  contractType,
-  // drawer props
-  aboutRole,
-  aboutCompany,
-  benefits,
-  responsibilities,
-  requirements,
-  whyJoinUs,
-  hiringProcess,
-  publishedAt,
-}: JobPost & JobPostLong) => {
+export const JobCard = (props: JobPost) => {
+  const {
+    jobTitle,
+    companyName,
+    location,
+    branch,
+    salaryMin,
+    salaryMax,
+    currency,
+    applyUrl,
+    jobType,
+    shortDescription,
+    contractType,
+    publishedAt,
+  } = props
   return (
     <CardWrapper>
       <div className="grow">
@@ -85,17 +69,7 @@ export const JobCard = ({
           Published {getFormattedTime(publishedAt)}
         </span>
         <div className="flex-row-end gap-2">
-          <JobPostDrawer
-            aboutCompany={aboutCompany}
-            aboutRole={aboutRole}
-            benefits={benefits}
-            responsibilities={responsibilities}
-            requirements={requirements}
-            whyJoinUs={whyJoinUs}
-            hiringProcess={hiringProcess}
-            longDescription={longDescription}
-            jobTitle={jobTitle}
-          />
+          <JobPostDrawer {...props} />
           <Button asChild size="sm">
             <a href={applyUrl}>Apply</a>
           </Button>
@@ -127,7 +101,9 @@ export const JobPostsSection = async () => {
         </div>
         <div className="grid gap-5 md:grid-cols-2">
           {list.map((job, i) => (
-            <JobCard key={i} {...job} />
+            <React.Suspense key={i}>
+              <JobCard {...job} />
+            </React.Suspense>
           ))}
         </div>
       </section>
