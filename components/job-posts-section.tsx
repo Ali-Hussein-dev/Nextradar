@@ -29,6 +29,7 @@ export type JobPost = {
   shortDescription: string
   contractType: string
   publishedAt: string
+  _id: string
 }
 //======================================
 export const JobCard = ({
@@ -53,6 +54,7 @@ export const JobCard = ({
   whyJoinUs,
   hiringProcess,
   publishedAt,
+  _id,
 }: JobPost & JobPostLong) => {
   return (
     <CardWrapper>
@@ -95,6 +97,8 @@ export const JobCard = ({
             hiringProcess={hiringProcess}
             longDescription={longDescription}
             jobTitle={jobTitle}
+            _id={_id}
+            applyUrl={applyUrl}
           />
           <Button asChild size="sm">
             <a href={applyUrl}>Apply</a>

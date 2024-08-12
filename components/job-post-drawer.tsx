@@ -1,3 +1,4 @@
+"use client"
 import { TypedObject } from "sanity"
 import { Button } from "@/components/button"
 import { JobPostLong } from "@/components/job-posts-section"
@@ -11,7 +12,8 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer"
 import { PortableText } from "@portabletext/react"
-
+import { useQueryState } from "nuqs"
+import React from "react"
 const Block = ({
   title,
   section,
@@ -40,9 +42,17 @@ export const JobPostDrawer = ({
   hiringProcess,
   whyJoinUs,
   longDescription,
-}: JobPostLong & { jobTitle: string }) => {
+  _id,
+  applyUrl,
+}: JobPostLong & { jobTitle: string; _id: string; applyUrl: string }) => {
+  const [jp] = useQueryState("jp") // job post id
+  const [open, setOpenDrawer] = React.useState(false)
+
+  React.useEffect(() => {
+    if (jp == _id) setOpenDrawer(true)
+  }, [])
   return (
-    <Drawer>
+    <Drawer open={open} onOpenChange={setOpenDrawer}>
       <DrawerTrigger asChild>
         <Button size="sm" variant={"outline"}>
           Read more
@@ -67,10 +77,13 @@ export const JobPostDrawer = ({
             </>
           )}
         </article>
-        <DrawerFooter>
+        <DrawerFooter className="flex-row-end gap-4">
           <DrawerClose>
-            <Button variant="outline">Close</Button>
+            <Button variant="ghost">Close</Button>
           </DrawerClose>
+          <Button asChild>
+            <a href={applyUrl}>Apply</a>
+          </Button>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
