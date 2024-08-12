@@ -47,7 +47,7 @@ export const JobPostDrawer = (props: JobPost) => {
           View job
         </Button>
       </DrawerTrigger>
-      <DrawerContent className="max-w-4xl mx-auto dark:bg-zinc-900 bg-zinc-100">
+      <DrawerContent className="max-w-4xl mx-auto dark:bg-zinc-900 bg-zinc-100 outline-none">
         <DrawerHeader className="px-6">
           <DrawerTitle>{jobTitle}</DrawerTitle>
         </DrawerHeader>
