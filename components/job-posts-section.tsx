@@ -101,7 +101,9 @@ export const JobPostsSection = async () => {
         </div>
         <div className="grid gap-5 md:grid-cols-2">
           {list.map((job, i) => (
-            <JobCard key={i} {...job} />
+            <React.Suspense key={i}>
+              <JobCard {...job} />
+            </React.Suspense>
           ))}
         </div>
       </section>
