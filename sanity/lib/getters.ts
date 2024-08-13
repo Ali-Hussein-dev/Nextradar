@@ -75,16 +75,8 @@ export const getJobPosts = async (): Promise<any[]> => {
         applyUrl,
         jobType,
         contractType,
-        aboutRole,
         shortDescription,
         longDescription,
-        requirements,
-        aboutCompany,
-        requirements,
-        benefits,
-        responsibilities,
-        hiringProcess,
-        whyJoinUs,
         }`)
 }
 

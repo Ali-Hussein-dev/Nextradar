@@ -83,48 +83,6 @@ const JobPost = {
             type: "array",
             of: [{ type: "block" }],
         },
-        {
-            name: "aboutRole",
-            title: "About the Role [deprecated]",
-            type: "array",
-            of: [{ type: "block" }],
-        },
-        {
-            name: "requirements",
-            title: "Requirements and Qualifications [deprecated]",
-            type: "array",
-            of: [{ type: "block" }],
-        },
-        {
-            name: "benefits",
-            title: "Benefits and Perks [deprecated]",
-            type: "array",
-            of: [{ type: "block" }],
-        },
-        {
-            name: "Responsibilities",
-            title: "Responsibilities [deprecated]",
-            type: "array",
-            of: [{ type: "block" }],
-        },
-        {
-            name: "hiringProcess",
-            title: "Hiring Process [deprecated]",
-            type: "array",
-            of: [{ type: "block" }],
-        },
-        {
-            name: "whyJoinUs",
-            title: "Why Join Us [deprecated]",
-            type: "array",
-            of: [{ type: "block" }],
-        },
-        {
-            name: "aboutCompany",
-            title: "About the company [deprecated]",
-            type: "array",
-            of: [{ type: "block" }],
-        },
     ],
 }
 
