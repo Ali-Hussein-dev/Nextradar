@@ -87,7 +87,7 @@ export const Authors = () => {
       <h3 className="text-center dark:text-zinc-500 text-lg">
         Learn and grow quickly from the best in the industry
       </h3>
-      <div className="grid gap-4 grid-cols-2 md:grid-cols-3 pt-5">
+      <div className="grid gap-4 grid-cols-2 md:grid-cols-3 pt-8 md:pt-10">
         {authors.map((author, i) => (
           <Card key={i} {...author} />
         ))}
