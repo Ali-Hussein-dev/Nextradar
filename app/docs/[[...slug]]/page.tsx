@@ -1,9 +1,7 @@
 import { getPage, getPages } from '@/app/source';
 import type { Metadata } from 'next';
 import { DocsPage, DocsBody } from 'fumadocs-ui/page';
-import { notFound } from 'next/navigation';
-import { Pathname, genCustomToc } from "@/lib/toc"
-import { Sponsor } from "@/components/sponsor"
+import { notFound } from "next/navigation"
 
 export const revalidate = 3600
 export default async function Page({
@@ -33,7 +31,6 @@ export default async function Page({
       // full={isBlackList ? true : page.data.full}
       full={page.data.full}
     >
-      <Sponsor />
       <DocsBody>
         <MDX />
       </DocsBody>

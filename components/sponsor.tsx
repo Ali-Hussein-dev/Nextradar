@@ -16,7 +16,7 @@ export const Sponsor = () => {
         <a
           href={"https://indie-starter.dev/?ref=nextradar"}
           target={"_blank"}
-          className="flex-row-start gap-4"
+          className="flex-row-start gap-4 no-underline"
         >
           <span className="border-r pr-3">Indie Starter</span>
           <span className="font-light">Focus on what matters</span>
