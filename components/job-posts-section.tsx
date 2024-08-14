@@ -88,7 +88,7 @@ export const JobPostsSection = async () => {
   const list = await getJobPosts()
   return (
     <>
-      <section className="max-w-6xl mx-auto">
+      <section className="mx-auto">
         <div className="mb-8 pl-2 md:pl-6">
           <h2 className="mb-1 text-xl mt-0 md:text-2xl text-center">
             Fresh job opportunities <br /> only for{" "}
@@ -99,7 +99,7 @@ export const JobPostsSection = async () => {
             Bypass the middleman and apply directly to startups and employers.
           </h3> */}
         </div>
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid gap-5">
           {list.map((job, i) => (
             <React.Suspense key={i}>
               <JobCard {...job} />
