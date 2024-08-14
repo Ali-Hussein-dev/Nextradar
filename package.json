@@ -22,6 +22,7 @@
     "fumadocs-core": "13.0.1",
     "fumadocs-mdx": "8.2.33",
     "fumadocs-ui": "13.0.1",
+    "ky": "^1.6.0",
     "lucide-react": "^0.417.0",
     "next": "^14.2.4",
     "next-sanity": "9",
