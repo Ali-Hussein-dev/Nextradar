@@ -32,16 +32,17 @@ export const AdStats = async () => {
     pageviews: { value: number }
     visits: { value: number }
     visitors: { value: number }
+    totaltime: { value: number }
   }
-  const visitDuration = getStats.visits.value / getStats.visitors.value
+  const visitDuration = getStats.totaltime.value / getStats.visits.value
   const formatedVisitDuration = `${Math.ceil(visitDuration / 60)}m ${Math.ceil(visitDuration % 60)}s`
   return (
     <ul>
       <li>
-        Page views <b>{getStats.pageviews.value}</b>
+        Page views <b>{(getStats.pageviews.value / 1000).toFixed(1)}K</b>
       </li>
       <li>
-        Visits <b>{getStats.visits.value}</b>
+        Visits <b>{(getStats.visits.value / 1000).toFixed(1)}K</b>
       </li>
       <li>
         Visit duration <b>{formatedVisitDuration}</b>
