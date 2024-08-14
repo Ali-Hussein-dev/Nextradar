@@ -32,7 +32,9 @@ export default async function Page({
       full={page.data.full}
     >
       <DocsBody>
-        <MDX />
+        <div className="max-w-4xl mx-auto w-full">
+          <MDX />
+        </div>
       </DocsBody>
     </DocsPage>
   )
