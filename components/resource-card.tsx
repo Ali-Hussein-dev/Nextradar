@@ -34,17 +34,19 @@ export const ResourceCard = ({
           {/* --------------------------------Bottom */}
           <div className="flex-row-between gap-2 w-full pt-1">
             <span className="dark:text-zinc-500 text-zinc-400">{author}</span>
-            <Button
-              variant={"secondary"}
-              asChild
-              size="sm"
-              className="gap-3 no-underline"
-            >
-              <a href={href} target="_blank" rel="noopener noreferrer">
-                Visit
-                <FaExternalLinkAlt size="14" />
-              </a>
-            </Button>
+            {!src && (
+              <Button
+                variant="secondary"
+                asChild
+                size="sm"
+                className="gap-3 no-underline"
+              >
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                  Visit
+                  <FaExternalLinkAlt size="14" />
+                </a>
+              </Button>
+            )}
           </div>
         </div>
         {/* --------------------------------YT-Embed */}
