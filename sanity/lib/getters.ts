@@ -107,13 +107,11 @@ export const getJobPostMetaSlug = async ({ slug }: { slug: string }): Promise<Pi
 }
 // use for generating sitemap
 //------------------------------------------------------------Jobs-Posts-By-slug
-export const getAllJobPostMetaSlug = async (): Promise<Promise<Pick<JobPost, "jobTitle" | "shortDescription">>[]> => {
+export const getAllJobPostSlugs = async (): Promise<{ slug: string }[]> => {
     return client.fetch(`*[_type == "jobPost" ] {
-        jobTitle,
-        shortDescription
+        "slug": slug.current,
         }`)
 }
-
 
 //------------------------------------------------------------Integrations
 
