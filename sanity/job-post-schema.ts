@@ -9,6 +9,15 @@ const JobPost = {
             type: "string",
         },
         {
+            name: "slug",
+            title: "Slug",
+            type: "slug",
+            options: {
+                source: 'jobTitle',
+                maxLength: 110,
+            },
+        },
+        {
             name: "companyName",
             title: "Company Name",
             type: "string",

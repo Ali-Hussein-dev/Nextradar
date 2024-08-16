@@ -1,10 +1,10 @@
 import { getJobPosts } from "@/sanity/lib/getters"
 import { getFormattedTime } from "@/lib/get-formatted-time"
 import { Button } from "@/components/button"
-import { JobPostDrawer } from "@/components/job-post-drawer"
 import { type TypedObject } from "sanity"
 import { CardWrapper } from "@/components/ui/card-wrapper"
 import React from "react"
+import Link from "next/link"
 
 export type JobPost = {
   jobTitle: string
@@ -20,7 +20,7 @@ export type JobPost = {
   contractType: string
   publishedAt: string
   longDescription: TypedObject[]
-  _id: string
+  slug: string
 }
 //======================================
 export const JobCard = (props: JobPost) => {
@@ -37,6 +37,7 @@ export const JobCard = (props: JobPost) => {
     shortDescription,
     contractType,
     publishedAt,
+    slug,
   } = props
   return (
     <CardWrapper>
@@ -69,7 +70,10 @@ export const JobCard = (props: JobPost) => {
           Published {getFormattedTime(publishedAt)}
         </span>
         <div className="flex-row-end gap-2">
-          <JobPostDrawer {...props} />
+          {/* <JobPostDrawer {...props} /> */}
+          <Button asChild size="sm" variant="ghost">
+            <Link href={`/docs/j/${slug}`}>View Job</Link>
+          </Button>
           <Button asChild size="sm">
             <a href={applyUrl}>Apply</a>
           </Button>
