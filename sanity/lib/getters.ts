@@ -1,5 +1,5 @@
-import { start } from "repl"
 import { client } from "./client"
+import { JobPost } from "@/components/job-posts-section"
 
 
 //------------------------------------------------------------Sites
@@ -61,10 +61,10 @@ export const getRecommendedSources = async (fields = "name, description, type, h
 
 
 //------------------------------------------------------------Jobs-Posts
-export const getJobPosts = async (): Promise<any[]> => {
+export const getJobPosts = async (): Promise<JobPost[]> => {
     return client.fetch(`*[_type == "jobPost"] | order(publishedAt desc) {
-        _id,
         jobTitle,
+        "slug": slug.current,
         companyName,
         location,
         branch,
@@ -76,7 +76,41 @@ export const getJobPosts = async (): Promise<any[]> => {
         jobType,
         contractType,
         shortDescription,
+        }`)
+}
+
+//------------------------------------------------------------Jobs-Posts-By-Slug
+export const getFullJobPostBySlug = async ({ slug }: { slug: string }): Promise<JobPost> => {
+    return client.fetch(`*[_type == "jobPost" && slug.current == $slug ][0] {
+        jobTitle,
+        companyName,
+        location,
+        branch,
+        salaryMin,
+        salaryMax,
+        currency,
+        applyUrl,
+        jobType,
+        contractType,
         longDescription,
+        }`,
+        { slug })
+}
+
+//------------------------------------------------------------Jobs-Posts-By-Id
+export const getJobPostMetaSlug = async ({ slug }: { slug: string }): Promise<Pick<JobPost, "jobTitle" | "shortDescription">> => {
+    return client.fetch(`*[_type == "jobPost" && slug.current == $slug ][0] {
+        jobTitle,
+        shortDescription
+        }`,
+        { slug })
+}
+// use for generating sitemap
+//------------------------------------------------------------Jobs-Posts-By-slug
+export const getAllJobPostMetaSlug = async (): Promise<Promise<Pick<JobPost, "jobTitle" | "shortDescription">>[]> => {
+    return client.fetch(`*[_type == "jobPost" ] {
+        jobTitle,
+        shortDescription
         }`)
 }
 
