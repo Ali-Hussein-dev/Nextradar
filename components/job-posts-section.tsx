@@ -72,7 +72,9 @@ export const JobCard = (props: JobPost) => {
         <div className="flex-row-end gap-2">
           {/* <JobPostDrawer {...props} /> */}
           <Button asChild size="sm" variant="ghost">
-            <Link href={`/docs/j/${slug}`}>View Job</Link>
+            <Link href={`/docs/j/${slug}`} prefetch={false}>
+              View Job
+            </Link>
           </Button>
           <Button asChild size="sm">
             <a href={applyUrl}>Apply</a>
