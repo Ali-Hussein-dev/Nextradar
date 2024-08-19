@@ -96,14 +96,14 @@ export const JobPostsSection = async () => {
     <>
       <section className="mx-auto">
         <div className="mb-8 pl-2 md:pl-6">
-          <h2 className="mb-1 text-xl mt-0 md:text-2xl text-center">
-            Fresh job opportunities <br /> only for{" "}
+          <h2 className="mb-3 text-xl mt-0 md:text-2xl text-center">
+            Job opportunities <br /> for qualitfied{" "}
             <TextHighlight>Nextjs</TextHighlight> &{" "}
             <TextHighlight>React</TextHighlight> devs
           </h2>
-          {/* <h3 className="dark:text-zinc-400 font-medium text-base">
-            Bypass the middleman and apply directly to startups and employers.
-          </h3> */}
+          <h3 className="dark:text-zinc-400 font-medium text-base text-center">
+            Summarized job posts, no middleman, apply directly to employers
+          </h3>
         </div>
         <div className="grid gap-5">
           {list.map((job, i) => (
