@@ -1,7 +1,7 @@
 import { getFullJobPostBySlug } from "@/sanity/lib/getters"
 import { Button } from "./button"
 import Link from "next/link"
-import { FaArrowLeft } from "react-icons/fa"
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa"
 import { PortableText } from "next-sanity"
 import { TldrJobPost } from "./tldr-job-post"
 
@@ -12,7 +12,7 @@ export const FullJobPost = async ({ slug }: { slug: string }) => {
     <section className="py-12 px-2 mx-auto">
       <div className="flex-row-between border-b pb-2 mb-4">
         <Button asChild size="sm" variant={"ghost"}>
-          <Link href={"/docs/jobs"} className="gap-2">
+          <Link href={"/docs/jobs"} className="gap-2" prefetch={false}>
             <FaArrowLeft /> Back to jobs
           </Link>
         </Button>
@@ -38,13 +38,21 @@ export const FullJobPost = async ({ slug }: { slug: string }) => {
           ) : null}
         </div>
       </div>
-      <article className="max-w-3xl mx-auto w-fit pt-4 animate-in">
+      <article className="max-w-3xl mx-auto w-fit pt-4 mb-4 animate-in">
         <div className="dark:text-zinc-400 text-zinc-700 prose-strong:dark:text-zinc-400 prose-strong:text-zinc-700 prose-zinc prose prose-headings:dark:text-zinc-400 prose-h1:text-2xl prose-a:dark:text-zinc-400 prose-a:underline-offset-4 prose-a:text-zinc-700">
           <TldrJobPost jobPost={post.longDescription} />
           <h1>{post.jobTitle}</h1>
           <PortableText value={post.longDescription} />
         </div>
       </article>
+      <div className="border-t pt-3 flex-row-end w-full">
+        <Button asChild variant={"outline"}>
+          <Link href={"/docs/jobs"} className="gap-2" prefetch={false}>
+            More jobs for qualified Nextjs & React devs
+            <FaArrowRight />
+          </Link>
+        </Button>
+      </div>
     </section>
   )
 }
