@@ -4,7 +4,7 @@ import { pageTree } from "@/app/source"
 // shared configuration
 export const baseOptions: DocsLayoutProps = {
   nav: {
-    title: "NextRadar",
+    title: "Nextradar",
   },
   tree: pageTree,
 }
