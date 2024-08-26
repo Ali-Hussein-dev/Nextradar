@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Metadata } from "next"
 import { Faqs } from "@/components/faqs"
 import { Authors } from "@/components/authors"
+import { Newsletter } from "@/components/newsletter"
 
 export const metadata: Metadata = {
   title: "Navigate the Next.js Ecosystem with ease",
@@ -67,6 +68,7 @@ export default async function HomePage() {
         </div>
       </div>
       <InfoAboutContent />
+      <Newsletter />
       <Authors />
       <Faqs />
       <p className="py-4 text-center dark:text-zinc-500">
