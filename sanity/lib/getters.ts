@@ -76,6 +76,7 @@ export const getJobPosts = async (): Promise<JobPost[]> => {
         jobType,
         contractType,
         shortDescription,
+        jobHook,
         }`)
 }
 

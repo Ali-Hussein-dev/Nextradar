@@ -23,6 +23,11 @@ const JobPost = {
             type: "string",
         },
         {
+            name: "company",
+            type: 'reference',
+            to: { type: "company" }
+        },
+        {
             name: "location",
             title: "Location [city,country]",
             type: "string",
@@ -82,15 +87,21 @@ const JobPost = {
             initialValue: ["remote"],
         },
         {
-            name: "shortDescription",
-            title: "Short description",
-            type: "string",
+            name: "jobHook",
+            title: "Job Hook",
+            type: "array",
+            of: [{ type: "block" }],
         },
         {
             name: "longDescription",
             title: "Long description",
             type: "array",
             of: [{ type: "block" }],
+        },
+        {
+            name: "shortDescription",
+            title: "Short description for SEO (deprecated)",
+            type: "string",
         },
     ],
 }
