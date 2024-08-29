@@ -23,11 +23,6 @@ const JobPost = {
             type: "string",
         },
         {
-            name: "company",
-            type: 'reference',
-            to: { type: "company" }
-        },
-        {
             name: "location",
             title: "Location [city,country]",
             type: "string",
