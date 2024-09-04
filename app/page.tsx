@@ -54,7 +54,7 @@ export default async function HomePage() {
             Navigate the Next.js Ecosystem with ease
           </h1>
           <p className="text-lg text-center max-w-2xl mx-auto font-medium px-1 dark:text-zinc-400 border rounded-sm border-dashed">
-            Awesome-Nextjs Alternative
+            Awesome Nextjs Alternative
           </p>
           <p className="text-lg md:text-xl text-center max-w-2xl mx-auto dark:text-zinc-500 font-medium pt-3 mb-4">
             Stay up to date with the latest Next.js tools and resources.
