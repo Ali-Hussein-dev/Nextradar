@@ -1,6 +1,6 @@
 import { FaExternalLinkAlt } from "react-icons/fa"
 import { Button } from "@/components/button"
-import { cn, slugify } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 import { YtDialog } from "@/components/yt-dialog"
 import { CardWrapper } from "@/components/ui/card-wrapper"
 
@@ -20,19 +20,19 @@ export const ResourceCard = ({
   href,
   src,
 }: CardProps) => {
-  const slug = slugify(name)
+  // const slug = slugify(name)
   return (
-    <CardWrapper className="flex-none p-3 md:p-5">
+    <CardWrapper className="flex-none p-0 md:px-0">
       <div className="flex flex-col sm:flex-row items-start sm:items-start gap-4 w-full">
-        <div className="w-full">
+        <div className="w-full px-3 sm:px-4 pb-2 pt-6">
           <h3 className="text-xl font-extrabold mt-0 mb-1 text-pretty scroll-m-20 md:text-xl dark:text-zinc-300/90">
             {name}
           </h3>
 
           <p
             className={cn(
-              "mb-1 dark:text-zinc-500 text-pretty line-clamp-3 text-zinc-700",
-              src && "hidden md:block"
+              "mb-0.5 dark:text-zinc-400 text-pretty line-clamp-2 text-zinc-700",
+              src ? "hidden md:line-clamp-1" : ""
             )}
           >
             {description}
@@ -40,7 +40,7 @@ export const ResourceCard = ({
 
           {/* --------------------------------Bottom */}
           <div className="flex-row-between gap-2 w-full pt-1">
-            <span className="dark:text-zinc-500 text-zinc-400">{author}</span>
+            <span className="dark:text-zinc-500 text-zinc-500">{author}</span>
             {!src && (
               <Button
                 variant="secondary"
