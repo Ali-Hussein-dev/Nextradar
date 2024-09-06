@@ -18,8 +18,8 @@ export const Sponsor = () => {
           target={"_blank"}
           className="flex-row-start gap-4 no-underline"
         >
-          <span className="border-r pr-3">Indie Starter</span>
-          <span className="font-light">Focus on what matters</span>
+          <span className="border-r pr-5 font-medium">Indie Starter</span>
+          <span className="font-light">Built for Indie Makers</span>
         </a>
       </Button>
     </div>
