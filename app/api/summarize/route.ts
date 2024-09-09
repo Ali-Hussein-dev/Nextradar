@@ -13,7 +13,7 @@ const summarizePrompt = `Summarize the following job post for job seekers and fo
 export async function POST(req: Request) {
     const { prompt: JobPost }: { prompt: string } = await req.json();
     const result = await streamText({
-        model: openai('gpt-3.5-turbo-0125'),
+        model: openai('gpt-4o-mini'),
         prompt: `${summarizePrompt} ${JobPost}`,
     });
 
