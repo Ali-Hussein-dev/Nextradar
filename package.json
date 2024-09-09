@@ -7,7 +7,8 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "post:merge": "git checkout main && git pull"
+    "post:merge": "git checkout main && git pull",
+    "post:install": "fumadocs-mdx"
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.48",
@@ -21,10 +22,10 @@
     "ai": "^3.3.9",
     "class-variance-authority": "^0.7.0",
     "date-fns": "^3.6.0",
-    "fumadocs-core": "13.0.1",
-    "fumadocs-mdx": "8.2.33",
-    "fumadocs-ui": "13.0.1",
-    "ky": "^1.6.0",
+    "fumadocs-core": "13.4.9",
+    "fumadocs-mdx": "10.0.2",
+    "fumadocs-ui": "13.4.9",
+    "ky": "^1.7.2",
     "lucide-react": "^0.417.0",
     "next": "^14.2.4",
     "next-sanity": "9",

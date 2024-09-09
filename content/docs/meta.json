@@ -1,4 +1,5 @@
 {
+  "root": true,
   "pages": [
     "latest",
     "recommended",
@@ -6,9 +7,11 @@
     "tools",
     "plugin",
     "real-world-apps",
-    "jobs",
     "integrations",
-    "archive",
-    "advertise"
+    "---HIRE---",
+    "jobs",
+    "---OTHERS---",
+    "advertise",
+    "archive"
   ]
 }
