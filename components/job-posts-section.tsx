@@ -64,8 +64,8 @@ export const JobCard = (props: JobPost) => {
             ) : null}
           </div>
         </div>
-        <div className="py-2">
-          <div className="dark:bg-zinc-800 px-2 dark:text-zinc-300 md:px-4 py-2 border-dashed border-sm ">
+        <div className="pt-4">
+          <div className="dark:text-zinc-300 dark:border-zinc-700 border-dashed border-y pt-1">
             <h3 className="font-semibold dark:text-green-300 flex-row-start gap-1 text-green-600 mt-2">
               <WiStars size="20" />
               Top Benefits
