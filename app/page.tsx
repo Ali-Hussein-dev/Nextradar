@@ -50,14 +50,14 @@ export default async function HomePage() {
     <main className="min-h-screen">
       <div className="h-[70vh] flex-col-center ">
         <div className="flex flex-col justify-center text-center animate-in px-2">
-          <h1 className="h1 mb-4 text-3xl font-extrabold md:text-4xl lg:text-5xl tracking-tight text-center max-w-lg mx-auto text-pretty">
-            Navigate the Next.js Ecosystem with ease
+          <h1 className="h1 mb-4 text-3xl font-extrabold md:text-4xl lg:text-5xl tracking-tight text-center max-w-3xl mx-auto text-pretty">
+            The Next.js Ecosystem Overview in One Place
           </h1>
           <p className="text-lg text-center max-w-2xl mx-auto font-medium px-1 dark:text-zinc-400 border rounded-sm border-dashed">
             Awesome Nextjs Alternative
           </p>
           <p className="text-lg md:text-xl text-center max-w-2xl mx-auto dark:text-zinc-500 font-medium pt-3 mb-4">
-            Stay up to date with the latest Next.js tools and resources.
+            In-depth content, tools, courses, jobs, and more curated for you
           </p>
           <Button
             asChild
