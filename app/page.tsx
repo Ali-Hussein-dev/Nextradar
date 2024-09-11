@@ -48,20 +48,20 @@ const InfoAboutContent = () => (
 export default async function HomePage() {
   return (
     <main className="min-h-screen">
-      <div className="h-[70vh] flex-col-center ">
+      <div className="h-[70vh] flex-col-center pt-10 sm:pt-16 md:pt-24">
         <div className="flex flex-col justify-center text-center animate-in px-2">
           <h1 className="h1 mb-4 text-3xl font-extrabold md:text-4xl lg:text-5xl tracking-tight text-center max-w-3xl mx-auto text-pretty">
             The Next.js Ecosystem Overview in One Place
           </h1>
-          <p className="text-lg text-center max-w-2xl mx-auto font-medium px-1 dark:text-zinc-400 border rounded-sm border-dashed">
+          <span className="text-lg text-center max-w-2xl mx-auto font-medium px-1 dark:text-zinc-400 border rounded-sm border-dashed">
             Awesome Nextjs Alternative
-          </p>
-          <p className="text-lg md:text-xl text-center max-w-2xl mx-auto dark:text-zinc-500 font-medium pt-3 mb-4">
+          </span>
+          <p className="text-lg md:text-xl text-center max-w-xl mx-auto dark:text-zinc-500 font-medium pt-3 mb-4 text-pretty">
             In-depth content, tools, courses, jobs, and more are curated for you
           </p>
           <Button
             asChild
-            className="mt-4 max-w-[13rem] font-semibold w-full mx-auto"
+            className="mt-4 max-w-[12rem] font-semibold w-full mx-auto text-lg"
           >
             <Link href="/docs/latest">Discover</Link>
           </Button>
