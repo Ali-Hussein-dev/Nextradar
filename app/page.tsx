@@ -57,7 +57,7 @@ export default async function HomePage() {
             Awesome Nextjs Alternative
           </p>
           <p className="text-lg md:text-xl text-center max-w-2xl mx-auto dark:text-zinc-500 font-medium pt-3 mb-4">
-            In-depth content, tools, courses, jobs, and more curated for you
+            In-depth content, tools, courses, jobs, and more are curated for you
           </p>
           <Button
             asChild
