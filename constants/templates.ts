@@ -35,13 +35,13 @@ export const templates = [
         description: "Build and ship your Startup in days. And make money.",
         ogImage: "https://d2bzf0z2yzi3mc.cloudfront.net/Shipped_OG_image.jpg",
     },
-    // {
-    //     url: "https://supastarter.dev/",
-    //     name: "supastarter",
-    //     description:
-    //         "supastarter is a production-ready SaaS boilerplate for Nuxt 3 and Next.js 14. It includes authentication, billing, internationalization, multi-tenancy, and more.",
-    //     ogImage: "https://supastarter.dev/images/meta.png",
-    // },
+    {
+        url: "https://supastarter.dev?aff=pWOZY",
+        name: "supastarter",
+        description:
+            "supastarter is a production-ready SaaS boilerplate for Nuxt 3 and Next.js 14. It includes authentication, billing, internationalization, multi-tenancy, and more.",
+        ogImage: "https://supastarter.dev/images/meta.png",
+    },
     {
         url: "https://shipixen.com?aff=pWOZY",
         name: "Shipixen",
