@@ -48,7 +48,7 @@ const InfoAboutContent = () => (
 export default async function HomePage() {
   return (
     <main className="min-h-screen">
-      <div className="h-[70vh] flex-col-center pt-10 sm:pt-16 md:pt-24">
+      <div className="min-h-[90vh] flex-col-center pt-10 sm:pt-16 md:pt-24">
         <div className="flex flex-col justify-center text-center animate-in px-2">
           <h1 className="h1 mb-4 text-3xl font-extrabold md:text-4xl lg:text-5xl tracking-tight text-center max-w-3xl mx-auto text-pretty">
             The Next.js Ecosystem Overview in One Place
