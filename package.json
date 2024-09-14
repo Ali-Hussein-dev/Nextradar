@@ -22,6 +22,7 @@
     "ai": "^3.3.9",
     "class-variance-authority": "^0.7.0",
     "date-fns": "^3.6.0",
+    "framer-motion": "^11.5.4",
     "fumadocs-core": "13.4.9",
     "fumadocs-mdx": "10.0.2",
     "fumadocs-ui": "13.4.9",
