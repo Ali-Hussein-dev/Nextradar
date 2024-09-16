@@ -80,14 +80,13 @@ export const templates = [
     //         "The fastest way to build a startup is to buy 9. Customizable Next.js apps featuring Tailwindcss & Supabase.API snips, ai dev tools and more.",
     //     ogImage: "https://www.newcult.co/og.png",
     // },
-    // !note it takes users to lemonsqueezy store for launchfast
-    // {
-    //     url: "https://code-templates.lemonsqueezy.com?aff=pWOZY", 
-    //     name: "LaunchFast",
-    //     description:
-    //         "Comprehensive Astro, Next.js and SvelteKit Starter Kits for SEO, Analytics, Storage, Auth, Payments, Blogs, and Email - everything a developer needs to kickstart their project.",
-    //     ogImage: "https://ik.imagekit.io/vjeqenuhn/launchfast-website/seo.png",
-    // },
+    {
+        url: "https://code-templates.lemonsqueezy.com?aff=pWOZY",
+        name: "LaunchFast",
+        description:
+            "Comprehensive Astro, Next.js and SvelteKit Starter Kits for SEO, Analytics, Storage, Auth, Payments, Blogs, and Email - everything a developer needs to kickstart their project.",
+        ogImage: "https://ik.imagekit.io/vjeqenuhn/launchfast-website/seo.png",
+    },
 ]
 
 // https://smashing.tools

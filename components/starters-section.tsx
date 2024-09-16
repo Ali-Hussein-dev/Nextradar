@@ -13,14 +13,27 @@ export function StartersSection() {
       <div className="">
         <ExpandedCard height="14rem">
           <h2 className="text-2xl font-bold mb-4 mt-6">
-            Top Next.js Starters & Boilerplates
+            {templates.length} Best Free and Premium Next.js Templates
           </h2>
           <div className="text-zinc-600 dark:text-zinc-400">
-            <p className="">
-              After reviewing numerous boilerplates across more than 60 Next.js
-              templates, I{"'"}ve carefully selected those I believe offer the
-              most value to indie developers. I might have missed some great
-              ones, so if you have a suggestion, please{" "}
+            <p>
+              Explore a wide range of high-quality Next.js templates. Pick from
+              free, open-source, and premium options to build stunning and
+              functional Next.js websites and web apps effortlessly. <br />
+              Discover a diverse collection of handpicked and ready-to-use
+              templates and boilerplates to jumpstart your next project quickly
+              — built with the latest Next.js 14, React 18, and TypeScript for
+              optimal performance and ease of use.
+            </p>
+            <p>The reviewed Next.js templates meet the following criteria:</p>
+            <ul>
+              <li>Actively maintained and regularly updated</li>
+              <li>The UI is clean and beautiful</li>
+              <li>Clean documentation for onboarding and easy setup</li>
+            </ul>
+            <p>
+              I might have missed some great ones, so if you have a suggestion,
+              please{" "}
               <a
                 href="https://x.com/alihussein_20"
                 // className="text-blue-500 dark:text-blue-400"
@@ -29,15 +42,6 @@ export function StartersSection() {
               </a>
               .
             </p>
-            <p>
-              The the following Next.js boilerplates meet the following
-              criteria:
-            </p>
-            <ul>
-              <li>Actively maintained and updated</li>
-              <li>Clean and beautiful UI</li>
-              <li>Premium and open-source templates</li>
-            </ul>
           </div>
         </ExpandedCard>
       </div>
@@ -83,7 +87,7 @@ export function StartersSection() {
                   size="icon"
                   className="rounded-lg"
                 >
-                  <a href={o.url}>
+                  <a href={o.url} target="_blank">
                     <HiOutlineExternalLink />
                   </a>
                 </Button>
