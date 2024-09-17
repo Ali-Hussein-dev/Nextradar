@@ -12,14 +12,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const jobPostsPaths = jobPostsSlugs.map(o => `/docs/j/${o.slug}`);
     const paths = [
         "",
+        "/docs/latest",
+        "/docs/recommendations",
+        "/docs/learn",
+        "/docs/templates",
         "/docs/tools",
-        "/docs/real-world-apps",
         "/docs/plugin",
+        "/docs/real-world-apps",
         "/docs/integrations/headless-cms",
         "/docs/integrations/hosting",
-        "/docs/integrations",
-        "/docs/latest",
-        "/docs/learn",
+        "/docs/integrations/testing",
         "/docs/jobs",
         ...jobPostsPaths,
     ];
