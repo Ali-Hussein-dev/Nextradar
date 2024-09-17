@@ -1,5 +1,5 @@
 import { Repo } from "@/lib/get-repos-github"
-import { slugify } from "@/lib/utils"
+// import { slugify } from "@/lib/utils"
 import { CiStar } from "react-icons/ci"
 import { TbExternalLink } from "react-icons/tb"
 import { Button } from "@/components/button"
@@ -7,7 +7,7 @@ import { FaGithub } from "react-icons/fa"
 import { CardWrapper } from "@/components/ui/card-wrapper"
 
 export const RepoCard = ({ repo }: { repo: Repo }) => {
-  const slug = slugify(repo.name)
+  // const slug = slugify(repo.name)
   return (
     <CardWrapper>
       <div className="flex-row-between">

@@ -1,7 +1,6 @@
 import { client } from "./client"
 import { JobPost } from "@/components/job-posts-section"
 
-
 //------------------------------------------------------------Sites
 export const getSites = async () =>
     client.fetch(`*[_type == "sites"] | order(_createdAt asc) {
@@ -13,10 +12,18 @@ export const getSitesNames = async () =>
         name, category
         }`)
 //------------------------------------------------------------Repos
-export const getReposList = async () =>
-    client.fetch(`*[_type == "repos"] | order(_createdAt asc) {
-        owner, repoName, name, stars, category, tags
-        }`)
+export const getReposList = async (recommended: boolean) => {
+    const query = recommended ? `&& recommended == ${recommended}` : ""
+    return client.fetch(
+        `*[_type == "repos" ${query}] | order(_createdAt asc) {
+    owner,
+    repoName,
+    name,
+    stars,
+    category,
+    tags
+  }`)
+}
 // used in toc
 export const getReposNames = async () =>
     client.fetch(`*[_type == "repos"] | order(_createdAt asc) {
@@ -29,13 +36,13 @@ export const getSources = async ({
     recommended = null,
     fields = "name, description, type, href, src, author",
 }: {
-    year: number
-    month: number
-    recommended?: boolean | null
-    /**
-     * Select fields to return from the query
-     */
-    fields?: string
+        year: number
+        month: number
+        recommended?: boolean | null
+        /**
+         * Select fields to return from the query
+         */
+        fields?: string
 }) => {
     // Sanity stores dates in ISO format, so we need to format the month and year for comparison
     // Ensure month is in two-digit format for consistency
@@ -48,17 +55,21 @@ export const getSources = async ({
     const nextYear = month === 12 ? year + 1 : year
     const endDate = `${nextYear}-${nextMonthPadded}-01T00:00:00Z`
 
-    const recommendedQuery = !!recommended ? `&& recommended == ${recommended}` : "";
+    const recommendedQuery = !!recommended
+        ? `&& recommended == ${recommended}`
+        : ""
     const dateQuery = `&& _createdAt >= "${startDate}" && _createdAt < "${endDate}"`
     return client.fetch(`*[_type == "source" ${dateQuery} ${recommendedQuery} ] | order(_createdAt desc) {
     ${fields}
     }`)
 }
 
-export const getRecommendedSources = async (fields = "name, description, type, href, src, author") => client.fetch(`*[_type == "source" && recommended==true ] | order(_createdAt desc) {
+export const getRecommendedSources = async (
+    fields = "name, description, type, href, src, author"
+) =>
+    client.fetch(`*[_type == "source" && recommended==true ] | order(_createdAt desc) {
     ${fields}
 }`)
-
 
 //------------------------------------------------------------Jobs-Posts
 export const getJobPosts = async (): Promise<JobPost[]> => {
@@ -81,8 +92,13 @@ export const getJobPosts = async (): Promise<JobPost[]> => {
 }
 
 //------------------------------------------------------------Jobs-Posts-By-Slug
-export const getFullJobPostBySlug = async ({ slug }: { slug: string }): Promise<JobPost> => {
-    return client.fetch(`*[_type == "jobPost" && slug.current == $slug ][0] {
+export const getFullJobPostBySlug = async ({
+    slug,
+}: {
+    slug: string
+}): Promise<JobPost> => {
+    return client.fetch(
+    `*[_type == "jobPost" && slug.current == $slug ][0] {
         jobTitle,
         companyName,
         location,
@@ -95,16 +111,23 @@ export const getFullJobPostBySlug = async ({ slug }: { slug: string }): Promise<
         contractType,
         longDescription,
         }`,
-        { slug })
+        { slug }
+    )
 }
 
 //------------------------------------------------------------Jobs-Posts-By-Id
-export const getJobPostMetaSlug = async ({ slug }: { slug: string }): Promise<Pick<JobPost, "jobTitle" | "shortDescription">> => {
-    return client.fetch(`*[_type == "jobPost" && slug.current == $slug ][0] {
+export const getJobPostMetaSlug = async ({
+    slug,
+}: {
+    slug: string
+}): Promise<Pick<JobPost, "jobTitle" | "shortDescription">> => {
+    return client.fetch(
+    `*[_type == "jobPost" && slug.current == $slug ][0] {
         jobTitle,
         shortDescription
         }`,
-        { slug })
+        { slug }
+    )
 }
 // use for generating sitemap
 //------------------------------------------------------------Jobs-Posts-By-slug
@@ -127,6 +150,6 @@ export const getLatestRepos = async () => {
     date.setDate(date.getDate() - 10)
     const dateString = date.toISOString()
     return client.fetch(`*[_type == "repos" && _createdAt > "${dateString}"] | order(_createdAt desc) {
-        owner, repoName, name, stars, category, tags
+        owner, repoName, name, stars, category, tags, homepage, recommended
         }`)
 }

@@ -19,6 +19,11 @@ const RepoSchema = {
             type: "string",
         },
         {
+            name: "homepage",
+            title: "URL",
+            type: "url",
+        },
+        {
             name: "category",
             title: "Category",
             type: "string",
@@ -31,6 +36,12 @@ const RepoSchema = {
             options: {
                 layout: "tags"
             },
+        },
+        {
+            name: "recommended",
+            title: "Recommended",
+            type: "boolean",
+            initialValue: false,
         },
         {
             name: "stars",

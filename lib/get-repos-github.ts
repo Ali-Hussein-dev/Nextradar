@@ -44,8 +44,8 @@ const groupByCategory = (repos: Repo[]) => {
     }, {} as Record<string, Repo[]>)
 }
 
-export const getReposGitHubByCategory = async (category: string) => {
-    const list = await getReposList()
+export const getReposGitHubByCategory = async (category: string, recommended: boolean) => {
+    const list = await getReposList(recommended)
     const filteredRepos = list.filter((repo: Repo) => repo.category === category) as Repo[]
     const sites = category === "Learn" ? await getSites() : []
     const fetchedRepos = await getRepos(filteredRepos as Repo[])
