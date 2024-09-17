@@ -27,6 +27,9 @@ export function StartersSection() {
             </p>
             <p>The reviewed Next.js templates meet the following criteria:</p>
             <ul>
+              <li>
+                It uses the last features of Next.js such as the App router
+              </li>
               <li>Actively maintained and regularly updated</li>
               <li>The UI is clean and beautiful</li>
               <li>Clean documentation for onboarding and easy setup</li>
@@ -57,10 +60,10 @@ export function StartersSection() {
                   loading="lazy"
                 />
                 <div className="flex-col-start gap-0 pt-1">
-                  <div className="flex-row-between gap-2">
+                  <div className="flex-row-between gap-2 w-full">
                     <h3 className="m-0 font-bold text-lg w-full">{o.name}</h3>
                     {o.sponsored && (
-                      <span className="text-light dark:text-zinc-700 px-1 rounded-sm text-zinc-600">
+                      <span className="text-light dark:text-zinc-600 px-1 rounded-sm text-zinc-500">
                         Sponsored
                       </span>
                     )}

@@ -15,11 +15,31 @@ export const templates = [
         ogImage: "https://t3.gg/images/twitter.png",
     },
     {
-        url: "https://saas-ui.dev/",
-        name: "Saas UI",
+        url: "https://chat.vercel.ai/",
+        github: "https://github.com/vercel/ai-chatbot",
+        name: "Next.js AI Chatbot",
         description:
-            "Modern React component library and starter kit for SaaS, B2B and internal tools. Built with Chakra UI and Next.js.",
-        ogImage: "https://saas-ui.dev/og-image.jpg",
+            "An AI-powered chatbot template built with Next.js and Vercel",
+        ogImage: "https://chat.vercel.ai/opengraph-image.png",
+    },
+    {
+        url: "https://makerkit.lemonsqueezy.com?aff=pWOZY",
+        name: "makerkit",
+        description:
+            "Build unlimited SaaS products with any SaaS Starter Kit. Save months of work and focus on building a profitable business.",
+        ogImage: "https://makerkit.dev/assets/images/makerkit.webp",
+    },
+    {
+        url: "https://shipped.club?aff=pWOZY",
+        name: "Shipped",
+        description: "Build and ship your Startup in days. And make money.",
+        ogImage: "https://d2bzf0z2yzi3mc.cloudfront.net/Shipped_OG_image.jpg",
+    },
+    {
+        url: "https://demo.vercel.store",
+        name: "Next Commerce",
+        description: "High-performance ecommerce store built with Next.js, Vercel, and Shopify.",
+        ogImage: "https://commerce-shopify-lzmegorad-vercel-solutions-vtest314.vercel.app/opengraph-image",
     },
     {
         url: "https://v1.run",
@@ -30,10 +50,11 @@ export const templates = [
         github: "https://github.com/midday-ai/v1",
     },
     {
-        url: "https://shipped.club?aff=pWOZY",
-        name: "Shipped",
-        description: "Build and ship your Startup in days. And make money.",
-        ogImage: "https://d2bzf0z2yzi3mc.cloudfront.net/Shipped_OG_image.jpg",
+        url: "https://saas-ui.dev/",
+        name: "Saas UI",
+        description:
+            "Modern React component library and starter kit for SaaS, B2B and internal tools. Built with Chakra UI and Next.js.",
+        ogImage: "https://saas-ui.dev/og-image.jpg",
     },
     {
         url: "https://supastarter.dev?aff=pWOZY",
@@ -63,14 +84,6 @@ export const templates = [
             "The fastest way to build a startup is to buy 9. Customizable Next.js apps featuring Tailwindcss & Supabase.API snips, ai dev tools and more.",
         ogImage: "https://www.newcult.co/og.png",
     },
-    // !note no open graph image
-    // {
-    //     url: "https://makerkit.dev/",
-    //     name: "makerkit",
-    //     description:
-    //         "Build unlimited SaaS products with any SaaS Starter Kit. Save months of work and focus on building a profitable business.",
-    //     ogImage: "https://www.newcult.co/og.png", 
-    // },
     // !note no open graph image
     // {
     //     url: "https://nextjs-boilerplate.com/",
