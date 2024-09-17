@@ -2,7 +2,7 @@
   "root": true,
   "pages": [
     "latest",
-    "recommended",
+    "recommendations",
     "learn",
     "templates",
     "tools",

@@ -30,7 +30,7 @@ export default async function Page({
       full={page.data.full}
     >
       <DocsBody>
-        <div className="max-w-4xl mx-auto w-full">
+        <div className="max-w-5xl mx-auto w-full">
           <MDX components={{ ...defaultMdxComponents }} />
         </div>
       </DocsBody>
