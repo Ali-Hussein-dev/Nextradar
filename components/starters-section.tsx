@@ -4,18 +4,18 @@ import { Button } from "@/components/button"
 import { CardWrapper } from "@/components/ui/card-wrapper"
 import { HiOutlineExternalLink } from "react-icons/hi"
 import { templates } from "@/constants/templates"
-import { ExpandedCard } from "@/components/ui/expanded-card"
+import { ExpandableCard } from "@/components/ui/expandable-card"
 
 //======================================
 export function StartersSection() {
   return (
     <div className="space-y-8">
       <div className="">
-        <ExpandedCard height="14rem">
-          <h2 className="text-2xl font-bold mb-4 mt-6">
+        <ExpandableCard height="9rem" className="md:px-6 border-dashed">
+          <h2 className="text-2xl font-bold mb-2 mt-2">
             {templates.length} Best Free and Premium Next.js Templates
           </h2>
-          <div className="text-zinc-600 dark:text-zinc-400">
+          <div className="text-zinc-600 dark:text-zinc-400 prose-p:my-0">
             <p>
               Explore a wide range of high-quality Next.js templates. Pick from
               free, open-source, and premium options to build stunning and
@@ -46,7 +46,7 @@ export function StartersSection() {
               .
             </p>
           </div>
-        </ExpandedCard>
+        </ExpandableCard>
       </div>
       <div className="grid lg:grid-cols-2 gap-3">
         {templates.map((o, i) => (
