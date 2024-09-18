@@ -29,11 +29,15 @@ export const ArticlesList = async ({
 
   const list = (await getSources({ year, month })) as CardProps[]
   return (
-    <div className="space-y-4 max-w-4xl">
+    <div>
       {list.length > 0 ? (
-        list
-          .filter((o) => o.type == filterBy)
-          .map((o) => <ResourceCard key={o.name} {...o} />)
+        <div className="grid gap-3 md:grid-cols-2">
+          {list
+            .filter((o) => o.type == filterBy)
+            .map((o) => (
+              <ResourceCard key={o.name} {...o} />
+            ))}
+        </div>
       ) : (
         <div className="text-lg dark:text-zinc-500">
           <p>

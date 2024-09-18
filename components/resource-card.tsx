@@ -23,23 +23,34 @@ export const ResourceCard = ({
   // const slug = slugify(name)
   return (
     <CardWrapper className="flex-none p-0 md:px-0">
-      <div className="flex flex-col sm:flex-row items-start sm:items-start gap-4 w-full">
-        <div className="w-full px-3 sm:px-4 pb-2 pt-6">
-          <h3 className="text-xl font-extrabold mt-0 mb-1 text-pretty scroll-m-20 md:text-xl dark:text-zinc-300/90">
-            {name}
-          </h3>
+      <div className="flex flex-col md:flex-row items-start h-full sm:items-start gap-3 w-full py-3 px-4">
+        {/* --------------------------------YT-Embed */}
+        {src && <YtDialog src={src} href={href} />}
+        <div className="w-full pt-2 grow flex-col-start gap-1">
+          <div className="h-full">
+            <h3 className="font-medium tracking-tight my-0 text-pretty scroll-m-20 dark:text-zinc-300 line-clamp-2">
+              {name}
+            </h3>
 
-          <p
+            {/* --------------------------------Description-only for articles */}
+            {!src && (
+              <p
+                className={cn(
+                  "mb-0.5 dark:text-zinc-500 text-pretty line-clamp-2 text-zinc-700"
+                  // src ? "hidden md:line-clamp-1" : ""
+                )}
+              >
+                {description}
+              </p>
+            )}
+          </div>
+          {/* --------------------------------Bottom */}
+          <div
             className={cn(
-              "mb-0.5 dark:text-zinc-400 text-pretty line-clamp-2 text-zinc-700",
-              src ? "hidden md:line-clamp-1" : ""
+              "flex-row-between gap-2 w-full",
+              !src && "border-t border-dashed pt-2 "
             )}
           >
-            {description}
-          </p>
-
-          {/* --------------------------------Bottom */}
-          <div className="flex-row-between gap-2 w-full pt-1">
             <span className="dark:text-zinc-500 text-zinc-500">{author}</span>
             {!src && (
               <Button
@@ -55,12 +66,6 @@ export const ResourceCard = ({
             )}
           </div>
         </div>
-        {/* --------------------------------YT-Embed */}
-        {src && (
-          <div className="aspect-[560/315] grow size-fit rounded-md overflow-hidden w-full md:max-w-[18rem] order-first sm:order-last">
-            <YtDialog src={src} href={href} />
-          </div>
-        )}
       </div>
     </CardWrapper>
   )

@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { FaPlay } from "react-icons/fa"
 
 const PlayBtn = ({ videoId }: { videoId: string }) => (
-  <div className="relative size-full">
+  <div className="relative aspect-[8/5] h-full rounded-md overflow-hidden w-full max-w-40">
     <img
       src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
       alt="YouTube video thumbnail"
