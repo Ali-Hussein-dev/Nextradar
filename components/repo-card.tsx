@@ -23,13 +23,15 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
           </span>
         )}
       </div>
-      <div className="mb-3 max-w-2xl">
-        <p className="mt-2 mb-0 dark:text-zinc-300">{repo.description}</p>
+      <div className="mb-3 max-w-2xl h-full">
+        <p className="mt-2 mb-0 dark:text-zinc-300 line-clamp-2">
+          {repo.description}
+        </p>
         {repo?.createdBy && (
           <span className="text-sm dark:text-zinc-500">{repo.createdBy}</span>
         )}
       </div>
-      <div className="flex-row-between pt-2">
+      <div className="flex-row-between pt-2 dark:border-zinc-700 border-t border-dashed">
         {repo?.tags?.map((tag: string) => (
           <span
             key={tag}
@@ -55,11 +57,11 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
             <Button
               asChild
               variant={"secondary"}
-              className="rounded-lg gap-3 no-underline"
+              className="rounded-lg gap-3 no-underline dark:text-green-300 text-green-500"
             >
               <a href={repo.homepage} target="_blank">
                 Visit
-                <TbExternalLink size="15" />
+                <TbExternalLink size="16" />
               </a>
             </Button>
           )}

@@ -75,7 +75,7 @@ export function StartersSection() {
                 {o.github && (
                   <Button
                     asChild
-                    variant={"secondary"}
+                    variant="outline"
                     size="icon"
                     className="rounded-lg"
                   >
@@ -87,10 +87,10 @@ export function StartersSection() {
                 <Button
                   asChild
                   variant={"secondary"}
-                  size="icon"
-                  className="rounded-lg"
+                  className="rounded-lg gap-3 no-underline dark:text-green-300 text-green-500"
                 >
                   <a href={o.url} target="_blank">
+                    Visit
                     <HiOutlineExternalLink />
                   </a>
                 </Button>

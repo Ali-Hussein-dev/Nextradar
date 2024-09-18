@@ -45,10 +45,9 @@ export const ResourceCard = ({
               <Button
                 variant="secondary"
                 asChild
-                size="sm"
-                className="gap-3 no-underline"
+                className="rounded-lg gap-3 no-underline dark:text-green-300 text-green-500"
               >
-                <a href={href} target="_blank" rel="noopener noreferrer">
+                <a href={href} target="_blank">
                   Visit
                   <FaExternalLinkAlt size="14" />
                 </a>

@@ -30,7 +30,9 @@ export const IntegrationCard = ({
           />
           <h3 className="my-0 font-bold text-xl">{name}</h3>
         </div>
-        <p className="mt-0 text-base dark:text-zinc-300">{description}</p>
+        <p className="mt-0 text-base dark:text-zinc-300 line-clamp-3">
+          {description}
+        </p>
       </div>
       <div className="flex-row-between pt-2 border-t border-dashed w-full">
         <div className="flex-row-end grow gap-3">
@@ -38,12 +40,11 @@ export const IntegrationCard = ({
             <Button
               asChild
               variant={"secondary"}
-              className="rounded-lg gap-2 no-underline px-3"
-              size="sm"
+              className="rounded-lg gap-3 no-underline dark:text-green-300 text-green-500"
             >
               <a href={url} target="_blank">
                 Visit
-                <TbExternalLink size="15" />
+                <TbExternalLink size="16" />
               </a>
             </Button>
           )}
