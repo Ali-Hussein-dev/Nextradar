@@ -1,11 +1,37 @@
 ---
 title: Hosting
-description: An overview of the hosting services that works with Next.js
+description: Discover the top hosting providers for Next.js. Select the ideal platform that ensures smooth deployment and peak performance. Compare...
 ---
+
 
 import { IntegrationSection } from "@/components/integration-section"
 import categories from "@/constants/categories.json"
+import { ExpandableCard } from "@/components/ui/expandable-card"
 
-## Overview
+<ExpandableCard className="md:px-6 border-dashed h-full">
+  <h2 className="text-2xl font-bold mb-0 mt-2">Best Next.js Hosting Providers for {new Date().getFullYear()}</h2>
+  <div className="text-zinc-600 dark:text-zinc-400 prose-p:mt-2">
+ Great hosting is key to your Next.js site's success.It affects everything speed, performance, scalability, budget, and overall user experience. So, to help you make proper decisions, we have listed the key factors to consider while hosting the Next.js app.
 
+- **Pricing**: Understanding the cost structure helps manage expenses and ensure the hosting provider aligns with your budget.
+
+- **Developer Experience**: Vercel is the best choice for Next.js hosting when it comes to DX and easy of use. Look for providers that offer a user-friendly interface, easy deployment processes, and good documentation.
+
+- **Compatibility**: Make sure the hosting provider supports Next.js features like server-side rendering, static site generation, and API routes.
+
+- **Performance**: Fast server speed and response time are critical for a seamless user experience. Look for hosting providers with a reputation for high-performance servers and low response times.
+
+- **CDN Integration**: CDN integration is crucial for distributing content globally, reducing latency, and ensuring faster page loads for users across different geographical locations.
+Choose a hosting provider that seamlessly integrates with CDN services.
+Confirm the coverage of the CDN network to ensure overall content distribution.
+
+- **Scalable**: The ability to scale resources is crucial for handling traffic spikes and adapting the growth of your Next.js app. Evaluate the hosting provider's scalability options, including vertical and horizontal scaling. Check if the provider has a track record of effectively handling increased workloads without compromising performance.
+Serverless 
+
+- **Security**: It is essential to protect your Next.js app, user data, and sensitive information from potential threats. Look for hosting providers prioritizing security measures such as SSL/TLS encryption. Check for additional security features like DDoS protection and regular security updates.
+
+</div>
+</ExpandableCard>
+
+<br />
 <IntegrationSection categoryId={categories.hosting.id} />

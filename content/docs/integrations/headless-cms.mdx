@@ -1,11 +1,24 @@
 ---
 title: Headless CMS
-description: An overview of the headless CMS integrations available in Next.js
+description: Discover the top and Best headless CMS providers for Next.js apps. Choose from our curated list with...
 ---
 
 import { IntegrationSection } from "@/components/integration-section"
 import categories from "@/constants/categories.json"
+import { ExpandableCard } from "@/components/ui/expandable-card"
 
-## Overview
+<ExpandableCard className="md:px-6 border-dashed h-full">
+  <h2 className="text-2xl font-bold mb-0 mt-2">Best Headless CMS for Next.js {new Date().getFullYear()}</h2>
+  <div className="text-zinc-600 dark:text-zinc-400 prose-p:mt-2">
+  
+  Discover the perfect headless CMS for your Next.js project with our comprehensive guide to the top options in {new Date().getFullYear()}. We've meticulously curated a list of cutting-edge content management systems that seamlessly integrate with Next.js, empowering developers to create lightning-fast, scalable websites. 
+  
+  From Sanity's real-time collaboration features to Contentful's robust API-first approach, explore the unique strengths of each CMS to find your ideal match. Whether you're building a blog, e-commerce site, or enterprise-level application, our in-depth analysis covers key features, pricing, and use cases to help you make an informed decision. 
+  
+  Elevate your Next.js development workflow and unlock the full potential of headless architecture with our selection of CMS solutions. Don't miss out on the opportunity to streamline your content management and boost your site's performance – dive into our guide and revolutionize your Next.js projects today!
 
+  </div>
+</ExpandableCard>
+
+<br />
 <IntegrationSection categoryId={categories.headlessCMS.id} />

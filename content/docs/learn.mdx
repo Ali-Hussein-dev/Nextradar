@@ -1,10 +1,18 @@
 ---
 title: Courses
-description: Hand-picked list of courses, and tutorials to learn Next.js framework.
+description: Explore top Hand-picked list of courses, and tutorials to learn Next.js framework.
 ---
 
 import { ItemsList } from "@/components/List"
+import { ExpandableCard } from "@/components/ui/expandable-card"
 
-Hand-picked list of courses, and tutorials to learn Next.js framework.
+<ExpandableCard className="md:px-6 border-dashed">
+  <h2 className="text-2xl font-bold mb-0 mt-2">Best Next.js Courses and Tutorials {new Date().getFullYear()}</h2>
+  <div className="text-zinc-600 dark:text-zinc-400 prose-p:mt-2">
+    Discover the best courses and tutorials to master the Next.js framework. Our hand-picked resources are designed to help you learn Next.js efficiently, whether you are a beginner or an experienced developer. Explore both **free and premium courses** from industry experts, covering a wide range of topics including server-side rendering, static site generation, API routes, and more. Stay up-to-date with the latest trends and best practices in Next.js development to enhance your skills and advance your career.
+  </div>
+</ExpandableCard>
+
+<br />
 
 <ItemsList category="Learn" />
