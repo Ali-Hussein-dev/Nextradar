@@ -7,7 +7,7 @@ import { templates } from "@/constants/templates"
 import { ExpandableCard } from "@/components/ui/expandable-card"
 
 //======================================
-export function StartersSection() {
+export function TemplatesSection() {
   return (
     <div className="space-y-8">
       <div className="">
