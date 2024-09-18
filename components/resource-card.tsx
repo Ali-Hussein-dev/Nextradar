@@ -23,7 +23,7 @@ export const ResourceCard = ({
   // const slug = slugify(name)
   return (
     <CardWrapper className="flex-none p-0 md:px-0">
-      <div className="flex flex-col md:flex-row items-start h-full sm:items-start gap-3 w-full py-3 px-4">
+      <div className="flex flex-col md:flex-row items-start h-full sm:items-start md:gap-3 w-full py-2 px-2 md:px-4">
         {/* --------------------------------YT-Embed */}
         {src && <YtDialog src={src} href={href} />}
         <div className="w-full pt-2 grow flex-col-start gap-1">

@@ -7,7 +7,7 @@ export const LatestRepos = async () => {
   const list = await getLatestRepos()
   const fullList = (await getRepos(list)) as Repo[]
   return (
-    <div className="space-y-4 max-w-4xl">
+    <div className="grid lg:grid-cols-2 gap-3">
       {fullList.map((o, i) => (
         <RepoCard key={i} repo={o} />
       ))}{" "}

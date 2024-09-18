@@ -31,15 +31,17 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
           <span className="text-sm dark:text-zinc-500">{repo.createdBy}</span>
         )}
       </div>
-      <div className="flex-row-between pt-2 dark:border-zinc-700 border-t border-dashed">
-        {repo?.tags?.map((tag: string) => (
-          <span
-            key={tag}
-            className="p-1 text-xs bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-200 rounded-sm mr-1"
-          >
-            {tag}
-          </span>
-        ))}
+      <div className="flex flex-col sm:flex-row sm:items-center gap-2 pt-2 dark:border-zinc-700 border-t border-dashed">
+        <div className="">
+          {repo?.tags?.map((tag: string) => (
+            <span
+              key={tag}
+              className="p-1 text-xs bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-200 rounded-sm mr-1"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
         <div className="flex-row-end grow gap-3">
           {repo?.gh && (
             <Button
