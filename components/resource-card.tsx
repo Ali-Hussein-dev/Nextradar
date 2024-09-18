@@ -28,7 +28,7 @@ export const ResourceCard = ({
         {src && <YtDialog src={src} href={href} />}
         <div className="w-full pt-2 grow flex-col-start gap-1">
           <div className="h-full">
-            <h3 className="font-medium tracking-tight my-0 text-pretty scroll-m-20 dark:text-zinc-300 line-clamp-2">
+            <h3 className="font-medium tracking-tight my-0 text-pretty scroll-m-20 dark:text-zinc-300 line-clamp-2 text-lg">
               {name}
             </h3>
 
