@@ -14,7 +14,7 @@ export const ArticlesList = async ({
   if (recommended) {
     const list = (await getRecommendedSources()) as CardProps[]
     return (
-      <div className="space-y-4 max-w-4xl">
+      <div className="grid md:grid-cols-2 gap-4">
         {list
           .filter((o) => o.type == filterBy)
           .map((o) => (
