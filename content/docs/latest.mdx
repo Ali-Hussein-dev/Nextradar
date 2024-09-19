@@ -6,10 +6,25 @@ description: The latest articles and videos from the community.
 import { ArticlesList } from "@/components/articles-list"
 import { LatestRepos } from "@/components/latest-repos"
 import { Sponsor } from "@/components/sponsor"
+import { ExpandableCard } from "@/components/ui/expandable-card"
 
 <Sponsor />
-The latest Next.js news, tutorials, and best practices
 
+
+<ExpandableCard className="md:px-6 border-dashed mt-8">
+  <h2 className="text-2xl font-bold mb-0 mt-2 tracking-tight">Latest Next.js and Vercel News</h2>
+  <h3 className="mb-0 mt-0 text-zinc-600 dark:text-zinc-400 font-medium prose-p:mt-1">
+  Fresh and curated content for curious Next.js developers
+  </h3>
+  <div className="text-zinc-600 dark:text-zinc-400 prose-p:mt-2">
+  
+  Drowning in the sea of Next.js and Vercel information? As a solo developer, I felt overwhelmed too. That's why I created this curated collection of links to the best resources out there. No fluff, no AI-generated content – just hand-picked, quality links that cut through the noise. 
+  
+  I personally vet each resource, ensuring you get direct access to the most valuable Next.js and Vercel content on the web. From official documentation updates to insightful developer blogs, this constantly updated list saves you time and keeps you informed. 
+  
+  It's like having a knowledgeable friend who sifts through the internet, so you don't have to. Boost your Next.js and Vercel expertise with this carefully curated gateway to top-notch resources
+  </div>
+</ExpandableCard>
 ## ▶️ Videos
 <ArticlesList filterBy="youtube" />
 
