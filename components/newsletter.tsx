@@ -24,17 +24,22 @@ export function Newsletter() {
 export function Newsletter2() {
   return (
     <div className="pb-3">
-    <div className="px-4 py-5 border w-full border-dashed rounded">
-      <div className="flex-row-between gap-2 w-full prose-p:mt-0">
-        <p className="text-center dark:text-zinc-400 text-zinc-800 my-0">
-          Get the latest published high-quality resources about Next.js in your
-          inbox
-        </p>
-        <Button asChild className="rounded-lg font-medium">
-          <a href="https://nextradar.substack.com/">Subscribe</a>
-        </Button>
+      <div className="px-4 py-5 border w-full border-dashed rounded">
+        <div className="flex-col lg:items-end flex lg:flex-row justify-between gap-4 w-full prose-p:mt-0">
+          <div className="">
+            <h2 className="text-xl lg:text-start mt-0 mb-1 font-bold tracking-tighter text-center">
+              Biweekly Newsletter
+            </h2>
+            <p className="text-center lg:text-start dark:text-zinc-400 text-zinc-800 my-0">
+              Get the latest published high-quality resources about Next.js in
+              your inbox
+            </p>
+          </div>
+          <Button asChild className="rounded-lg font-medium">
+            <a href="https://nextradar.substack.com/">Subscribe</a>
+          </Button>
+        </div>
       </div>
-    </div>
     </div>
   )
 }
