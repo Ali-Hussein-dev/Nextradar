@@ -26,7 +26,7 @@ export const ResourceCard = ({
       <div className="flex flex-col md:flex-row items-start h-full sm:items-start md:gap-3 w-full py-2 px-2 md:px-4">
         {/* --------------------------------YT-Embed */}
         {src && <YtDialog src={src} href={href} />}
-        <div className="w-full pt-2 grow flex-col-start h-full gap-1">
+        <div className="w-full pt-2 grow flex-col-start md:h-full gap-1">
           <div className="h-full">
             <h3 className="font-medium tracking-tight my-0 text-pretty scroll-m-20 dark:text-zinc-300 line-clamp-2 text-lg">
               {name}

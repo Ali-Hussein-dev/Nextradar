@@ -19,3 +19,22 @@ export function Newsletter() {
     </div>
   )
 }
+
+//======================================
+export function Newsletter2() {
+  return (
+    <div className="pb-3">
+    <div className="px-4 py-5 border w-full border-dashed rounded">
+      <div className="flex-row-between gap-2 w-full prose-p:mt-0">
+        <p className="text-center dark:text-zinc-400 text-zinc-800 my-0">
+          Get the latest published high-quality resources about Next.js in your
+          inbox
+        </p>
+        <Button asChild className="rounded-lg font-medium">
+          <a href="https://nextradar.substack.com/">Subscribe</a>
+        </Button>
+      </div>
+    </div>
+    </div>
+  )
+}
