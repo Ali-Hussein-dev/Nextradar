@@ -36,7 +36,7 @@ export const Faqs = () => {
       </div>
       <p className="text-center max-w-lg mx-auto dark:text-zinc-400 pt-6">
         Haven{"'"}t I answered all your questions? Feel free to reach out on{" "}
-        <a href="https://twitter.com/alihusnain_20" className="hover:underline">
+        <a href="https://x.com/alihussein_20" className="hover:underline">
           𝕏
         </a>{" "}
         I will be glad to response.
