@@ -4,7 +4,7 @@ export const templates = [
         name: "Indie Starter",
         description: "Write less code, iterate fast, and earn cash",
         ogImage: "https://indie-starter.dev/opengraph-image.jpg",
-        // sponsored: true,
+        sponsored: false,
     },
     {
         url: "https://create.t3.gg/",
