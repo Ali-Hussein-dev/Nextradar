@@ -4,7 +4,7 @@ export const templates = [
         name: "Indie Starter",
         description: "Write less code, iterate fast, and earn cash",
         ogImage: "https://indie-starter.dev/opengraph-image.jpg",
-        sponsored: true,
+        // sponsored: true,
     },
     {
         url: "https://create.t3.gg/",
@@ -28,6 +28,13 @@ export const templates = [
         description:
             "Build unlimited SaaS products with any SaaS Starter Kit. Save months of work and focus on building a profitable business.",
         ogImage: "https://makerkit.dev/assets/images/makerkit.webp",
+    },
+    {
+        url: "https://directory.indie-starter.dev",
+        name: "Indie Directory Starter",
+        description:
+            "Expand Your Audience, Showcase Your Offerings, and Boost Your Visibility – All from One Platform",
+        ogImage: "https://directory.indie-starter.dev/opengraph-image.jpg",
     },
     {
         url: "https://shipped.club?aff=pWOZY",
@@ -69,6 +76,12 @@ export const templates = [
         description:
             "Custom, branded codebases for your app, website, product or blog. Get an SEO optimized Markdown blog running Next.js 14, TypeScript, TailwindCSS + Shadcn UI. Deploy to Vercel with 1 click without touching the code.",
         ogImage: "https://shipixen.com/static/images/ogImg.jpg",
+    },
+    {
+        url: "https://www.marblism.com/",
+        name: "Marblism",
+        description: "Marblism uses AI to generate Next.js apps from prompts",
+        ogImage: "https://cdn.prod.website-files.com/6581b414af882653e8f914a5/65f730d984038dee30e69cae_405.png",
     },
     {
         url: "https://achromatic.dev",
