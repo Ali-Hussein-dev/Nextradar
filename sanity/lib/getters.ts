@@ -29,6 +29,26 @@ export const getReposNames = async () =>
     client.fetch(`*[_type == "repos"] | order(_createdAt asc) {
         name, category
         }`)
+
+//------------------------------------------------------------Recnet-Resources
+const getRecentSources = async ({
+    fields = "name, description, type, href, src, author",
+}: {
+    /**
+     * Select fields to return from the query
+     */
+        fields: string
+}) => {
+    // Calculate the date range for the last 30 days
+    const endDate = new Date().toISOString();
+    const startDate = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
+
+    const dateQuery = `&& _createdAt >= "${startDate}" && _createdAt < "${endDate}"`;
+
+    return client.fetch(`*[_type == "source" ${dateQuery} ] | order(_createdAt desc) {
+    ${fields}
+    }`);
+}
 //------------------------------------------------------------Resources
 export const getSources = async ({
     year,
@@ -43,7 +63,15 @@ export const getSources = async ({
          * Select fields to return from the query
          */
         fields?: string
-}) => {
+    }) => {
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth() + 1; // getMonth() returns 0-based month
+
+    // Check if the month is the current month
+    if (year === currentYear && month === currentMonth) {
+        return getRecentSources({ fields });
+    }
     // Sanity stores dates in ISO format, so we need to format the month and year for comparison
     // Ensure month is in two-digit format for consistency
     const monthPadded = month.toString().padStart(2, "0")

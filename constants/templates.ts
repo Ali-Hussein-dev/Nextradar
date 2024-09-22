@@ -1,6 +1,6 @@
 export const templates = [
     {
-        url: "https://indie-starter.dev",
+        url: "https://indie-starter.dev?ref=nextradar-templates",
         name: "Indie Starter",
         description: "Write less code, iterate fast, and earn cash",
         ogImage: "https://indie-starter.dev/opengraph-image.jpg",
@@ -30,7 +30,7 @@ export const templates = [
         ogImage: "https://makerkit.dev/assets/images/makerkit.webp",
     },
     {
-        url: "https://directory.indie-starter.dev",
+        url: "https://directory.indie-starter.dev?ref=nextradar-templates",
         name: "Indie Directory Starter",
         description:
             "Expand Your Audience, Showcase Your Offerings, and Boost Your Visibility – All from One Platform",

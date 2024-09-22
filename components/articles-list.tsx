@@ -31,6 +31,7 @@ export const ArticlesList = async ({
   return (
     <div>
       {list.length > 0 ? (
+        // todo: should remove the check as the list will always have resources
         <div className="grid gap-3 md:grid-cols-2">
           {list
             .filter((o) => o.type == filterBy)
