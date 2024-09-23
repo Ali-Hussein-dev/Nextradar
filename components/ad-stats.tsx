@@ -1,4 +1,5 @@
 import ky from "ky"
+import { unstable_cache } from "next/cache"
 
 const getStartEndDate = () => {
   const endAt = new Date()
@@ -8,15 +9,35 @@ const getStartEndDate = () => {
 }
 //======================================
 export const AdStats = async () => {
-  const authResponse = (await ky
-    .post("https://aliytics.netlify.app/api/auth/login", {
-      json: {
-        username: process.env.ALIYTICS_USERNAME,
-        password: process.env.ALIYTICS_PASSWORD,
-      },
-    })
-    .json()) as { token: string }
-  const token = authResponse.token
+  const username = process.env.ALIYTICS_USERNAME
+  const password = process.env.ALIYTICS_PASSWORD
+  if (!username || !password) {
+    console.warn("Missing credentials");
+    return <div>Couldn{"'"}t fetch stats</div>
+  }
+
+  const getCachedAuthResponse = unstable_cache(
+    async () =>
+      await ky
+        .post("https://aliytics.netlify.app/api/auth/login", {
+          json: {
+            username,
+            password,
+          },
+        })
+        .json()
+        .catch(console.error),
+    ["ad-stats"],
+    {
+      revalidate: 43200, // 12 hours
+    }
+  )
+  const authResponse = (await getCachedAuthResponse()) as { token: string }
+  const token = authResponse?.token
+  if (!token) {
+    console.warn("Couldn't fetch token",token)
+    return <div>Couldn{"'"}t fetch stats</div>
+  }
   const { startAt, endAt } = getStartEndDate()
   // DOCS: https://umami.is/docs/api/website-stats#get-/api/websites/:websiteid/pageviews
   const getStats = (await ky
