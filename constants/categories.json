@@ -7,8 +7,8 @@
         "name": "Hosting",
         "id": "1002"
     },
-    "database":{
-        "name": "Static Site Generator",
+    "baas":{
+        "name": "BaaS",
         "id": "1003"
     },
     "testing": {
