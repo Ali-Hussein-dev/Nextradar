@@ -16,15 +16,13 @@ export function TemplatesSection() {
             {templates.length} Best Free and Premium Next.js Templates
           </h2>
           <div className="text-zinc-600 dark:text-zinc-400 prose-p:my-0">
-            <p>
-              Explore a wide range of high-quality Next.js templates. Pick from
-              free, open-source, and premium options to build stunning and
-              functional Next.js websites and web apps effortlessly. <br />
-              Discover a diverse collection of handpicked and ready-to-use
-              templates and boilerplates to jumpstart your next project quickly
-              — built with the latest Next.js 14, React 18, and TypeScript for
-              optimal performance and ease of use.
-            </p>
+            Explore a wide range of high-quality Next.js templates. Pick from
+            free, open-source, and premium options to build stunning and
+            functional Next.js websites and web apps effortlessly. <br />
+            Discover a diverse collection of handpicked and ready-to-use
+            templates and boilerplates to jumpstart your next project quickly —
+            built with the latest Next.js 14, React 18, and TypeScript for
+            optimal performance and ease of use.
             <p>The reviewed Next.js templates meet the following criteria:</p>
             <ul>
               <li>
