@@ -4,24 +4,29 @@ import { Button, ButtonProps } from "./button"
 //======================================
 export const Sponsor = () => {
   return (
-    <div className="relative overflow-hidden rounded-xl dark:bg-zinc-900 bg-white shadow border dark:border-zinc-800 group border-zinc-400 p-[0.5px] w-fit mx-auto">
-      <span className="absolute inset-[-1000%] animate-[spin_10s_linear_infinite_reverse] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#fff_0%,#09090B_7%)] bg-[conic-gradient(from_90deg_at_50%_50%,#000_0%,#fff_5%)] group-hover:bg-none" />
-      <Button
-        // {...props}
-        className={cn(
-          "h-10 px-6 w-full rounded-xl font-semibold text-zinc-800 dark:text-zinc-200 backdrop-blur-xl bg-zinc-50 dark:bg-zinc-900"
-          // props.className
-        )}
-      >
-        <a
-          href={"https://indie-starter.dev/?ref=nextradar"}
-          target={"_blank"}
-          className="flex-row-start gap-4 no-underline"
+    <div className="w-fit mx-auto ">
+      <div className="relative overflow-hidden rounded-xl dark:bg-zinc-900 bg-white shadow border dark:border-zinc-800 group border-zinc-400 p-[0.5px] w-fit mx-auto">
+        <span className="absolute inset-[-1000%] animate-[spin_10s_linear_infinite_reverse] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#fff_0%,#09090B_7%)] bg-[conic-gradient(from_90deg_at_50%_50%,#000_0%,#fff_5%)] group-hover:bg-none" />
+
+        <Button
+          // {...props}
+          className={cn(
+            "h-10 px-6 w-full rounded-xl font-semibold text-zinc-800 dark:text-zinc-200 backdrop-blur-xl bg-zinc-50 dark:bg-zinc-900 overflow-hidden"
+            // props.className
+          )}
         >
-          <span className="border-r pr-5 font-medium">Indie Starter</span>
-          <span className="font-light">Built for Indie Makers</span>
-        </a>
-      </Button>
+          <a
+            href={"https://indie-starter.dev/?ref=nextradar"}
+            target={"_blank"}
+            className="flex-row-start gap-4 no-underline overflow-hidden"
+          >
+            <span className="border-r pr-4 font-bold tracking-wider text-lg">
+              Sanity
+            </span>
+            <span className="font-light">Expect more from your CMS</span>
+          </a>
+        </Button>
+      </div>
     </div>
   )
 }
