@@ -1,3 +1,4 @@
+"use client"
 /* eslint-disable @next/next/no-img-element */
 import { FaGithub } from "react-icons/fa"
 import { Button } from "@/components/button"
@@ -5,9 +6,33 @@ import { CardWrapper } from "@/components/ui/card-wrapper"
 import { HiOutlineExternalLink } from "react-icons/hi"
 import { templates } from "@/constants/templates"
 import { ExpandableCard } from "@/components/ui/expandable-card"
+import { parseAsBoolean, useQueryState } from "nuqs"
+import * as React from "react"
 
+export interface Template {
+  name: string
+  description: string
+  url: string
+  ogImage: string
+  sponsored?: boolean
+  github?: string
+}
+
+export function useFilteredTemplates(templates: Template[], isFree: boolean) {
+  const filteredTemplates = React.useMemo(() => {
+    return templates.filter((template) => !!template.github === isFree)
+  }, [templates, isFree])
+
+  return filteredTemplates
+}
 //======================================
 export function TemplatesSection() {
+  const [isFree, setIsFree] = useQueryState(
+    "free",
+    parseAsBoolean.withDefault(false)
+  )
+  const filtered = useFilteredTemplates(templates, isFree)
+
   return (
     <div className="space-y-8">
       <div className="">
@@ -46,9 +71,21 @@ export function TemplatesSection() {
           </div>
         </ExpandableCard>
       </div>
+      <div className="flex-row-end w-full">
+        <Button
+          onClick={() => setIsFree(!isFree)}
+          variant="outline"
+          className="rounded-lg"
+        >
+          {isFree ? "Show All" : "Show free templates"}
+        </Button>
+      </div>
       <div className="grid lg:grid-cols-2 gap-3">
-        {templates.map((o, i) => (
-          <CardWrapper key={i} className="md:px-2 pt-3 overflow-hidden">
+        {filtered.map((o, i) => (
+          <CardWrapper
+            key={i}
+            className="md:px-2 pt-3 overflow-hidden animate-in"
+          >
             <div className="">
               <div className="flex-row-start gap-3 mb-3">
                 <img

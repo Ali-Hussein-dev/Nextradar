@@ -1,4 +1,6 @@
-export const templates = [
+import { Template } from "@/components/templates-section";
+
+export const templates: Template[] = [
     {
         url: "https://indie-starter.dev?ref=nextradar-templates",
         name: "Indie Starter",
@@ -23,24 +25,24 @@ export const templates = [
         ogImage: "https://chat.vercel.ai/opengraph-image.png",
     },
     {
+        url: "https://shipped.club?aff=pWOZY",
+        name: "Shipped",
+        description: "Build and ship your Startup in days. And make money.",
+        ogImage: "https://d2bzf0z2yzi3mc.cloudfront.net/Shipped_OG_image.jpg",
+    },
+    {
+        url: "https://directory.indie-starter.dev?ref=nextradar-templates",
+        name: "Directory Starter",
+        description:
+            "Expand your audience, showcase your offerings, and boost your visibility",
+        ogImage: "https://directory.indie-starter.dev/opengraph-image.jpg",
+    },
+    {
         url: "https://makerkit.lemonsqueezy.com?aff=pWOZY",
         name: "makerkit",
         description:
             "Build unlimited SaaS products with any SaaS Starter Kit. Save months of work and focus on building a profitable business.",
         ogImage: "https://makerkit.dev/assets/images/makerkit.webp",
-    },
-    {
-        url: "https://directory.indie-starter.dev?ref=nextradar-templates",
-        name: "Indie Directory Starter",
-        description:
-            "Expand Your Audience, Showcase Your Offerings, and Boost Your Visibility – All from One Platform",
-        ogImage: "https://directory.indie-starter.dev/opengraph-image.jpg",
-    },
-    {
-        url: "https://shipped.club?aff=pWOZY",
-        name: "Shipped",
-        description: "Build and ship your Startup in days. And make money.",
-        ogImage: "https://d2bzf0z2yzi3mc.cloudfront.net/Shipped_OG_image.jpg",
     },
     {
         url: "https://demo.vercel.store",
@@ -97,6 +99,15 @@ export const templates = [
             "The fastest way to build a startup is to buy 9. Customizable Next.js apps featuring Tailwindcss & Supabase.API snips, ai dev tools and more.",
         ogImage: "https://www.newcult.co/og.png",
     },
+    // {
+    //     url: "next-saas-start.vercel.app",
+    //     name: "Next.js SaaS Starter",
+    //     description:
+    //         "Get started quickly with Next.js, Postgres, Stripe, and shadcn/ ui.",
+    // !note no open graph image
+    //     ogImage: "",
+    //     github: "https://github.com/leerob/next-saas-starter",
+    // },
     // !note no open graph image
     // {
     //     url: "https://nextjs-boilerplate.com/",
