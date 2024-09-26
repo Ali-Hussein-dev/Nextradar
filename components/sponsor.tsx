@@ -19,6 +19,7 @@ export const Sponsor = () => {
             href={"https://sanity.io"}
             target={"_blank"}
             className="flex-row-start gap-4 no-underline overflow-hidden"
+            data-umami-event="sponsor-card"
           >
             <span className="border-r pr-4 font-bold tracking-wider text-lg">
               Sanity
