@@ -14,5 +14,9 @@
     "testing": {
         "name": "Testing",
         "id": "1004"
+    },
+    "database":{
+        "name": "Database",
+        "id": "1005"
     }
 }
