@@ -6,8 +6,8 @@ import { CardWrapper } from "@/components/ui/card-wrapper"
 import { HiOutlineExternalLink } from "react-icons/hi"
 import { templates } from "@/constants/templates"
 import { ExpandableCard } from "@/components/ui/expandable-card"
-import { parseAsBoolean, useQueryState } from "nuqs"
 import * as React from "react"
+import { useFilter } from "@/hooks/use-filtered-list"
 
 export interface Template {
   name: string
@@ -25,13 +25,33 @@ export function useFilteredTemplates(templates: Template[], isFree: boolean) {
 
   return filteredTemplates
 }
+const labels = [
+  {
+    label: "All",
+    value: "all",
+  },
+  {
+    label: "Free",
+    value: "free",
+  },
+  {
+    label: "premium",
+    value: "Premium",
+  },
+]
+type tier = "all" | "free" | "premium"
 //======================================
 export function TemplatesSection() {
-  const [isFree, setIsFree] = useQueryState(
-    "free",
-    parseAsBoolean.withDefault(false)
-  )
-  const filtered = useFilteredTemplates(templates, isFree)
+  const { current, filtered, setFilter } = useFilter({
+    list: templates,
+    filterFn: (item, filter) => {
+      if (filter === "all") return true
+      if (filter === "free") return !!item.github
+      if (filter === "premium") return !item.github
+      return false
+    },
+    param: { name: "tier", value: "all" },
+  })
 
   return (
     <div className="space-y-8">
@@ -71,22 +91,27 @@ export function TemplatesSection() {
           </div>
         </ExpandableCard>
       </div>
-      <div className="flex-row-end w-full">
-        <Button
-          onClick={() => setIsFree(!isFree)}
-          variant="outline"
-          className="rounded-lg"
-        >
-          {isFree ? "Show All" : "Show free templates"}
-        </Button>
+      <div className="flex-row-end w-full gap-4">
+        {labels.map((l) => (
+          <Button
+            key={l.value}
+            variant={current == l.value ? "default" : "ghost"}
+            onClick={() => setFilter(l.value as tier)}
+            size="sm"
+            className="h-8"
+            aria-label={`Show ${l.label}`}
+          >
+            {l.label}
+          </Button>
+        ))}
       </div>
       <div className="grid lg:grid-cols-2 gap-3">
         {filtered.map((o, i) => (
           <CardWrapper
             key={i}
-            className="md:px-2 pt-3 overflow-hidden animate-in"
+            className="md:px-3 pt-3 overflow-hidden relative"
           >
-            <div className="">
+            <div>
               <div className="flex-row-start gap-3 mb-3">
                 <img
                   src={o.ogImage}
@@ -103,7 +128,9 @@ export function TemplatesSection() {
                       </span>
                     )}
                   </div>
-                  <p className="m-0 p-0 line-clamp-2">{o.description}</p>
+                  <p className="m-0 p-0 line-clamp-2 dark:text-zinc-400 text-zinc-700">
+                    {o.description}
+                  </p>
                 </div>
               </div>
               <div className="flex-row-end border-t border-dashed gap-3 pt-2">

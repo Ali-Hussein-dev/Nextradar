@@ -107,6 +107,13 @@ export const templates: Template[] = [
         ogImage: "https://turso-per-user-starter.vercel.app/opengraph-image.png?e75c3357d04a5579",
         github: "https://github.com/notrab/turso-per-user-starter"
     },
+    {
+        url: "https://gofast.live/",
+        name: "GoFast",
+        description:
+            "The Ultimate Foundation for High-Performance, Scalable Web Applications with the Power of Golang and Next.js / SvelteKit. Backed by a powerful CLI.",
+        ogImage: "https://bucket.gofast.live/hero.png"
+    },
     // {
     //     url: "next-saas-start.vercel.app",
     //     name: "Next.js SaaS Starter",
