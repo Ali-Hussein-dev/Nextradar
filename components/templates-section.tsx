@@ -35,8 +35,8 @@ const labels = [
     value: "free",
   },
   {
-    label: "premium",
-    value: "Premium",
+    label: "Premium",
+    value: "premium",
   },
 ]
 type tier = "all" | "free" | "premium"
