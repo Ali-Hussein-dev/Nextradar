@@ -14,5 +14,6 @@ export const baseOptions: DocsLayoutProps = {
   ...options,
   sidebar: {
     enabled: true,
+    hideSearch: true,
   },
 }
