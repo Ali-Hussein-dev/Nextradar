@@ -99,6 +99,14 @@ export const templates: Template[] = [
             "The fastest way to build a startup is to buy 9. Customizable Next.js apps featuring Tailwindcss & Supabase.API snips, ai dev tools and more.",
         ogImage: "https://www.newcult.co/og.png",
     },
+    {
+        url: "https://turso-per-user-starter.vercel.app/",
+        name: "Turso Starter (SqLite)",
+        description:
+            "A Next.js application that demonstrates how to use the Turso Platforms API to create a database per user.",
+        ogImage: "https://turso-per-user-starter.vercel.app/opengraph-image.png?e75c3357d04a5579",
+        github: "https://github.com/notrab/turso-per-user-starter"
+    },
     // {
     //     url: "next-saas-start.vercel.app",
     //     name: "Next.js SaaS Starter",
