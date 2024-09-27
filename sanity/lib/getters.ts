@@ -169,7 +169,7 @@ export const getAllJobPostSlugs = async (): Promise<{ slug: string }[]> => {
 
 export const getIntegrationsByCategory = async (categoryId: number) => {
     return client.fetch(`*[_type == "integration" && category.id == ${categoryId}] {
-        name, description, logoUrl, url, paid, sponsored
+        name, description, logoUrl, url, tags, sponsored
         }`)
 }
 
