@@ -19,7 +19,7 @@ export default async function Page({
   }
 
   const MDX = page.data.body
-
+  const isFolder = page.url.split("/").length > 3
   return (
     <DocsPage
       tableOfContent={{
@@ -28,6 +28,8 @@ export default async function Page({
       // toc={toc}
       // full={isBlackList ? true : page.data.full}
       full={page.data.full}
+      breadcrumb={{ enabled: !isFolder }}
+      
     >
       <DocsBody>
         <div className="max-w-5xl mx-auto w-full">
