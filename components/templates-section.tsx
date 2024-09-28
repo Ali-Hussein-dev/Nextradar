@@ -5,7 +5,7 @@ import { Button } from "@/components/button"
 import { CardWrapper } from "@/components/ui/card-wrapper"
 import { HiOutlineExternalLink } from "react-icons/hi"
 import { templates } from "@/constants/templates"
-import { ExpandableCard } from "@/components/ui/expandable-card"
+import { CardHeading, ExpandableCard } from "@/components/ui/expandable-card"
 import * as React from "react"
 import { useFilter } from "@/hooks/use-filtered-list"
 
@@ -57,9 +57,12 @@ export function TemplatesSection() {
     <div className="space-y-8">
       <div className="">
         <ExpandableCard height="9rem" className="md:px-6 border-dashed">
-          <h2 className="text-2xl font-bold mb-2 mt-2">
-            {templates.length} Best Free and Premium Next.js Templates
-          </h2>
+          <CardHeading
+            h2={`
+            ${templates.length} Best Free and Premium Next.js Templates
+          `}
+            h3="Discover High-Quality, Ready-to-Use Templates for Your Next.js Projects"
+          />
           <div className="text-zinc-600 dark:text-zinc-400 prose-p:my-0">
             Explore a wide range of high-quality Next.js templates. Pick from
             free, open-source, and premium options to build stunning and

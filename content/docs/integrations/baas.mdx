@@ -5,12 +5,10 @@ description: Backend as a Service (BaaS) integrations for Next.js.
 
 import { IntegrationSection } from "@/components/integration-section"
 import categories from "@/constants/categories.json"
-import { ExpandableCard } from "@/components/ui/expandable-card"
+import { ExpandableCard, CardHeading } from "@/components/ui/expandable-card"
 
 <ExpandableCard className="md:px-6 border-dashed h-full">
-  <h2 className="text-2xl font-bold mb-0 mt-2">
-    Top BaaS Integrations for Next.js
-  </h2>
+  <CardHeading h2="Top BaaS Integrations for Next.js" />
   <div className="text-zinc-600 dark:text-zinc-400 prose-p:mt-2">
     Backend as a Service (BaaS) is a cloud computing service model that serves
     as a middleware between your app and its backend. BaaS providers offer a

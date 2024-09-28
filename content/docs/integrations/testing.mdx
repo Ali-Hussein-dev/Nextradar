@@ -5,10 +5,11 @@ description: An overview of the lib that works with Next.js
 
 import { IntegrationSection } from "@/components/integration-section"
 import categories from "@/constants/categories.json"
-import { ExpandableCard } from "@/components/ui/expandable-card"
+import { ExpandableCard, CardHeading } from "@/components/ui/expandable-card"
 
 <ExpandableCard className="md:px-6 border-dashed">
-  <h2 className="text-2xl font-bold mb-0 mt-2">Testing your Next.js Website</h2>
+  <CardHeading h2="Testing your Next.js Website" />
+
   <div className="text-zinc-600 dark:text-zinc-400 prose-p:mt-2">
   In React and Next.js, various testing types are essential for ensuring application reliability. Unit testing focuses on individual code blocks, like functions and components, in isolation. Component testing hones in on React components specifically, assessing their rendering, props interactions, and user event responses. 
   
