@@ -75,14 +75,20 @@ export function ExpandableCard({
   )
 }
 
-export const CardHeading = ({ h2 = "", h3 }: { h2: string; h3?: string }) => (
+export const CardHeading = ({
+  h2: h1 = "",
+  h3: h2,
+}: {
+  h2: string
+  h3?: string
+}) => (
   <div>
     <div className="mb-5">
-      <h2 className="text-2xl text-center font-extrabold mb-0 mt-2">{h2}</h2>
-      {!!h3 && (
-        <h3 className="text-lg text-center font-medium mb-0 mt-2 prose-p:mt-1">
-          {h3}
-        </h3>
+      <h1 className="text-2xl text-center font-extrabold mb-0 mt-2">{h1}</h1>
+      {!!h2 && (
+        <h2 className="text-lg text-center font-medium mb-0 mt-2 prose-p:mt-1">
+          {h2}
+        </h2>
       )}
     </div>
   </div>
