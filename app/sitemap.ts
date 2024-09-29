@@ -20,6 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         "/docs/plugin",
         "/docs/real-world-apps",
         "/docs/integrations/headless-cms",
+        "/docs/integrations/databases",
         "/docs/integrations/hosting",
         "/docs/integrations/testing",
         "/docs/jobs",
