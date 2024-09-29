@@ -1,11 +1,12 @@
 ---
 title: Hosting
-description: Discover the top hosting providers for Next.js. Select the ideal platform that ensures smooth deployment and peak performance. Compare...
+description: Discover the top hosting providers for Next.js. Select the ideal platform that ensures smooth deployment and peak performance.
 ---
 
 import { IntegrationSection } from "@/components/integration-section"
 import categories from "@/constants/categories.json"
 import { ExpandableCard, CardHeading } from "@/components/ui/expandable-card"
+import { Promote } from "@/components/sponsor"
 
 <ExpandableCard className="md:px-6 border-dashed h-full">
 <CardHeading h2={`Best Next.js Hosting Providers for ${new Date().getFullYear()}`} h3="Top Vercel Alternatives" />
@@ -34,5 +35,11 @@ Great hosting is key to your Next.js site's success. It affects everything speed
 </div>
 </ExpandableCard>
 
-<br />
+<br/>
+
 <IntegrationSection categoryId={categories.hosting.id} />
+
+
+<Promote>
+    Get more traffic to your business
+</Promote>
