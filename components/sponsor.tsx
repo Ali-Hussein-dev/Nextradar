@@ -44,7 +44,6 @@ export function Promote({ children }: { children: React.ReactNode }) {
       <Button
         asChild
         variant={"outline"}
-        size="lg"
         className="rounded-lg border-dashed dark:text-green-300 text-green-500 gap-2 group font-normal"
       >
         <Link prefetch={false} href="/docs/sponsor">
