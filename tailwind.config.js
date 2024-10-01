@@ -9,6 +9,13 @@ export default {
     './mdx-components.{ts,tsx}',
     './node_modules/fumadocs-ui/dist/**/*.js',
   ],
+  theme: {
+    extend: {
+      screens: {
+        'xs': '480px',  // Custom breakpoint for extra small screens
+      }
+    }
+  },
   presets: [createPreset({ preset: "default" })],
   plugins: [
     require("tailwind-custom-utilities"),
