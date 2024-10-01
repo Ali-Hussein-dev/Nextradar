@@ -5,6 +5,7 @@ import { Button } from "@/components/button"
 import { cn } from "@/lib/utils"
 import { YtDialog } from "@/components/yt-dialog"
 import { CardWrapper } from "@/components/ui/card-wrapper"
+import { Newsletter2 } from "@/components/newsletter"
 
 type CardProps = {
   name: string
@@ -68,12 +69,15 @@ export const Feed = async () => {
 
   const list = (await getSources({ year, month })) as CardProps[]
   return (
-    <div className="grid gap-5 max-w-2xl mx-auto py-6">
-      {list
-        // .filter((o) => o.type == "youtube")
-        .map((o) => (
-          <FeedCard key={o.name} {...o} />
-        ))}
+    <div>
+      <div className="grid gap-5 max-w-2xl mx-auto py-6">
+        {list
+          // .filter((o) => o.type == "youtube")
+          .map((o) => (
+            <FeedCard key={o.name} {...o} />
+          ))}
+      </div>
+      <Newsletter2 />
     </div>
   )
 }
