@@ -9,6 +9,13 @@ export const templates: Template[] = [
         sponsored: false,
     },
     {
+        url: "https://anotherwrapper.com?aff=pWOZY",
+        name: "AnotherWrapper",
+        description:
+            "Build and launch your AI app without the headaches and frustration by leveraging customizable demo applications and boilerplate code.",
+        ogImage: "https://anotherwrapper.com/og.png"
+    },
+    {
         url: "https://create.t3.gg/",
         github: "https://github.com/t3-oss/create-t3-app",
         name: "T3 Stack",
