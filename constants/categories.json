@@ -18,5 +18,9 @@
     "database":{
         "name": "Database",
         "id": "1005"
+    },
+    "commerce":{
+        "name": "AI",
+        "id": "1007"
     }
 }
