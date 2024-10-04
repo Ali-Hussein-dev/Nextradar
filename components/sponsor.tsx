@@ -18,15 +18,15 @@ export const Sponsor = () => {
           )}
         >
           <a
-            href={"https://sanity.io"}
-            target={"_blank"}
+            href="https://indie-starter.dev"
+            target="_blank"
             className="flex-row-start gap-4 no-underline overflow-hidden"
             data-umami-event="sponsor-card"
           >
-            <span className="border-r pr-4 font-bold tracking-wider text-lg">
-              Sanity
+            <span className="border-r pr-4 font-bold tracking-wider sm:text-lg">
+              Indie Starter
             </span>
-            <span className="font-light">Expect more from your CMS</span>
+            <span className="font-light">Next.js starter for indie makers</span>
           </a>
         </Button>
       </div>
