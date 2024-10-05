@@ -13,7 +13,7 @@ export const Sponsor = () => {
         <Button
           // {...props}
           className={cn(
-            "h-fit py-3 md:py-0 px-5 w-full rounded-xl font-semibold text-zinc-800 dark:text-zinc-200 backdrop-blur-xl bg-zinc-50 dark:bg-zinc-900 overflow-hidden"
+            "h-fit py-3 md:py-2 px-5 w-full rounded-xl font-semibold text-zinc-800 dark:text-zinc-200 backdrop-blur-xl bg-zinc-50 dark:bg-zinc-900 overflow-hidden"
             // props.className
           )}
         >
