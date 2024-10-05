@@ -101,27 +101,24 @@ export function Search() {
           />
         </InputBlock>
       </form>
-      {data && !data.error && (
-        <div className="pb-5 pt-3 md:px-3 animate-in px-2 border border-dashed rounded-sm mt-5">
-          <div className="flex-row-between mb-2">
-            {
-              <p className="my-0">
+      {data && (
+        <div className="py-4 md:px-3 animate-in px-2 border border-dashed rounded mt-5 dark:bg-zinc-900/70 bg-white">
+          {!data.error ? (
+            <div>
+              <div>
                 {data.length == 0
                   ? "No results found"
                   : "Found " + data.length + " results"}
-              </p>
-            }
-          </div>
-          <div className="space-y-4">
-            {data.map((o: FeedCardProps) => (
-              <FeedCard key={o.name} {...o} />
-            ))}
-          </div>
-        </div>
-      )}
-      {data && data.error && (
-        <div className="py-5 md:px-3 animate-in px-2 border border-dashed rounded-sm mt-5">
-          <p className="my-0">{data.error.message}</p>
+              </div>
+              <div className="space-y-4 pt-1">
+                {data.map((o: FeedCardProps) => (
+                  <FeedCard key={o.name} {...o} />
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div>{data.error.message}</div>
+          )}
         </div>
       )}
     </div>
