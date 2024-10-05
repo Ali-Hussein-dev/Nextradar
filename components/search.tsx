@@ -95,7 +95,7 @@ export function Search() {
           }
         >
           <Input
-            placeholder="Search for top resources"
+            placeholder="Search top resources"
             // defaultValue={}
             {...register("q", { required: true })}
           />
