@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 import { YtDialog } from "@/components/yt-dialog"
 import { CardWrapper } from "@/components/ui/card-wrapper"
 
-type CardProps = {
+export type FeedCardProps = {
   name: string
   src?: string
   description: string
@@ -21,7 +21,7 @@ export const FeedCard = ({
   author,
   href,
   src,
-}: CardProps) => {
+}: FeedCardProps) => {
   return (
     <CardWrapper className="flex-none p-0 sm:px-0 md:px-0 dark:bg-transparent bg-transparent shadow-none">
       <div className="flex flex-col md:flex-row items-start h-full sm:items-start md:gap-3 w-full">
@@ -72,7 +72,7 @@ export const FeedList = async () => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
 
-  const list = (await getSources({ year, month })) as CardProps[]
+  const list = (await getSources({ year, month })) as FeedCardProps[]
   return (
     <>
       {list

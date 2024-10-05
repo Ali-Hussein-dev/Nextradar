@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input, InputBlock } from "@/components/ui/input"
 import { MdOutlineClear } from "react-icons/md"
 import { useForm, SubmitHandler } from "react-hook-form"
-import { FeedCard } from "@/components/feed-list"
+import { FeedCard, type FeedCardProps } from "@/components/feed-list"
 import { ImSearch } from "react-icons/im"
 import { useQueryState, parseAsString } from "nuqs"
 import { PiSpinnerGap } from "react-icons/pi"
@@ -116,7 +116,7 @@ export function Search() {
             </Button>
           </div>
           <div className="space-y-4">
-            {data.map((o) => (
+            {data.map((o: FeedCardProps) => (
               <FeedCard key={o.name} {...o} />
             ))}
           </div>
