@@ -23,7 +23,7 @@ export const Sponsor = () => {
             className="flex-row-start gap-4 no-underline overflow-hidden"
             data-umami-event="sponsor-card"
           >
-            <span className="border-r pr-4 font-bold tracking-wider sm:text-lg">
+            <span className="border-r pr-4 font-semibold tracking-wide text-sm sm:text-base">
               Indie Starter
             </span>
             <span className="font-light">Next.js starter for indie makers</span>
