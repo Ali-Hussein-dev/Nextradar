@@ -25,6 +25,9 @@
     .h1 {
         @apply dark:h1-dark h1-light bg-clip-text text-transparent;
     }
+        p {
+            @apply text-gray-600 dark:text-zinc-400;
+        }
 }
 /* -----------------------------------------------------ANIMATION */
 .animate-in {

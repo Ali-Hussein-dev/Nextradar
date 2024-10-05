@@ -91,6 +91,25 @@ export const getSources = async ({
     ${fields}
     }`)
 }
+//------------------------------------------------------------Resources-By-Term
+export const getResourcesByTerm = async ({
+    q,
+}: {
+    /**
+     * The search term to query
+    */
+    q: string
+}) => {
+    // Construct the query to search for the term in the title or description
+    const termQuery = `&& (
+  lower(title) match "*${q}*" || 
+  lower(description) match "*${q}*"
+)`;
+
+    return client.fetch(`*[_type == "source" ${termQuery}] | order(_createdAt desc) [0...10] {
+    name, description, type, href, src, author
+    }`);
+};
 
 export const getRecommendedSources = async (
     fields = "name, description, type, href, src, author"

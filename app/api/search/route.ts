@@ -1,11 +1,19 @@
-import { getPages } from '@/app/source';
-import { createSearchAPI } from 'fumadocs-core/search/server';
+import { getResourcesByTerm } from "@/sanity/lib/getters"
+import { type NextRequest, NextResponse } from "next/server"
 
-export const { GET } = createSearchAPI('advanced', {
-  indexes: getPages().map((page) => ({
-    title: page.data.title,
-    structuredData: page.data.structuredData,
-    id: page.url,
-    url: page.url,
-  })),
-});
+export const GET = async (req: NextRequest) => {
+  const searchParams = req.nextUrl.searchParams
+  const query = (searchParams.get("q") || "")
+    .trim()
+    .replace(/"/g, '\\"')
+    .toLowerCase()
+  // Return an empty array if the query is empty
+  if (!query) {
+    return NextResponse.json([])
+  }
+  if (query.length > 100) {
+    return NextResponse.json({ error: { message: "Query too long! Max 100 chars is allowed" } }, { status: 400 })
+  }
+  const results = await getResourcesByTerm({ q: query })
+  return NextResponse.json(results)
+}
