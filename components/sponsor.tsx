@@ -13,7 +13,7 @@ export const Sponsor = () => {
         <Button
           // {...props}
           className={cn(
-            "h-10 px-6 w-full rounded-xl font-semibold text-zinc-800 dark:text-zinc-200 backdrop-blur-xl bg-zinc-50 dark:bg-zinc-900 overflow-hidden"
+            "h-10 px-2 sm:px-3 md:px-5 w-full rounded-xl font-semibold text-zinc-800 dark:text-zinc-200 backdrop-blur-xl bg-zinc-50 dark:bg-zinc-900 overflow-hidden"
             // props.className
           )}
         >
@@ -23,7 +23,7 @@ export const Sponsor = () => {
             className="flex-row-start gap-4 no-underline overflow-hidden"
             data-umami-event="sponsor-card"
           >
-            <span className="border-r pr-4 font-semibold tracking-wide text-sm sm:text-base">
+            <span className="border-r pr-4 font-semibold text-sm sm:text-base">
               Indie Starter
             </span>
             <span className="font-light">Next.js starter for indie makers</span>
