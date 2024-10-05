@@ -6,30 +6,30 @@ import { MdOutlineClear } from "react-icons/md"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { FeedCard, type FeedCardProps } from "@/components/feed-list"
 import { ImSearch } from "react-icons/im"
-import { useQueryState, parseAsString } from "nuqs"
+// import { useQueryState, parseAsString } from "nuqs"
 import { PiSpinnerGap } from "react-icons/pi"
-
+import * as React from "react"
 type Input = {
   q: string
 }
 const useSearch = () => {
   const { register, handleSubmit, watch, setValue } = useForm<Input>()
   const inputValue = watch("q")
-  const [q, setQ] = useQueryState("q", parseAsString.withDefault(inputValue))
+  // const [q, setQ] = useQueryState("q", parseAsString.withDefault(inputValue))
   const { data, refetch, fetchStatus } = useQuery({
-    queryKey: ["search", q],
-    queryFn: async () => fetch(`/api/search?q=${q}`).then((res) => res.json()),
+    queryKey: ["search", inputValue],
+    queryFn: async () =>
+      fetch(`/api/search?q=${inputValue}`).then((res) => res.json()),
     enabled: false,
   })
   const onSubmit: SubmitHandler<Input> = () => {
-    if (!inputValue) return
-    setQ(inputValue)
-    if (!q) return
-    refetch()
+    if (inputValue) {
+      refetch()
+    }
   }
-  const closeResults = () => {
-    setQ("")
-  }
+  // const closeResults = () => {
+  //   setQ("")
+  // }
   const cleanInput = () => {
     setValue("q", "")
   }
@@ -41,7 +41,7 @@ const useSearch = () => {
     fetchStatus,
     onSubmit,
     cleanInput,
-    closeResults,
+    // closeResults,
   }
 }
 //======================================
@@ -54,7 +54,7 @@ export function Search() {
     fetchStatus,
     onSubmit,
     cleanInput,
-    closeResults,
+    // closeResults,
   } = useSearch()
 
   return (
@@ -102,8 +102,8 @@ export function Search() {
         </InputBlock>
       </form>
       {data && !data.error && (
-        <div className="py-5 md:px-3 animate-in px-2 border border-dashed rounded-sm mt-5">
-          <div className="flex-row-between">
+        <div className="pb-5 pt-3 md:px-3 animate-in px-2 border border-dashed rounded-sm mt-5">
+          <div className="flex-row-between mb-2">
             {
               <p className="my-0">
                 {data.length == 0
@@ -111,9 +111,6 @@ export function Search() {
                   : "Found " + data.length + " results"}
               </p>
             }
-            <Button variant="outline" size="icon" className="rounde-md size-7">
-              <MdOutlineClear onClick={closeResults} />
-            </Button>
           </div>
           <div className="space-y-4">
             {data.map((o: FeedCardProps) => (
