@@ -13,17 +13,17 @@ export const Sponsor = () => {
         <Button
           // {...props}
           className={cn(
-            "h-10 px-2 sm:px-3 md:px-5 w-full rounded-xl font-semibold text-zinc-800 dark:text-zinc-200 backdrop-blur-xl bg-zinc-50 dark:bg-zinc-900 overflow-hidden"
+            "h-fit py-3 md:py-0 px-5 w-full rounded-xl font-semibold text-zinc-800 dark:text-zinc-200 backdrop-blur-xl bg-zinc-50 dark:bg-zinc-900 overflow-hidden"
             // props.className
           )}
         >
           <a
             href="https://indie-starter.dev"
             target="_blank"
-            className="flex-row-start gap-4 no-underline overflow-hidden"
+            className="flex flex-col justify-center md:flex-row h-full md:items-center gap-1 sm:gap-2 no-underline overflow-hidden"
             data-umami-event="sponsor-card"
           >
-            <span className="border-r pr-4 font-semibold text-sm sm:text-base">
+            <span className="md:border-r pr-2 sm:gap-2 font-semibold text-sm sm:text-base">
               Indie Starter
             </span>
             <span className="font-light">Next.js starter for indie makers</span>
