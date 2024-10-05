@@ -6,7 +6,10 @@ import {
 } from "fumadocs-ui/page"
 import { notFound } from "next/navigation"
 import defaultMdxComponents from "fumadocs-ui/mdx"
+import { Suspense } from "react"
+
 export const revalidate = 3600
+
 export default async function Page({
   params,
 }: {
@@ -29,11 +32,12 @@ export default async function Page({
       // full={isBlackList ? true : page.data.full}
       full={page.data.full}
       breadcrumb={{ enabled: !isFolder }}
-      
     >
       <DocsBody>
         <div className="max-w-5xl mx-auto w-full">
-          <MDX components={{ ...defaultMdxComponents }} />
+          <Suspense>
+            <MDX components={{ ...defaultMdxComponents }} />
+          </Suspense>
         </div>
       </DocsBody>
     </DocsPage>
