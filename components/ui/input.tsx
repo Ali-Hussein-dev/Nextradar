@@ -28,7 +28,7 @@ const rootVariants = cva(
       variant: {
         // outline
         default:
-          "border ring-zinc-800 ring-zinc-300 focus-within:ring-2 focus-within:ring-offset-2 dark:focus-within:ring-zinc-400 focus-within:ring-offset-white dark:focus-within:ring-offset-black focus-within:ring-zinc-600",
+          "border ring-zinc-800 ring-zinc-300 focus-within:ring-2 focus-within:ring-offset-2 dark:focus-within:ring-zinc-700 focus-within:ring-offset-white dark:focus-within:ring-offset-black focus-within:ring-zinc-600",
 
         underlined:
           "border-b-[1px] dark:border-zinc-800 focus-within:border-b-2 dark:focus-within:border-zinc-400 focus-within:border-zinc-500 rounded-none px-0",
