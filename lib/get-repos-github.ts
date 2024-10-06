@@ -17,6 +17,7 @@ export type Repo = {
     tags: string[]
     createdBy?: string
     stars?: number
+    avatar?: string
 }
 
 

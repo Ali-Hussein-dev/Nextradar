@@ -1,27 +1,35 @@
+import { Repo } from "@/lib/get-repos-github"
 import { client } from "./client"
 import { JobPost } from "@/components/job-posts-section"
 
 //------------------------------------------------------------Sites
-export const getSites = async () =>
+export const getSites = async (): Promise<Repo[]> =>
     client.fetch(`*[_type == "sites"] | order(_createdAt asc) {
         owner, name, category, tags, createdBy, description, homepage
         }`)
 // used in toc
-export const getSitesNames = async () =>
-    client.fetch(`*[_type == "sites"] | order(_createdAt asc) {
-        name, category
-        }`)
+// export const getSitesNames = async () =>
+//     client.fetch(`*[_type == "sites"] | order(_createdAt asc) {
+//         name, category
+//         }`)
+
+export type RepoCategory = "real-world-apps" | "Tools" | "Plugin" | "Learn"
 //------------------------------------------------------------Repos
-export const getReposList = async (recommended: boolean) => {
-    const query = recommended ? `&& recommended == ${recommended}` : ""
+export const getReposList = async ({ recommended, category }: { recommended: boolean; category: RepoCategory }): Promise<Repo[]> => {
+    const qRecommended = recommended ? `&& recommended == ${recommended}` : ""
+    const qCategory = !!category ? `&& category == '${category}'` : ""
+    console.log("getReposList", qCategory);
     return client.fetch(
-        `*[_type == "repos" ${query}] | order(_createdAt asc) {
+        `*[_type == "repos" ${qRecommended} ${qCategory}] | order(_createdAt asc) {
     owner,
     repoName,
+    description,
+    avatar,
     name,
     stars,
     category,
-    tags
+    tags,
+    homepage
   }`)
 }
 // used in toc
