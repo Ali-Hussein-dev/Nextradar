@@ -35,7 +35,7 @@ export const getReposList = async ({ recommended, category }: { recommended: boo
 // used in toc
 export const getReposNames = async () =>
     client.fetch(`*[_type == "repos"] | order(_createdAt asc) {
-        name, category
+        owner, repoName, _id
         }`)
 
 //------------------------------------------------------------Recnet-Resources
