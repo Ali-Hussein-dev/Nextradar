@@ -8,7 +8,7 @@ import { notFound } from "next/navigation"
 import defaultMdxComponents from "fumadocs-ui/mdx"
 import { Suspense } from "react"
 
-export const revalidate = 3600
+export const revalidate = 43200 // 12 hours
 
 export default async function Page({
   params,
