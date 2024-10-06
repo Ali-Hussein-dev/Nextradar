@@ -5,6 +5,7 @@ import { pageTree } from "@/app/source"
 export const options: DocsLayoutProps = {
   nav: {
     title: "Nextradar",
+    enableSearch: false,
   },
   tree: pageTree,
 }
@@ -15,5 +16,6 @@ export const baseOptions: DocsLayoutProps = {
   sidebar: {
     enabled: true,
     hideSearch: true,
+    prefetch: false,
   },
 }
