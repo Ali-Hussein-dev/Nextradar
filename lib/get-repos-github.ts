@@ -1,6 +1,6 @@
 import { cache } from "react"
 import { Octokit } from "@octokit/rest"
-import { getSites, getReposList, } from '@/sanity/lib/getters';
+// import { getSites, getReposList, RepoCategory, } from '@/sanity/lib/getters';
 
 const octokit = new Octokit({
     auth: process.env.GITHUB_ACCESS_TOKEN as string
@@ -17,10 +17,11 @@ export type Repo = {
     tags: string[]
     createdBy?: string
     stars?: number
+    avatar?: string
 }
 
 
-export const getRepos = cache(async (list: Repo[]) => {
+export const getReposInfo = cache(async (list: Repo[]) => {
     return await Promise.all(
         list.map(async (repo) => {
             const { owner, repoName } = repo
@@ -30,25 +31,26 @@ export const getRepos = cache(async (list: Repo[]) => {
                 stars: data.stargazers_count as number,
                 description: data.description,
                 homepage: data.homepage,
-                gh: `https://github.com/${repo.owner}/${repo.repoName}`
+                gh: `https://github.com/${repo.owner}/${repo.repoName}`,
+                avatar: data.owner.avatar_url
             }
         })
     )
 })
 
 
-const groupByCategory = (repos: Repo[]) => {
-    return repos.reduce((acc, repo) => {
-        ; (acc[repo.category] = acc[repo.category] || []).push(repo)
-        return acc
-    }, {} as Record<string, Repo[]>)
-}
+// const groupByCategory = (repos: Repo[]) => {
+//     return repos.reduce((acc, repo) => {
+//         ; (acc[repo.category] = acc[repo.category] || []).push(repo)
+//         return acc
+//     }, {} as Record<string, Repo[]>)
+// }
 
-export const getReposGitHubByCategory = async (category: string, recommended: boolean) => {
-    const list = await getReposList(recommended)
-    const filteredRepos = list.filter((repo: Repo) => repo.category === category) as Repo[]
-    const sites = category === "Learn" ? await getSites() : []
-    const fetchedRepos = await getRepos(filteredRepos as Repo[])
-    const reposGroupedByCategory = groupByCategory([...fetchedRepos, ...sites] as Repo[])
-    return Object.values(reposGroupedByCategory).flat()
-}
+// export const getReposGitHubByCategory = async (category: RepoCategory, recommended: boolean) => {
+//     const list = await getReposList({ recommended, category })
+//     const filteredRepos = list.filter((repo: Repo) => repo.category === category) as Repo[]
+//     const sites = category === "Learn" ? await getSites() : []
+//     const fetchedRepos = await getRepos(filteredRepos as Repo[])
+//     const reposGroupedByCategory = groupByCategory([...fetchedRepos, ...sites] as Repo[])
+//     return Object.values(reposGroupedByCategory).flat()
+// }

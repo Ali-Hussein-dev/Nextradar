@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Repo } from "@/lib/get-repos-github"
 // import { slugify } from "@/lib/utils"
 import { CiStar } from "react-icons/ci"
@@ -12,6 +13,13 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
     <CardWrapper>
       <div className="flex-row-between">
         <h3 className="my-0 scroll-m-20 font-bold text-xl capitalize">
+          {repo.avatar && (
+          <img
+            src={repo.avatar}
+            alt={repo.name}
+            className="size-6 mr-2 inline-block rounded-full my-0"
+          />
+          )}
           {repo.name}
         </h3>
         {repo?.stars && (
@@ -43,14 +51,18 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
           ))}
         </div>
         <div className="flex-row-end grow gap-3">
-          {repo?.gh && (
+          {repo?.owner && (
             <Button
               size="icon"
               asChild
               variant="outline"
               className="rounded-lg"
             >
-              <a href={repo.gh} target="_blank" rel="noopener noreferrer">
+              <a
+                href={`https://github.com/${repo.owner}/${repo.repoName}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaGithub size="17" />
               </a>
             </Button>
