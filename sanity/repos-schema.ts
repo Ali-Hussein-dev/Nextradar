@@ -4,6 +4,11 @@ const RepoSchema = {
     type: "document",
     fields: [
         {
+            name: "name",
+            title: "Name",
+            type: "string",
+        },
+        {
             name: "owner",
             title: "Owner",
             type: "string",
@@ -14,14 +19,9 @@ const RepoSchema = {
             type: "string",
         },
         {
-            name: "name",
-            title: "Name",
+            name: "description",
+            title: "Description",
             type: "string",
-        },
-        {
-            name: "homepage",
-            title: "URL",
-            type: "url",
         },
         {
             name: "category",
@@ -36,6 +36,16 @@ const RepoSchema = {
             options: {
                 layout: "tags"
             },
+        },
+        {
+            name: "homepage",
+            title: "Homepage URL",
+            type: "url",
+        },
+        {
+            name: "avatar",
+            title: "Avatar URL",
+            type: "url",
         },
         {
             name: "recommended",
