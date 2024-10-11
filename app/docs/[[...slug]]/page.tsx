@@ -32,6 +32,7 @@ export default async function Page({
       // full={isBlackList ? true : page.data.full}
       full={page.data.full}
       breadcrumb={{ enabled: !isFolder }}
+      tableOfContentPopover={{ enabled: false }}
     >
       <DocsBody>
         <div className="max-w-5xl mx-auto w-full">
