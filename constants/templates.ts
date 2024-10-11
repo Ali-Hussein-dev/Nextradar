@@ -29,7 +29,7 @@ export const templates: Template[] = [
         name: "Next.js AI Chatbot",
         description:
             "An AI-powered chatbot template built with Next.js and Vercel",
-        ogImage: "https://chat.vercel.ai/opengraph-image.png",
+        ogImage: "https://chat.vercel.ai/opengraph-image-12cog0.png?2503f1158996a16f",
     },
     {
         url: "https://shipped.club?aff=pWOZY",
@@ -64,6 +64,14 @@ export const templates: Template[] = [
             "A free, open-source starter kit for your next project, built with insights from Midday.",
         ogImage: "https://v1.run/opengraph-image.png?48d3af510e85915e",
         github: "https://github.com/midday-ai/v1",
+    },
+    {
+        url: "https://nextselfhost.dev/",
+        github: "https://github.com/leerob/next-self-host",
+        name: "Self-Hosted Next.js",
+        description:
+            "This is a demo of a Next.js application hosted on Ubuntu Linux. It also includes a Postgres database and an Nginx proxy",
+        ogImage: "https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/4JmubmYDJnFtstwHbaZPev/0c3576832aae5b1a4d98c8c9f98863c3/Vercel_Home_OG.png",
     },
     {
         url: "https://saas-ui.dev/",
