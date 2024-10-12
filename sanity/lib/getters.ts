@@ -4,9 +4,16 @@ import { JobPost } from "@/components/job-posts-section"
 
 //------------------------------------------------------------Sites
 export const getSites = async (): Promise<Repo[]> =>
-    client.fetch(`*[_type == "sites"] | order(_createdAt asc) {
-        owner, name, category, tags, createdBy, description, homepage
-        }`)
+    client.fetch(`*[_type == "sites"] | order(_createdAt asc) {    
+    owner,
+    name,
+    tags,
+    createdBy,
+    description,
+    homepage,
+    }`)
+
+// "categoryRef": categoryRef -> { name }
 // used in toc
 // export const getSitesNames = async () =>
 //     client.fetch(`*[_type == "sites"] | order(_createdAt asc) {
@@ -99,6 +106,25 @@ export const getSources = async ({
     ${fields}
     }`)
 }
+export const getSourcesPage = async ({
+    page = 1,
+    pageSize = 10,
+    fields = "name, description, type, href, src, author",
+}: {
+    page?: number;
+    pageSize?: number;
+    recommended?: boolean | null;
+    /**
+     * Select fields to return from the query
+     */
+    fields?: string;
+}) => {
+    const offset = (page - 1) * pageSize;
+
+    return client.fetch(`*[_type == "source"] | order(_createdAt desc) [${offset}...${offset + pageSize}] {
+        ${fields}
+    }`);
+};
 //------------------------------------------------------------Resources-By-Term
 export const getResourcesByTerm = async ({
     q,
