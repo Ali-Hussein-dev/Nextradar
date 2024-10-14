@@ -8,6 +8,7 @@ import Link from "next/link"
 import { PortableText } from "next-sanity"
 import { WiStars } from "react-icons/wi"
 import { JobList } from "./job-list"
+import { IoTimeOutline } from "react-icons/io5"
 export type JobPost = {
   jobTitle: string
   companyName: string
@@ -37,7 +38,6 @@ export const JobCard = (props: JobPost) => {
     currency,
     applyUrl,
     jobType,
-    shortDescription,
     contractType,
     publishedAt,
     slug,
@@ -76,9 +76,9 @@ export const JobCard = (props: JobPost) => {
         </div>
       </div>
       <div className="flex-row-between gap-4 pt-4 dark:border-zinc-800 border-dashed w-full">
-        <span className="dark:text-zinc-500 text-zinc-600 text-sm">
-          Published {getFormattedTime(publishedAt)}
-        </span>
+        <div className="dark:text-zinc-500 text-zinc-600 text-sm flex-row-start gap-1">
+          <IoTimeOutline className="size-5" /> {getFormattedTime(publishedAt)}
+        </div>
         <div className="flex-row-end gap-2">
           {/* <JobPostDrawer {...props} /> */}
           <Button asChild size="sm" variant="ghost">
