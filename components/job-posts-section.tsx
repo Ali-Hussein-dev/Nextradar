@@ -43,7 +43,7 @@ export const JobCard = (props: JobPost) => {
     jobHook,
   } = props
   return (
-    <CardWrapper>
+    <CardWrapper className="border rounded-none dark:bg-transparent border-dashed">
       <div className="grow">
         <span className="text-lg md:text-xl font-bold ">{jobTitle}</span>
         <div className="flex-row-between dark:text-zinc-600 text-zinc-500 pt-2">
@@ -114,7 +114,7 @@ export const JobPostsSection = async () => {
             Summarized job posts, no middleman, apply directly to employers
           </h3>
         </div>
-        <div className="grid gap-5">
+        <div className="grid gap-5 md:gap-8 max-w-3xl mx-auto">
           {list.map((job, i) => (
             <React.Suspense key={i}>
               <JobCard {...job} />
