@@ -12,7 +12,6 @@ export const FeedList = ({ initialList }: { initialList: FeedCardProps[] }) => {
       fetch(`/api/feed?page=${pageParam}`).then((res) => res.json()),
     initialPageParam: 1,
     getNextPageParam: (lastPage, pages) => {
-      console.log({ lastPage, pages })
       return pages.length + 1
     },
     initialData: { pages: [initialList], pageParams: [1] },
