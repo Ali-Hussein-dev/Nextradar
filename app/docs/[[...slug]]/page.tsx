@@ -36,7 +36,9 @@ export default async function Page({
     >
       <DocsBody>
         <div className="max-w-5xl mx-auto w-full">
-          <MDX components={{ ...defaultMdxComponents }} />
+          <Suspense>
+            <MDX components={{ ...defaultMdxComponents }} />
+          </Suspense>
         </div>
       </DocsBody>
     </DocsPage>
