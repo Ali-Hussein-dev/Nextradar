@@ -1,22 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { FaPlay } from "react-icons/fa"
+import { Button } from "./ui/button"
 
 const PlayBtn = ({ videoId }: { videoId: string }) => (
-  <div className="relative aspect-video md:aspect-[8/5] h-full rounded-md overflow-hidden w-full max-w-sm xs:max-w-[480px] sm:max-w-[630px] md:max-w-40">
+  <>
     <img
       src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
       alt="YouTube video thumbnail"
       className="absolute inset-0 size-full object-cover m-0"
     />
     <div className="z-10 size-full center isolate dark:bg-zinc-900/20">
-      <button className="size-full relative">
+      <div className="size-full relative">
         <div className="bg-green-500 absolute bottom-2 right-2 shadow-lg rounded-3xl center p-2.5 center">
           <FaPlay className="size-3 text-white" />
         </div>
-      </button>
+      </div>
     </div>
-  </div>
+  </>
 )
 //======================================
 export const YtDialog = ({ href, src }: { src: string; href: string }) => {
@@ -24,7 +25,7 @@ export const YtDialog = ({ href, src }: { src: string; href: string }) => {
   const videoId = href.split("v=")[1].split("&")[0]
   return (
     <Dialog>
-      <DialogTrigger asChild>
+      <DialogTrigger className="relative aspect-video md:aspect-[8/5] h-full rounded-md overflow-hidden w-full max-w-sm xs:max-w-[520px] sm:max-w-[630px] md:max-w-40 p-0">
         <PlayBtn videoId={videoId} />
       </DialogTrigger>
       <DialogContent className="w-full max-w-7xl h-full max-h-[760px] p-0 dark:bg-zinc-900 bg-zinc-100 overflow-hidden aspect-video">
