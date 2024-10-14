@@ -176,7 +176,37 @@ export const getJobPosts = async (): Promise<JobPost[]> => {
         jobHook,
         }`)
 }
+export const getJobsPage = async ({
+    page = 1,
+    pageSize = 5,
+    fields = `jobTitle,
+        "slug": slug.current,
+        companyName,
+        location,
+        branch,
+        salaryMin,
+        salaryMax,
+        currency,
+        publishedAt,
+        applyUrl,
+        jobType,
+        contractType,
+        shortDescription,
+        jobHook,`,
+}: {
+    page?: number;
+    pageSize?: number;
+    /**
+     * Select fields to return from the query
+     */
+    fields?: string;
+}) => {
+    const offset = (page - 1) * pageSize;
 
+    return client.fetch(`*[_type == "jobPost"] | order(publishedAt desc) [${offset}...${offset + pageSize}] {
+        ${fields}
+    }`);
+};
 //------------------------------------------------------------Jobs-Posts-By-Slug
 export const getFullJobPostBySlug = async ({
     slug,

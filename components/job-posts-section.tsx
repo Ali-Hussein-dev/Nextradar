@@ -1,4 +1,4 @@
-import { getJobPosts } from "@/sanity/lib/getters"
+import { getJobsPage } from "@/sanity/lib/getters"
 import { getFormattedTime } from "@/lib/get-formatted-time"
 import { Button } from "@/components/button"
 import { type TypedObject } from "sanity"
@@ -7,6 +7,7 @@ import React from "react"
 import Link from "next/link"
 import { PortableText } from "next-sanity"
 import { WiStars } from "react-icons/wi"
+import { JobList } from "./job-list"
 export type JobPost = {
   jobTitle: string
   companyName: string
@@ -86,41 +87,38 @@ export const JobCard = (props: JobPost) => {
             </Link>
           </Button>
           <Button asChild size="sm">
-            <a href={applyUrl}>Apply</a>
+            <a href={applyUrl}>Apply for Role</a>
           </Button>
         </div>
       </div>
     </CardWrapper>
   )
 }
-const TextHighlight = ({ children }: { children: React.ReactNode }) => (
-  <span className="dark:bg-zinc-800/50 px-0.5 dark:text-green-300 backdrop-blur-lg text-green-500 bg-green-100/80 font-medium">
-    {children}
-  </span>
-)
+// const TextHighlight = ({ children }: { children: React.ReactNode }) => (
+//   <span className="dark:bg-zinc-800/50 px-0.5 dark:text-green-300 backdrop-blur-lg text-green-500 bg-green-100/80 font-medium">
+//     {children}
+//   </span>
+// )
 //======================================
 export const JobPostsSection = async () => {
-  const list = await getJobPosts()
+  const list = await getJobsPage({ page: 1 })
   return (
     <>
-      <div className="mb-8 px-2 max-w-2xl mx-auto">
-        <h1 className="mb-3 text-xl mt-0 sm:text-2xl text-center text-pretty">
-          Remote Jobs for Qualified Next.js Engineers
-        </h1>
-        <p className="dark:text-zinc-500 tracking-wide text-base text-center my-0">
-          Discover top Next.js job opportunities tailored for front-end
-          developers seeking exciting roles in wold-class companies.
-        </p>
-      </div>
-      <section className="mx-auto">
-        <div className="grid gap-5 md:gap-8 max-w-3xl mx-auto">
-          {list.map((job, i) => (
-            <React.Suspense key={i}>
-              <JobCard {...job} />
-            </React.Suspense>
-          ))}
+      <div className="border border-dashed p-2 max-w-3xl mx-auto mb-8 pt-6 pb-4">
+        <div className="px-2 max-w-2xl mx-auto">
+          <h1 className="mb-3 text-xl mt-0 sm:text-2xl text-center text-pretty">
+            Remote Jobs for Qualified Next.js Engineers
+          </h1>
+          <p className="dark:text-zinc-500 tracking-wide text-base text-center my-0">
+            Discover top Next.js job opportunities tailored for front-end
+            developers seeking exciting roles in wold-class companies.
+          </p>
         </div>
-      </section>
+        {/* <div className="flex-row-end w-full pr-1 pb-1">
+          <Button variant="outline">Post a job</Button>
+        </div> */}
+      </div>
+      <JobList initialList={list} />
     </>
   )
 }
