@@ -46,7 +46,7 @@ export const getReposNames = async () =>
         }`)
 
 //------------------------------------------------------------Recnet-Resources
-const getRecentSources = async ({
+export const getRecentSources = async ({
     fields = "name, description, type, href, src, author",
 }: {
     /**
