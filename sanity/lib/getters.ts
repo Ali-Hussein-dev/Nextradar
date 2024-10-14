@@ -46,17 +46,22 @@ export const getReposNames = async () =>
         }`)
 
 //------------------------------------------------------------Recnet-Resources
-const getRecentSources = async ({
+export const getRecentSources = async ({
     fields = "name, description, type, href, src, author",
+    length = 30
 }: {
     /**
      * Select fields to return from the query
      */
         fields: string
+        /**
+         * The length of time to query for
+         */
+        length?: number
 }) => {
     // Calculate the date range for the last 30 days
     const endDate = new Date().toISOString();
-    const startDate = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
+    const startDate = new Date(Date.now() - length * 24 * 60 * 60 * 1000).toISOString();
 
     const dateQuery = `&& _createdAt >= "${startDate}" && _createdAt < "${endDate}"`;
 
