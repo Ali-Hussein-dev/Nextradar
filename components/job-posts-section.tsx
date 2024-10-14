@@ -103,17 +103,16 @@ export const JobPostsSection = async () => {
   const list = await getJobPosts()
   return (
     <>
+      <div className="mb-8 px-2 max-w-2xl mx-auto">
+        <h1 className="mb-3 text-xl mt-0 sm:text-2xl text-center text-pretty">
+          Remote Jobs for Qualified Next.js Engineers
+        </h1>
+        <p className="dark:text-zinc-500 tracking-wide text-base text-center my-0">
+          Discover top Next.js job opportunities tailored for front-end
+          developers seeking exciting roles in wold-class companies.
+        </p>
+      </div>
       <section className="mx-auto">
-        <div className="mb-8 pl-2 md:pl-6">
-          <h2 className="mb-3 text-xl mt-0 md:text-2xl text-center">
-            Job opportunities <br /> for qualitfied{" "}
-            <TextHighlight>Nextjs</TextHighlight> &{" "}
-            <TextHighlight>React</TextHighlight> devs
-          </h2>
-          <h3 className="dark:text-zinc-400 font-medium text-base text-center">
-            Summarized job posts, no middleman, apply directly to employers
-          </h3>
-        </div>
         <div className="grid gap-5 md:gap-8 max-w-3xl mx-auto">
           {list.map((job, i) => (
             <React.Suspense key={i}>

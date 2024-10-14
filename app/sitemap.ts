@@ -1,4 +1,4 @@
-import { getAllJobPostSlugs, getJobPostMetaSlug } from "@/sanity/lib/getters";
+import { getAllJobPostSlugs } from "@/sanity/lib/getters";
 import { type MetadataRoute } from "next";
 import { headers } from "next/headers";
 
