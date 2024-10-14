@@ -9,8 +9,8 @@ const getStartEndDate = () => {
 }
 //======================================
 export const AdStats = async () => {
-  const username = process.env.ALIYTICS_USERNAME
-  const password = process.env.ALIYTICS_PASSWORD
+  const username = process.env?.ALIYTICS_USERNAME
+  const password = process.env?.ALIYTICS_PASSWORD
   if (!username || !password) {
     console.warn("Missing credentials");
     return <div>Couldn{"'"}t fetch stats</div>
