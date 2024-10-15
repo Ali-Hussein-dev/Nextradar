@@ -58,6 +58,12 @@ export const templates: Template[] = [
         ogImage: "https://commerce-shopify-lzmegorad-vercel-solutions-vtest314.vercel.app/opengraph-image",
     },
     {
+        url: "https://turbostarter.dev?aff=pWOZY",
+        name: "Turbo Starter",
+        description: "The Next.js, React Native (Expo) and Plasmo SaaS production-ready starter kit. Launch your web, mobile app and browser extension with one-click boilerplate.",
+        ogImage: "https://www.turbostarter.dev/opengraph-image.png?20038fb30fbd5897",
+    },
+    {
         url: "https://v1.run",
         name: "Create v1",
         description:
