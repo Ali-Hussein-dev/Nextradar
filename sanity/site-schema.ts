@@ -34,6 +34,11 @@ const SiteSchema = {
             type: "string",
         },
         {
+            name: "featured",
+            title: "Featured",
+            type: "boolean",
+        },
+        {
             name: "tags",
             title: "Tags",
             type: "array",
