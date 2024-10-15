@@ -18,6 +18,7 @@ export type Repo = {
     createdBy?: string
     stars?: number
     avatar?: string
+    featured?: boolean
 }
 
 
