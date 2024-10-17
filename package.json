@@ -9,8 +9,8 @@
     "start": "next start",
     "post:merge": "git checkout main && git pull",
     "post:install": "fumadocs-mdx",
-    "cf:login": "p dlx cloudflared tunnel login",
-    "cf:run": "p dlx cloudflared tunnel --url http://localhost:3000",
+    "cf:login": "pnpm dlx cloudflared tunnel login",
+    "cf:run": "pnpm dlx cloudflared tunnel --url http://localhost:3000",
     "type-check": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
