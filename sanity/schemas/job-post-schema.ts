@@ -94,8 +94,8 @@ const JobPost = {
             of: [{ type: "block" }],
         },
         {
-            name: "shortDescription",
-            title: "Short description for SEO (deprecated)",
+            name: "token",
+            title: "Payment Token",
             type: "string",
         },
     ],

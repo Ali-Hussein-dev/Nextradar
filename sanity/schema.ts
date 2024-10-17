@@ -1,5 +1,5 @@
 import { type SchemaTypeDefinition } from "sanity"
-import JobPost from "@/sanity/job-post-schema"
+import JobPost from "@/sanity/schemas/job-post-schema"
 import RepoSchema from "@/sanity/repos-schema"
 import SiteSchema from "@/sanity/site-schema"
 import SourceSchema from "@/sanity/source-schema"
