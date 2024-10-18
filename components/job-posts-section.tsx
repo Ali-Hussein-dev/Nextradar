@@ -1,7 +1,6 @@
 import { getJobsPage } from "@/sanity/lib/getters"
 import { getFormattedTime } from "@/lib/get-formatted-time"
 import { Button } from "@/components/button"
-import { type TypedObject } from "sanity"
 import { CardWrapper } from "@/components/ui/card-wrapper"
 import React from "react"
 import Link from "next/link"
@@ -9,25 +8,26 @@ import { PortableText } from "next-sanity"
 import { WiStars } from "react-icons/wi"
 import { JobList } from "./job-list"
 import { IoTimeOutline } from "react-icons/io5"
-export type JobPost = {
-  jobTitle: string
-  companyName: string
-  location: string
-  branch: string
-  salaryMin: number
-  salaryMax: number
-  currency: string
-  applyUrl: string
-  jobType: string[]
-  shortDescription: string
-  contractType: string
-  publishedAt: string
-  longDescription: TypedObject[]
-  jobHook: TypedObject[]
-  slug: string
-}
+import { type JobPostSchema } from "@/types/schema-types"
+
+export type JobPostCardProps = Pick<
+  JobPostSchema,
+  | "jobTitle"
+  | "companyName"
+  | "location"
+  | "branch"
+  | "salaryMin"
+  | "salaryMax"
+  | "currency"
+  | "applyUrl"
+  | "jobType"
+  | "contractType"
+  | "publishedAt"
+  | "slug"
+  | "jobHook"
+>
 //======================================
-export const JobCard = (props: JobPost) => {
+export const JobCard = (props: JobPostCardProps) => {
   const {
     jobTitle,
     companyName,

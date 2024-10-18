@@ -26,6 +26,6 @@ export async function generateMetadata({
 
   return {
     title: data.jobTitle,
-    description: data.shortDescription,
+    // description: data.shortDescription,
   } satisfies Metadata
 }

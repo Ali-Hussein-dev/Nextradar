@@ -2,10 +2,10 @@
 import * as React from "react"
 import { useInfiniteQuery } from "@tanstack/react-query"
 import { Button } from "@/components/ui/button"
-import { JobPost, JobCard } from "@/components/job-posts-section"
+import { JobPostCardProps, JobCard } from "@/components/job-posts-section"
 
 //======================================
-export function JobList({ initialList }: { initialList: JobPost[] }) {
+export function JobList({ initialList }: { initialList: JobPostCardProps[] }) {
   const { data, fetchNextPage, isFetchingNextPage } = useInfiniteQuery({
     queryKey: ["jobs"],
     queryFn: async ({ pageParam }) =>
