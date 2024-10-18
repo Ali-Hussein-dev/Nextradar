@@ -98,6 +98,11 @@ const JobPost = {
             title: "Payment Token",
             type: "string",
         },
+        {
+            name: "isHiringAgency",
+            title: "Is Hiring Agency",
+            type: "boolean",
+        },
     ],
 }
 
