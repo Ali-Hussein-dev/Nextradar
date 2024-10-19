@@ -27,7 +27,6 @@ export type RepoCategory = "real-world-apps" | "Tools" | "Plugin" | "Learn"
 export const getReposList = async ({ recommended, category }: { recommended: boolean; category: RepoCategory }): Promise<Repo[]> => {
     const qRecommended = recommended ? `&& recommended == ${recommended}` : ""
     const qCategory = !!category ? `&& category == '${category}'` : ""
-    console.log("getReposList", qCategory);
     return client.fetch(
         `*[_type == "repos" ${qRecommended} ${qCategory}] | order(_createdAt asc) {
     owner,
