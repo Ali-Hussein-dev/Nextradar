@@ -1,6 +1,7 @@
 import { Repo } from "@/lib/get-repos-github"
 import { client } from "./client"
-import { JobPost } from "@/components/job-posts-section"
+import { JobPostCardProps } from "@/components/job-posts-section"
+import { JobPostSchema } from "@/types/schema-types"
 
 //------------------------------------------------------------Sites
 export const getSites = async (): Promise<Repo[]> =>
@@ -159,7 +160,7 @@ export const getRecommendedSources = async (
 }`)
 
 //------------------------------------------------------------Jobs-Posts
-export const getJobPosts = async (): Promise<JobPost[]> => {
+export const getJobPosts = async (): Promise<JobPostCardProps[]> => {
     return client.fetch(`*[_type == "jobPost"] | order(publishedAt desc) {
         jobTitle,
         "slug": slug.current,
@@ -213,7 +214,7 @@ export const getFullJobPostBySlug = async ({
     slug,
 }: {
     slug: string
-}): Promise<JobPost> => {
+    }): Promise<JobPostSchema> => {
     return client.fetch(
     `*[_type == "jobPost" && slug.current == $slug ][0] {
         jobTitle,
@@ -237,11 +238,10 @@ export const getJobPostMetaSlug = async ({
     slug,
 }: {
     slug: string
-}): Promise<Pick<JobPost, "jobTitle" | "shortDescription">> => {
+    }): Promise<Pick<JobPostCardProps, "jobTitle">> => {
     return client.fetch(
     `*[_type == "jobPost" && slug.current == $slug ][0] {
-        jobTitle,
-        shortDescription
+        jobTitle
         }`,
         { slug }
     )
