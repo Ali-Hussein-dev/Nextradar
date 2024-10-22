@@ -40,6 +40,14 @@ export const getReposList = async ({ recommended, category }: { recommended: boo
     homepage
   }`)
 }
+export const getTagsList = async ({ category = "Tools" }: { category: RepoCategory }): Promise<Repo[]> => {
+
+    const qCategory = !!category ? `&& category == '${category}'` : ""
+    return client.fetch(
+        `*[_type == "repos" ${qCategory}] | order(_createdAt asc) {
+    tags
+  }`)
+}
 // used in toc
 export const getReposNames = async () =>
     client.fetch(`*[_type == "repos"] | order(_createdAt asc) {

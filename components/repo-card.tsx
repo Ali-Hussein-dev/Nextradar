@@ -40,12 +40,12 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
         )}
       </div>
       <div className="flex flex-col sm:flex-row sm:items-center gap-2 pt-2 dark:border-zinc-700 border-t border-dashed">
-        <div className="flex-row-between grow gap-3">
-          <div className="flex-row-start grow gap-1">
+        <div className="flex-row-between grow h-full gap-3">
+          <div className="flex-row-start h-full grow gap-1">
             {repo?.tags?.map((tag: string) => (
               <span
                 key={tag}
-                className="p-1 text-xs bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-200 rounded-sm"
+                className="px-2.5 h-full center text-xs bg-zinc-200 dark:bg-zinc-900 dark:text-zinc-200 rounded-[2px] capitalize"
               >
                 {tag}
               </span>
