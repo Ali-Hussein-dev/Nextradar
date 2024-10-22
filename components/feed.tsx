@@ -21,7 +21,7 @@ export type FeedCardProps = {
 export const FeedCard = React.memo(
   ({ name, description, author, href, src }: FeedCardProps) => {
     return (
-      <CardWrapper className="flex-none p-0 sm:px-0 md:px-0 dark:bg-transparent bg-transparent shadow-none">
+      <CardWrapper className="flex-none p-0 sm:px-0 md:px-0 dark:bg-transparent bg-transparent shadow-none border-none">
         <div className="flex flex-col md:flex-row items-start h-full sm:items-start md:gap-3 w-full">
           {/* --------------------------------YT-Embed */}
           {src && <YtDialog src={src} href={href} />}
@@ -71,7 +71,7 @@ export const Feed = async () => {
   const page = await getSourcesPage({ page: 1, pageSize: 10 })
   return (
     <div>
-      <div className="grid gap-5 max-w-2xl mx-auto py-6">
+      <div className="grid gap-5 max-w-2xl mx-auto pb-6 pt-3">
         <Search />
         <FeedList initialList={page} />
       </div>
