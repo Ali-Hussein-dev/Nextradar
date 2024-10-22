@@ -10,7 +10,7 @@ export const CardWrapper = ({
   <div
     {...rest}
     className={cn(
-      "rounded-md px-3 sm:px-4 md:px-6 pb-3 pt-6 flex flex-col justify-start w-full dark:bg-zinc-800/50 bg-white shadow animate-in",
+      "rounded-[2px] sm:px-4 md:px-6 py-3 md:pt-6 flex flex-col justify-start w-full border-dashed md:border shadow animate-in",
       rest.className
     )}
   >

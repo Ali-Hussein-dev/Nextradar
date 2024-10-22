@@ -14,11 +14,11 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
       <div className="flex-row-between">
         <h3 className="my-0 scroll-m-20 font-bold text-xl capitalize">
           {repo.avatar && (
-          <img
-            src={repo.avatar}
-            alt={repo.name}
-            className="size-6 mr-2 inline-block rounded-full my-0"
-          />
+            <img
+              src={repo.avatar}
+              alt={repo.name}
+              className="size-6 mr-2 inline-block rounded-full my-0"
+            />
           )}
           {repo.name}
         </h3>
@@ -40,45 +40,47 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
         )}
       </div>
       <div className="flex flex-col sm:flex-row sm:items-center gap-2 pt-2 dark:border-zinc-700 border-t border-dashed">
-        <div className="">
-          {repo?.tags?.map((tag: string) => (
-            <span
-              key={tag}
-              className="p-1 text-xs bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-200 rounded-sm mr-1"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-        <div className="flex-row-end grow gap-3">
-          {repo?.owner && (
-            <Button
-              size="icon"
-              asChild
-              variant="outline"
-              className="rounded-lg"
-            >
-              <a
-                href={`https://github.com/${repo.owner}/${repo.repoName}`}
-                target="_blank"
-                rel="noopener noreferrer"
+        <div className="flex-row-between grow gap-3">
+          <div className="flex-row-start grow gap-1">
+            {repo?.tags?.map((tag: string) => (
+              <span
+                key={tag}
+                className="p-1 text-xs bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-200 rounded-sm"
               >
-                <FaGithub size="17" />
-              </a>
-            </Button>
-          )}
-          {repo?.homepage && (
-            <Button
-              asChild
-              variant={"secondary"}
-              className="rounded-lg gap-3 no-underline dark:text-green-300 text-green-500"
-            >
-              <a href={repo.homepage} target="_blank">
-                Visit
-                <TbExternalLink size="16" />
-              </a>
-            </Button>
-          )}
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div className="flex-row-end gap-2">
+            {repo?.owner && (
+              <Button
+                size="icon"
+                asChild
+                variant="outline"
+                className="rounded-lg"
+              >
+                <a
+                  href={`https://github.com/${repo.owner}/${repo.repoName}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaGithub size="17" />
+                </a>
+              </Button>
+            )}
+            {repo?.homepage && (
+              <Button
+                asChild
+                variant={"secondary"}
+                className="rounded-lg gap-3 no-underline dark:text-green-300 text-green-500"
+              >
+                <a href={repo.homepage} target="_blank">
+                  Visit
+                  <TbExternalLink size="16" />
+                </a>
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </CardWrapper>

@@ -16,7 +16,7 @@ export const ItemsList = async ({
       : ((await getReposList({ recommended, category })) as Repo[])
 
   return (
-    <div className="grid md:grid-cols-2 gap-4 w-full">
+    <div className="grid lg:grid-cols-2 gap-4 w-full">
       {list
         .sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0))
         .map((repo, i) => (

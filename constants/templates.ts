@@ -87,11 +87,11 @@ export const templates: Template[] = [
         ogImage: "https://saas-ui.dev/og-image.jpg",
     },
     {
-        url: "https://supastarter.dev?aff=pWOZY",
-        name: "supastarter",
+        url: "https://achromatic.dev",
+        name: "Achromatic",
         description:
-            "supastarter is a production-ready SaaS boilerplate for Nuxt 3 and Next.js 14. It includes authentication, billing, internationalization, multi-tenancy, and more.",
-        ogImage: "https://supastarter.dev/images/meta.png",
+            "Get all the tools you need to build and scale your SaaS, AI tool or web application with our comprehensive feature set and straightforward pricing.",
+        ogImage: "https://achromatic.dev/og.jpg",
     },
     {
         url: "https://shipixen.com?aff=pWOZY",
@@ -107,18 +107,18 @@ export const templates: Template[] = [
         ogImage: "https://cdn.prod.website-files.com/6581b414af882653e8f914a5/65f730d984038dee30e69cae_405.png",
     },
     {
-        url: "https://achromatic.dev",
-        name: "Achromatic",
-        description:
-            "Get all the tools you need to build and scale your SaaS, AI tool or web application with our comprehensive feature set and straightforward pricing.",
-        ogImage: "https://achromatic.dev/og.jpg",
-    },
-    {
         url: "https://www.newcult.co/",
         name: "cult",
         description:
             "The fastest way to build a startup is to buy 9. Customizable Next.js apps featuring Tailwindcss & Supabase.API snips, ai dev tools and more.",
         ogImage: "https://www.newcult.co/og.png",
+    },
+    {
+        url: "https://supastarter.dev?aff=pWOZY",
+        name: "supastarter",
+        description:
+            "supastarter is a production-ready SaaS boilerplate for Nuxt 3 and Next.js 14. It includes authentication, billing, internationalization, multi-tenancy, and more.",
+        ogImage: "https://supastarter.dev/images/meta.png",
     },
     {
         url: "https://turso-per-user-starter.vercel.app/",
