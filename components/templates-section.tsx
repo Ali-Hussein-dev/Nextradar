@@ -109,9 +109,9 @@ export function TemplatesSection() {
         ))}
       </div>
       <div className="grid lg:grid-cols-2 gap-3">
-        {filtered.map((o, i) => (
+        {filtered.map((o) => (
           <CardWrapper
-            key={i}
+            key={o.name}
             className="md:px-3 pt-3 overflow-hidden relative"
           >
             <div>

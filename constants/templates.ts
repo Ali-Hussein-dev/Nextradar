@@ -122,11 +122,11 @@ export const templates: Template[] = [
         ogImage: "https://next-master.vercel.app/opengraph-image.png",
     },
     {
-        url: "https://supastarter.dev?aff=pWOZY",
-        name: "supastarter",
+        url: "https://code-templates.lemonsqueezy.com?aff=pWOZY",
+        name: "LaunchFast",
         description:
-            "supastarter is a production-ready SaaS boilerplate for Nuxt 3 and Next.js 14. It includes authentication, billing, internationalization, multi-tenancy, and more.",
-        ogImage: "https://supastarter.dev/images/meta.png",
+            "Comprehensive Astro, Next.js and SvelteKit Starter Kits for SEO, Analytics, Storage, Auth, Payments, Blogs, and Email - everything a developer needs to kickstart their project.",
+        ogImage: "https://ik.imagekit.io/vjeqenuhn/launchfast-website/seo.png",
     },
     {
         url: "https://turso-per-user-starter.vercel.app/",
@@ -142,6 +142,13 @@ export const templates: Template[] = [
         description:
             "The Ultimate Foundation for High-Performance, Scalable Web Applications with the Power of Golang and Next.js / SvelteKit. Backed by a powerful CLI.",
         ogImage: "https://bucket.gofast.live/hero.png"
+    },
+    {
+        url: "https://supastarter.dev?aff=pWOZY",
+        name: "supastarter",
+        description:
+            "supastarter is a production-ready SaaS boilerplate for Nuxt 3 and Next.js 14. It includes authentication, billing, internationalization, multi-tenancy, and more.",
+        ogImage: "https://supastarter.dev/images/meta.png",
     },
     // {
     //     url: "next-saas-start.vercel.app",
@@ -161,13 +168,7 @@ export const templates: Template[] = [
     //         "The fastest way to build a startup is to buy 9. Customizable Next.js apps featuring Tailwindcss & Supabase.API snips, ai dev tools and more.",
     //     ogImage: "https://www.newcult.co/og.png",
     // },
-    {
-        url: "https://code-templates.lemonsqueezy.com?aff=pWOZY",
-        name: "LaunchFast",
-        description:
-            "Comprehensive Astro, Next.js and SvelteKit Starter Kits for SEO, Analytics, Storage, Auth, Payments, Blogs, and Email - everything a developer needs to kickstart their project.",
-        ogImage: "https://ik.imagekit.io/vjeqenuhn/launchfast-website/seo.png",
-    },
+
 ]
 
 // https://smashing.tools
