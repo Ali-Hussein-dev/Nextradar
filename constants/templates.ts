@@ -80,7 +80,7 @@ export const templates: Template[] = [
         ogImage: "https://assets.vercel.com/image/upload/contentful/image/e5382hct74si/4JmubmYDJnFtstwHbaZPev/0c3576832aae5b1a4d98c8c9f98863c3/Vercel_Home_OG.png",
     },
     {
-        url: "https://saas-ui.dev/",
+        url: "https://saas-ui.dev?aff=pWOZY",
         name: "Saas UI",
         description:
             "Modern React component library and starter kit for SaaS, B2B and internal tools. Built with Chakra UI and Next.js.",
@@ -112,6 +112,14 @@ export const templates: Template[] = [
         description:
             "The fastest way to build a startup is to buy 9. Customizable Next.js apps featuring Tailwindcss & Supabase.API snips, ai dev tools and more.",
         ogImage: "https://www.newcult.co/og.png",
+    },
+    {
+        url: "https://next-master.vercel.app/",
+        name: "NextMaster",
+        description:
+            "A highly performant replica of McMaster-Carr using Next.js 15",
+        github: "https://github.com/ethanniser/NextMaster",
+        ogImage: "https://next-master.vercel.app/opengraph-image.png",
     },
     {
         url: "https://supastarter.dev?aff=pWOZY",
