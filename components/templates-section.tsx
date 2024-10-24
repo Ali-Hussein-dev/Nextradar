@@ -16,6 +16,7 @@ export interface Template {
   ogImage: string
   sponsored?: boolean
   github?: string
+  rel: string
 }
 
 export function useFilteredTemplates(templates: Template[], isFree: boolean) {
@@ -154,7 +155,7 @@ export function TemplatesSection() {
                   variant={"secondary"}
                   className="rounded-lg gap-3 no-underline dark:text-green-300 text-green-500"
                 >
-                  <a href={o.url} target="_blank">
+                  <a href={o.url} target="_blank" rel={o.rel}>
                     Visit
                     <HiOutlineExternalLink />
                   </a>
