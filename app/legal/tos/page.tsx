@@ -1,5 +1,3 @@
-import { generateSEOTags } from "@/lib/seo"
-
 export const metadata = {
   title: "Terms of Service",
 }

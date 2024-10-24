@@ -1,5 +1,3 @@
-import { generateSEOTags } from "@/lib/seo"
-
 export const metadata = {
   title: "Privacy Policy",
   description: "Privacy Policy for Nextradar",
