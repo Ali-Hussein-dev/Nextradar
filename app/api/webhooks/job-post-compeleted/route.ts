@@ -56,10 +56,13 @@ const webhook_payload_example = {
 }
 type Webhook = typeof webhook_payload_example
 
+export const revalidate = "force-dynamic"
 
-export const POST = async (req: NextRequest) => {
+export const POST = async (req: Request) => {
     // validate the webhook
-    const isCreeemSignature = await verifyCreemSignature(req)
+    const clonedReq = req.clone()
+    const payload = await clonedReq.text()
+    const isCreeemSignature = await verifyCreemSignature(payload, clonedReq).catch(console.error)
 
     if (!isCreeemSignature) {
         return NextResponse.json({ message: "Invalid signature" }, { status: 401 })
