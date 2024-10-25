@@ -36,6 +36,11 @@ const IntegrationSchema = {
       initialValue: "https://",
     },
     {
+      name: "exampleUrl",
+      title: "Example URL",
+      type: "url",
+    },
+    {
       name: "tags",
       title: "Tags",
       type: "array",

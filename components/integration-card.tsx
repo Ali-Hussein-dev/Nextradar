@@ -2,11 +2,13 @@
 import { CardWrapper } from "@/components/ui/card-wrapper"
 import { Button } from "@/components/button"
 import { TbExternalLink } from "react-icons/tb"
+import { FaGithub } from "react-icons/fa"
 
 export type IntegrationCardProps = {
   name: string
   description: string
   url: string
+  exampleUrl: string
   logoUrl: string
   tags?: string[]
 }
@@ -17,6 +19,7 @@ export const IntegrationCard = ({
   description,
   url,
   logoUrl,
+  exampleUrl,
 }: IntegrationCardProps) => {
   return (
     <CardWrapper className="animate-in">
@@ -36,15 +39,29 @@ export const IntegrationCard = ({
       </div>
       <div className="flex-row-between pt-2 border-t border-dashed w-full">
         <div className="flex-row-end grow gap-3">
+          {exampleUrl && (
+            <Button
+              asChild
+              variant={"outline"}
+              size="sm"
+              className="rounded-lg gap-3 no-underline"
+            >
+              <a href={url}>
+                <FaGithub />
+                Starter
+              </a>
+            </Button>
+          )}
           {url && (
             <Button
               asChild
               variant={"secondary"}
+              size="sm"
               className="rounded-lg gap-3 no-underline dark:text-green-300 text-green-500"
             >
-              <a href={url} target="_blank">
-                Visit
+              <a href={url}>
                 <TbExternalLink size="16" />
+                Visit
               </a>
             </Button>
           )}
