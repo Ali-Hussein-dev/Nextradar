@@ -64,14 +64,16 @@ export function TemplatesSection() {
           `}
             h3="Discover High-Quality, Ready-to-Use Templates for Your Next.js Projects"
           />
-          <div className="text-zinc-600 dark:text-zinc-400 prose-p:my-0">
+          <div className="text-zinc-600 dark:text-zinc-400 prose pb-2 prose-zinc dark:prose-invert">
             Explore a wide range of high-quality Next.js templates. Pick from
             free, open-source, and premium options to build stunning and
-            functional Next.js websites and web apps effortlessly. <br />
-            Discover a diverse collection of handpicked and ready-to-use
-            templates and boilerplates to jumpstart your next project quickly —
-            built with the latest Next.js 14, React 18, and TypeScript for
-            optimal performance and ease of use.
+            functional Next.js websites and web apps effortlessly.
+            <p>
+              Discover a diverse collection of handpicked and ready-to-use
+              templates and boilerplates to jumpstart your next project quickly
+              — built with the latest Next.js 14, React 18, and TypeScript for
+              optimal performance and ease of use.
+            </p>
             <p>The reviewed Next.js templates meet the following criteria:</p>
             <ul>
               <li>
@@ -81,17 +83,6 @@ export function TemplatesSection() {
               <li>The UI is clean and beautiful</li>
               <li>Clean documentation for onboarding and easy setup</li>
             </ul>
-            <p>
-              I might have missed some great ones, so if you have a suggestion,
-              please{" "}
-              <a
-                href="https://x.com/alihussein_20"
-                // className="text-blue-500 dark:text-blue-400"
-              >
-                let me know
-              </a>
-              .
-            </p>
           </div>
         </ExpandableCard>
       </div>

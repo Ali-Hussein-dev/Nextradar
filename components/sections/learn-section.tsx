@@ -14,16 +14,19 @@ export function LearnSection() {
           Best Next.js Courses and Tutorials ${new Date().getFullYear()}
         `}
         />
-        <div className="text-zinc-600 dark:text-zinc-400 ">
-          <p className="">
+        <div className="text-zinc-600 dark:text-zinc-400 prose pb-2 prose-zinc dark:prose-invert">
+          <p>
             Discover the best courses and tutorials to master the Next.js
             framework. Our hand-picked resources are designed to help you learn
             Next.js efficiently, whether you are a beginner or an experienced
-            developer. Explore both **free and premium courses** from industry
-            experts, covering a wide range of topics including server-side
-            rendering, static site generation, API routes, and more. Stay
-            up-to-date with the latest trends and best practices in Next.js
-            development to enhance your skills and advance your career.
+            developer.
+          </p>
+          <p>
+            Explore both <b>free and premium courses</b> from industry experts,
+            covering a wide range of topics including server-side rendering,
+            static site generation, API routes, and more. Stay up-to-date with
+            the latest trends and best practices in Next.js development to
+            enhance your skills and advance your career.
           </p>
         </div>
       </ExpandableCard>
