@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { getJobPostMetaSlug } from "@/sanity/lib/getters"
 import { FullJobPost } from "@/components/full-job-post"
 import { redirect } from "next/navigation"
+import { urls } from "@/constants/urls"
 
 export const revalidate = 3600
 
@@ -25,7 +26,7 @@ export async function generateMetadata({
 }) {
   const data = await getJobPostMetaSlug({ slug: params.slug! })
   if (!data) {
-    redirect("/content/expired")
+    redirect(urls.jobsExpired)
   }
 
   return {

@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/collapsible"
 import { SidebarMenutBtn } from "@/components/app-shell/sidebar-menu-button"
 import { ThemeToggle } from "@/components/app-shell/toggle-theme"
+import { urls } from "@/constants/urls"
 
 type SidebarLink = {
   label: string
@@ -33,40 +34,40 @@ type SidebarLink = {
 export const sidebarLinks = [
   {
     label: "Latest",
-    url: "/content/latest",
+    url: urls.latest,
     // icon: Home,
     title: "Latest Next.js Articles & Tutorials",
     description: "",
   },
   {
     label: "Learn",
-    url: "/content/learn",
+    url: urls.learn,
     // icon: Inbox,
     title: "Top Next.js Courses & Tutorials",
     description: "",
   },
   {
     label: "Templates",
-    url: "/content/templates",
+    url: urls.templates,
     // icon: Calendar,
     title: "Top Next.js Templates",
     description: "",
   },
   {
     label: "Tools",
-    url: "/content/tools",
+    url: urls.tools,
     title: "Top Next.js Tools & Plugins",
     description: "",
   },
   {
     label: "OS Projects",
-    url: "/content/real-world-apps",
+    url: urls.osProjects,
     title: "Top Open Source Next.js Projects",
     description: "Discover top open-source projects built with Next.js",
   },
   {
     label: "Jobs",
-    url: "/content/jobs",
+    url: urls.jobs,
     title: "Next.js Jobs",
     description: "Find the best Next.js jobs for developers",
   },
@@ -115,7 +116,7 @@ export const sidebarLinks = [
     items: [
       {
         label: "Sponsor",
-        url: "/content/sponsor",
+        url: urls.sponsor,
 
         title: "Sponsor Nextradar",
         description:
@@ -157,6 +158,7 @@ const GroupLinks = ({
     </Collapsible>
   )
 }
+
 export function AppSidebar() {
   return (
     <Sidebar>
