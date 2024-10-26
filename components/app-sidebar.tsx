@@ -65,6 +65,12 @@ export const sidebarLinks = [
     description: "Discover top open-source projects built with Next.js",
   },
   {
+    label: "Jobs",
+    url: "/content/jobs",
+    title: "Next.js Jobs",
+    description: "Find the best Next.js jobs for developers",
+  },
+  {
     label: "Integrations",
     // url: "/content/latest",
     items: [

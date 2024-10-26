@@ -3,7 +3,7 @@
  */
 export const urls = {
     home: "/",
-    jobs: "/docs/jobs",
+    jobs: "/content/jobs",
     terms: "/legal/tos",
     privacy: "/legal/privacy",
     twitter: "https://twitter.com/ali_hussein_20",
