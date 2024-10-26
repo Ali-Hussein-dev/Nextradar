@@ -55,9 +55,9 @@ export function TemplatesSection() {
   })
 
   return (
-    <div className="space-y-8">
-      <div className="">
-        <ExpandableCard height="9rem" className="md:px-6 border-dashed">
+    <div className="">
+      <div className="mb-4 md:mb-8">
+        <ExpandableCard height="8rem" className="md:px-6 border-dashed">
           <CardHeading
             h2={`
             ${templates.length} Best Free and Premium Next.js Templates
@@ -95,7 +95,7 @@ export function TemplatesSection() {
           </div>
         </ExpandableCard>
       </div>
-      <div className="flex-row-end w-full gap-4">
+      <div className="flex-row-start w-full gap-4 mb-3">
         {labels.map((l) => (
           <Button
             key={l.value}

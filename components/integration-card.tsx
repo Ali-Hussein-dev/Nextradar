@@ -33,7 +33,7 @@ export const IntegrationCard = ({
           />
           <h3 className="my-0 font-bold text-xl">{name}</h3>
         </div>
-        <p className="mt-0 text-base dark:text-zinc-300 line-clamp-3">
+        <p className="mb-2 text-base dark:text-zinc-300 line-clamp-3">
           {description}
         </p>
       </div>
