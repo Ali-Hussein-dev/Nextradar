@@ -13,8 +13,8 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
-import { SidebarMenutBtn } from "@/components/app-sidebar/sidebar-menu-button"
-import { ThemeToggle } from "@/components/app-sidebar/toggle-theme"
+import { SidebarMenutBtn } from "@/components/app-shell/sidebar-menu-button"
+import { ThemeToggle } from "@/components/app-shell/toggle-theme"
 
 type SidebarLink = {
   label: string
