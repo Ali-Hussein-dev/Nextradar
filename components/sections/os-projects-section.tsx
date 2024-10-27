@@ -5,12 +5,9 @@ import { CardHeading, ExpandableCard } from "@/components/ui/expandable-card"
 export function OpenSourceProjects() {
   return (
     <div className="">
-      <ExpandableCard
-        height="6rem"
-        className="md:px-6 border-dashed mb-4 md:mb-6"
-      >
+      <ExpandableCard height="6rem" className="md:px-6 mb-4 md:mb-6 typography">
         <CardHeading h2="Top Open-source Projects built with Next.js" />
-        <div className="text-zinc-600 dark:text-zinc-400 prose pb-2 prose-zinc dark:prose-invert">
+        <div>
           If you’re a seasoned developer wanting to polish your coding skills or
           just starting out and keen to learn the basics. his collection has it
           all—from intermediate projects to complex enterprise Next.js apps.

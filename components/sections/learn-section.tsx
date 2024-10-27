@@ -6,7 +6,7 @@ export function LearnSection() {
   return (
     <div>
       <ExpandableCard
-        className="md:px-6 border-dashed mb-4 md:mb-8"
+        className="md:px-6 border-dashed mb-4 md:mb-8 typography"
         height="6rem"
       >
         <CardHeading
@@ -14,7 +14,7 @@ export function LearnSection() {
           Best Next.js Courses and Tutorials ${new Date().getFullYear()}
         `}
         />
-        <div className="text-zinc-600 dark:text-zinc-400 prose pb-2 prose-zinc dark:prose-invert">
+        <div>
           <p>
             Discover the best courses and tutorials to master the Next.js
             framework. Our hand-picked resources are designed to help you learn
