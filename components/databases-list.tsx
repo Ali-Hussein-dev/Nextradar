@@ -59,7 +59,7 @@ export function DatabasesList({ list }: { list: IntegrationCardProps[] }) {
 
   return (
     <div>
-      <div className="flex-row-end gap-3 mb-4">
+      <div className="flex-row-start gap-3 mb-2">
         {labels.map((label) => (
           <Button
             key={label.value}

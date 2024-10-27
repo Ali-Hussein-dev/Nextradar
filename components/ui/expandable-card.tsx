@@ -18,7 +18,7 @@ export function ExpandableCard({
    */
   wide = false,
 }: {
-  height: string
+  height?: string
   wide?: boolean
   className?: string
   children: React.ReactNode

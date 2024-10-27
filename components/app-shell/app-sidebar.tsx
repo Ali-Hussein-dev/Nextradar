@@ -77,31 +77,31 @@ export const sidebarLinks = [
     items: [
       {
         label: "Hosting Providers",
-        url: "/content/hosting",
+        url: urls.hosting,
         title: "Top Hosting Providers for Next.js",
         description: "",
       },
       {
         label: "Headless CMS",
-        url: "/content/headless-cms",
+        url: urls.headlessCms,
         title: "Headless CMS for Next.js",
         description: "",
       },
       {
         label: "Commerce",
-        url: "/content/commerce",
+        url: urls.commerce,
         title: "E-commerce Platforms for Next.js",
         description: "",
       },
       {
         label: "Databases",
-        url: "/content/databases",
+        url: urls.db,
         title: "Databases for Next.js",
         description: "",
       },
       {
         label: "BaaS",
-        url: "/content/baas",
+        url: urls.baas,
         title: "Backend as a Service for Next.js",
         description: "",
       },
