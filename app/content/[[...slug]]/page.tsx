@@ -33,7 +33,11 @@ export default function ContentPage({
 
   switch (slug) {
     case "latest":
-      return <Feed />
+      return (
+        <React.Suspense>
+          <Feed />
+        </React.Suspense>
+      )
     case "templates":
       return (
         <SharedContainer>

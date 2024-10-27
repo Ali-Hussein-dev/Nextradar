@@ -3,6 +3,7 @@ import { getJobPostMetaSlug } from "@/sanity/lib/getters"
 import { FullJobPost } from "@/components/full-job-post"
 import { redirect } from "next/navigation"
 import { urls } from "@/constants/urls"
+import * as React from "react"
 
 export const revalidate = 3600
 
@@ -14,7 +15,9 @@ export default async function JobPage({
   // const post = await getJobPostBy_Id({ slug: params.slug })
   return (
     <div className="max-w-4xl mx-auto h-full">
-      <FullJobPost slug={params.slug} />
+      <React.Suspense>
+        <FullJobPost slug={params.slug} />
+      </React.Suspense>
     </div>
   )
 }
