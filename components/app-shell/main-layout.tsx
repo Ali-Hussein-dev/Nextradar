@@ -11,7 +11,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         <nav className="px-4 py-1">
           <SidebarTrigger />
         </nav>
-        <div className="pt-2 pb-8 h-full">
+        <div className="pt-2 pb-8 h-full px-3 md:px-1">
           <ReactQueryProv>{children}</ReactQueryProv>
         </div>
         <Footer />
