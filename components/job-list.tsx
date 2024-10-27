@@ -2,7 +2,10 @@
 import * as React from "react"
 import { useInfiniteQuery } from "@tanstack/react-query"
 import { Button } from "@/components/ui/button"
-import { JobPostCardProps, JobCard } from "@/components/job-posts-section"
+import {
+  JobPostCardProps,
+  JobCard,
+} from "@/components/sections/job-posts-section"
 
 //======================================
 export function JobList({ initialList }: { initialList: JobPostCardProps[] }) {
