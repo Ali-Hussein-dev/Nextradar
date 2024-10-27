@@ -28,6 +28,9 @@
         p {
             @apply text-gray-600 dark:text-zinc-400;
         }
+        .typography {
+            @apply text-zinc-600 dark:text-zinc-400 prose prose-zinc dark:prose-invert
+        }
 }
 /* -----------------------------------------------------ANIMATION */
 .animate-in {
