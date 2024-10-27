@@ -1,6 +1,4 @@
-import { type NextRequest, NextResponse } from 'next/server'
-import * as crypto from 'crypto';
-import { env } from '@/env.mjs';
+import { NextResponse } from 'next/server'
 import { verifyCreemSignature } from '@/lib/creem/verify-signature';
 
 const webhook_payload_example = {
@@ -56,7 +54,7 @@ const webhook_payload_example = {
 }
 type Webhook = typeof webhook_payload_example
 
-export const revalidate = "force-dynamic"
+export const dynamic = "force-dynamic"
 
 export const POST = async (req: Request) => {
     // validate the webhook
