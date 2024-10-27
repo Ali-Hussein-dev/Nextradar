@@ -60,8 +60,67 @@ export default {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
+  			},
+  			sidebar: {
+  				DEFAULT: 'hsl(var(--sidebar-background))',
+  				foreground: 'hsl(var(--sidebar-foreground))',
+  				primary: 'hsl(var(--sidebar-primary))',
+  				'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+  				accent: 'hsl(var(--sidebar-accent))',
+  				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+  				border: 'hsl(var(--sidebar-border))',
+  				ring: 'hsl(var(--sidebar-ring))'
   			}
-  		}
+		  },
+		  // @ts-expect-error no tpyes for typography
+		  typography: (theme) => ({
+			  zinc: {
+				  css: {
+					  "--tw-prose-body": theme("colors.zinc[800]"),
+					  "--tw-prose-headings": theme("colors.zinc[900]"),
+					  "--tw-prose-lead": theme("colors.zinc[700]"),
+					  "--tw-prose-links": theme("colors.zinc[900]"),
+					  "--tw-prose-bold": theme("colors.zinc[900]"),
+					  "--tw-prose-counters": theme("colors.zinc[600]"),
+					  "--tw-prose-bullets": theme("colors.zinc[700]"),
+					  "--tw-prose-hr": theme("colors.zinc[300]"),
+					  "--tw-prose-quotes": theme("colors.zinc[900]"),
+					  "--tw-prose-quote-borders": theme("colors.zinc[300]"),
+					  "--tw-prose-captions": theme("colors.zinc[700]"),
+					  "--tw-prose-code": theme("colors.zinc[900]"),
+					  "--tw-prose-pre-code": theme("colors.zinc[100]"),
+					  "--tw-prose-pre-bg": theme("colors.zinc[900]"),
+					  "--tw-prose-th-borders": theme("colors.zinc[300]"),
+					  "--tw-prose-td-borders": theme("colors.zinc[200]"),
+					  // for dark mode
+					  "--tw-prose-invert-body": theme("colors.zinc[400]"),
+					  "--tw-prose-invert-headings": theme("colors.zinc[300]"),
+					  "--tw-prose-invert-lead": theme("colors.zinc[400]"),
+					  "--tw-prose-invert-links": theme("colors.zinc[400]"),
+					  "--tw-prose-invert-bold": theme("colors.zinc[400]"),
+					  "--tw-prose-invert-counters": theme("colors.zinc[400]"),
+					  "--tw-prose-invert-bullets": theme("colors.zinc[400]"),
+					  "--tw-prose-invert-hr": theme("colors.zinc[600]"),
+
+					  "--tw-prose-invert-quotes": theme("colors.zinc[400]"),
+					  "--tw-prose-invert-quote-borders": theme("colors.zinc[700]"),
+
+					  "--tw-prose-invert-captions": theme("colors.zinc[400]"),
+
+					  "--tw-prose-invert-code": theme("colors.white"),
+					  "--tw-prose-invert-pre-code": theme("colors.zinc[300]"),
+					  "--tw-prose-invert-pre-bg": "rgb(0 0 0 / 50%)",
+
+					  "--tw-prose-invert-th-borders": theme("colors.zinc[600]"),
+					  "--tw-prose-invert-td-borders": theme("colors.zinc[700]"),
+				  },
+			  },
+			  DEFAULT: {
+				  css: {
+					  maxWidth: "100%",
+				  },
+			  },
+		  }),
   	}
   },
   presets: [createPreset({ preset: "default" })],

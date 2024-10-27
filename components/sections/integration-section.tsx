@@ -5,7 +5,6 @@ import {
   IntegrationCardProps,
 } from "@/components/integration-card"
 
-
 //======================================
 export const IntegrationSection = async ({
   categoryId,

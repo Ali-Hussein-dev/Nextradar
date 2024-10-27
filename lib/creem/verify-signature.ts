@@ -1,13 +1,12 @@
 "use server"
-import * as crypto from 'crypto';
+import { createHmac } from 'node:crypto';
 import { env } from '@/env.mjs';
 
 /**
  * Generate a signature for a Creem webhook
  */
 function generateSignature(payload: string, secret: string): string {
-    const computedSignature = crypto
-        .createHmac('sha256', secret)
+    const computedSignature = createHmac('sha256', secret)
         .update(payload)
         .digest('hex');
     return computedSignature;

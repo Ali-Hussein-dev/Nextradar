@@ -1,26 +1,26 @@
 {
     "headlessCMS": {
         "name": "Headless CMS",
-        "id": "1001"
+        "id": 1001
     },
     "hosting": {
         "name": "Hosting",
-        "id": "1002"
+        "id": 1002
     },
     "baas":{
         "name": "BaaS",
-        "id": "1003"
+        "id": 1003
     },
     "testing": {
         "name": "Testing",
-        "id": "1004"
+        "id": 1004
     },
     "database":{
         "name": "Database",
-        "id": "1005"
+        "id": 1005
     },
     "commerce":{
         "name": "AI",
-        "id": "1007"
+        "id": 1007
     }
 }

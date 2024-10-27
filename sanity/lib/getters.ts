@@ -1,6 +1,6 @@
 import { Repo } from "@/lib/get-repos-github"
 import { client } from "./client"
-import { JobPostCardProps } from "@/components/job-posts-section"
+import { JobPostCardProps } from "@/components/sections/job-posts-section"
 import { JobPostSchema } from "@/types/schema-types"
 
 //------------------------------------------------------------Sites

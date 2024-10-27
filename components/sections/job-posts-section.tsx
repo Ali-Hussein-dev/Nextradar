@@ -6,9 +6,10 @@ import React from "react"
 import Link from "next/link"
 import { PortableText } from "next-sanity"
 import { WiStars } from "react-icons/wi"
-import { JobList } from "./job-list"
+import { JobList } from "../job-list"
 import { IoTimeOutline } from "react-icons/io5"
 import { type JobPostSchema } from "@/types/schema-types"
+import { urls } from "@/constants/urls"
 
 export type JobPostCardProps = Pick<
   JobPostSchema,
@@ -66,7 +67,7 @@ export const JobCard = (props: JobPostCardProps) => {
           </div>
         </div>
         <div className="pt-4">
-          <div className="dark:text-zinc-300 dark:border-zinc-700 border-dashed border-y pt-1">
+          <div className="dark:text-zinc-300 dark:border-zinc-700 border-dashed border-y py-1">
             <h3 className="font-semibold dark:text-green-300 flex-row-start gap-1 text-green-600 mt-2">
               <WiStars size="20" />
               Top Benefits
@@ -82,7 +83,7 @@ export const JobCard = (props: JobPostCardProps) => {
         <div className="flex-row-end gap-2">
           {/* <JobPostDrawer {...props} /> */}
           <Button asChild size="sm" variant="ghost">
-            <Link href={`/docs/j/${slug}`} prefetch={false}>
+            <Link href={`/jobs/${slug}`} prefetch={false}>
               View Job
             </Link>
           </Button>

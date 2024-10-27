@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { getJobPostMetaSlug } from "@/sanity/lib/getters"
 import { FullJobPost } from "@/components/full-job-post"
 import { redirect } from "next/navigation"
+import { urls } from "@/constants/urls"
+import * as React from "react"
 
 export const revalidate = 3600
 
@@ -11,7 +13,13 @@ export default async function JobPage({
   params: { slug: string }
 }) {
   // const post = await getJobPostBy_Id({ slug: params.slug })
-  return <FullJobPost slug={params.slug} />
+  return (
+    <div className="max-w-4xl mx-auto h-full">
+      <React.Suspense>
+        <FullJobPost slug={params.slug} />
+      </React.Suspense>
+    </div>
+  )
 }
 
 export async function generateMetadata({
@@ -21,7 +29,7 @@ export async function generateMetadata({
 }) {
   const data = await getJobPostMetaSlug({ slug: params.slug! })
   if (!data) {
-    redirect("/docs/expired")
+    redirect(urls.jobsExpired)
   }
 
   return {

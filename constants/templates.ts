@@ -1,4 +1,4 @@
-import { Template } from "@/components/templates-section";
+import { Template } from "@/components/sections/templates-section";
 
 export const templates: Template[] = [
     {

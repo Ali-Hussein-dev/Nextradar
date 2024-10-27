@@ -18,7 +18,7 @@ export function ExpandableCard({
    */
   wide = false,
 }: {
-  height: string
+  height?: string
   wide?: boolean
   className?: string
   children: React.ReactNode
@@ -35,7 +35,7 @@ export function ExpandableCard({
   return (
     <div
       className={cn(
-        "bg-white dark:bg-zinc-950 dark:from-zinc-950 from-white w-full border  rounded-lg shadow px-4 pt-8 pb-3",
+        "bg-white dark:bg-zinc-950 dark:from-zinc-950 from-white w-full  rounded-lg shadow px-4 pt-8 pb-3",
         className
       )}
     >
@@ -82,14 +82,10 @@ export const CardHeading = ({
   h2: string
   h3?: string
 }) => (
-  <div>
-    <div className="mb-5">
-      <h1 className="text-2xl text-center font-extrabold mb-0 mt-2">{h1}</h1>
-      {!!h2 && (
-        <h2 className="text-lg text-center font-medium mb-0 mt-2 prose-p:mt-1">
-          {h2}
-        </h2>
-      )}
-    </div>
+  <div className="mb-5">
+    <h1 className="text-2xl font-extrabold mb-0 mt-2">{h1}</h1>
+    {!!h2 && (
+      <h2 className="text-lg font-medium mb-0 mt-2 prose-p:mt-1">{h2}</h2>
+    )}
   </div>
 )

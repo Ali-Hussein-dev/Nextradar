@@ -1,3 +1,4 @@
+import { urls } from "@/constants/urls";
 import { getAllJobPostSlugs } from "@/sanity/lib/getters";
 import { type MetadataRoute } from "next";
 import { headers } from "next/headers";
@@ -9,21 +10,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url = url.replace(/\/$/, "");
     const lastModified = new Date();
     const jobPostsSlugs = (await getAllJobPostSlugs())
-    const jobPostsPaths = jobPostsSlugs.map(o => `/docs/j/${o.slug}`);
+    const jobPostsPaths = jobPostsSlugs.map(o => `${urls.jobs}/${o.slug}`);
     const paths = [
         "",
-        "/docs/latest",
-        "/docs/recommendations",
-        "/docs/learn",
-        "/docs/templates",
-        "/docs/tools",
-        "/docs/real-world-apps",
-        "/docs/integrations/headless-cms",
-        "/docs/integrations/databases",
-        "/docs/integrations/hosting",
-        "/docs/integrations/testing",
-        "/docs/jobs",
-        "/docs/sponsor",
+        urls.latest,
+        // "/docs/recommendations",
+        urls.learn,
+        urls.tools,
+        urls.templates,
+        urls.osProjects,
+        urls.baas,
+        urls.headlessCms,
+        urls.hosting,
+        urls.commerce,
+        urls.db,
+        // "/content/testing",
+        urls.sponsor,
+        urls.jobs,
         ...jobPostsPaths,
     ];
 

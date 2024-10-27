@@ -1,5 +1,5 @@
 import ky from "ky"
-import { unstable_cache } from "next/cache"
+import { unstable_cache as cache } from "next/cache"
 
 const getStartEndDate = () => {
   const endAt = new Date()
@@ -9,17 +9,16 @@ const getStartEndDate = () => {
 }
 //======================================
 export const AdStats = async () => {
-  const username = process.env.ALIYTICS_USERNAME
-  const password = process.env.ALIYTICS_PASSWORD
+  const username = process.env?.ALIYTICS_USERNAME
+  const password = process.env?.ALIYTICS_PASSWORD
   if (!username || !password) {
-    console.warn("Missing credentials");
     return <div>Couldn{"'"}t fetch stats</div>
   }
 
-  const getCachedAuthResponse = unstable_cache(
+  const getCachedAuthResponse = cache(
     async () =>
       await ky
-        .post("https://aliytics.netlify.app/api/auth/login", {
+        .post("https://aliytics.ali-hussein.com/api/auth/login", {
           json: {
             username,
             password,
@@ -35,7 +34,7 @@ export const AdStats = async () => {
   const authResponse = (await getCachedAuthResponse()) as { token: string }
   const token = authResponse?.token
   if (!token) {
-    console.warn("Couldn't fetch token",token)
+    console.warn("Couldn't fetch token", token)
     return <div>Couldn{"'"}t fetch stats</div>
   }
   const { startAt, endAt } = getStartEndDate()
