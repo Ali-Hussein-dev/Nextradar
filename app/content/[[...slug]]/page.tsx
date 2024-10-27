@@ -41,7 +41,9 @@ export default function ContentPage({
     case "templates":
       return (
         <SharedContainer>
-          <TemplatesSection />
+          <React.Suspense>
+            <TemplatesSection />
+          </React.Suspense>
         </SharedContainer>
       )
     case "learn":
@@ -63,9 +65,7 @@ export default function ContentPage({
     case "real-world-apps":
       return (
         <SharedContainer>
-          <React.Suspense>
-            <OpenSourceProjects />
-          </React.Suspense>
+          <OpenSourceProjects />
         </SharedContainer>
       )
     case "baas":
@@ -89,7 +89,9 @@ export default function ContentPage({
     case "db":
       return (
         <SharedContainer>
-          <DatabaseSection />
+          <React.Suspense>
+            <DatabaseSection />
+          </React.Suspense>
         </SharedContainer>
       )
     case "commerce":
