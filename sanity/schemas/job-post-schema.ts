@@ -1,109 +1,324 @@
-const JobPost = {
-    name: "jobPost",
-    title: "Job Post",
-    type: "document",
-    fields: [
-        {
-            name: "jobTitle",
-            title: "Job Title",
-            type: "string",
-        },
-        {
-            name: "slug",
-            title: "Slug",
-            type: "slug",
-            options: {
-                source: 'jobTitle',
-                maxLength: 110,
-            },
-        },
-        {
-            name: "companyName",
-            title: "Company Name",
-            type: "string",
-        },
-        {
-            name: "location",
-            title: "Location [city,country]",
-            type: "string",
-        },
-        {
-            name: "branch",
-            title: "Branch E.g ecommerce, fintech, etc",
-            type: "string",
-        },
-        {
-            name: "contractType",
-            title: "Contract Type e.g Full-time, Part-time, etc",
-            type: "string",
-            initialValue: "full-time",
-        },
-        {
-            name: 'publishedAt',
-            type: 'datetime',
-            initialValue: () => (new Date()).toISOString(),
-            // initialValue: () => new Date().toISOString().split('T')[0],
-        },
-        {
-            name: "salaryMin",
-            title: "Minimum Salary yearly",
-            type: "number",
-            initialValue: 0,
-        },
-        {
-            name: "salaryMax",
-            title: "Maximum Salary yearly",
-            type: "number",
-            initialValue: 0,
-        },
-        {
-            name: "currency",
-            title: "Currency, e.g USD, EUR, etc",
-            type: "string",
-        },
-        {
-            name: "applyUrl",
-            title: "URL to Apply",
-            type: "url",
-            required: true
-        },
-        {
-            name: "jobType",
-            title: "Job Type",
-            type: "array",
-            of: [{ type: "string" }],
-            options: {
-                list: [
-                    { title: "Remote", value: "remote" },
-                    { title: "On Site", value: "on-site" },
-                    { title: "Hybrid", value: "hybrid" },
-                ],
-            },
-            initialValue: ["remote"],
-        },
-        {
-            name: "jobHook",
-            title: "Job Hook",
-            type: "array",
-            of: [{ type: "block" }],
-        },
-        {
-            name: "longDescription",
-            title: "Long description",
-            type: "array",
-            of: [{ type: "block" }],
-        },
-        {
-            name: "token",
-            title: "Payment Token",
-            type: "string",
-        },
-        {
-            name: "isHiringAgency",
-            title: "Is Hiring Agency",
-            type: "boolean",
-        },
-    ],
-}
+import { defineField, defineType } from "sanity"
+
+const JobPost = defineType({
+  name: "jobPost",
+  title: "Job Post",
+  type: "document",
+  fields: [
+    defineField({
+      name: "jobTitle",
+      title: "Job Title",
+      type: "string",
+    }),
+    defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      validation: (Rule) => Rule.required(),
+      options: {
+        source: "jobTitle",
+        maxLength: 200,
+      },
+    }),
+    defineField({
+      name: "timeZone",
+      title: "Time Zone",
+      type: "array",
+      options: {
+        list: [
+          "Worldwide",
+          "Europe",
+          "Asia",
+          "Africa",
+          "Australia",
+          "North America",
+          "South America",
+        ],
+      },
+      of: [{ type: "string" }],
+      initialValue: ["Worldwide"],
+    }),
+    defineField({
+      name: "branch",
+      title: "Branch E.g ecommerce, fintech, etc",
+      type: "string",
+    }),
+    defineField({
+      name: "contractType",
+      title: "Contract Type e.g Full-time, Part-time, etc",
+      type: "string",
+      options: {
+        list: [
+          { title: "Full-time", value: "Full-time" },
+          { title: "Part-time", value: "Part-time" },
+          { title: "Freelance", value: "Freelance" },
+          { title: "Contract", value: "Contract" },
+          { title: "Internship", value: "Internship" },
+          { title: "Other", value: "Other" },
+        ],
+      },
+      initialValue: "Full-time",
+    }),
+    defineField({
+      name: "applyUrl",
+      title: "URL to Apply or Email",
+      type: "string", // URL or email
+    }),
+    defineField({
+      name: "workplaceType",
+      title: "Workplace type",
+      type: "string",
+      options: {
+        list: [
+          { title: "Remote", value: "remote" },
+          { title: "On Site", value: "on-site" },
+          { title: "Hybrid", value: "hybrid" },
+        ],
+      },
+      initialValue: "remote",
+    }),
+    defineField({
+      name: "benefits",
+      title: "Benefits",
+      type: "array",
+      options: {
+        list: [
+          "Async",
+          "401(k)",
+          "401k matching",
+          "Vision insurance",
+          "Dental insurance",
+          "Medical insurance",
+          "Distributed team",
+          "Unlimited vacation",
+          "4 day workweek",
+          "Paid time off",
+          "Company retreats",
+          "Learning budget",
+          "Coworking budget",
+          "Home office budget",
+          "Mental wellness budget",
+          "Free gym membership",
+          "Pay in crypto",
+          "Pseudonymous",
+          "Profit sharing",
+          "Equity compensation",
+          "No whiteboard interview",
+          "No monitoring system",
+          "No politics at work",
+          "We hire old (and young)",
+        ],
+      },
+      of: [{ type: "string" }],
+    }),
+    defineField({
+      name: "longDescription",
+      title: "Long description",
+      type: "array",
+      of: [{ type: "block" }],
+    }),
+    defineField({
+      name: "isReactjsOnly",
+      title: "Is ReactJS Only",
+      type: "boolean",
+    }),
+    defineField({
+      name: "salary",
+      title: "💰 Salary",
+      type: "object",
+      fields: [
+        defineField({
+          name: "minimum",
+          title: "Minimum Salary",
+          type: "string",
+          options: {
+            list: [
+              "15k",
+              "20k",
+              "30k",
+              "40k",
+              "50k",
+              "60k",
+              "70k",
+              "80k",
+              "90k",
+              "100k",
+              "110k",
+              "120k",
+              "130k",
+              "140k",
+              "150k",
+              "160k",
+              "170k",
+              "180k",
+              "190k",
+              "200k",
+              "250k",
+              "300k",
+              "350k",
+              "400k",
+              "450k",
+            ],
+          },
+        }),
+        defineField({
+          name: "maximum",
+          title: "Maximum Salary",
+          type: "string",
+          options: {
+            list: [
+              "20k",
+              "30k",
+              "40k",
+              "50k",
+              "60k",
+              "70k",
+              "80k",
+              "90k",
+              "100k",
+              "110k",
+              "120k",
+              "130k",
+              "140k",
+              "150k",
+              "160k",
+              "170k",
+              "180k",
+              "190k",
+              "200k",
+              "250k",
+              "300k",
+              "350k",
+              "400k",
+              "450k",
+              "500k",
+            ],
+          },
+        }),
+        defineField({
+          name: "currency",
+          title: "Currency, e.g USD, EUR, etc",
+          type: "string",
+          options: {
+            list: ["USD", "EUR", "GBP"],
+          },
+          initialValue: "USD",
+        }),
+      ],
+    }),
+    defineField({
+      name: "company",
+      title: "🏢 Company",
+      type: "object",
+      fields: [
+        defineField({
+          name: "name",
+          title: "Name",
+          type: "string",
+        }),
+        defineField({
+          name: "website",
+          title: "Website",
+          type: "url",
+        }),
+        defineField({
+          name: "logo",
+          title: "Logo",
+          type: "image",
+        }),
+        defineField({
+          name: "isHiringAgency",
+          title: "Is Hiring Agency",
+          type: "boolean",
+        }),
+        defineField({
+          name: "recruiterName",
+          title: "Recruiter Name",
+          type: "string",
+        }),
+        defineField({
+          name: "recruiterEmail",
+          title: "Recruiter Email",
+          type: "email",
+        }),
+      ],
+    }),
+    defineField({
+      name: "token",
+      title: "Payment Token",
+      type: "string",
+    }),
+    defineField({
+      name: "publishedAt",
+      title: "publishedAt",
+      type: "datetime",
+      initialValue: () => (new Date()).toISOString(),
+      validation: (Rule) => Rule.required(),
+    }),
+    // Deprecated fields
+    defineField({
+      name: "jobType",
+      title: "Job Type",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        list: [
+          { title: "Remote", value: "remote" },
+          { title: "On Site", value: "on-site" },
+          { title: "Hybrid", value: "hybrid" },
+        ],
+      },
+      initialValue: ["remote"],
+      deprecated: { reason: "Use workplaceType instead" },
+    }),
+    defineField({
+      name: "jobHook",
+      title: "Job Hook",
+      type: "array",
+      of: [{ type: "block" }],
+      deprecated: { reason: "Use benefits instead" },
+    }),
+    defineField({
+      name: "companyName",
+      title: "Company Name",
+      type: "string",
+      deprecated: {
+        reason: "Use company.name instead",
+      },
+    }),
+    defineField({
+      name: "location",
+      title: "Location [city,country]",
+      type: "string",
+      deprecated: {
+        reason: "Use timeZone instead",
+      },
+    }),
+    defineField({
+      name: "currency",
+      title: "Currency, e.g USD, EUR, etc",
+      type: "string",
+      deprecated: {
+        reason: "Use salary.currency instead",
+      },
+    }),
+    defineField({
+      name: "salaryMax",
+      title: "Maximum Salary",
+      type: "number",
+      deprecated: {
+        reason: "Use salary.salaryMax instead",
+      },
+    }),
+    defineField({
+      name: "salaryMin",
+      title: "Minimum Salary",
+      type: "number",
+      deprecated: {
+        reason: "Use salary.minSalary instead",
+      },
+    }),
+  ],
+})
 
 export default JobPost

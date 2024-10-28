@@ -1,7 +1,7 @@
 import { Repo } from "@/lib/get-repos-github"
 import { client } from "./client"
 import { JobPostCardProps } from "@/components/sections/job-posts-section"
-import { JobPostSchema } from "@/types/schema-types"
+import { JobPost } from "@/sanity/types"
 
 //------------------------------------------------------------Sites
 export const getSites = async (): Promise<Repo[]> =>
@@ -181,7 +181,6 @@ export const getJobPosts = async (): Promise<JobPostCardProps[]> => {
         applyUrl,
         jobType,
         contractType,
-        shortDescription,
         jobHook,
         }`)
 }
@@ -201,7 +200,9 @@ export const getJobsPage = async ({
         jobType,
         contractType,
         shortDescription,
-        jobHook,`,
+        jobHook,
+        benefits
+        `,
 }: {
     page?: number;
     pageSize?: number;
@@ -221,20 +222,22 @@ export const getFullJobPostBySlug = async ({
     slug,
 }: {
     slug: string
-    }): Promise<JobPostSchema> => {
+    }): Promise<JobPost> => {
     return client.fetch(
     `*[_type == "jobPost" && slug.current == $slug ][0] {
         jobTitle,
         companyName,
         location,
         branch,
-        salaryMin,
-        salaryMax,
-        currency,
         applyUrl,
         jobType,
         contractType,
         longDescription,
+        company,
+        salary,
+        benefits,
+        timeZone,
+        workplaceType,
         }`,
         { slug }
     )
