@@ -9,6 +9,7 @@ import { IoEarthOutline, IoTimeOutline } from "react-icons/io5"
 import { CiLocationOn } from "react-icons/ci"
 import { GiMoneyStack } from "react-icons/gi"
 import { cn } from "@/lib/utils"
+import { GoArrowUpRight } from "react-icons/go"
 
 //======================================
 export const FullJobPost = async ({ slug }: { slug: string }) => {
@@ -73,6 +74,13 @@ export const FullJobPost = async ({ slug }: { slug: string }) => {
             </div>
           )}
         </div>
+        {!post?.benefits && (
+          <Button asChild size="sm" className="w-full">
+            <a href={post.applyUrl} className="flex-row-center gap-1">
+              Apply <GoArrowUpRight className="" size="18" />
+            </a>
+          </Button>
+        )}
       </article>
       <div className="border-t border-dashed pt-4 flex-row-end w-full pr-4">
         <Button asChild variant={"outline"}>
