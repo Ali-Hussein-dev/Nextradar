@@ -14,7 +14,7 @@ export default async function JobPage({
 }) {
   // const post = await getJobPostBy_Id({ slug: params.slug })
   return (
-    <div className="max-w-4xl mx-auto h-full">
+    <div className="max-w-5xl mx-auto h-full">
       <React.Suspense>
         <FullJobPost slug={params.slug} />
       </React.Suspense>

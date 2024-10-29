@@ -15,21 +15,21 @@ export const TldrJobPost = ({ jobPost }: { jobPost: TypedObject[] }) => {
   const plainText = blocksToText(jobPost)
   return (
     <div>
-      <form onSubmit={handleSubmit} className="flex-row-end w-full p-2 mb-2">
+      <form onSubmit={handleSubmit} className="flex-row-start w-full">
         <Button
           type="submit"
           disabled={isLoading || !!completion}
           onClick={() => complete(plainText)}
           className="gap-2"
           size="sm"
-          variant={"secondary"}
+          variant="outline"
         >
           <BsStars />
           {isLoading ? "Summarizing..." : "Summarize with AI"}
         </Button>
       </form>
       {completion && (
-        <div className="sm:px-6 px-3 pb-5 pt-8 dark:bg-zinc-900 rounded mb-8">
+        <div className="py-4 border-b border-dashed">
           <Markdown>{completion}</Markdown>
         </div>
       )}

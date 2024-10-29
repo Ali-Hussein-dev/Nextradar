@@ -4,21 +4,17 @@ import { Button } from "@/components/button"
 import { CardWrapper } from "@/components/ui/card-wrapper"
 import React from "react"
 import Link from "next/link"
-import { PortableText } from "next-sanity"
-import { WiStars } from "react-icons/wi"
 import { JobList } from "../job-list"
 import { IoTimeOutline } from "react-icons/io5"
-import { type JobPostSchema } from "@/types/schema-types"
+import { JobPost } from "@/sanity/types"
 import { urls } from "@/constants/urls"
 
 export type JobPostCardProps = Pick<
-  JobPostSchema,
+  JobPost,
   | "jobTitle"
   | "companyName"
   | "location"
   | "branch"
-  | "salaryMin"
-  | "salaryMax"
   | "currency"
   | "applyUrl"
   | "jobType"
@@ -26,23 +22,26 @@ export type JobPostCardProps = Pick<
   | "publishedAt"
   | "slug"
   | "jobHook"
+  | "benefits"
+  | "salary"
+  | "timeZone"
+  | "company"
 >
 //======================================
 export const JobCard = (props: JobPostCardProps) => {
   const {
     jobTitle,
-    companyName,
-    location,
+    companyName = "",
     branch,
-    salaryMin,
-    salaryMax,
-    currency,
     applyUrl,
     jobType,
     contractType,
     publishedAt,
     slug,
-    jobHook,
+    benefits,
+    salary,
+    timeZone = "",
+    company,
   } = props
   return (
     <CardWrapper className="border rounded-none dark:bg-transparent border-dashed">
@@ -50,40 +49,50 @@ export const JobCard = (props: JobPostCardProps) => {
         <span className="text-lg md:text-xl font-bold ">{jobTitle}</span>
         <div className="flex-row-between dark:text-zinc-600 text-zinc-500 pt-2">
           <div className="flex-col-start gap-1 text-sm">
-            <span>{companyName}</span>
-            <span>{location}</span>
+            <span>{companyName || company?.name}</span>
+            <span>{timeZone}</span>
             <span>{branch}</span>
           </div>
           <div className="flex-col-end gap-1 text-sm">
             <span className="capitalize">{contractType}</span>
             <span className="capitalize">{jobType}</span>
-            {salaryMax && salaryMin ? (
+            {salary && (
               <div className="flex-row-end gap-1">
-                <span>{salaryMin / 1000}K</span>-
-                <span>{salaryMax / 1000}K</span>
-                <span>{currency}</span>
+                <span>
+                  {salary.minimum}- {salary.maximum}
+                </span>
+                <span className="uppercase">{salary.currency}</span>
               </div>
-            ) : null}
+            )}
           </div>
         </div>
         <div className="pt-4">
-          <div className="dark:text-zinc-300 dark:border-zinc-700 border-dashed border-y py-1">
-            <h3 className="font-semibold dark:text-green-300 flex-row-start gap-1 text-green-600 mt-2">
-              <WiStars size="20" />
-              Top Benefits
-            </h3>
-            <PortableText value={jobHook} />
-          </div>
+          {benefits && (
+            <div className="dark:text-zinc-300 dark:border-zinc-700 border-dashed border-y py-1">
+              <h3 className="font-semibold dark:text-green-300 flex-row-start gap-1 text-green-600 mt-2">
+                {/* <WiStars size="20" /> */}
+                Benefits & Perks
+              </h3>
+              <div className="flex-row-start gap-2">
+                {benefits?.slice(0, 3).map((str) => (
+                  <span key={str} className="px-1">
+                    {str}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <div className="flex-row-between gap-4 pt-4 dark:border-zinc-800 border-dashed w-full">
         <div className="dark:text-zinc-500 text-zinc-600 text-sm flex-row-start gap-1">
-          <IoTimeOutline className="size-5" /> {getFormattedTime(publishedAt)}
+          <IoTimeOutline className="size-5" />{" "}
+          {getFormattedTime(publishedAt as string)}
         </div>
         <div className="flex-row-end gap-2">
           {/* <JobPostDrawer {...props} /> */}
           <Button asChild size="sm" variant="ghost">
-            <Link href={`/jobs/${slug}`} prefetch={false}>
+            <Link href={`${urls.jobs}/${slug}`} prefetch={false}>
               View Job
             </Link>
           </Button>

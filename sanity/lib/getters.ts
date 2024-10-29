@@ -2,7 +2,7 @@ import { Repo } from "@/lib/get-repos-github"
 import { client } from "./client"
 import { JobPostCardProps } from "@/components/sections/job-posts-section"
 import { JobPost } from "@/sanity/types"
-
+import { defineQuery } from "next-sanity"
 //------------------------------------------------------------Sites
 export const getSites = async (): Promise<Repo[]> =>
     client.fetch(`*[_type == "sites"] | order(_createdAt asc) {    
@@ -201,7 +201,8 @@ export const getJobsPage = async ({
         contractType,
         shortDescription,
         jobHook,
-        benefits
+        benefits,
+        company
         `,
 }: {
     page?: number;
@@ -212,10 +213,10 @@ export const getJobsPage = async ({
     fields?: string;
 }) => {
     const offset = (page - 1) * pageSize;
-
-    return client.fetch(`*[_type == "jobPost"] | order(publishedAt desc) [${offset}...${offset + pageSize}] {
+    const jobPostQuery = defineQuery(`*[_type == "jobPost"] | order(publishedAt desc) [${offset}...${offset + pageSize}] {
         ${fields}
-    }`);
+    }`)
+    return client.fetch(jobPostQuery);
 };
 //------------------------------------------------------------Jobs-Posts-By-Slug
 export const getFullJobPostBySlug = async ({
@@ -223,8 +224,7 @@ export const getFullJobPostBySlug = async ({
 }: {
     slug: string
     }): Promise<JobPost> => {
-    return client.fetch(
-    `*[_type == "jobPost" && slug.current == $slug ][0] {
+    const jobPostPageQuery = defineQuery(`*[_type == "jobPost" && slug.current == $slug ][0] {
         jobTitle,
         companyName,
         location,
@@ -238,7 +238,10 @@ export const getFullJobPostBySlug = async ({
         benefits,
         timeZone,
         workplaceType,
-        }`,
+        }`)
+
+    return client.fetch(
+        jobPostPageQuery,
         { slug }
     )
 }
