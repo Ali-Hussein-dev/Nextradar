@@ -44,7 +44,7 @@ export const JobCard = (props: JobPostCardProps) => {
     company,
   } = props
   return (
-    <CardWrapper className="border rounded-none dark:bg-transparent border-dashed">
+    <CardWrapper className="rounded-none dark:bg-transparent border-dashed py-5">
       <div className="grow">
         <span className="text-lg md:text-xl font-bold ">{jobTitle}</span>
         <div className="flex-row-between dark:text-zinc-600 text-zinc-500 pt-2">
@@ -68,12 +68,11 @@ export const JobCard = (props: JobPostCardProps) => {
         </div>
         <div className="pt-4">
           {benefits && (
-            <div className="dark:text-zinc-300 dark:border-zinc-700 border-dashed border-y py-1">
-              <h3 className="font-semibold dark:text-green-300 flex-row-start gap-1 text-green-600 mt-2">
-                {/* <WiStars size="20" /> */}
-                Benefits & Perks
-              </h3>
-              <div className="flex-row-start gap-2">
+            <div className="dark:text-zinc-300 dark:border-zinc-700 border-dashed border-b pb-2">
+              <div className="flex-row-start gap-2 flex-wrap">
+                <span className="font-semibold dark:text-green-300 flex-row-start gap-1 text-green-600">
+                  Perks:
+                </span>
                 {benefits?.slice(0, 3).map((str) => (
                   <span key={str} className="px-1">
                     {str}
@@ -112,23 +111,5 @@ export const JobCard = (props: JobPostCardProps) => {
 //======================================
 export const JobPostsSection = async () => {
   const list = await getJobsPage({ page: 1 })
-  return (
-    <>
-      <div className="border border-dashed p-2 max-w-3xl mx-auto mb-8 pt-6 pb-4">
-        <div className="px-2 max-w-2xl mx-auto">
-          <h1 className="mb-3 text-xl mt-0 sm:text-2xl text-center text-pretty">
-            Remote Jobs for Qualified Next.js Engineers
-          </h1>
-          <p className="dark:text-zinc-500 tracking-wide text-base text-center my-0">
-            Discover top Next.js job opportunities tailored for front-end
-            developers seeking exciting roles in wold-class companies.
-          </p>
-        </div>
-        {/* <div className="flex-row-end w-full pr-1 pb-1">
-          <Button variant="outline">Post a job</Button>
-        </div> */}
-      </div>
-      <JobList initialList={list} />
-    </>
-  )
+  return <JobList initialList={list} />
 }
