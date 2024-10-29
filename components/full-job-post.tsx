@@ -32,7 +32,7 @@ export const FullJobPost = async ({ slug }: { slug: string }) => {
           </span>
           <span className="capitalize flex-row-start gap-2">
             <CiLocationOn size="15" />
-            {post.workplaceType}
+            {post.jobType || post.workplaceType}
           </span>
           {post.timeZone && (
             <div className="flex-row-start gap-2">
