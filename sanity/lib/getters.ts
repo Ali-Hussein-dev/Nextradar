@@ -27,8 +27,7 @@ export type RepoCategory = "real-world-apps" | "Tools" | "Plugin" | "Learn"
 export const getReposList = async ({ recommended, category }: { recommended: boolean; category: RepoCategory }): Promise<Repo[]> => {
     const qRecommended = recommended ? `&& recommended == ${recommended}` : ""
     const qCategory = !!category ? `&& category == '${category}'` : ""
-    return client.fetch(
-        `*[_type == "repos" ${qRecommended} ${qCategory}] | order(_createdAt asc) {
+    const repoQuery = defineQuery(`*[_type == "repos" ${qRecommended} ${qCategory}] | order(_createdAt asc) {
     owner,
     repoName,
     description,
@@ -39,14 +38,16 @@ export const getReposList = async ({ recommended, category }: { recommended: boo
     tags,
     homepage
   }`)
+    return client.fetch(repoQuery)
 }
 export const getTagsList = async ({ category = "Tools" }: { category: RepoCategory }): Promise<Repo[]> => {
 
     const qCategory = !!category ? `&& category == '${category}'` : ""
-    return client.fetch(
+    const tagQuery = defineQuery(
         `*[_type == "repos" ${qCategory}] | order(_createdAt asc) {
     tags
   }`)
+    return client.fetch(tagQuery)
 }
 // used in toc
 export const getReposNames = async () =>
