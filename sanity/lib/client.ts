@@ -9,6 +9,8 @@ export const client = createClient({
   dataset,
   apiVersion,
   useCdn,
-  perspective: isDev ? 'previewDrafts' : 'published',
+  perspective: !isDev ? 'previewDrafts' : 'published',
   token: process.env.SANITY_API_TOKEN,
+}).withConfig({
+  useCdn: false
 })
