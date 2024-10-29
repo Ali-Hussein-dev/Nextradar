@@ -8,9 +8,14 @@
     "lint": "next lint",
     "start": "next start",
     "post:merge": "git checkout main && git pull",
+    "type-check": "tsc --noEmit -p tsconfig.json",
+    
     "cf:login": "pnpm dlx cloudflared tunnel login",
     "cf:run": "pnpm dlx cloudflared tunnel --url http://localhost:3000",
-    "type-check": "tsc --noEmit -p tsconfig.json"
+
+    "typegen": "npx sanity schema extract --path=./sanity/extract.json && npx sanity typegen generate",
+    "predev": "npm run typegen",
+    "prebuild": "npm run typegen"
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.48",

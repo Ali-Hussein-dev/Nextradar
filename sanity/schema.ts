@@ -8,10 +8,10 @@ import CompanySchema from "@/sanity/schemas/company-schema"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
+    SourceSchema,
     JobPost,
     RepoSchema,
     SiteSchema,
-    SourceSchema,
     IntegrationSchema,
     CompanySchema,
   ],

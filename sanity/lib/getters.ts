@@ -1,8 +1,8 @@
 import { Repo } from "@/lib/get-repos-github"
 import { client } from "./client"
 import { JobPostCardProps } from "@/components/sections/job-posts-section"
-import { JobPostSchema } from "@/types/schema-types"
-
+import { JobPost } from "@/sanity/types"
+import { defineQuery } from "next-sanity"
 //------------------------------------------------------------Sites
 export const getSites = async (): Promise<Repo[]> =>
     client.fetch(`*[_type == "sites"] | order(_createdAt asc) {    
@@ -181,7 +181,6 @@ export const getJobPosts = async (): Promise<JobPostCardProps[]> => {
         applyUrl,
         jobType,
         contractType,
-        shortDescription,
         jobHook,
         }`)
 }
@@ -201,7 +200,10 @@ export const getJobsPage = async ({
         jobType,
         contractType,
         shortDescription,
-        jobHook,`,
+        jobHook,
+        benefits,
+        company
+        `,
 }: {
     page?: number;
     pageSize?: number;
@@ -211,31 +213,35 @@ export const getJobsPage = async ({
     fields?: string;
 }) => {
     const offset = (page - 1) * pageSize;
-
-    return client.fetch(`*[_type == "jobPost"] | order(publishedAt desc) [${offset}...${offset + pageSize}] {
+    const jobPostQuery = defineQuery(`*[_type == "jobPost"] | order(publishedAt desc) [${offset}...${offset + pageSize}] {
         ${fields}
-    }`);
+    }`)
+    return client.fetch(jobPostQuery);
 };
 //------------------------------------------------------------Jobs-Posts-By-Slug
 export const getFullJobPostBySlug = async ({
     slug,
 }: {
     slug: string
-    }): Promise<JobPostSchema> => {
-    return client.fetch(
-    `*[_type == "jobPost" && slug.current == $slug ][0] {
+    }): Promise<JobPost> => {
+    const jobPostPageQuery = defineQuery(`*[_type == "jobPost" && slug.current == $slug ][0] {
         jobTitle,
         companyName,
         location,
         branch,
-        salaryMin,
-        salaryMax,
-        currency,
         applyUrl,
         jobType,
         contractType,
         longDescription,
-        }`,
+        company,
+        salary,
+        benefits,
+        timeZone,
+        workplaceType,
+        }`)
+
+    return client.fetch(
+        jobPostPageQuery,
         { slug }
     )
 }
