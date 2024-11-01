@@ -71,6 +71,7 @@
     "vaul": "^0.9.9",
     "zsa": "^0.6.0",
     "zsa-react": "^0.2.3",
+    "zsa-react-query": "^0.2.1",
     "zustand": "^5.0.0"
   },
   "devDependencies": {
