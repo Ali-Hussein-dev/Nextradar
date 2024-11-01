@@ -142,6 +142,10 @@ export type FormFieldElement =
   | Switch
   | MultiSelect
 
+type FormItem = FormFieldElement | StaticFormElement
+
+export type FieldsElementsList = FormItem[] | (FormItem[] | FormItem)[]
+
 export const RenderFormElement = (
   field: (FormFieldElement & ControllerRenderProps) | StaticFormElement,
   form: any
@@ -243,7 +247,11 @@ export const RenderFormElement = (
               {field.required && "*"}
             </FormLabel>
             <FormControl>
-              <Switch {...field} />
+              <Switch
+                {...field}
+                checked={field.value}
+                onCheckedChange={field.onChange}
+              />
             </FormControl>
           </div>
           <FormDescription>{field.description}</FormDescription>
