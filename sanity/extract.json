@@ -797,6 +797,13 @@
         },
         "optional": true
       },
+      "location": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
       "branch": {
         "type": "objectAttribute",
         "value": {
@@ -862,16 +869,6 @@
               "value": "hybrid"
             }
           ]
-        },
-        "optional": true
-      },
-      "benefits": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "array",
-          "of": {
-            "type": "string"
-          }
         },
         "optional": true
       },
@@ -1069,218 +1066,14 @@
             "minimum": {
               "type": "objectAttribute",
               "value": {
-                "type": "union",
-                "of": [
-                  {
-                    "type": "string",
-                    "value": "15k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "20k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "30k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "40k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "50k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "60k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "70k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "80k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "90k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "100k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "110k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "120k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "130k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "140k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "150k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "160k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "170k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "180k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "190k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "200k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "250k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "300k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "350k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "400k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "450k"
-                  }
-                ]
+                "type": "string"
               },
               "optional": true
             },
             "maximum": {
               "type": "objectAttribute",
               "value": {
-                "type": "union",
-                "of": [
-                  {
-                    "type": "string",
-                    "value": "20k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "30k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "40k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "50k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "60k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "70k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "80k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "90k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "100k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "110k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "120k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "130k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "140k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "150k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "160k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "170k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "180k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "190k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "200k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "250k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "300k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "350k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "400k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "450k"
-                  },
-                  {
-                    "type": "string",
-                    "value": "500k"
-                  }
-                ]
+                "type": "string"
               },
               "optional": true
             },
@@ -1426,6 +1219,16 @@
         "type": "objectAttribute",
         "value": {
           "type": "string"
+        },
+        "optional": true
+      },
+      "benefits": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "string"
+          }
         },
         "optional": true
       },
@@ -1619,13 +1422,6 @@
         "optional": true
       },
       "companyName": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        },
-        "optional": true
-      },
-      "location": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
