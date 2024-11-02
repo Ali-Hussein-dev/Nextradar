@@ -21,7 +21,7 @@ export function JobList({ initialList }: { initialList: JobPostCardProps[] }) {
   })
   return (
     <section>
-      <div className="space-y-3 max-w-3xl mx-auto mb-5">
+      <div className="space-y-5 md:space-y-8 max-w-3xl mx-auto mb-5">
         {data?.pages.flat().map((o, i) => <JobCard key={i} {...o} />)}
       </div>
       <div className="flex-row-center w-full">
