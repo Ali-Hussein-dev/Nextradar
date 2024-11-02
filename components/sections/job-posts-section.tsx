@@ -42,6 +42,7 @@ export const JobCard = (props: JobPostCardProps) => {
     salary,
     timeZone = "",
     company,
+    location
   } = props
   return (
     <CardWrapper className="rounded-none dark:bg-transparent border-dashed py-5">
@@ -50,7 +51,7 @@ export const JobCard = (props: JobPostCardProps) => {
         <div className="flex-row-between dark:text-zinc-600 text-zinc-500 pt-2">
           <div className="flex-col-start gap-1 text-sm">
             <span>{companyName || company?.name}</span>
-            <span>{timeZone}</span>
+            <span>{timeZone || location}</span>
             <span>{branch}</span>
           </div>
           <div className="flex-col-end gap-1 text-sm">

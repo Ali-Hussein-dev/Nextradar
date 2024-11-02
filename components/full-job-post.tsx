@@ -19,7 +19,7 @@ export const FullJobPost = async ({ slug }: { slug: string }) => {
       <div className="flex-col-center gap-8 dark:text-zinc-400 text-zinc-700 p-3 py-6 border-b border-dashed">
         <div className="flex-row-center gap-5 text-sm">
           <a href={post?.company?.website || ""} target="_blank">
-            {post.companyName || post?.company?.name}
+            {post?.companyName || post?.company?.name}
           </a>
           <span>{post.branch}</span>
         </div>
@@ -35,11 +35,13 @@ export const FullJobPost = async ({ slug }: { slug: string }) => {
             <CiLocationOn size="15" />
             {post.jobType || post.workplaceType}
           </span>
-          {post.timeZone && (
+          {post?.timeZone ? (
             <div className="flex-row-start gap-2">
               <IoEarthOutline size="15" />
               <span>{post.timeZone.join(", ")}</span>
             </div>
+          ) : (
+            <div>{post.location}</div>
           )}
           {post?.salary && (
             <div className="capitalize flex-row-start gap-2">
