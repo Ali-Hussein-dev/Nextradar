@@ -27,6 +27,14 @@ export const templates: Template[] = [
         rel: "nofollow",
     },
     {
+        url: "https://usegravity.app/?ref=nextradar",
+        name: "Gravity",
+        description:
+            "Build a SaaS product at warp speed with a Node.js & React SaaS boilerplate. Works with MySQL, Postgres & MongoDB.",
+        ogImage: "https://usegravity.app/images/cards/saas-boilerplate.jpg",
+        rel: "nofollow",
+    },
+    {
         url: "https://chat.vercel.ai/",
         github: "https://github.com/vercel/ai-chatbot",
         name: "Next.js AI Chatbot",
@@ -105,6 +113,15 @@ export const templates: Template[] = [
             "Get all the tools you need to build and scale your SaaS, AI tool or web application with our comprehensive feature set and straightforward pricing.",
         ogImage: "https://achromatic.dev/og.jpg",
         rel: "nofollow",
+    },
+    {
+        url: "https://nextjs-15.indie-starter.dev",
+        name: "Nextjs 15 Starter",
+        description:
+            "Starter template for Next.js 15 with React 19 RC, TypeScript, Tailwind CSS and Shadcn.",
+        ogImage: "https://nextjs-15.indie-starter.dev/opengraph-image.jpg",
+        github: "https://github.com/Ali-Hussein-dev/nextjs-15",
+        rel: "dofollow",
     },
     {
         url: "https://shipixen.com?aff=pWOZY",
