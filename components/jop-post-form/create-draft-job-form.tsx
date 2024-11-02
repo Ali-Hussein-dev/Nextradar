@@ -4,15 +4,15 @@ import {
   RenderFormElement,
   FormFieldElement,
   StaticFormElement,
+  FieldsElementsList,
 } from "@/components/render-form-element"
 import { z } from "zod"
 import { Form, FormField } from "@/components/ui/form"
 import { Button } from "@/components/ui/button"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { DrafJobFormSchema } from "@/lib/zod-schema"
-
-type FormItem = FormFieldElement | StaticFormElement
-type FieldsElementsList = FormItem[] | (FormItem[] | FormItem)[]
+import { useServerActionMutation } from "@/lib/hooks/server-actions-hooks"
+import { handleJobFormSubmission } from "@/lib/actions/handle-job-form-submission-action"
 
 const benefits = [
   "Async",
@@ -109,6 +109,7 @@ const fields: FieldsElementsList = [
       { value: "€", label: "EUR" },
       { value: "£", label: "GBP" },
     ],
+    // defaultValue: "USD",
     name: "salary.currency",
     label: "Select currency",
     placeholder: "e.g USD",
@@ -201,19 +202,29 @@ const fields: FieldsElementsList = [
 ]
 
 type FormDrafJob = z.infer<typeof DrafJobFormSchema>
-
 //======================================
 export function CreateDraftJobForm() {
   const form = useForm<FormDrafJob>({
-    defaultValues: {},
+    defaultValues: {
+      contractType: "Full-time",
+      salary: {
+        // currency: "USD",
+      },
+      timeZone: [],
+      benefits: [],
+      company: {},
+    },
     resolver: zodResolver(DrafJobFormSchema),
   })
-  const { watch, handleSubmit } = form
+  const { handleSubmit } = form
+  const { mutate, status } = useServerActionMutation(handleJobFormSubmission, {
+    mutationKey: ["createDraftJobPost"],
+  })
   const onSubmit: (data: FormDrafJob) => void = (data) => {
-    console.log(data)
+    mutate(data)
   }
   return (
-    <div className="p-3 md:p-6 border max-w-xl rounded-sm">
+    <div className="max-w-2xl mx-auto animate-in">
       <Form {...form}>
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -271,15 +282,20 @@ export function CreateDraftJobForm() {
             )
           })}
           <div className="py-4 flex-row-end gap-4">
-            <Button type="button" onClick={() => form.reset()}>
+            {/* <Button type="button" onClick={() => form.reset()}>
               Reset
+            </Button> */}
+            <Button type="submit" disabled={status === "pending"}>
+              {status === "pending" ? (
+                <span className="animate-in">Redirecting...</span>
+              ) : (
+                <span className="animate-in">Process to payment</span>
+              )}
             </Button>
-            <Button type="submit">Publish</Button>
           </div>
         </form>
       </Form>
-
-      {/* <pre className="max-w-xl p-2">{JSON.stringify(watch(), null, 2)} </pre> */}
+      {/* <pre className="max-w-xl">{JSON.stringify(form.watch(), null, 2)} </pre> */}
     </div>
   )
 }
