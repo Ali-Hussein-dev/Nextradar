@@ -3,9 +3,7 @@ import { z } from "zod"
 export const DrafJobFormSchema = z.object({
     jobTitle: z.string(),
     branch: z.string().optional(),
-    contractType: z.string().optional(),
     timeZone: z.array(z.string()).optional(),
-    agreement: z.boolean(),
     applyUrl: z.union([z.string().url(), z.string().email()]),
     salary: z.object({
         currency: z.string().optional(),
@@ -23,41 +21,42 @@ export const DrafJobFormSchema = z.object({
     benefits: z.array(z.string()).optional(),
     // placeholder
     longDescription: z.string().optional(),
+    agreement: z.boolean(),
+    workplaceType: z.union([z.literal("remote"), z.literal("on-site"), z.literal("hybrid")]),
+    contractType: z.union([
+        z.literal("Full-time"),
+        z.literal("Part-time"),
+        z.literal("Freelance"),
+        z.literal("Contract"),
+        z.literal("Internship"),
+        z.literal("Other"),
+    ]),
 })
 
-// type job = {
-//     _id: string;
-//     jobTitle?: string;
-//     slug?: {
-//         _type: "slug";
-//         current?: string;
-//         source?: string;
-//     };
-//     timeZone?: Array<string>;
-//     branch?: string;
-//     contractType?: string;
-//     applyUrl?: string;
-//     workplaceType?: "remote" | "on-site" | "hybrid";
-//     benefits?: Array<string>;
-//     longDescription?: any[];
-//     isReactjsOnly?: boolean;
-//     salary?: {
-//         minimum?: string;
-//         maximum?: string;
-//         currency?: string;
-//     };
-//     company?: {
-//         name?: string;
-//         website?: string;
-//         isHiringAgency?: boolean;
-//         recruiterName?: string;
-//         recruiterEmail?: string;
-//     };
-//     publishedAt?: string;
-//     jobType?: Array<string>;
-//     companyName?: string;
-//     location?: string;
-// }
+export type JobFormSchema = {
+    jobTitle: string;
+    timeZone?: Array<string>;
+    branch?: string;
+    contractType: "Full-time" | "Part-time" | "Freelance" | "Contract" | "Internship" | "Other";
+    applyUrl: string;
+    workplaceType: "remote" | "on-site" | "hybrid";
+    benefits?: Array<string>;
+    longDescription?: any[];
+    isReactjsOnly?: boolean;
+    company?: {
+        name?: string;
+        website?: string;
+        recruiterName?: string;
+        recruiterEmail?: string;
+        isHiringAgency?: boolean;
+    };
+    salary: {
+        maximum?: number;
+        minimum?: number;
+        currency?: "USD" | "EUR" | "GBP";
+    }
+    // location?: string;
+}
 
 // const slugSchema = z.object({
 //     _type: z.literal("slug"),
