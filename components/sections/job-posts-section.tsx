@@ -45,7 +45,7 @@ export const JobCard = (props: JobPostCardProps) => {
     location
   } = props
   return (
-    <CardWrapper className="rounded-none dark:bg-transparent border-dashed py-5">
+    <CardWrapper className="rounded-none dark:bg-transparent border-dashed py-5 shadow-none md:shadow">
       <div className="grow">
         <span className="text-lg md:text-xl font-bold ">{jobTitle}</span>
         <div className="flex-row-between dark:text-zinc-600 text-zinc-500 pt-2">

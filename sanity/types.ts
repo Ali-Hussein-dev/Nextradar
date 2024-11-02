@@ -146,11 +146,11 @@ export type JobPost = {
   jobTitle?: string;
   slug?: Slug;
   timeZone?: Array<string>;
+  location?: string;
   branch?: string;
   contractType?: "Full-time" | "Part-time" | "Freelance" | "Contract" | "Internship" | "Other";
   applyUrl?: string;
   workplaceType?: "remote" | "on-site" | "hybrid";
-  benefits?: Array<string>;
   longDescription?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -171,8 +171,8 @@ export type JobPost = {
   }>;
   isReactjsOnly?: boolean;
   salary?: {
-    minimum?: "15k" | "20k" | "30k" | "40k" | "50k" | "60k" | "70k" | "80k" | "90k" | "100k" | "110k" | "120k" | "130k" | "140k" | "150k" | "160k" | "170k" | "180k" | "190k" | "200k" | "250k" | "300k" | "350k" | "400k" | "450k";
-    maximum?: "20k" | "30k" | "40k" | "50k" | "60k" | "70k" | "80k" | "90k" | "100k" | "110k" | "120k" | "130k" | "140k" | "150k" | "160k" | "170k" | "180k" | "190k" | "200k" | "250k" | "300k" | "350k" | "400k" | "450k" | "500k";
+    minimum?: string;
+    maximum?: string;
     currency?: "USD" | "EUR" | "GBP";
   };
   company?: {
@@ -195,6 +195,7 @@ export type JobPost = {
   };
   token?: string;
   publishedAt?: string;
+  benefits?: Array<string>;
   jobType?: Array<string>;
   jobHook?: Array<{
     children?: Array<{
@@ -215,7 +216,6 @@ export type JobPost = {
     _key: string;
   }>;
   companyName?: string;
-  location?: string;
   currency?: string;
   salaryMax?: number;
   salaryMin?: number;
