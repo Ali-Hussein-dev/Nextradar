@@ -1,13 +1,12 @@
+"use client"
 import {
   BaseDefinition,
   defineSchema,
   PortableTextBlock,
-  PortableTextChild,
   PortableTextEditable,
   PortableTextEditor,
   RenderAnnotationFunction,
   RenderBlockFunction,
-  RenderChildFunction,
   RenderDecoratorFunction,
   RenderListItemFunction,
   RenderStyleFunction,
