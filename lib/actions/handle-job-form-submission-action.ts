@@ -3,7 +3,7 @@ import { createServerAction, } from "zsa"
 import { DrafJobFormSchema } from "@/lib/zod-schema"
 import { redirect } from "next/navigation"
 import { createDraftJobPost } from "@/sanity/lib/setters"
-import { createCheckout } from "../creem/create-checkout"
+import { createCheckout } from "@/lib/creem/create-checkout"
 
 /**
  * - form fields
@@ -24,18 +24,18 @@ export const handleJobFormSubmission = createServerAction()
     })
     .handler(async ({ input }) => {
 
-        console.log("🚀 ~ .handler ~ input:", input)
-
         // @ts-expect-error not defined in Sanity schema
         delete input.agreement
+        input = {
+            ...input,
+            longDescription: JSON.parse(input.longDescription)
+        }
         // @ts-expect-error longDescription type should be fixed
         const metadata = await createDraftJobPost(input)
-        console.log("🚀 ~ .handler ~ metadata:", metadata)
 
         // create checkout session
         const checkoutObject = await createCheckout(metadata)
 
-        console.log("🚀 ~ .handler ~ checkoutObject:", checkoutObject)
         const checkoutUrl = checkoutObject?.data.checkout_url
         return redirect(checkoutUrl)
     })

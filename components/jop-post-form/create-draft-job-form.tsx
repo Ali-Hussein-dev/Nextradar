@@ -56,7 +56,7 @@ export function CreateDraftJobForm() {
       benefits: [],
       company: {},
     },
-    // resolver: zodResolver(DrafJobFormSchema),
+    resolver: zodResolver(DrafJobFormSchema),
   })
   const { handleSubmit } = form
   const { mutate, status } = useServerActionMutation(handleJobFormSubmission, {
