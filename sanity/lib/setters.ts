@@ -1,7 +1,6 @@
 import { JobPost } from "@/sanity/types"
 import { client } from "@/sanity/lib/client"
 import { genSanityDocumentId } from "@/sanity/lib/gen-sanity-document-id"
-import { useDocumentOperation } from "sanity"
 import slugify from "slugify"
 import { JobFormSchema } from "@/lib/zod-schema"
 import { formatDate } from "date-fns"
@@ -54,7 +53,8 @@ export const publishDocument = async (
     /**
      * Document ID: id is prefixed with drafts.
      */
-    documentId: string
+    documentId: string,
+    orderId: string
 ): Promise<void> => {
     try {
         const draftDoc = await client.getDocument(documentId)
@@ -68,7 +68,7 @@ export const publishDocument = async (
         const publishDocumentId = documentId.split(".")[1]
         await client
             .transaction()
-            .createOrReplace({ ...draftDoc, _id: publishDocumentId })
+            .createOrReplace({ ...draftDoc, _id: publishDocumentId, orderId })
             .delete(documentId)
             .commit()
         // console.log("🚀 ~ publishedDoc:", publishedDoc)
