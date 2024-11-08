@@ -28,7 +28,8 @@ export const handleJobFormSubmission = createServerAction()
         delete input.agreement
         input = {
             ...input,
-            longDescription: JSON.parse(input.longDescription)
+            longDescription: JSON.parse(input.longDescription),
+            applyUrl: input.applyUrl.includes("@") ? `mailto:${input.applyUrl}` : input.applyUrl,
         }
         // @ts-expect-error longDescription type should be fixed
         const metadata = await createDraftJobPost(input)
