@@ -150,7 +150,7 @@ export type JobPost = {
   branch?: string;
   contractType?: "Full-time" | "Part-time" | "Freelance" | "Contract" | "Internship" | "Other";
   applyUrl?: string;
-  workplaceType?: "remote" | "on-site" | "hybrid";
+  workplaceType?: "Remote" | "Onsite" | "Hybrid";
   longDescription?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -193,7 +193,7 @@ export type JobPost = {
     recruiterName?: string;
     recruiterEmail?: string;
   };
-  token?: string;
+  orderId?: string;
   publishedAt?: string;
   benefits?: Array<string>;
   jobType?: Array<string>;

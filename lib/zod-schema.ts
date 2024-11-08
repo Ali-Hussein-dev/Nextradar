@@ -9,7 +9,7 @@ export const DrafJobFormSchema = z.object({
         currency: z.string().optional(),
         maximum: z.number().optional(),
         minimum: z.number().optional(),
-    }),
+    }).optional(),
     isReactjsOnly: z.boolean().optional(),
     company: z.object({
         name: z.string(),
@@ -20,9 +20,9 @@ export const DrafJobFormSchema = z.object({
     }),
     benefits: z.array(z.string()).optional(),
     // placeholder
-    longDescription: z.string().optional(),
+    longDescription: z.string(),
     agreement: z.boolean(),
-    workplaceType: z.union([z.literal("remote"), z.literal("on-site"), z.literal("hybrid")]),
+    workplaceType: z.union([z.literal("Remote"), z.literal("Onsite"), z.literal("Hybrid")]).optional(),
     contractType: z.union([
         z.literal("Full-time"),
         z.literal("Part-time"),
@@ -39,7 +39,7 @@ export type JobFormSchema = {
     branch?: string;
     contractType: "Full-time" | "Part-time" | "Freelance" | "Contract" | "Internship" | "Other";
     applyUrl: string;
-    workplaceType: "remote" | "on-site" | "hybrid";
+    workplaceType: "Remote" | "Onsite" | "Hybrid";
     benefits?: Array<string>;
     longDescription?: any[];
     isReactjsOnly?: boolean;
@@ -50,7 +50,7 @@ export type JobFormSchema = {
         recruiterEmail?: string;
         isHiringAgency?: boolean;
     };
-    salary: {
+    salary?: {
         maximum?: number;
         minimum?: number;
         currency?: "USD" | "EUR" | "GBP";

@@ -75,12 +75,12 @@ const JobPost = defineType({
       type: "string",
       options: {
         list: [
-          { title: "Remote", value: "remote" },
-          { title: "On Site", value: "on-site" },
-          { title: "Hybrid", value: "hybrid" },
+          { title: "Remote", value: "Remote" },
+          { title: "Onsite", value: "Onsite" },
+          { title: "Hybrid", value: "Hybrid" },
         ],
       },
-      initialValue: "remote",
+      initialValue: "Remote",
     }),
     defineField({
       name: "longDescription",
@@ -157,8 +157,8 @@ const JobPost = defineType({
       ],
     }),
     defineField({
-      name: "token",
-      title: "Payment Token",
+      name: "orderId",
+      title: "Order Id",
       type: "string",
     }),
     defineField({
@@ -211,9 +211,9 @@ const JobPost = defineType({
       of: [{ type: "string" }],
       options: {
         list: [
-          { title: "Remote", value: "remote" },
-          { title: "On Site", value: "on-site" },
-          { title: "Hybrid", value: "hybrid" },
+          { title: "Remote", value: "Remote" },
+          { title: "OnSite", value: "Onsite" },
+          { title: "Hybrid", value: "Hybrid" },
         ],
       },
       initialValue: ["remote"],

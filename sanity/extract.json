@@ -858,15 +858,15 @@
           "of": [
             {
               "type": "string",
-              "value": "remote"
+              "value": "Remote"
             },
             {
               "type": "string",
-              "value": "on-site"
+              "value": "Onsite"
             },
             {
               "type": "string",
-              "value": "hybrid"
+              "value": "Hybrid"
             }
           ]
         },
@@ -1208,7 +1208,7 @@
         },
         "optional": true
       },
-      "token": {
+      "orderId": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
