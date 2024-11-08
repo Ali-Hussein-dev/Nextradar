@@ -82,11 +82,11 @@ const schemaDefinition = defineSchema<
   // Styles apply to entire text blocks
   // There's always a 'normal' style that can be considered the paragraph style
   styles: [
-    { name: "Normal", title: "Normal", value: "normal", icon: PilcrowIcon },
-    { name: "Heading 1", title: "Heading 1", value: "h1", icon: Heading1Icon },
-    { name: "Heading 2", title: "Heading 2", value: "h2", icon: Heading2Icon },
-    { name: "Heading 3", title: "Heading 3", value: "h3", icon: Heading3Icon },
-    { name: "Quote", title: "Quote", value: "blockquote", icon: TextQuoteIcon },
+    { name: "normal", title: "Normal", value: "normal", icon: PilcrowIcon },
+    { name: "h1", title: "Heading 1", value: "h1", icon: Heading1Icon },
+    { name: "h2", title: "Heading 2", value: "h2", icon: Heading2Icon },
+    { name: "h3", title: "Heading 3", value: "h3", icon: Heading3Icon },
+    { name: "quote", title: "Quote", value: "blockquote", icon: TextQuoteIcon },
   ],
   // Lists apply to entire text blocks as well
   lists: [
@@ -179,8 +179,6 @@ export function RichTextEditor({
   )
 }
 const renderLists: RenderListItemFunction = (props) => {
-  console.clear()
-  console.log("🚀 ~ props:", props)
   return <>{props.children}</>
 }
 const renderDecorator: RenderDecoratorFunction = (props) => {
@@ -229,43 +227,44 @@ function isImage(
 }
 
 const renderStyle: RenderStyleFunction = (props) => {
-  if (props.schemaType.value === "h1") {
+  const styleValue = props.schemaType.value
+  if (styleValue === "h1") {
     return <h1>{props.children}</h1>
   }
-  if (props.schemaType.value === "h2") {
+  if (styleValue === "h2") {
     return <h2>{props.children}</h2>
   }
-  if (props.schemaType.value === "h3") {
+  if (styleValue === "h3") {
     return <h3>{props.children}</h3>
   }
-  if (props.schemaType.value === "blockquote") {
-    return <blockquote>{props.children}</blockquote>
-  }
+  // if (styleValue === "blockquote") {
+  //   return <blockquote>{props.children}</blockquote>
+  // }
   return <>{props.children}</>
 }
 
-const renderChild: RenderChildFunction = (props) => {
-  if (props.schemaType.name === "stock-ticker" && isStockTicker(props.value)) {
-    return (
-      <span
-        style={{
-          border: "1px dotted grey",
-          padding: "0.15em",
-        }}
-      >
-        {props.value.symbol}
-      </span>
-    )
-  }
+// const renderChild: RenderChildFunction = (props) => {
+//   if (props.schemaType.name === "stock-ticker" && isStockTicker(props.value)) {
+//     return (
+//       <span
+//         style={{
+//           border: "1px dotted grey",
+//           padding: "0.15em",
+//         }}
+//       >
+//         {props.value.symbol}
+//       </span>
+//     )
+//   }
 
-  return <>{props.children}</>
-}
+//   return <>{props.children}</>
+// }
 
-function isStockTicker(
-  props: PortableTextChild
-): props is PortableTextChild & { symbol: string } {
-  return "symbol" in props
-}
+// function isStockTicker(
+//   props: PortableTextChild
+// ): props is PortableTextChild & { symbol: string } {
+//   return "symbol" in props
+// }
 
 function Toolbar() {
   // Obtain the editor instance provided from the `PortableTextEditor` component
