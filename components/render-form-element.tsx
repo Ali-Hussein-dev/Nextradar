@@ -32,6 +32,7 @@ import { Separator } from "@/components/ui/separator"
 import * as React from "react"
 import { SeparatorProps } from "@radix-ui/react-separator"
 import { cn } from "@/lib/utils"
+import { RichTextEditor } from "./rich-text-editor/rich-text-editor"
 
 type SharedFormProps = {
   label?: string
@@ -124,6 +125,17 @@ type Divider = {
   static: true
 } & SeparatorProps
 
+type RichText = {
+  variant: "RichText"
+  /**
+   * the name is used as a key to identify the field
+   */
+  name: string
+  placeholder: string
+  value: string
+  setValue: (name: string, value: string) => void
+}
+
 /**
  * StaticFormElement is a type that represents a static form element
  * that is not editable by the user
@@ -141,6 +153,7 @@ export type FormFieldElement =
   | Checkbox
   | Switch
   | MultiSelect
+  | RichText
 
 type FormItem = FormFieldElement | StaticFormElement
 
@@ -214,7 +227,7 @@ export const RenderFormElement = (
       )
     case "Select":
       return (
-        <FormItem>
+        <FormItem className="w-full">
           <FormLabel>{field.label}</FormLabel> {field.required && "*"}
           <Select
             value={field.value}
@@ -272,12 +285,21 @@ export const RenderFormElement = (
           <FormMessage />
         </FormItem>
       )
+    case "RichText":
+      return (
+        <RichTextEditor
+          value={field.value}
+          name={field.name}
+          setValue={field.setValue}
+          placeholder=""
+        />
+      )
     case "H1":
       return (
         <h1
           key={field.name}
           {...field}
-          className={cn("mt-6 mb-1 font-bold text-3xl", field.className)}
+          className={cn("mt-6 font-bold text-3xl", field.className)}
         >
           {field.content}
         </h1>
@@ -287,7 +309,7 @@ export const RenderFormElement = (
         <h2
           key={field.name}
           {...field}
-          className={cn("mt-4 mb-1 font-bold text-xl", field.className)}
+          className={cn("mt-4 font-bold text-xl", field.className)}
         >
           {field.content}
         </h2>
@@ -297,7 +319,7 @@ export const RenderFormElement = (
         <h3
           key={field.name}
           {...field}
-          className={cn("mt-3 mb-1 font-semiboldbold text-lg", field.className)}
+          className={cn("mt-3 font-semiboldbold text-lg", field.className)}
         >
           {field.content}
         </h3>
