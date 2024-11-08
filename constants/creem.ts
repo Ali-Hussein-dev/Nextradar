@@ -1,5 +1,5 @@
 
-const devEnv = process.env.VERCEL_ENV !== "production";
+export const devEnv = process.env.VERCEL_ENV !== "production";
 
 const creemHost = devEnv ? "https://test-api.creem.io" : "https://api.creem.io"
 
