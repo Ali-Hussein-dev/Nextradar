@@ -16,7 +16,7 @@ import {
   usePortableTextEditor,
   usePortableTextEditorSelection,
 } from "@portabletext/editor"
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import "./editor.css"
 import {
   BoldIcon,

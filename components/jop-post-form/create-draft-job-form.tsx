@@ -12,6 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { DrafJobFormSchema } from "@/lib/zod-schema"
 import { useServerActionMutation } from "@/lib/hooks/server-actions-hooks"
 import { handleJobFormSubmission } from "@/lib/actions/handle-job-form-submission-action"
+import { products } from "@/constants/creem"
 
 const benefits = [
   "Async",
@@ -39,7 +40,6 @@ const benefits = [
   "No politics at work",
   "We hire old (and young)",
 ]
-
 
 type FormDrafJob = z.infer<typeof DrafJobFormSchema>
 //======================================
@@ -204,27 +204,21 @@ export function CreateDraftJobForm() {
       },
       {
         variant: "Input",
-        name: "company.website",
-        placeholder: "https://acme.com",
-        label: "Company website",
-        type: "url",
-      },
-    ],
-    [
-      {
-        variant: "Input",
-        name: "company.recruiterName",
-        placeholder: "e.g John Doe",
-        label: "Recruiter name",
-      },
-      {
-        variant: "Input",
         name: "company.recruiterEmail",
         placeholder: "e.g jd@acme.com",
         label: "Recruiter email",
         type: "email",
       },
+
+      // {
+      //   variant: "Input",
+      //   name: "company.website",
+      //   placeholder: "https://acme.com",
+      //   label: "Company website",
+      //   type: "url",
+      // },
     ],
+
     {
       variant: "Switch",
       name: "company.isHiringAgency",
@@ -296,7 +290,10 @@ export function CreateDraftJobForm() {
               />
             )
           })}
-          <div className="py-4 flex-row-end gap-4">
+          <div className="pt-4 flex-row-between gap-4 ">
+            <span className="text-lg font-semibold py-2 px-3">
+              Price {products.jobPost.priceLabel}
+            </span>
             {/* <Button type="button" onClick={() => form.reset()}>
               Reset
             </Button> */}

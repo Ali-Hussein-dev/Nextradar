@@ -13,9 +13,9 @@ export const DrafJobFormSchema = z.object({
     isReactjsOnly: z.boolean().optional(),
     company: z.object({
         name: z.string(),
-        website: z.string().url(),
+        recruiterEmail: z.string().email(),
+        website: z.string().url().optional(),
         recruiterName: z.string().optional(),
-        recruiterEmail: z.string().email().optional(),
         isHiringAgency: z.boolean().optional(),
     }),
     benefits: z.array(z.string()).optional(),
