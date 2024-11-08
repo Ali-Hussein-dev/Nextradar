@@ -49,6 +49,7 @@ export function CreateDraftJobForm() {
   const form = useForm<FormDrafJob>({
     defaultValues: {
       contractType: "Full-time",
+      workplaceType: "Remote",
       salary: {
         currency: "USD",
       },
