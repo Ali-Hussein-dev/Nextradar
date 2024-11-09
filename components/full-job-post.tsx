@@ -8,7 +8,7 @@ import { urls } from "@/constants/urls"
 import { IoEarthOutline, IoTimeOutline } from "react-icons/io5"
 import { CiLocationOn } from "react-icons/ci"
 import { GiMoneyStack } from "react-icons/gi"
-import { cn } from "@/lib/utils"
+import { cn, isEmpty } from "@/lib/utils"
 import { GoArrowUpRight } from "react-icons/go"
 
 //======================================
@@ -33,7 +33,7 @@ export const FullJobPost = async ({ slug }: { slug: string }) => {
           </span>
           <span className="capitalize flex-row-start gap-2">
             <CiLocationOn size="15" />
-            {post.jobType || post.workplaceType}
+            {post.workplaceType}
           </span>
           {post?.timeZone ? (
             <div className="flex-row-start gap-2">
@@ -43,7 +43,7 @@ export const FullJobPost = async ({ slug }: { slug: string }) => {
           ) : (
             <div>{post.location}</div>
           )}
-          {post?.salary && (
+          {post?.salary && isEmpty(post?.salary) && (
             <div className="capitalize flex-row-start gap-2">
               <GiMoneyStack size="15" />
               <div className="flex-row-end gap-1">

@@ -27,3 +27,13 @@ export function blocksToText(blocks: TypedObject[], opts = {}) {
         })
         .join('\n\n')
 }
+
+/**
+ * Check if an object is empty
+ */
+export function isEmpty(obj?: Record<string, any>) {
+    if (!obj) {
+        return true;
+    }
+    return Object.keys(obj).length === 0;
+}

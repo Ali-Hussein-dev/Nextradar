@@ -16,6 +16,7 @@ export const urls = {
     commerce: "/content/commerce",
     // testing: "/content/testing",
     jobs: "/jobs",
+    createJob: "/jobs/create",
     jobsExpired: "/jobs/expired",
     // legal pages
     terms: "/legal/tos",
