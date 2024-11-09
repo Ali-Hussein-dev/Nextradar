@@ -26,6 +26,7 @@ export type JobPostCardProps = Pick<
   | "salary"
   | "timeZone"
   | "company"
+  | "workplaceType"
 >
 //======================================
 export const JobCard = (props: JobPostCardProps) => {
@@ -42,7 +43,8 @@ export const JobCard = (props: JobPostCardProps) => {
     salary,
     timeZone = "",
     company,
-    location
+    location,
+    workplaceType,
   } = props
   return (
     <CardWrapper className="rounded-none dark:bg-transparent border-dashed py-5 shadow-none md:shadow">
@@ -56,7 +58,7 @@ export const JobCard = (props: JobPostCardProps) => {
           </div>
           <div className="flex-col-end gap-1 text-sm">
             <span className="capitalize">{contractType}</span>
-            <span className="capitalize">{jobType}</span>
+            <span className="capitalize">{jobType || workplaceType}</span>
             {salary && (
               <div className="flex-row-end gap-1">
                 <span>

@@ -200,10 +200,10 @@ export const getJobsPage = async ({
         applyUrl,
         jobType,
         contractType,
-        shortDescription,
         jobHook,
         benefits,
-        company
+        company,
+        workplaceType
         `,
 }: {
     page?: number;
