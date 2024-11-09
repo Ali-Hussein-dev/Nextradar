@@ -223,7 +223,7 @@ export function CreateDraftJobForm() {
     },
   ]
   return (
-    <div className="max-w-2xl mx-auto animate-in">
+    <div className="max-w-2xl mx-auto animate-in w-fit">
       <Form {...form}>
         <form
           onSubmit={handleSubmit(onSubmit)}

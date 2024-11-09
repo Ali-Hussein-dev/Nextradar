@@ -209,7 +209,7 @@ const MultiSelectTrigger = React.forwardRef<
         data-disabled={disabled}
         {...props}
         className={cn(
-          "flex min-h-10 size-full items-center justify-between whitespace-nowrap rounded-sm border border-input border-dashed bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background focus:outline-none focus:ring-1 focus:ring-ring [&>span]:line-clamp-1",
+          "flex min-h-10 size-full items-center justify-between whitespace-nowrap rounded-sm border border-input border-dashed bg-transparent px-3 py-2 shadow-sm ring-offset-background focus:outline-none focus:ring-1 focus:ring-ring [&>span]:line-clamp-1 text-base",
           disabled ? "cursor-not-allowed opacity-50" : "cursor-text",
           className
         )}
