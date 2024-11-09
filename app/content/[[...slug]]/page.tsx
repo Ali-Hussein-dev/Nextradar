@@ -23,7 +23,7 @@ const SharedContainer = ({
   <div className={cn("max-w-5xl mx-auto w-full", className)}>{children}</div>
 )
 
-export const revalidate = 43200 // 12 hours
+export const revalidate = 3600 // 1 hour
 
 //======================================
 export default function ContentPage({

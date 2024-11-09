@@ -16,6 +16,7 @@ import {
 import { SidebarMenutBtn } from "@/components/app-shell/sidebar-menu-button"
 import { ThemeToggle } from "@/components/app-shell/toggle-theme"
 import { urls } from "@/constants/urls"
+import Link from "next/link"
 
 type SidebarLink = {
   label: string
@@ -164,7 +165,11 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Nextradar</SidebarGroupLabel>
+          <SidebarGroupLabel>
+            <Link prefetch={false} href={"/"}>
+              Nextradar
+            </Link>
+          </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu className="pt-2">
               {sidebarLinks
