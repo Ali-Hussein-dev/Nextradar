@@ -140,7 +140,7 @@ export function RichTextEditor({
   }, [editor, name, setValue])
 
   return (
-    <div className="p-2.5 border border-dashed rounded-sm">
+    <div className="border border-dashed rounded-sm relative">
       <PortableTextEditor
         // Pass in the `editor` you created earlier
         editor={editor}
@@ -150,7 +150,7 @@ export function RichTextEditor({
         <Toolbar />
         {/* Component that controls the actual rendering of the editor */}
         <PortableTextEditable
-          className="pt-3 pb-2 px-1 dark:text-zinc-300 prose prose-zinc dark:prose-invert focus:outline-none"
+          className="pt-3 pb-2 px-4 dark:text-zinc-300 prose prose-zinc dark:prose-invert focus:outline-none max-h-96 overflow-y-auto"
           // style={{ border: "1px solid #999", padding: "0.5em" }}
           // Control how decorators are rendered
           renderDecorator={renderDecorator}
@@ -392,7 +392,7 @@ function Toolbar() {
   })
 
   return (
-    <div className="flex-row-start gap-1 w-full pb-2 border-dashed border-b flex-wrap">
+    <div className="w-full border-dashed border-b sticky top-0 flex-row-start gap-1 flex-wrap pb-2 z-10 p-2.5">
       <StyleSelector />
       {decoratorButtons}
       {Annotations}
