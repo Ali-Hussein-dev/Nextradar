@@ -234,7 +234,7 @@ export function CreateDraftJobForm() {
               return (
                 <div
                   key={item[i]?.name}
-                  className="flex items-center justify-between w-full gap-2"
+                  className="flex items-center justify-between flex-wrap sm:flex-nowrap w-full gap-2"
                 >
                   {item.map((element) => {
                     if ("static" in element) {
