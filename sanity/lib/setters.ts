@@ -51,29 +51,34 @@ export const createDraftJobPost = async (
  */
 export const publishDocument = async (
     /**
-     * Document ID: id is prefixed with drafts.
+     * Draft ID: id is prefixed with drafts.
      */
-    documentId: string,
+    draftId: string,
     orderId: string
 ): Promise<void> => {
-    try {
-        const draftDoc = await client.getDocument(documentId)
-        if (!draftDoc) {
-            // return NextResponse.json(
-            //     { error: 'Draft document not found' },
-            //     { status: 404 }
-            // );
-            return
-        }
-        const publishDocumentId = documentId.split(".")[1]
-        await client
-            .transaction()
-            .createOrReplace({ ...draftDoc, _id: publishDocumentId, orderId })
-            .delete(documentId)
-            .commit()
-        // console.log("🚀 ~ publishedDoc:", publishedDoc)
-    } catch (error) {
-        console.error("Failed to update job post:", error)
-        throw new Error("Failed to update job post")
-    }
+    const draftDoc = await client.getDocument(draftId)
+    if (!draftDoc) return
+    // update & publish document
+    const publishedId = draftId.split(".")[1]
+    client
+        .action([
+            {
+                actionType: 'sanity.action.document.edit',
+                draftId,
+                publishedId,
+                patch: {
+                    set: {
+                        orderId
+                    }
+                },
+            },
+            {
+                actionType: 'sanity.action.document.publish',
+                draftId,
+                publishedId,
+            },
+        ])
+        .catch((err: { message: any }) => {
+            console.error('Edit draft failed: ', err.message)
+        })
 }
