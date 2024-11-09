@@ -19,10 +19,13 @@ export function JobList({ initialList }: { initialList: JobPostCardProps[] }) {
     },
     initialData: { pages: [initialList], pageParams: [1] },
   })
+  const jobsCards = data?.pages.flat()
   return (
     <section>
-      <div className="space-y-5 md:space-y-8 max-w-3xl mx-auto mb-5">
-        {data?.pages.flat().map((o, i) => <JobCard key={i} {...o} />)}
+      <div className="max-w-3xl mx-auto mb-5">
+        {jobsCards.map((o, i) => (
+          <JobCard key={i} isLast={jobsCards.length - 1 == i} {...o} />
+        ))}
       </div>
       <div className="flex-row-center w-full">
         <Button

@@ -1,7 +1,6 @@
 import { getJobsPage } from "@/sanity/lib/getters"
 import { getFormattedTime } from "@/lib/get-formatted-time"
 import { Button } from "@/components/button"
-import { CardWrapper } from "@/components/ui/card-wrapper"
 import React from "react"
 import Link from "next/link"
 import { JobList } from "../job-list"
@@ -29,28 +28,23 @@ export type JobPostCardProps = Pick<
   | "workplaceType"
 >
 //======================================
-export const JobCard = (props: JobPostCardProps) => {
-  const {
-    jobTitle,
-    companyName = "",
-    branch,
-    applyUrl,
-    jobType,
-    contractType,
-    publishedAt,
-    slug,
-    benefits,
-    salary,
-    timeZone = "",
-    company,
-    location,
-    workplaceType,
-  } = props
+export const JobCard = (props: JobPostCardProps & { isLast: boolean }) => {
+  const { jobTitle, publishedAt, slug, isLast } = props
+
   return (
-    <CardWrapper className="rounded-none dark:bg-transparent border-dashed py-5 shadow-none md:shadow">
+    <div
+      className={`rounded-none dark:bg-transparent md:border-t md:border-x border-dashed py-5 shadow-none md:shadow md:py-6 sm:px-4 md:px-6 flex flex-col justify-start w-full animate-in ${isLast ? "md:border-b" : ""}`}
+    >
       <div className="grow">
-        <span className="text-lg md:text-xl font-bold ">{jobTitle}</span>
-        <div className="flex-row-between dark:text-zinc-600 text-zinc-500 pt-2">
+        <div className="flex-row-between gap-2 mb-1">
+          <span className="sm:text-lg md:text-xl font-bold dark:text-zinc-300/90 text-zinc-500 pr-2">
+            {jobTitle}
+          </span>
+          {/* <span className="dark:text-zinc-600 text-zinc-500 pr-2">
+            {companyName || company?.name}
+          </span> */}
+        </div>
+        {/* <div className="flex-row-between dark:text-zinc-600 text-zinc-500 pt-2">
           <div className="flex-col-start gap-1 text-sm">
             <span>{companyName || company?.name}</span>
             <span>{timeZone || location}</span>
@@ -68,15 +62,15 @@ export const JobCard = (props: JobPostCardProps) => {
               </div>
             )}
           </div>
-        </div>
-        <div className="pt-4">
+        </div> */}
+        {/* <div className="pt-4">
           {benefits && (
-            <div className="dark:text-zinc-300 dark:border-zinc-700 border-dashed border-b pb-2">
-              <div className="flex-row-start gap-2 flex-wrap">
+            <div className="dark:text-zinc-500 dark:border-zinc-700 border-dashed border-b pb-2">
+              <div className="flex-col-start gap-2 flex-wrap">
                 <span className="font-semibold dark:text-green-300 flex-row-start gap-1 text-green-600">
                   Perks:
                 </span>
-                {benefits?.slice(0, 3).map((str) => (
+                {benefits.map((str) => (
                   <span key={str} className="px-1">
                     {str}
                   </span>
@@ -84,26 +78,26 @@ export const JobCard = (props: JobPostCardProps) => {
               </div>
             </div>
           )}
-        </div>
+        </div> */}
       </div>
-      <div className="flex-row-between gap-4 pt-4 dark:border-zinc-800 border-dashed w-full">
+      <div className="flex-row-between gap-4 pt-1 dark:border-zinc-800 border-dashed w-full">
         <div className="dark:text-zinc-500 text-zinc-600 text-sm flex-row-start gap-1">
           <IoTimeOutline className="size-5" />{" "}
           {getFormattedTime(publishedAt as string)}
         </div>
         <div className="flex-row-end gap-2">
           {/* <JobPostDrawer {...props} /> */}
-          <Button asChild size="sm" variant="ghost">
+          <Button asChild size="sm" variant="secondary" className="rounded-sm">
             <Link href={`${urls.jobs}/${slug}`} prefetch={false}>
               View Job
             </Link>
           </Button>
-          <Button asChild size="sm">
+          {/* <Button asChild size="sm">
             <a href={applyUrl}>Apply for Role</a>
-          </Button>
+          </Button> */}
         </div>
       </div>
-    </CardWrapper>
+    </div>
   )
 }
 // const TextHighlight = ({ children }: { children: React.ReactNode }) => (
@@ -113,6 +107,6 @@ export const JobCard = (props: JobPostCardProps) => {
 // )
 //======================================
 export const JobPostsSection = async () => {
-  const list = await getJobsPage({ page: 1 })
+  const list = await getJobsPage({ page: 1, pageSize: 8 })
   return <JobList initialList={list} />
 }
