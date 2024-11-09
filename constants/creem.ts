@@ -7,9 +7,9 @@ export const checkoutUrl = `${creemHost}/v1/checkouts`
 
 export const products = {
     jobPost: {
-        id: devEnv ? "prod_5QSspeFD4qbQus0yr8tcC3" : "prod_495UJUnee5dkJLwzXjBkor",
+        id: devEnv ? "prod_5QSspeFD4qbQus0yr8tcC3" : "prod_70f2MeUMOWboHma0QekX54",
         name: "Premium Job Post for 30 days",
-        price: 220,
-        priceLabel: "220€",
+        price: 325,
+        priceLabel: "325€",
     }
 }

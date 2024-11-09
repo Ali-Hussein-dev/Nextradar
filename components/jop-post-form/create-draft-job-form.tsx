@@ -79,7 +79,7 @@ export function CreateDraftJobForm() {
         name: "jobTitle",
         placeholder: "e.g Senior Frontend Developer",
         label: "Job title",
-        // required: true,
+        required: true,
       },
       {
         variant: "Input",
@@ -122,7 +122,7 @@ export function CreateDraftJobForm() {
       placeholder: "https://acme.com/xxx or email",
       label: "Application URL",
       type: "string",
-      // required: true,
+      required: true,
     },
     [
       {
@@ -148,7 +148,7 @@ export function CreateDraftJobForm() {
           { value: "€", label: "EUR" },
           { value: "£", label: "GBP" },
         ],
-        // defaultValue: "USD",
+        defaultValue: "USD",
         name: "salary.currency",
         label: "Select currency",
         placeholder: "e.g USD",
@@ -159,8 +159,8 @@ export function CreateDraftJobForm() {
       options: [
         { label: "Africa", value: "Africa" },
         { label: "Asia", value: "Asia" },
-        { label: "Europe", value: "Europe" },
         { label: "Australia", value: "Australia" },
+        { label: "Europe", value: "Europe" },
         { label: "North America", value: "North America" },
         { label: "South America", value: "South America" },
         { label: "Worldwide", value: "Worldwide" },
@@ -185,14 +185,8 @@ export function CreateDraftJobForm() {
       name: "longDescription",
       value: form.watch("longDescription") ?? "",
       setValue: form.setValue as (name: string, value: string) => void,
-      placeholder: "",
+      placeholder: "Type here",
     },
-    // {
-    //   variant: "Separator",
-    //   static: true,
-    //   decorative: true,
-    //   name: "separator-1",
-    // },
     {
       variant: "H2",
       static: true,
@@ -213,14 +207,6 @@ export function CreateDraftJobForm() {
         label: "Recruiter email",
         type: "email",
       },
-
-      // {
-      //   variant: "Input",
-      //   name: "company.website",
-      //   placeholder: "https://acme.com",
-      //   label: "Company website",
-      //   type: "url",
-      // },
     ],
 
     {
@@ -233,7 +219,7 @@ export function CreateDraftJobForm() {
       variant: "Checkbox",
       name: "agreement",
       label: "I agree to the terms and conditions",
-      // required: true,
+      required: true,
     },
   ]
   return (
@@ -294,10 +280,11 @@ export function CreateDraftJobForm() {
               />
             )
           })}
-          <div className="pt-4 flex-row-between gap-4 ">
-            <span className="text-lg font-semibold py-2 px-3">
-              Price {products.jobPost.priceLabel}
-            </span>
+          <div className="flex-row-between">
+            <div className="p-2 text-lg dark:text-zinc-300">
+              Price {products.jobPost.priceLabel}{" "}
+              <span className="line-through">1400€</span>
+            </div>
             {/* <Button type="button" onClick={() => form.reset()}>
               Reset
             </Button> */}
@@ -305,7 +292,7 @@ export function CreateDraftJobForm() {
               {status === "pending" ? (
                 <span className="animate-in">Redirecting...</span>
               ) : (
-                <span className="animate-in">Process to payment</span>
+                <span className="animate-in">Continue to checkout</span>
               )}
             </Button>
           </div>
