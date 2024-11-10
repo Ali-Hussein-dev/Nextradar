@@ -81,6 +81,14 @@ export const templates: Template[] = [
         rel: "nofollow",
     },
     {
+        url: "https://paddle-billing.vercel.app/",
+        name: "Paddle Starter Kit",
+        description: "Paddle Billing subscriptions Next.js starter kit",
+        ogImage: "https://paddle-billing.vercel.app/opengraph-image.png",
+        github: "https://github.com/PaddleHQ/paddle-nextjs-starter-kit",
+        rel: "nofollow",
+    },
+    {
         url: "https://v1.run",
         name: "Create v1",
         description:
