@@ -6,6 +6,7 @@ import { urls } from "@/constants/urls"
 import * as React from "react"
 import { StructuredDataScript } from "@/lib/seo"
 import type { JobPosting, WithContext } from "schema-dts"
+import { formatDate } from "date-fns"
 
 export const revalidate = 3600
 
@@ -27,7 +28,7 @@ export default async function JobPage({
     // image: post.imageUrl,
     employmentType: post.contractType,
     // validThrough: "2024-03-18T00:00",
-    datePosted: post.publishedAt,
+    datePosted: formatDate(post.publishedAt as string, "yyyy-MM-dd"),
     industry: post.branch,
     hiringOrganization: {
       "@type": "Organization",

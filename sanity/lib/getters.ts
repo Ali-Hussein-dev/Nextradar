@@ -240,6 +240,7 @@ export const getFullJobPostBySlug = async ({
         benefits,
         timeZone,
         workplaceType,
+        publishedAt
         }`)
 
     return client.fetch(
