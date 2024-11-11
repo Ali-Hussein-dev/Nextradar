@@ -64,7 +64,10 @@ export function Search() {
         className="flex-row-start gap-1 w-full"
       >
         <InputBlock
-          root={{ className: "rounded-lg", size: "lg" }}
+          root={{
+            className: "rounded-full md:pl-3 lg:pl-4",
+            size: "lg",
+          }}
           rightSection={
             <div className="flex-row-end gap-2">
               {inputValue ? (
@@ -73,7 +76,7 @@ export function Search() {
                   size="icon"
                   variant={"ghost"}
                   onClick={cleanInput}
-                  className="rounded-lg size-9"
+                  className="rounded-full size-9"
                 >
                   <MdOutlineClear />
                 </Button>
@@ -81,8 +84,9 @@ export function Search() {
               <Button
                 type="submit"
                 size="icon"
+                data-umami-event="search"
                 variant="secondary"
-                className="rounded-lg size-9"
+                className="rounded-full size-9"
                 disabled={fetchStatus == "fetching" || !inputValue}
               >
                 {fetchStatus == "fetching" ? (

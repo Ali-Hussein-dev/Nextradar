@@ -22,7 +22,9 @@ export const FeedList = ({ initialList }: { initialList: FeedCardProps[] }) => {
       {/* <div className="text-center">
         {fetchStatus == "fetching" && !data && "fetching data..."}
       </div> */}
-      {data?.pages.flat().map((o, i) => <FeedCard key={i} {...o} />)}
+      <div className="space-y-5 md:space-y-7">
+        {data?.pages.flat().map((o, i) => <FeedCard key={i} {...o} />)}
+      </div>
       <div className="flex-row-center w-full">
         <Button
           type="button"
