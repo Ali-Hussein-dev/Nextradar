@@ -50,7 +50,7 @@ const JobPost = defineType({
     }),
     defineField({
       name: "contractType",
-      title: "Contract Type e.g Full-time, Part-time, etc",
+      title: "Employment Type e.g Full-time, Part-time, etc",
       type: "string",
       options: {
         list: [
@@ -58,7 +58,7 @@ const JobPost = defineType({
           { title: "Part-time", value: "Part-time" },
           { title: "Freelance", value: "Freelance" },
           { title: "Contract", value: "Contract" },
-          { title: "Internship", value: "Internship" },
+          { title: "Intern", value: "Intern" },
           { title: "Other", value: "Other" },
         ],
       },
@@ -81,6 +81,12 @@ const JobPost = defineType({
         ],
       },
       initialValue: "Remote",
+    }),
+    defineField({
+      name: "discription",
+      title: "Description",
+      type: "text",
+      description: "Use for job posting schema",
     }),
     defineField({
       name: "longDescription",
@@ -109,8 +115,13 @@ const JobPost = defineType({
           type: "string",
         }),
         defineField({
+          name: "range",
+          title: "Annual salary range (50k-85k) or (+75k)",
+          type: "string",
+        }),
+        defineField({
           name: "currency",
-          title: "Currency, e.g USD, EUR, etc",
+          title: "Salary Currency",
           type: "string",
           options: {
             list: ["USD", "EUR", "GBP"],
@@ -176,6 +187,11 @@ const JobPost = defineType({
         list: ['4 day workweek', '401(k)', '401k matching', 'Async', 'Company retreats', 'Competitive salary', 'Coworking budget', 'Dental insurance', 'Distributed team', 'Equity compensation', 'Free gym membership', 'Home office budget', 'Learning budget', 'Medical insurance', 'Mental wellness budget', 'No monitoring system', 'No politics at work', 'No whiteboard interview', 'Paid time off', 'Pay in crypto', 'Profit sharing', 'Pseudonymous', 'Stock options', 'Unlimited vacation', 'Vision insurance', 'We hire old (and young)'],
       },
       of: [{ type: "string" }],
+    }),
+    defineField({
+      name: "expiredAt",
+      title: "Expired At",
+      type: "date",
     }),
     // Deprecated fields
     defineField({

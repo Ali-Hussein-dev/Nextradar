@@ -834,7 +834,7 @@
             },
             {
               "type": "string",
-              "value": "Internship"
+              "value": "Intern"
             },
             {
               "type": "string",
@@ -869,6 +869,13 @@
               "value": "Hybrid"
             }
           ]
+        },
+        "optional": true
+      },
+      "discription": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
         },
         "optional": true
       },
@@ -1077,6 +1084,13 @@
               },
               "optional": true
             },
+            "range": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
             "currency": {
               "type": "objectAttribute",
               "value": {
@@ -1229,6 +1243,13 @@
           "of": {
             "type": "string"
           }
+        },
+        "optional": true
+      },
+      "expiredAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
         },
         "optional": true
       },
