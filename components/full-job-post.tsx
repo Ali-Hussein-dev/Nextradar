@@ -34,15 +34,21 @@ export const FullJobPost = ({ post }: { post: JobPost }) => {
             <CiLocationOn size="15" />
             {post.workplaceType}
           </span>
-          {post?.timeZone ? (
+          {(post?.timeZone?.length ?? 0 > 0) ? (
             <div className="flex-row-start gap-2">
               <IoEarthOutline size="15" />
-              <span>{post.timeZone.join(", ")}</span>
+              <span>{(post.timeZone as []).join(", ")}</span>
             </div>
           ) : (
-            <div>{post.location}</div>
+            ""
           )}
-          {post?.salary && isEmpty(post?.salary) && (
+          {post?.location && (
+            <div className="flex-row-start gap-2">
+              <IoEarthOutline size="15" />
+              <span>{post.location}</span>
+            </div>
+          )}
+          {post?.salary && !isEmpty(post?.salary) && (
             <div className="capitalize flex-row-start gap-2">
               <GiMoneyStack size="15" />
               <div className="flex-row-end gap-1">
