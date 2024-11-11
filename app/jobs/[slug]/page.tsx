@@ -4,6 +4,8 @@ import { FullJobPost } from "@/components/full-job-post"
 import { redirect } from "next/navigation"
 import { urls } from "@/constants/urls"
 import * as React from "react"
+import { StructuredDataScript } from "@/lib/seo"
+import type { JobPosting, WithContext } from "schema-dts"
 
 export const revalidate = 3600
 
@@ -12,10 +14,42 @@ export default async function JobPage({
 }: {
   params: { slug: string }
 }) {
-  // const post = await getJobPostBy_Id({ slug: params.slug })
   const post = await getFullJobPostBySlug({ slug: params.slug })
+  if (!post) {
+    redirect(urls.jobsExpired)
+  }
+  // Doc: https://developers.google.com/search/docs/appearance/structured-data/job-posting
+  const structuredData: WithContext<JobPosting> = {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: post.jobTitle,
+    description: post.description,
+    // image: post.imageUrl,
+    employmentType: post.contractType,
+    // validThrough: "2024-03-18T00:00",
+    datePosted: post.publishedAt,
+    industry: post.branch,
+    hiringOrganization: {
+      "@type": "Organization",
+      name: post?.company?.name!,
+      // sameAs: "https://www.google.com",
+      // logo: "https://www.example.com/images/logo.png",
+    },
+    jobLocation:
+      post.workplaceType === "Remote"
+        ? "TELECOMMUTE"
+        : {
+            "@type": "Place",
+            address: {
+              "@type": "PostalAddress",
+              addressCountry: post?.location,
+            },
+          },
+    // jobBenefits: post.benefits,
+  }
   return (
     <>
+      <StructuredDataScript data={structuredData} />
       <div className="max-w-5xl mx-auto h-full">
         <FullJobPost post={post} />
       </div>

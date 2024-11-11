@@ -85,7 +85,7 @@ export function CreateDraftJobForm() {
         variant: "Input",
         name: "branch",
         placeholder: "e.g Software Development",
-        label: "Branch",
+        label: "Industry",
       },
     ],
     {
