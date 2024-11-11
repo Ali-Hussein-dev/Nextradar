@@ -83,10 +83,11 @@ const JobPost = defineType({
       initialValue: "Remote",
     }),
     defineField({
-      name: "discription",
+      name: "description",
       title: "Description",
       type: "text",
       description: "Use for job posting schema",
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "longDescription",
@@ -124,7 +125,7 @@ const JobPost = defineType({
           title: "Salary Currency",
           type: "string",
           options: {
-            list: ["USD", "EUR", "GBP"],
+            list: ["USD", "EUR", "GBP", "CAD"],
           },
           initialValue: "USD",
         }),

@@ -7,8 +7,8 @@ export const DrafJobFormSchema = z.object({
     applyUrl: z.union([z.string().url(), z.string().email()]),
     salary: z.object({
         currency: z.string().optional(),
-        maximum: z.number().optional(),
-        minimum: z.number().optional(),
+        maximum: z.string().optional(),
+        minimum: z.string().optional(),
         range: z.string().optional(),
     }).optional(),
     isReactjsOnly: z.boolean().optional(),
@@ -29,43 +29,11 @@ export const DrafJobFormSchema = z.object({
         z.literal("Part-time"),
         z.literal("Freelance"),
         z.literal("Contract"),
-        z.literal("Internship"),
+        z.literal("Intern"),
         z.literal("Other"),
     ]),
 })
 
-export type JobFormSchema = {
-    jobTitle: string;
-    description: string;
-    timeZone?: Array<string>;
-    branch?: string;
-    contractType: "Full-time" | "Part-time" | "Freelance" | "Contract" | "Internship" | "Other";
-    applyUrl: string;
-    workplaceType: "Remote" | "Onsite" | "Hybrid";
-    benefits?: Array<string>;
-    longDescription?: any[];
-    isReactjsOnly?: boolean;
-    company?: {
-        name?: string;
-        website?: string;
-        recruiterName?: string;
-        recruiterEmail?: string;
-        isHiringAgency?: boolean;
-    };
-    salary?: {
-        /**
-         * @deprecated
-         */
-        maximum?: number;
-        /**
-         * @deprecated
-         */
-        minimum?: number;
-        currency?: "USD" | "EUR" | "GBP" | "CAD";
-        range?: string;
-    }
-    // location?: string;
-}
 
 // const slugSchema = z.object({
 //     _type: z.literal("slug"),

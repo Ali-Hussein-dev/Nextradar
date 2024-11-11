@@ -151,7 +151,7 @@ export type JobPost = {
   contractType?: "Full-time" | "Part-time" | "Freelance" | "Contract" | "Intern" | "Other";
   applyUrl?: string;
   workplaceType?: "Remote" | "Onsite" | "Hybrid";
-  discription?: string;
+  description?: string;
   longDescription?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -175,7 +175,7 @@ export type JobPost = {
     minimum?: string;
     maximum?: string;
     range?: string;
-    currency?: "USD" | "EUR" | "GBP";
+    currency?: "USD" | "EUR" | "GBP" | "CAD";
   };
   company?: {
     name?: string;

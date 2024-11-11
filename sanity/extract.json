@@ -872,7 +872,7 @@
         },
         "optional": true
       },
-      "discription": {
+      "description": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
@@ -1107,6 +1107,10 @@
                   {
                     "type": "string",
                     "value": "GBP"
+                  },
+                  {
+                    "type": "string",
+                    "value": "CAD"
                   }
                 ]
               },
