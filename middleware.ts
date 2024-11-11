@@ -17,12 +17,18 @@ export function middleware(request: NextRequest) {
     // Add the full URL to a custom header
     requestHeaders.set('x-pathname', pathname);
 
-    // Return the response with the modified headers
-    return NextResponse.next({
+    // Create the response
+    const response = NextResponse.next({
         request: {
             headers: requestHeaders,
         },
     });
+    // Add the X-Robots-Tag header for the specific route
+    if (pathname.startsWith('/jobs/')) {
+        response.headers.set('X-Robots-Tag', 'index, follow');
+    }
+    // Return the response with the modified headers
+    return response;
 }
 
 export const config = {

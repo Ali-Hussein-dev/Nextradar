@@ -30,6 +30,10 @@ export const handleJobFormSubmission = createServerAction()
             ...input,
             longDescription: JSON.parse(input.longDescription),
             applyUrl: input.applyUrl.includes("@") ? `mailto:${input.applyUrl}` : input.applyUrl,
+            salary: {
+                ...input.salary,
+                range: input.salary?.range?.toLowerCase()?.replace(/\s/g, ""),
+            }
         }
         // @ts-expect-error longDescription type should be fixed
         const metadata = await createDraftJobPost(input)

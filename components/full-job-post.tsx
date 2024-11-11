@@ -1,4 +1,3 @@
-import { getFullJobPostBySlug } from "@/sanity/lib/getters"
 import { Button } from "./button"
 import Link from "next/link"
 import { FaArrowLeft } from "react-icons/fa"
@@ -10,10 +9,10 @@ import { CiLocationOn } from "react-icons/ci"
 import { GiMoneyStack } from "react-icons/gi"
 import { cn, isEmpty } from "@/lib/utils"
 import { GoArrowUpRight } from "react-icons/go"
+import { JobPost } from "@/sanity/types"
 
 //======================================
-export const FullJobPost = async ({ slug }: { slug: string }) => {
-  const post = await getFullJobPostBySlug({ slug })
+export const FullJobPost = ({ post }: { post: JobPost }) => {
   return (
     <section className="py-6 mx-auto border border-dashed">
       <div className="flex-col-center gap-8 dark:text-zinc-400 text-zinc-700 p-3 py-6 border-b border-dashed">
@@ -35,21 +34,28 @@ export const FullJobPost = async ({ slug }: { slug: string }) => {
             <CiLocationOn size="15" />
             {post.workplaceType}
           </span>
-          {post?.timeZone ? (
+          {(post?.timeZone?.length ?? 0 > 0) ? (
             <div className="flex-row-start gap-2">
               <IoEarthOutline size="15" />
-              <span>{post.timeZone.join(", ")}</span>
+              <span>{(post.timeZone as []).join(", ")}</span>
             </div>
           ) : (
-            <div>{post.location}</div>
+            ""
           )}
-          {post?.salary && isEmpty(post?.salary) && (
+          {post?.location && (
+            <div className="flex-row-start gap-2">
+              <IoEarthOutline size="15" />
+              <span>{post.location}</span>
+            </div>
+          )}
+          {post?.salary && !isEmpty(post?.salary) && (
             <div className="capitalize flex-row-start gap-2">
               <GiMoneyStack size="15" />
               <div className="flex-row-end gap-1">
-                <span>
+                {/* <span>
                   {post.salary.minimum}-{post.salary.maximum}
-                </span>
+                </span> */}
+                <span>{post.salary?.range}</span>
                 <span className="uppercase">{post.salary.currency}</span>
               </div>
             </div>

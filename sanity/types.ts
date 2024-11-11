@@ -148,9 +148,10 @@ export type JobPost = {
   timeZone?: Array<string>;
   location?: string;
   branch?: string;
-  contractType?: "Full-time" | "Part-time" | "Freelance" | "Contract" | "Internship" | "Other";
+  contractType?: "Full-time" | "Part-time" | "Freelance" | "Contract" | "Intern" | "Other";
   applyUrl?: string;
   workplaceType?: "Remote" | "Onsite" | "Hybrid";
+  description?: string;
   longDescription?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -173,7 +174,8 @@ export type JobPost = {
   salary?: {
     minimum?: string;
     maximum?: string;
-    currency?: "USD" | "EUR" | "GBP";
+    range?: string;
+    currency?: "USD" | "EUR" | "GBP" | "CAD";
   };
   company?: {
     name?: string;
@@ -196,6 +198,7 @@ export type JobPost = {
   orderId?: string;
   publishedAt?: string;
   benefits?: Array<string>;
+  expiredAt?: string;
   jobType?: Array<string>;
   jobHook?: Array<{
     children?: Array<{

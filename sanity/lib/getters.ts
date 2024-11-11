@@ -233,12 +233,14 @@ export const getFullJobPostBySlug = async ({
         applyUrl,
         jobType,
         contractType,
+        description,
         longDescription,
         company,
         salary,
         benefits,
         timeZone,
         workplaceType,
+        publishedAt
         }`)
 
     return client.fetch(

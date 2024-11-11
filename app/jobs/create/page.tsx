@@ -37,26 +37,22 @@ export default function CreateJobPostPage() {
                   "Multi-channel distribution across LinkedIn, Reddit, and specialized tech newsletters",
                   "Significantly cheaper than LinkedIn's €1400 for the same duration",
                 ].map((str, i) => (
-                  <li key={i} >
-                    {str}
-                  </li>
+                  <li key={i}>{str}</li>
                 ))}
               </ul>
             </div>
-            {
-              <div className="border-b border-x md:px-6 py-7 border-dashed p-4">
-                <h2 className="text-lg text-center font-medium mb-2">
-                  Featured Companies
-                </h2>
-                <div className="flex flex-wrap gap-2 justify-center">
-                  {logos.map((logo, i) => (
-                    <div key={i} className="">
-                      <logo.Icon className="size-6" />
-                    </div>
-                  ))}
-                </div>
+            <div className="border-b border-x md:px-6 py-7 border-dashed p-4">
+              <h2 className="text-lg text-center font-medium mb-2">
+                Featured Companies
+              </h2>
+              <div className="flex flex-wrap gap-4 justify-center">
+                {logos.map((logo, i) => (
+                  <div key={i} className="">
+                    <logo.Icon className="size-6" />
+                  </div>
+                ))}
               </div>
-            }
+            </div>
           </div>
         </div>
       </div>
