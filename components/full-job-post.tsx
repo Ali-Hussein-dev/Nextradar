@@ -1,4 +1,3 @@
-import { getFullJobPostBySlug } from "@/sanity/lib/getters"
 import { Button } from "./button"
 import Link from "next/link"
 import { FaArrowLeft } from "react-icons/fa"
@@ -10,10 +9,10 @@ import { CiLocationOn } from "react-icons/ci"
 import { GiMoneyStack } from "react-icons/gi"
 import { cn, isEmpty } from "@/lib/utils"
 import { GoArrowUpRight } from "react-icons/go"
+import { JobPost } from "@/sanity/types"
 
 //======================================
-export const FullJobPost = async ({ slug }: { slug: string }) => {
-  const post = await getFullJobPostBySlug({ slug })
+export const FullJobPost = ({ post }: { post: JobPost }) => {
   return (
     <section className="py-6 mx-auto border border-dashed">
       <div className="flex-col-center gap-8 dark:text-zinc-400 text-zinc-700 p-3 py-6 border-b border-dashed">
