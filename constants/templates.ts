@@ -206,6 +206,15 @@ export const templates: Template[] = [
         rel: "nofollow",
     },
     {
+        url: "https://nextfolio-template.vercel.app/",
+        name: "Nextfolio",
+        description:
+            "A clean, fast, & lightweight portfolio template built with Next.js, Vercel, and Tailwind CSS for optimal performance",
+        ogImage: "https://nextfolio-template.vercel.app/opengraph-image.png",
+        github: "https://github.com/1msirius/Nextfolio",
+        rel: "nofollow",
+    },
+    {
         url: "https://supastarter.dev?aff=pWOZY",
         name: "supastarter",
         description:
