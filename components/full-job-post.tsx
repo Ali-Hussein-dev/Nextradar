@@ -47,9 +47,10 @@ export const FullJobPost = async ({ slug }: { slug: string }) => {
             <div className="capitalize flex-row-start gap-2">
               <GiMoneyStack size="15" />
               <div className="flex-row-end gap-1">
-                <span>
+                {/* <span>
                   {post.salary.minimum}-{post.salary.maximum}
-                </span>
+                </span> */}
+                <span>{post.salary?.range}</span>
                 <span className="uppercase">{post.salary.currency}</span>
               </div>
             </div>
