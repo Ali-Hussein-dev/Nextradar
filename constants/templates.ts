@@ -81,6 +81,14 @@ export const templates: Template[] = [
         rel: "nofollow",
     },
     {
+        url: "https://www.next-forge.com/",
+        name: "Next-forge",
+        description: "A monorepo template designed to have everything you need to build your new SaaS app as quick as possible. Authentication, billing, analytics, SEO, database ORM and more",
+        ogImage: "https://www.next-forge.com/opengraph-image.png",
+        github: "https://github.com/haydenbleasel/next-forge",
+        rel: "nofollow",
+    },
+    {
         url: "https://paddle-billing.vercel.app/",
         name: "Paddle Starter Kit",
         description: "Paddle Billing subscriptions Next.js starter kit",
