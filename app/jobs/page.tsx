@@ -15,7 +15,7 @@ export default async function JobsPage() {
       <div className="max-w-3xl mx-auto pt-6">
         <div className="pt-6 border-x border-t border-b md:border-b-transparent border-dashed mb-4 md:mb-0">
           <h1 className="mb-3 text-xl font-extrabold text-center text-pretty">
-            Top Jobs Opportunities for Specialized Developers
+            Top Nextjs Jobs
           </h1>
           <p className="dark:text-zinc-500 text-zinc-700 tracking-wide text-base text-center text-pretty pb-5 px-2">
             Get hired by companies who are looking for professional Next.js and

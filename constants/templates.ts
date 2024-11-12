@@ -71,6 +71,7 @@ export const templates: Template[] = [
         name: "Next Commerce",
         description: "High-performance ecommerce store built with Next.js, Vercel, and Shopify.",
         ogImage: "https://commerce-shopify-lzmegorad-vercel-solutions-vtest314.vercel.app/opengraph-image",
+        github:"https://github.com/vercel/commerce/tree/v1",
         rel: "nofollow",
     },
     {
