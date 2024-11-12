@@ -33,7 +33,7 @@ export const JobCard = (props: JobPostCardProps & { isLast: boolean }) => {
 
   return (
     <div
-      className={`rounded-none dark:bg-transparent md:border-t md:border-x border-dashed py-5 shadow-none md:shadow md:py-6 sm:px-4 md:px-6 flex flex-col justify-start w-full animate-in ${isLast ? "md:border-b" : ""}`}
+      className={`rounded-none dark:bg-transparent md:border-t md:border-x border-dashed py-5 md:py-6 sm:px-4 md:px-6 flex flex-col justify-start w-full animate-in ${isLast ? "md:border-b" : ""}`}
     >
       <div className="grow">
         <div className="flex-row-between gap-2 mb-1">

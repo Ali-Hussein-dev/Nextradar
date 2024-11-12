@@ -392,7 +392,7 @@ function Toolbar() {
   })
 
   return (
-    <div className="w-full border-dashed border-b sticky top-0 flex-row-start gap-1 flex-wrap pb-2 z-10 p-2.5">
+    <div className="w-full border-dashed border-b sticky top-0 flex-row-start gap-1 flex-wrap pb-2 z-10 p-2.5 dark:bg-zinc-950 bg-zinc-50">
       <StyleSelector />
       {decoratorButtons}
       {Annotations}
