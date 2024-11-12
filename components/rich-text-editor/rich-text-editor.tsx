@@ -90,19 +90,19 @@ const schemaDefinition = defineSchema<
   // Lists apply to entire text blocks as well
   lists: [
     {
-      name: "Bulleted list",
+      name: "bullet",
       title: "Bulleted list",
       value: "bullet",
       icon: ListIcon,
     },
     {
-      name: "Numbered list",
+      name: "number",
       title: "Numbered list",
       value: "number",
       icon: ListOrderedIcon,
     },
     {
-      name: "To-do list",
+      name: "to-do",
       title: "To-do list",
       value: "to-do",
       icon: ListChecksIcon,
@@ -151,6 +151,7 @@ export function RichTextEditor({
         {/* Component that controls the actual rendering of the editor */}
         <PortableTextEditable
           className="pt-3 pb-2 px-4 dark:text-zinc-300 prose prose-zinc dark:prose-invert focus:outline-none max-h-96 overflow-y-auto"
+          // data-[slate-node=element]:before:text-zinc-500
           // style={{ border: "1px solid #999", padding: "0.5em" }}
           // Control how decorators are rendered
           renderDecorator={renderDecorator}
@@ -178,6 +179,7 @@ export function RichTextEditor({
   )
 }
 const renderLists: RenderListItemFunction = (props) => {
+  console.log("🚀 ~ props:", props)
   return <>{props.children}</>
 }
 const renderDecorator: RenderDecoratorFunction = (props) => {
