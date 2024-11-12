@@ -248,7 +248,11 @@ export const getFullJobPostBySlug = async ({
         { slug }
     )
 }
-
+export function getTopHiringCompanies(): Promise<{ name: string }[]> {
+    return client.fetch(`*[_type == "jobPost"][0...5] | order(publishedAt desc) {
+        "name": company.name
+    }`)
+}
 //------------------------------------------------------------Jobs-Posts-By-Id
 export const getJobPostMetaSlug = async ({
     slug,
