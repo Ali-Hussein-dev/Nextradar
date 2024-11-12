@@ -7,7 +7,7 @@ import { urls } from "@/constants/urls"
 import { IoEarthOutline, IoTimeOutline } from "react-icons/io5"
 import { CiLocationOn } from "react-icons/ci"
 import { GiMoneyStack } from "react-icons/gi"
-import { cn, isEmpty } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 import { GoArrowUpRight } from "react-icons/go"
 import { JobPost } from "@/sanity/types"
 
@@ -48,7 +48,7 @@ export const FullJobPost = ({ post }: { post: JobPost }) => {
               <span>{post.location}</span>
             </div>
           )}
-          {post?.salary && !isEmpty(post?.salary) && (
+          {post?.salary && post?.salary.range && (
             <div className="capitalize flex-row-start gap-2">
               <GiMoneyStack size="15" />
               <div className="flex-row-end gap-1">
