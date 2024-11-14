@@ -64,6 +64,11 @@ const config = {
         destination: '/content/real-world-apps',
         permanent: true,
       },
+      {
+        source: '/docs/j/:slug',
+        destination: '/jobs',
+        permanent: true,
+      },
     ];
   },
 };
