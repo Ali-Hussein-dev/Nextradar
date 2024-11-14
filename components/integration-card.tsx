@@ -44,7 +44,7 @@ export const IntegrationCard = ({
               size="sm"
               className="rounded-lg gap-3 no-underline"
             >
-              <a href={url}>
+              <a href={url} rel="nofollow">
                 <FaGithub />
                 Starter
               </a>
@@ -57,7 +57,7 @@ export const IntegrationCard = ({
               size="sm"
               className="rounded-lg gap-3 no-underline dark:text-green-300 text-green-500"
             >
-              <a href={url}>
+              <a href={url} rel="nofollow">
                 <TbExternalLink size="16" />
                 Visit
               </a>

@@ -51,7 +51,7 @@ export const FeedCard = React.memo(
                   className="rounded-lg gap-3 no-underline dark:text-green-300 text-green-500"
                   size="sm"
                 >
-                  <a href={href} target="_blank">
+                  <a href={href} target="_blank" rel="nofollow">
                     Visit
                     <FaExternalLinkAlt size="14" />
                   </a>
