@@ -24,7 +24,7 @@ export function JobList({ initialList }: { initialList: JobPostCardProps[] }) {
     <section>
       <div className="max-w-3xl mx-auto mb-5">
         {jobsCards.map((o, i) => (
-          <JobCard key={i} isLast={jobsCards.length - 1 == i} {...o} />
+          <JobCard key={o.jobTitle} isLast={jobsCards.length - 1 == i} {...o} />
         ))}
       </div>
       <div className="flex-row-center w-full">
