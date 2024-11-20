@@ -52,7 +52,7 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
             ))}
           </div>
           <div className="flex-row-end gap-2">
-            {repo?.owner && (
+            {repo?.owner && repo.repoName && (
               <Button
                 size="icon"
                 asChild
