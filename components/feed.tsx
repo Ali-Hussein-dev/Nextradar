@@ -72,6 +72,15 @@ export const Feed = async () => {
   return (
     <div>
       <div className="grid gap-5 max-w-2xl mx-auto pb-6 pt-3">
+        <div className="space-y-1">
+          <h1 className="font-bold text-center">
+            Best content about Nextjs by industry experts
+          </h1>
+          <p className="text-center">
+            Next.js mastery: From beginner to enterprise-level expertise by tech
+            leaders
+          </p>
+        </div>
         <Search />
         <FeedList initialList={page} />
       </div>

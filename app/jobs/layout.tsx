@@ -8,6 +8,7 @@ export default function JobsLayout({
   return <MainLayout>{children}</MainLayout>
 }
 export const metadata = {
-  title: "Top Nextjs Jobs",
-  description: "Find remote jobs for Next.js and React.js developers",
+  title: "Nextjs Jobs and Reactjs Jobs",
+  description:
+    "Find remote Next.js and React.js developer jobs in the USA, Canada, Europe, and worldwide.",
 }
