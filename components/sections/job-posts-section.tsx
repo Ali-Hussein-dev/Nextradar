@@ -29,16 +29,19 @@ export type JobPostCardProps = Pick<
 >
 //======================================
 export const JobCard = (props: JobPostCardProps & { isLast: boolean }) => {
-  const { jobTitle, publishedAt, slug, isLast } = props
-
+  const { jobTitle, publishedAt, slug, isLast, companyName, timeZone } = props
+  const isTimezone = (timeZone ?? []).length > 0
   return (
     <div
       className={`rounded-none dark:bg-transparent md:border-t md:border-x border-dashed py-5 md:py-6 sm:px-4 md:px-6 flex flex-col justify-start w-full animate-in ${isLast ? "md:border-b" : ""}`}
     >
       <div className="grow">
-        <div className="flex-row-between gap-2 mb-1">
+        <div className="flex-col-start  mb-1">
           <span className="sm:text-lg md:text-xl font-bold dark:text-zinc-300/90 text-zinc-800 pr-2">
             {jobTitle}
+          </span>
+          <span className="dark:text-zinc-600 text-zinc-500 pr-2">
+            {companyName} {isTimezone ? `/ ${timeZone?.join(", ")}` : ""}
           </span>
           {/* <span className="dark:text-zinc-600 text-zinc-500 pr-2">
             {companyName || company?.name}

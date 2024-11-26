@@ -191,6 +191,8 @@ export const getJobsPage = async ({
     fields = `jobTitle,
         "slug": slug.current,
         publishedAt,
+        "companyName": company.name,
+        timeZone
         `,
     // companyName,
     // location,
