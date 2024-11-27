@@ -32,7 +32,7 @@ import { Separator } from "@/components/ui/separator"
 import * as React from "react"
 import { SeparatorProps } from "@radix-ui/react-separator"
 import { cn } from "@/lib/utils"
-import { RichTextEditor } from "./rich-text-editor/rich-text-editor"
+import { RichTextEditor } from "@/jobs/components/rich-text-editor/rich-text-editor"
 
 type SharedFormProps = {
   label?: string

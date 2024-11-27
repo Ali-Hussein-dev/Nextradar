@@ -1,8 +1,8 @@
-import { Button } from "./button"
+import { Button } from "@/components/button"
 import Link from "next/link"
 import { FaArrowLeft } from "react-icons/fa"
 import { PortableText } from "next-sanity"
-import { TldrJobPost } from "./tldr-job-post"
+import { TldrJobPost } from "@/jobs/components/tldr-job-post"
 import { urls } from "@/constants/urls"
 import { IoEarthOutline, IoTimeOutline } from "react-icons/io5"
 import { CiLocationOn } from "react-icons/ci"
@@ -10,6 +10,9 @@ import { GiMoneyStack } from "react-icons/gi"
 import { cn } from "@/lib/utils"
 import { GoArrowUpRight } from "react-icons/go"
 import { JobPost } from "@/sanity/types"
+import { MdOutlineAlternateEmail } from "react-icons/md"
+import { FiExternalLink } from "react-icons/fi"
+
 
 //======================================
 export const FullJobPost = ({ post }: { post: JobPost }) => {
@@ -52,9 +55,6 @@ export const FullJobPost = ({ post }: { post: JobPost }) => {
             <div className="capitalize flex-row-start gap-2">
               <GiMoneyStack size="15" />
               <div className="flex-row-end gap-1">
-                {/* <span>
-                  {post.salary.minimum}-{post.salary.maximum}
-                </span> */}
                 <span>{post.salary?.range}</span>
                 <span className="uppercase">{post.salary.currency}</span>
               </div>
@@ -77,7 +77,14 @@ export const FullJobPost = ({ post }: { post: JobPost }) => {
               <h2>Perks</h2>
               <ul>{post.benefits?.map((str) => <li key={str}>{str}</li>)}</ul>
               <Button asChild size="sm" className="w-full">
-                <a href={post.applyUrl}>Apply</a>
+                <a href={post.applyUrl}>
+                  <span className="mr-1.5">Apply</span>
+                  {post.applyUrl?.includes("mailto:") ? (
+                    <MdOutlineAlternateEmail />
+                  ) : (
+                    <FiExternalLink />
+                  )}
+                </a>
               </Button>
             </div>
           )}
