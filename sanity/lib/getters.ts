@@ -1,7 +1,5 @@
 import { Repo } from "@/lib/get-repos-github"
 import { client } from "./client"
-import { JobPostCardProps } from "@/jobs/components/initial-job-posts-list"
-import { JobPost } from "@/sanity/types"
 import { defineQuery } from "next-sanity"
 //------------------------------------------------------------Sites
 export const getSites = async (): Promise<Repo[]> =>

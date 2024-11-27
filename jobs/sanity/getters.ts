@@ -1,5 +1,5 @@
 import { client } from "@/sanity/lib/client"
-import { JobPostCardProps } from "@/jobs/components/initial-job-posts-list"
+import { JobPostCardProps } from "@/jobs/components/job-card"
 import { JobPost } from "@/sanity/types"
 import { defineQuery } from "next-sanity"
 //------------------------------------------------------------Jobs-Posts
