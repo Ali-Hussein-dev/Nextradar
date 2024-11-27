@@ -1,7 +1,7 @@
-import { JobPostsSection } from "@/components/sections/job-posts-section"
+import { InitialJobPostsList } from "@/jobs/components/initial-job-posts-list"
 import { Button } from "@/components/ui/button"
 import { urls } from "@/constants/urls"
-import { getTopHiringCompanies } from "@/sanity/lib/getters"
+import { getTopHiringCompanies } from "@/jobs/sanity/getters"
 import Link from "next/link"
 import * as React from "react"
 
@@ -50,7 +50,7 @@ export default async function JobsPage() {
         </div>
       </div>
       <React.Suspense>
-        <JobPostsSection />
+        <InitialJobPostsList />
       </React.Suspense>
     </div>
   )

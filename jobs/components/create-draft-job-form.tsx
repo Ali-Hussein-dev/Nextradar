@@ -9,9 +9,9 @@ import { z } from "zod"
 import { Form, FormField } from "@/components/ui/form"
 import { Button } from "@/components/ui/button"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { DrafJobFormSchema } from "@/lib/zod-schema"
-import { useServerActionMutation } from "@/lib/hooks/server-actions-hooks"
-import { handleJobFormSubmission } from "@/lib/actions/handle-job-form-submission-action"
+import { DrafJobFormSchema } from "@/jobs/sanity/job-payload-z-schema"
+import { useServerActionMutation } from "@/jobs/lib/hooks/server-actions-hooks"
+import { handleJobFormSubmission } from "@/jobs/lib/actions/handle-job-form-submission-action"
 import { products } from "@/constants/creem"
 
 const benefits = [
@@ -33,6 +33,7 @@ const benefits = [
   "No monitoring system",
   "No politics at work",
   "No whiteboard interview",
+  "Flexible time off",
   "Paid time off",
   "Pay in crypto",
   "Profit sharing",
@@ -40,6 +41,7 @@ const benefits = [
   "Stock options",
   "Unlimited vacation",
   "Vision insurance",
+  // "Comprehensive Health, Dental, and Vision insurance",
   "We hire old (and young)",
 ]
 

@@ -1,5 +1,5 @@
 import { urls } from "@/constants/urls";
-import { getAllJobPostSlugs } from "@/sanity/lib/getters";
+import { getAllJobPostSlugs } from "@/jobs/sanity/getters";
 import { type MetadataRoute } from "next";
 import { headers } from "next/headers";
 

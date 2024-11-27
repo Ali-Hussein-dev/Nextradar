@@ -1,9 +1,9 @@
 "use server"
 import { createServerAction, } from "zsa"
-import { DrafJobFormSchema } from "@/lib/zod-schema"
+import { DrafJobFormSchema } from "@/jobs/sanity/job-payload-z-schema"
 import { redirect } from "next/navigation"
-import { createDraftJobPost } from "@/sanity/lib/setters"
-import { createCheckout } from "@/lib/creem/create-checkout"
+import { createDraftJobPost } from "@/jobs/sanity/setters"
+import { createCheckout } from "@/jobs/lib/creem/create-checkout"
 
 /**
  * - form fields
