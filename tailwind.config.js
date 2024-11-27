@@ -9,6 +9,7 @@ export default {
     './content/**/*.{md,mdx}',
     './mdx-components.{ts,tsx}',
     './node_modules/fumadocs-ui/dist/**/*.js',
+	'./jobs/components/**/*.{ts,tsx}',
   ],
   theme: {
   	extend: {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
-import { getFullJobPostBySlug, getJobPostMetaSlug } from "@/sanity/lib/getters"
-import { FullJobPost } from "@/components/full-job-post"
+import { getFullJobPostBySlug, getJobPostMetaSlug } from "@/jobs/sanity/getters"
+import { FullJobPost } from "@/jobs/components/job-page"
 import { redirect } from "next/navigation"
 import { urls } from "@/constants/urls"
 import * as React from "react"

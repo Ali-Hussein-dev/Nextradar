@@ -1,4 +1,4 @@
-import { getJobsPage } from '@/sanity/lib/getters';
+import { getJobsPage } from '@/jobs/sanity/getters';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const dynamic = 'force-dynamic'

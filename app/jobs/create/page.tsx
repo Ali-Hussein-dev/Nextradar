@@ -2,7 +2,7 @@ import dynamic from "next/dynamic"
 import { SiVercel, SiUpstash, SiSupabase, SiMedusa } from "react-icons/si"
 const CreateDraftJobForm = dynamic(
   () =>
-    import("@/components/jop-post-form/create-draft-job-form").then(
+    import("@/jobs/components/create-draft-job-form").then(
       (mod) => mod.CreateDraftJobForm
     ),
   { ssr: false }
@@ -24,11 +24,11 @@ export default function CreateJobPostPage() {
         <div className="lg:col-span-3 animate-in">
           <div className="lg:sticky lg:top-3">
             <h1 className="text-xl text-pretty dark:text-zinc-200 font-bold border-x border-t md:px-6 py-7 border-dashed rounded-sm text-center">
-              Spcialized job board <br /> for Reactjs & Nextjs engineers
+              Hire Top Nextjs & Reactjs Developers
             </h1>
             <div className="prose dark:prose-invert prose-zinc border md:px-6 py-7 border-dashed p-4">
               <h2 className="text-lg font-medium mb-2">
-                Why List on Nextradar?
+                Why posting your open roles on Nextradar?
               </h2>
               <ul className="space-y-2">
                 {[
@@ -61,6 +61,6 @@ export default function CreateJobPostPage() {
 }
 
 export const metadata = {
-  title: "Hire Reactjs & Nextjs developers",
+  title: "Find top Reactjs & Nextjs developers",
   description: "Hire qualified Reactjs & Nextjs developers remotely",
 }

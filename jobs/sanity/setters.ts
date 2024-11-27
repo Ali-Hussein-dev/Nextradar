@@ -13,7 +13,7 @@ export const createDraftJobPost = async (
 
     const publishedAt = new Date().toISOString()
     const date = formatDate(publishedAt, "yyyy-MM-dd-HH")
-    
+
     const fields: Omit<JobPost, "_createdAt" | "_rev" | "_updatedAt"> = {
         ...jobPost,
         slug: {

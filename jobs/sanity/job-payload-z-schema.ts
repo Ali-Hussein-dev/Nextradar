@@ -33,25 +33,3 @@ export const DrafJobFormSchema = z.object({
         z.literal("Other"),
     ]),
 })
-
-
-// const slugSchema = z.object({
-//     _type: z.literal("slug"),
-//     current: z.string().optional(),
-//     source: z.string().optional(),
-// });
-
-// const salarySchema = z.object({
-//     minimum: z.string().optional(),
-//     maximum: z.string().optional(),
-//     currency: z.string().optional(),
-// });
-
-// const companySchema = z.object({
-//     name: z.string().optional(),
-//     website: z.string().optional(),
-//     isHiringAgency: z.boolean().optional(),
-//     recruiterName: z.string().optional(),
-//     recruiterEmail: z.string().optional(),
-// });
-

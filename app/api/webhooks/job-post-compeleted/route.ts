@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
-import { verifyCreemSignature } from "@/lib/creem/verify-signature"
-import { publishDocument } from "@/sanity/lib/setters"
+import { verifyCreemSignature } from "@/jobs/lib/creem/verify-signature"
+import { publishDocument } from "@/jobs/sanity/setters"
 import { revalidatePath } from "next/cache"
 
 const webhook_payload_example = {
