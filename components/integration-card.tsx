@@ -31,7 +31,7 @@ export const IntegrationCard = ({
             className="size-8 my-0 rounded-full object-contain"
             loading="lazy"
           />
-          <h3 className="my-0 font-bold text-xl">{name}</h3>
+          <h2 className="my-0 font-bold text-xl">{name}</h2>
         </div>
         <p className="mb-2 line-clamp-3">{description}</p>
       </div>

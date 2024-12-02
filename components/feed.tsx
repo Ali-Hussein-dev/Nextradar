@@ -27,10 +27,9 @@ export const FeedCard = React.memo(
           {src && <YtDialog src={src} href={href} />}
           <div className="w-full pt-2 grow flex-col-start md:h-full gap-1">
             <div className="h-full">
-              <h3 className="font-semibold tracking-normal my-0 scroll-m-20 dark:text-zinc-400/90 line-clamp-2 text-lg">
+              <h2 className="font-semibold tracking-normal my-0 scroll-m-20 dark:text-zinc-400/90 line-clamp-2 text-lg">
                 {name}
-              </h3>
-
+              </h2>
               {/* --------------------------------Description-only for articles */}
               <p
                 className={cn(
@@ -77,8 +76,7 @@ export const Feed = async () => {
             Top curated content about Nextjs
           </h1>
           <p className="text-center">
-            from beginner to enterprise-level expertise by tech
-            leaders
+            Get the latest published high-quality resources about Next.js
           </p>
         </div>
         <Search />

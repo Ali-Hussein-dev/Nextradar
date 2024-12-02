@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { CardHeading, ExpandableCard } from "@/components/ui/expandable-card"
 import { getSites } from "@/sanity/lib/getters"
 import { CardWrapper } from "@/components/ui/card-wrapper"
@@ -30,7 +31,7 @@ export const SitesList = async () => {
                 )}
                 <div className="flex-col-start gap-0 pt-1">
                   <div className="flex-row-between gap-2 w-full">
-                    <h3 className="m-0 font-bold text-lg w-full">{o.name}</h3>
+                    <h2 className="m-0 font-bold text-lg w-full">{o.name}</h2>
                     {/* {o?.sponsored && (
                       <span className="text-light dark:text-zinc-600 px-1 rounded-sm text-zinc-500">
                         Sponsored

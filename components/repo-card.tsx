@@ -12,7 +12,7 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
   return (
     <CardWrapper>
       <div className="flex-row-between">
-        <h3 className="my-0 scroll-m-20 font-bold text-xl capitalize">
+        <h2 className="my-0 scroll-m-20 font-bold text-xl capitalize">
           {repo.avatar && (
             <img
               src={repo.avatar}
@@ -21,7 +21,7 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
             />
           )}
           {repo.name}
-        </h3>
+        </h2>
         {repo?.stars && (
           <span className="flex-row-start gap-1">
             <CiStar size="18" />

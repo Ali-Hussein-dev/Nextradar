@@ -85,7 +85,7 @@ export const CardHeading = ({
   <div className="mb-5">
     <h1 className="text-2xl font-extrabold mb-0 mt-2">{h1}</h1>
     {!!h2 && (
-      <h2 className="text-lg font-medium mb-0 mt-2 prose-p:mt-1">{h2}</h2>
+      <p className="text-lg font-medium mb-0 mt-2 prose-p:mt-1">{h2}</p>
     )}
   </div>
 )
