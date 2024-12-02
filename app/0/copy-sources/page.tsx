@@ -64,6 +64,7 @@ const YT = async () => {
     "@jherr",
     "@hamedbahram",
     "@nikolovlazar",
+    "@beyondfireship",
     "@DaveGrayTeachesCode", // Dave Gray
     //  "@leerob",
   ]
@@ -108,7 +109,8 @@ const Newsletter = async () => {
     fields: "name, description, type, href, src, author",
     length: 15,
   })) as any[]
-  const sourceType = "youtube"
+  let sourceType = "article"
+  const emoji = sourceType === "youtube" ? "▶️" : "📄"
   return (
     <div className="max-w-2xl mx-auto mt-10">
       <p>Total: {sources.length}</p>
@@ -118,7 +120,7 @@ const Newsletter = async () => {
           .map((source, i) => (
             <div key={i} className="space-y-3 border border-dashed p-3">
               <span className="text-xl">
-                {i + 1} - {sourceType === "youtube" ? "▶️" : "📄"}
+                {i + 1} - {emoji}
               </span>
               <div className=" whitespace-pre-wrap">{source.name}</div>
               {source.descrption}
@@ -128,7 +130,7 @@ const Newsletter = async () => {
               Author: {source.author}
               <div className="flex-row-start gap-3">
                 <CopyButton
-                  text={`${source.name} ${source.description} - ${source.author}`}
+                  text={`${emoji} ${source.name} ${source.description} - ${source.author}`}
                   label="Copy all"
                 />
                 <CopyButton label="copy HREF" text={source.href} />
@@ -148,8 +150,8 @@ export default async function CopySources() {
     redirect("/")
   }
 
-  const current: string = "youtube"
-  // const current: string = "newsletter"
+  // const current: string = "youtube"
+  const current: string = "newsletter"
   switch (current) {
     case "youtube":
       return <YT />
