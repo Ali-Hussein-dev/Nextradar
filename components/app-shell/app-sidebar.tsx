@@ -81,7 +81,7 @@ export const sidebarLinks = [
       {
         label: "Hosting Providers",
         url: urls.hosting,
-        title: "Top Nextjs Hosting Providers",
+        title: "Top Vercel Alternatives",
         description:
           "Discover top Vercel alternataives such as Netlify, Coolify, Deno deploy, Render and more",
       },
@@ -103,13 +103,15 @@ export const sidebarLinks = [
         label: "Databases",
         url: urls.db,
         title: "Databases for Next.js",
-        description: "Discover top databases for Next.js such as Upstash, FaunaDB, Prisma, Supabase, Firebase, MongoDB and more",
+        description:
+          "Discover top databases for Next.js such as Upstash, FaunaDB, Prisma, Supabase, Firebase, MongoDB and more",
       },
       {
         label: "BaaS",
         url: urls.baas,
         title: "Backend as a Service for Next.js",
-        description: "Discover top BaaS for Next.js such as Supabase, PlantScale, Convex, and more",
+        description:
+          "Discover top BaaS for Next.js such as Supabase, PlantScale, Convex, and more",
       },
     ],
     // icon: Settings,
