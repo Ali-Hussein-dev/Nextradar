@@ -7,7 +7,7 @@ export function BaasSection() {
   return (
     <section>
       <ExpandableCard className="md:px-6 border-dashed h-full typography mb-6">
-        <CardHeading h2={`Top BaaS Integrations for Next.js`} />
+        <CardHeading h1={`Top BaaS Integrations for Next.js`} />
         <div>
           <p>
             Backend as a Service (BaaS) is a cloud computing service model that

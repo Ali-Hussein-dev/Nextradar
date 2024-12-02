@@ -6,7 +6,7 @@ export function OpenSourceProjects() {
   return (
     <div className="">
       <ExpandableCard height="6rem" className="md:px-6 mb-4 md:mb-6 typography">
-        <CardHeading h2="Top Open-source Projects built with Next.js" />
+        <CardHeading h1="Top Open-source Projects built with Next.js" />
         <div>
           If you’re a seasoned developer wanting to polish your coding skills or
           just starting out and keen to learn the basics. his collection has it

@@ -8,8 +8,8 @@ export function HostingSection() {
     <section>
       <ExpandableCard className="md:px-6 border-dashed h-full typography mb-6">
         <CardHeading
-          h2={`Best Next.js Hosting Providers for ${new Date().getFullYear()}`}
-          h3="Top Vercel Alternatives"
+          h1={`Best Next.js Hosting Providers for ${new Date().getFullYear()}`}
+          p="Top Vercel Alternatives"
         />
         <div>
           <p>

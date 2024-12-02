@@ -8,7 +8,7 @@ export function CommerceSection() {
     <section>
       <ExpandableCard className="md:px-6 border-dashed h-full typography mb-6">
         <CardHeading
-          h2={`Top Next.js Commerce Providers for ${new Date().getFullYear()}`}
+          h1={`Top Next.js Commerce Providers for ${new Date().getFullYear()}`}
         />
         <div>
           <p>

@@ -82,7 +82,7 @@ export function LearnSection() {
         height="6rem"
       >
         <CardHeading
-          h2={`
+          h1={`
           Best Next.js Courses and Tutorials ${new Date().getFullYear()}
         `}
         />

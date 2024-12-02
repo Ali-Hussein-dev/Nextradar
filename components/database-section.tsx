@@ -13,7 +13,7 @@ export const DatabaseSection = async () => {
   return (
     <section className="typography">
       <ExpandableCard className="md:px-6 border-dashed h-full typography mb-6">
-        <CardHeading h2="Best Databases for Next.js" />
+        <CardHeading h1="Best Databases for Next.js" />
         <div className="text-zinc-600 dark:text-zinc-400 prose-p:mt-2">
           Next.js is a versatile and powerful framework that can be seamlessly
           integrated with a wide range of databases to suit various application

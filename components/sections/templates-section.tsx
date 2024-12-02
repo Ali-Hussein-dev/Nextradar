@@ -59,10 +59,10 @@ export function TemplatesSection() {
       <div className="mb-4 md:mb-8">
         <ExpandableCard height="8rem" className="md:px-6 typography mb-6">
           <CardHeading
-            h2={`
+            h1={`
             ${templates.length} Best Free and Premium Next.js Templates
           `}
-            h3="Discover High-Quality, Ready-to-Use Templates for Your Next.js Projects"
+            p="Discover High-Quality, Ready-to-Use Templates for Your Next.js Projects"
           />
           <div>
             Explore a wide range of high-quality Next.js templates. Pick from
