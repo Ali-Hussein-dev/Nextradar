@@ -3,6 +3,41 @@ import { Button } from "@/components/button"
 import Link from "next/link"
 import { FaArrowRight } from "react-icons/fa"
 
+const sponsors = {
+  anotherWrapper: {
+    name: "AnotherWrapper",
+    description: "Build your AI startup in hours",
+    url: "https://anotherwrapper.com/?aff=pWOZY",
+  },
+}
+export const SponsoredCard = () => {
+  const { name, description, url } = sponsors.anotherWrapper
+  return (
+    <div className="py-3">
+      <div
+        className={cn(
+          "h-fit py-4 md:py-2 px-3 sm:px-4 w-full rounded-sm font-semibold  overflow-hidden border border-dashed"
+        )}
+      >
+        <a
+          href={url}
+          target="_blank"
+          className="flex items-end md:items-center justify-between h-full gap-1 sm:gap-2 no-underline overflow-hidden"
+          data-umami-event="sponsor-card"
+          rel="nofollow"
+        >
+          <div className="grow flex flex-col justify-start md:flex-row gap-1">
+            <span className="pr-2 md:pr-3 font-semibold text-sm sm:text-base ">
+              {name}
+            </span>
+            <span className="font-light">{description}</span>
+          </div>
+          <span className="font-light text-muted-foreground">sponsored</span>
+        </a>
+      </div>
+    </div>
+  )
+}
 //======================================
 export const Sponsor = () => {
   return (
