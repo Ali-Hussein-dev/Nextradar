@@ -18,15 +18,14 @@ export default async function JobsPage() {
             Nextjs Jobs and Reactjs Jobs
           </h1>
           <p className="dark:text-zinc-500 text-zinc-700 tracking-wide text-base text-center text-pretty pb-5 px-3 md:px-6">
-            Get hired by companies who are looking for professional engineers in
-            Nextjs and Reactjs.
+            Find only relevant job roles, no spam and directly from employers.
           </p>
           <div className="border-y grid md:grid-cols-8 border-dashed">
             <div className="md:col-span-1 hidden md:block"></div>
             <div className="md:col-span-6 md:border-x border-dashed py-6 px-1">
-              <h2 className="text-center font-semibold dark:text-zinc-300 text-zinc-700 text-lg">
+              <p className="text-center font-semibold dark:text-zinc-300 text-zinc-700 text-lg">
                 Who is hiring
-              </h2>
+              </p>
               <div className="flex-row-center gap-3 md:gap-5 lg:gap-6 px-2 pt-3 mx-auto">
                 {companies
                   ?.filter((o) => o.name)

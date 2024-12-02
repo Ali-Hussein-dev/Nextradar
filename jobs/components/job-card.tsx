@@ -34,9 +34,9 @@ export const JobCard = (props: JobPostCardProps & { isLast: boolean }) => {
     >
       <div className="grow">
         <div className="flex-col-start  mb-1">
-          <span className="sm:text-lg md:text-xl font-bold dark:text-zinc-300/90 text-zinc-800 pr-2">
+          <h2 className="sm:text-lg md:text-xl font-bold dark:text-zinc-300/90 text-zinc-800 pr-2">
             {jobTitle}
-          </span>
+          </h2>
           <span className="dark:text-zinc-600 text-zinc-500 pr-2">
             {companyName} {isTimezone ? `/ ${timeZone?.join(", ")}` : ""}
           </span>
