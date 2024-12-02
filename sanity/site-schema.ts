@@ -39,6 +39,11 @@ const SiteSchema = {
             type: "boolean",
         },
         {
+            name: "ogImage",
+            title: "Open Graph Image",
+            type: "url",
+        },
+        {
             name: "tags",
             title: "Tags",
             type: "array",

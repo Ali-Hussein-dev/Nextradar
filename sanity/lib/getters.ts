@@ -10,7 +10,8 @@ export const getSites = async (): Promise<Repo[]> =>
     createdBy,
     description,
     homepage,
-    featured
+    featured,
+    ogImage,
     }`)
 
 // "categoryRef": categoryRef -> { name }
