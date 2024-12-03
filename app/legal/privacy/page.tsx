@@ -3,7 +3,7 @@ export const metadata = {
   description: "Privacy Policy for Nextradar",
 }
 const content = `
-[Company Name] ("we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you visit our website Nextradar or mobile application. Please read this Privacy Policy carefully.
+Nextradar ("we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you visit our website Nextradar or mobile application. Please read this Privacy Policy carefully.
 
 Information We Collect
 We may collect personal information that you provide to us, such as your name, email address, mailing address, phone number, and payment information. We may also collect information about your usage of our website or mobile application, including your IP address, browser type, operating system, referring URLs, and information about your interaction with our services.
@@ -32,7 +32,7 @@ We reserve the right to update or modify this Privacy Policy at any time. Any ch
 Contact Us
 If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at hi@nextradar.dev.
 
-Last Updated: 25 October 2024
+Last Updated: 4 Decemeber 2024
 
 Note: This is a general template, and you should review and customize it to ensure that it accurately reflects your company's specific data collection, usage, and sharing practices, as well as applicable laws and regulations in your jurisdiction.`
 //======================================
