@@ -4,6 +4,7 @@ export const DrafJobFormSchema = z.object({
     jobTitle: z.string(),
     branch: z.string().optional(),
     timeZone: z.array(z.string()).optional(),
+    location: z.string().optional(),
     applyUrl: z.union([z.string().url(), z.string().email()]),
     salary: z.object({
         currency: z.string().optional(),

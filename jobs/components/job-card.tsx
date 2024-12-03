@@ -26,7 +26,15 @@ export type JobPostCardProps = Pick<
   | "workplaceType"
 >
 export const JobCard = (props: JobPostCardProps & { isLast: boolean }) => {
-  const { jobTitle, publishedAt, slug, isLast, companyName, timeZone } = props
+  const {
+    jobTitle,
+    publishedAt,
+    slug,
+    isLast,
+    companyName,
+    timeZone,
+    location = "",
+  } = props
   const isTimezone = (timeZone ?? []).length > 0
   return (
     <div
@@ -38,7 +46,10 @@ export const JobCard = (props: JobPostCardProps & { isLast: boolean }) => {
             {jobTitle}
           </h2>
           <span className="dark:text-zinc-600 text-zinc-500 pr-2">
-            {companyName} {isTimezone ? `/ ${timeZone?.join(", ")}` : ""}
+            {companyName}
+            {isTimezone
+              ? `, ${timeZone?.join(", ")}`
+              : location && `, ${location}`}
           </span>
         </div>
       </div>

@@ -132,24 +132,6 @@ export function CreateDraftJobForm() {
       type: "string",
       required: true,
     },
-    // [
-    //   {
-    //     variant: "Input",
-    //     type: "number",
-    //     name: "salary.minimum",
-    //     label: "Minimum annual salary",
-    //     placeholder: "e.g 50.000",
-    //     step: 1000,
-    //   },
-    //   {
-    //     variant: "Input",
-    //     type: "number",
-    //     name: "salary.maximum",
-    //     label: "Maximum annual salary",
-    //     placeholder: "e.g 100.000",
-    //     step: 1000,
-    //   },
-    // ],
     [
       {
         variant: "Input",
@@ -161,9 +143,9 @@ export function CreateDraftJobForm() {
       {
         variant: "Select",
         options: [
-          { value: "$", label: "USD" },
-          { value: "€", label: "EUR" },
-          { value: "£", label: "GBP" },
+          { value: "$", label: "USD ($)" },
+          { value: "€", label: "EUR (€)" },
+          { value: "£", label: "GBP (£)" },
           { value: "CAD", label: "CAD" },
         ],
         defaultValue: "USD",
@@ -172,22 +154,30 @@ export function CreateDraftJobForm() {
         placeholder: "e.g USD",
       },
     ],
-    {
-      variant: "MultiSelect",
-      options: [
-        { label: "Africa", value: "Africa" },
-        { label: "Asia", value: "Asia" },
-        { label: "Australia", value: "Australia" },
-        { label: "Europe", value: "Europe" },
-        { label: "North America", value: "North America" },
-        { label: "South America", value: "South America" },
-        { label: "Worldwide", value: "Worldwide" },
-      ],
-      name: "timeZone",
-      label: "Select time zone",
-      placeholder: "e.g Europe, worldwide",
-      required: true,
-    },
+    [
+      {
+        variant: "MultiSelect",
+        options: [
+          { label: "Africa", value: "Africa" },
+          { label: "Asia", value: "Asia" },
+          { label: "Australia", value: "Australia" },
+          { label: "Europe", value: "Europe" },
+          { label: "North America", value: "North America" },
+          { label: "South America", value: "South America" },
+          { label: "Worldwide", value: "Worldwide" },
+        ],
+        name: "timeZone",
+        label: "Select time zone",
+        placeholder: "e.g Europe, worldwide",
+        required: true,
+      },
+      {
+        variant: "Input",
+        name: "location",
+        placeholder: "e.g Berlin, Germany",
+        label: "Location",
+      },
+    ],
     {
       name: "benefits",
       variant: "MultiSelect",
@@ -198,8 +188,8 @@ export function CreateDraftJobForm() {
     {
       variant: "Switch",
       name: "isReactjsOnly",
-      label: "Reactjs only job",
-      description: "Check this if the job is only for Reactjs developers",
+      label: "React.js only job",
+      description: "Check this if the job doesn't Next.js experience",
     },
     {
       variant: "RichText",
@@ -244,11 +234,11 @@ export function CreateDraftJobForm() {
     },
   ]
   return (
-    <div className="max-w-2xl mx-auto animate-in w-fit">
+    <div className="max-w-[38rem] mx-auto animate-in">
       <Form {...form}>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-4 mx-auto w-full "
+          className="flex flex-col gap-4 md:gap-6 mx-auto w-full"
         >
           {fields.map((item, i) => {
             if (item instanceof Array) {

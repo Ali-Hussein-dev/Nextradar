@@ -185,7 +185,7 @@ const JobPost = defineType({
       title: "Benefits",
       type: "array",
       options: {
-        list: ['4 day workweek', '401(k)', '401k matching', 'Async', 'Company retreats', 'Competitive salary', 'Coworking budget', 'Dental insurance', 'Distributed team', 'Equity compensation', 'Free gym membership', 'Home office budget', 'Learning budget', 'Medical insurance', 'Mental wellness budget', 'No monitoring system', 'No politics at work', 'No whiteboard interview', 'Paid time off', 'Pay in crypto', 'Profit sharing', 'Pseudonymous', 'Stock options', 'Unlimited vacation', 'Vision insurance', 'We hire old (and young)'],
+        list: ['4 day workweek', '401(k)', '401k matching', 'Async', 'Company retreats', 'Competitive salary', 'Coworking budget', 'Dental insurance', 'Distributed team', 'Equity compensation', 'Free gym membership', 'Home office budget', 'Learning budget', 'Medical insurance', 'Mental wellness budget', 'No monitoring system', 'No politics at work', 'No whiteboard interview', 'Paid time off', 'Pay in crypto', 'Profit sharing', 'Pseudonymous', 'Stock options', 'Unlimited vacation', 'Vision insurance', 'Work life balance', 'We hire old (and young)'],
       },
       of: [{ type: "string" }],
     }),
@@ -193,61 +193,6 @@ const JobPost = defineType({
       name: "expiredAt",
       title: "Expired At",
       type: "date",
-    }),
-    // Deprecated fields
-    defineField({
-      name: "jobType",
-      title: "Job Type",
-      type: "array",
-      of: [{ type: "string" }],
-      options: {
-        list: [
-          { title: "Remote", value: "Remote" },
-          { title: "OnSite", value: "Onsite" },
-          { title: "Hybrid", value: "Hybrid" },
-        ],
-      },
-      initialValue: ["remote"],
-      deprecated: { reason: "Use workplaceType instead" },
-    }),
-    defineField({
-      name: "jobHook",
-      title: "Job Hook",
-      type: "array",
-      of: [{ type: "block" }],
-      deprecated: { reason: "Use benefits instead" },
-    }),
-    defineField({
-      name: "companyName",
-      title: "Company Name",
-      type: "string",
-      deprecated: {
-        reason: "Use company.name instead",
-      },
-    }),
-    defineField({
-      name: "currency",
-      title: "Currency, e.g USD, EUR, etc",
-      type: "string",
-      deprecated: {
-        reason: "Use salary.currency instead",
-      },
-    }),
-    defineField({
-      name: "salaryMax",
-      title: "Maximum Salary",
-      type: "number",
-      deprecated: {
-        reason: "Use salary.salaryMax instead",
-      },
-    }),
-    defineField({
-      name: "salaryMin",
-      title: "Minimum Salary",
-      type: "number",
-      deprecated: {
-        reason: "Use salary.minSalary instead",
-      },
     }),
   ],
 })
