@@ -21,9 +21,7 @@ export const FullJobPost = ({ post }: { post: JobPost }) => {
     <section className="py-6 mx-auto border border-dashed">
       <div className="flex-col-center gap-8 dark:text-zinc-400 text-zinc-700 p-3 py-6 border-b border-dashed">
         <div className="flex-row-center gap-5 text-sm">
-          <a href={post?.company?.website || ""} target="_blank">
-            {post?.companyName || post?.company?.name}
-          </a>
+          <span>{post?.companyName || post?.company?.name}</span>
           <span>{post.branch}</span>
         </div>
         <h1 className="text-2xl md:text-3xl lg:text-4xl dark:text-zinc-200 font-bold text-zinc-900 text-center">
