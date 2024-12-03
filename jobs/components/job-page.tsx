@@ -4,15 +4,16 @@ import { FaArrowLeft } from "react-icons/fa"
 import { PortableText } from "next-sanity"
 import { TldrJobPost } from "@/jobs/components/tldr-job-post"
 import { urls } from "@/constants/urls"
-import { IoEarthOutline, IoTimeOutline } from "react-icons/io5"
+import { IoEarthOutline } from "react-icons/io5"
 import { CiLocationOn } from "react-icons/ci"
 import { GiMoneyStack } from "react-icons/gi"
+import { CgFileDocument } from "react-icons/cg"
 import { cn } from "@/lib/utils"
 import { GoArrowUpRight } from "react-icons/go"
 import { JobPost } from "@/sanity/types"
 import { MdOutlineAlternateEmail } from "react-icons/md"
 import { FiExternalLink } from "react-icons/fi"
-
+import { PiHouseLine } from "react-icons/pi"
 
 //======================================
 export const FullJobPost = ({ post }: { post: JobPost }) => {
@@ -30,11 +31,11 @@ export const FullJobPost = ({ post }: { post: JobPost }) => {
         </h1>
         <div className="flex-row-center gap-5 text-sm">
           <span className="capitalize flex-row-start gap-2">
-            <IoTimeOutline size="15" />
+            <CgFileDocument size="15" />
             {post.contractType}
           </span>
           <span className="capitalize flex-row-start gap-2">
-            <CiLocationOn size="15" />
+            <PiHouseLine size="15" />
             {post.workplaceType}
           </span>
           {(post?.timeZone?.length ?? 0 > 0) ? (
@@ -47,7 +48,7 @@ export const FullJobPost = ({ post }: { post: JobPost }) => {
           )}
           {post?.location && (
             <div className="flex-row-start gap-2">
-              <IoEarthOutline size="15" />
+              <CiLocationOn size="15" />
               <span>{post.location}</span>
             </div>
           )}
