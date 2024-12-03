@@ -169,9 +169,12 @@ export const RenderFormElement = (
         <FormItem className="w-full">
           <FormLabel>{field.label}</FormLabel> {field.required && "*"}
           <FormControl>
-            <InputBlock>
+            <InputBlock
+              root={{ className: "bg-background dark:bg-background" }}
+            >
               <Input
                 {...field}
+                className="bg-background dark:bg-background"
                 onChange={(e) => {
                   const val = e.target.value
                   field.onChange(field.type == "number" ? +val : val)
@@ -185,7 +188,7 @@ export const RenderFormElement = (
       )
     case "Checkbox":
       return (
-        <FormItem className="flex items-center justify-start space-x-3 space-y-0 rounded-sm border-dashed border p-3">
+        <FormItem className="flex items-center justify-start space-x-3 space-y-0 rounded-sm border-dashed border p-3 bg-background dark:bg-background">
           <FormControl>
             <Checkbox
               {...field}
@@ -203,8 +206,9 @@ export const RenderFormElement = (
       )
     case "MultiSelect":
       return (
-        <FormItem>
+        <FormItem className="w-full">
           <FormLabel>{field.label}</FormLabel>
+          <div className="bg-background dark:bg-background">
           <MultiSelect value={field.value} onValueChange={field.onChange}>
             <FormControl>
               <MultiSelectTrigger className="min-w-full">
@@ -221,6 +225,7 @@ export const RenderFormElement = (
               </MultiSelectList>
             </MultiSelectContent>
           </MultiSelect>
+          </div>
           <FormDescription>{field.description}</FormDescription>
           <FormMessage />
         </FormItem>
@@ -253,8 +258,8 @@ export const RenderFormElement = (
       )
     case "Switch":
       return (
-        <FormItem className="flex flex-col rounded-sm border px-3 py-2 border-dashed justify-center">
-          <div className="flex items-center justify-between h-full">
+        <FormItem className="flex flex-col rounded-sm border px-3 py-2 border-dashed justify-center bg-background dark:bg-background">
+          <div className="flex items-center justify-between h-full ">
             <FormLabel className="w-full">
               {field.label}
               {field.required && "*"}
@@ -277,7 +282,7 @@ export const RenderFormElement = (
           <FormControl>
             <Textarea
               placeholder={field.placeholder}
-              className="resize-none"
+              className="resize-none bg-background dark:bg-background"
               {...field}
             />
           </FormControl>

@@ -18,7 +18,7 @@ export default function CreateJobPostPage() {
   return (
     <div className="max-w-5xl mx-auto p-1.5 md:p-4 w-full lg:relative">
       <div className="grid lg:grid-cols-10 gap-6">
-        <div className="p-3 lg:p-6 rounded-sm border border-dashed lg:col-span-7 lg:w-full w-fit ">
+        <div className="p-3 lg:p-6 rounded-sm border border-dashed lg:col-span-7 lg:w-full w-fit bg-secondary/20">
           <CreateDraftJobForm />
         </div>
         <div className="lg:col-span-3 animate-in">

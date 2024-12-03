@@ -150,7 +150,7 @@ export function RichTextEditor({
         <Toolbar />
         {/* Component that controls the actual rendering of the editor */}
         <PortableTextEditable
-          className="pt-3 pb-2 px-4 dark:text-zinc-300 prose prose-zinc dark:prose-invert focus:outline-none max-h-96 overflow-y-auto"
+          className="pt-3 pb-2 px-4 dark:text-zinc-300 prose prose-zinc dark:prose-invert focus:outline-none max-h-[38rem] min-h-[12rem] overflow-y-auto bg-background dark:bg-background min-w-full"
           // data-[slate-node=element]:before:text-zinc-500
           // style={{ border: "1px solid #999", padding: "0.5em" }}
           // Control how decorators are rendered
@@ -167,19 +167,18 @@ export function RichTextEditor({
           // First, return the children like here
           // Next, look in the imported `editor.css` file to see how list styles are implemented
           renderListItem={renderLists}
-          //   renderPlaceholder={() => (
-          //     <span className="dark:text-zinc-400 text-lg px-2">
-          //       Type something
-          //     </span>
-          //   )}
-          placeholder={placeholder}
+          renderPlaceholder={() => (
+            <span className="text-muted-foreground px-4">
+              Text goes here...
+            </span>
+          )}
+          // placeholder={placeholder}
         />
       </PortableTextEditor>
     </div>
   )
 }
 const renderLists: RenderListItemFunction = (props) => {
-  console.log("🚀 ~ props:", props)
   return <>{props.children}</>
 }
 const renderDecorator: RenderDecoratorFunction = (props) => {
