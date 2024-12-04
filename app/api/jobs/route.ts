@@ -1,4 +1,4 @@
-import { getJobsPage } from '@/jobs/sanity/getters';
+import { getFilteredJobPosts, getJobsPage } from '@/jobs/sanity/getters';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const dynamic = 'force-dynamic'
@@ -7,17 +7,26 @@ export const GET = async (req: NextRequest) => {
     try {
         const url = req.nextUrl;
         const pageParam = url.searchParams.get('page');
-        const page = pageParam ? Number(pageParam) : 1;
+        let data = { page: [] };
+        if (pageParam) {
+            const page = pageParam ? Number(pageParam) : 1;
 
-        // Validate page parameter
-        if (isNaN(page) || page < 1) {
-            return NextResponse.json({ error: 'Invalid page parameter' }, { status: 400 });
+            // Validate page parameter
+            if (isNaN(page) || page < 1) {
+                return NextResponse.json({ error: 'Invalid page parameter' }, { status: 400 });
+            }
+
+            data = await getJobsPage({ page, pageSize: 5 });
+            // Add security headers
+        } else {
+            const reactjs = !!url.searchParams.get('reactjs');
+            const isHiringAgency = !!url.searchParams.get('isHiringAgency');
+            const workplaceType = url.searchParams.get('workplaceType');
+            data = await getFilteredJobPosts({ workplaceType, isHiringAgency, reactjs });
         }
 
-        const list = await getJobsPage({ page, pageSize: 5 });
+        const response = NextResponse.json(data);
 
-        // Add security headers
-        const response = NextResponse.json(list);
         response.headers.set('Content-Security-Policy', "default-src 'self'");
         response.headers.set('X-Content-Type-Options', 'nosniff');
         response.headers.set('X-Frame-Options', 'DENY');
