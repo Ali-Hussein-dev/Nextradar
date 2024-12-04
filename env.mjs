@@ -12,7 +12,8 @@ export const env = createEnv({
          */
         CREEM_API_KEY: z.string().min(1),
         CREEM_WEBHOOK_SECRET: z.string().min(1),
-
+        ALIYTICS_USERNAME: z.string().min(1),
+        ALIYTICS_PASSWORD: z.string().min(1),
     },
     /*
      * Environment variables available on the client (and server).
@@ -31,5 +32,7 @@ export const env = createEnv({
     runtimeEnv: {
         CREEM_API_KEY: process.env.CREEM_API_KEY,
         CREEM_WEBHOOK_SECRET: process.env.CREEM_WEBHOOK_SECRET,
+        ALIYTICS_USERNAME: process.env.ALIYTICS_USERNAME,
+        ALIYTICS_PASSWORD: process.env.ALIYTICS_PASSWORD,
     },
 });

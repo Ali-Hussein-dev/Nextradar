@@ -12,7 +12,7 @@ export function SponsorSection() {
       </p>
       <h2>Stats</h2>
       <p>
-        The following stats are for the last 30 days, it is updated every 12
+        The following stats are for the last 90 days, it is updated every 12
         hours. A live preview of the stats can be shared upon request.
       </p>
       <AdStats />
