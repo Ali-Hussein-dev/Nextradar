@@ -20,6 +20,35 @@ export const getJobPosts = async (): Promise<JobPostCardProps[]> => {
         jobHook,
         }`)
 }
+export const getFilteredJobPosts = async ({
+    reactjs,
+    workplaceType,
+    isHiringAgency,
+}: {
+    reactjs: boolean | null
+    workplaceType: string | null
+    isHiringAgency: boolean | null
+}) => {
+    const workPlaceQuery = workplaceType
+        ? ` && workplaceType == "${workplaceType}"`
+        : ""
+    const reactjsQuery = reactjs ? ` && !("reactjs" in jobHook)` : ""
+    const hiringAgencyQuery = isHiringAgency
+        ? ` && !("hiringAgency" in jobHook)`
+        : ""
+    const filterQueries = [workPlaceQuery, reactjsQuery, hiringAgencyQuery].join(
+        ""
+    )
+    const jobsQuery = defineQuery(`*[_type == "jobPost" ${filterQueries}] {
+        jobTitle,
+        "slug": slug.current,
+        publishedAt,
+        "companyName": company.name,
+        timeZone,
+        location,
+    }`)
+    return client.fetch(jobsQuery)
+}
 export const getJobsPage = async ({
     page = 1,
     pageSize = 5,
@@ -30,40 +59,29 @@ export const getJobsPage = async ({
         timeZone,
         location,
         `,
-    // companyName,
-    // location,
-    // branch,
-    // salaryMin,
-    // salaryMax,
-    // currency,
-    // applyUrl,
-    // jobType,
-    // contractType,
-    // jobHook,
-    // benefits,
-    // company,
-    // workplaceType
 }: {
-    page?: number;
-    pageSize?: number;
-    /**
-     * Select fields to return from the query
-     */
-    fields?: string;
+        page?: number
+        pageSize?: number
+        /**
+         * Select fields to return from the query
+         */
+        fields?: string
 }) => {
-    const offset = (page - 1) * pageSize;
-    const jobPostQuery = defineQuery(`*[_type == "jobPost"] | order(publishedAt desc) [${offset}...${offset + pageSize}] {
+    const offset = (page - 1) * pageSize
+    const jobPostQuery =
+        defineQuery(`*[_type == "jobPost"] | order(publishedAt desc) [${offset}...${offset + pageSize}] {
         ${fields}
     }`)
-    return client.fetch(jobPostQuery);
-};
+    return client.fetch(jobPostQuery)
+}
 //------------------------------------------------------------Jobs-Posts-By-Slug
 export const getFullJobPostBySlug = async ({
     slug,
 }: {
-    slug: string
+        slug: string
 }): Promise<JobPost> => {
-    const jobPostPageQuery = defineQuery(`*[_type == "jobPost" && slug.current == $slug ][0] {
+    const jobPostPageQuery =
+        defineQuery(`*[_type == "jobPost" && slug.current == $slug ][0] {
         jobTitle,
         companyName,
         location,
@@ -81,10 +99,7 @@ export const getFullJobPostBySlug = async ({
         publishedAt
         }`)
 
-    return client.fetch(
-        jobPostPageQuery,
-        { slug }
-    )
+    return client.fetch(jobPostPageQuery, { slug })
 }
 export function getTopHiringCompanies(): Promise<{ name: string }[]> {
     return client.fetch(`*[_type == "jobPost"][0...5] | order(publishedAt desc) {
@@ -95,14 +110,14 @@ export function getTopHiringCompanies(): Promise<{ name: string }[]> {
 export const getJobPostMetaSlug = async ({
     slug,
 }: {
-    slug: string
+        slug: string
 }): Promise<Pick<JobPostCardProps, "jobTitle">> => {
     return client.fetch(
-        `*[_type == "jobPost" && slug.current == $slug ][0] {
+    `*[_type == "jobPost" && slug.current == $slug ][0] {
         jobTitle
         }`,
-        { slug }
-    )
+      { slug }
+  )
 }
 // use for generating sitemap
 //------------------------------------------------------------Jobs-Posts-By-slug

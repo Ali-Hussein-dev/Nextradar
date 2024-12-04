@@ -3,16 +3,16 @@ import { AdStats } from "@/components/ad-stats"
 //======================================
 export function SponsorSection() {
   return (
-    <section className="prose dark:prose-invert prose-zinc">
+    <section className="typography">
       <h2>Get in touch</h2>
       <p>
         By email at{" "}
-        <a href="mailto:sponsor@nextradar.dev">sponsor@nextradar.dev</a> Or fill
+        <a href="mailto:hi@nextradar.dev">hi@nextradar.dev</a> Or fill
         Contact form <a href="https://app.rapidforms.co/p/1d0ca1">here</a>
       </p>
       <h2>Stats</h2>
       <p>
-        The following stats are for the last 30 days, it is updated every 12
+        The following stats are for the last 90 days, it is updated every 12
         hours. A live preview of the stats can be shared upon request.
       </p>
       <AdStats />
@@ -75,7 +75,7 @@ export function SponsorSection() {
       <h2>Booking</h2>
       <p>
         To book an ad, please email me at{" "}
-        <a href="mailto:sponsor@nextradar.dev">sponsor@nextradar.dev</a>
+        <a href="mailto:hi@nextradar.dev">hi@nextradar.dev</a>
       </p>
     </section>
   )

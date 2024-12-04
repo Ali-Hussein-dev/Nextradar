@@ -1,19 +1,17 @@
+import { env } from "@/env.mjs"
 import ky from "ky"
 import { unstable_cache as cache } from "next/cache"
 
 const getStartEndDate = () => {
   const endAt = new Date()
   const startAt = new Date()
-  startAt.setDate(endAt.getDate() - 30)
+  startAt.setDate(endAt.getDate() - 90)
   return { startAt: startAt.getTime(), endAt: endAt.getTime() }
 }
+const username = env.ALIYTICS_USERNAME
+const password = env.ALIYTICS_PASSWORD
 //======================================
 export const AdStats = async () => {
-  const username = process.env?.ALIYTICS_USERNAME
-  const password = process.env?.ALIYTICS_PASSWORD
-  if (!username || !password) {
-    return <div>Couldn{"'"}t fetch stats</div>
-  }
 
   const getCachedAuthResponse = cache(
     async () =>
