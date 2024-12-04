@@ -1,8 +1,5 @@
 import { InitialJobPostsList } from "@/jobs/components/initial-job-posts-list"
-import { Button } from "@/components/ui/button"
-import { urls } from "@/constants/urls"
 import { getTopHiringCompanies } from "@/jobs/sanity/getters"
-import Link from "next/link"
 import * as React from "react"
 
 export const dynamic = "force-dynamic"
@@ -40,11 +37,6 @@ export default async function JobsPage() {
               </div>
             </div>
             <div className="md:col-span-1 hidden md:block"></div>
-          </div>
-          <div className="flex-row-end w-full pr-6 py-4">
-            <Button variant="outline" asChild size="sm">
-              <Link href={urls.createJob}>Post a job</Link>
-            </Button>
           </div>
         </div>
       </div>
