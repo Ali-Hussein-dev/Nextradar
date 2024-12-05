@@ -81,16 +81,16 @@ export const sidebarLinks = [
       {
         label: "Hosting Providers",
         url: urls.hosting,
-        title: "Top Vercel Alternatives",
+        title: "Top Vercel Alternatives with Example Starters",
         description:
-          "Discover top Vercel alternataives such as Netlify, Coolify, Deno deploy, Render and more",
+          "Discover top Vercel alternataives such as Netlify, Coolify, Deno deploy, Render and more.",
       },
       {
         label: "Headless CMS",
         url: urls.headlessCms,
-        title: "Headless CMS for Next.js",
+        title: "Top Headless CMS Platform for Next.js with Example Starters",
         description:
-          "Discover top headless CMS for Next.js such as Strapi, Sanity, Contentful, DatoCMS and more",
+          "Discover top headless CMS platforms for Next.js such as Strapi, Sanity, Contentful, DatoCMS and more",
       },
       {
         label: "Commerce",

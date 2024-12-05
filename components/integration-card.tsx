@@ -11,6 +11,7 @@ export type IntegrationCardProps = {
   exampleUrl: string
   logoUrl: string
   tags?: string[]
+  sponsored?: boolean
 }
 
 //======================================
@@ -20,18 +21,24 @@ export const IntegrationCard = ({
   url,
   logoUrl,
   exampleUrl,
+  sponsored = false,
 }: IntegrationCardProps) => {
   return (
     <CardWrapper className="animate-in">
       <div className="grow">
-        <div className="flex-row-start gap-2 mb-2">
-          <img
-            src={logoUrl}
-            alt="logo"
-            className="size-8 my-0 rounded-full object-contain"
-            loading="lazy"
-          />
-          <h2 className="my-0 font-bold text-xl">{name}</h2>
+        <div className="flex-row-between mb-2">
+          <div className="flex-row-start gap-2">
+            <img
+              src={logoUrl}
+              alt="logo"
+              className="size-8 my-0 rounded-full object-contain"
+              loading="lazy"
+            />
+            <h2 className="my-0 font-bold text-xl w-full">{name}</h2>
+          </div>
+          {sponsored ? (
+            <span className="text-muted-foreground">Sponsored</span>
+          ) : null}
         </div>
         <p className="mb-2 line-clamp-3">{description}</p>
       </div>

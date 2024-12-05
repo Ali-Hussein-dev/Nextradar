@@ -16,7 +16,9 @@ export const IntegrationSection = async ({
   )) as IntegrationCardProps[]
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-      {list.map((o, i) => (
+      {list
+      .sort((a, b) => (b.sponsored ? 1 : 0) - (a.sponsored ? 1 : 0))
+      .map((o, i) => (
         <IntegrationCard key={i} {...o} />
       ))}
     </div>
