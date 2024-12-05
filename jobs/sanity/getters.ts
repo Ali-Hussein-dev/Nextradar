@@ -32,9 +32,9 @@ export const getFilteredJobPosts = async ({
     const workPlaceQuery = workplaceType
         ? ` && workplaceType == "${workplaceType}"`
         : ""
-    const reactjsQuery = reactjs ? ` && !("reactjs" in jobHook)` : ""
+    const reactjsQuery = reactjs ? ` && isReactjsOnly == true` : ""
     const hiringAgencyQuery = isHiringAgency
-        ? ` && !("hiringAgency" in jobHook)`
+        ? ` && isHiringAgency == true`
         : ""
     const filterQueries = [workPlaceQuery, reactjsQuery, hiringAgencyQuery].join(
         ""
