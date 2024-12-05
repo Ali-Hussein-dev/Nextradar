@@ -144,6 +144,7 @@ const Newsletter = async () => {
     </div>
   )
 }
+export const dynamic = "force-dynamic"
 //======================================
 export default async function CopySources() {
   if (process.env.NODE_ENV !== "development") {
