@@ -1,14 +1,19 @@
 import { CardHeading, ExpandableCard } from "@/components/ui/expandable-card"
 import { IntegrationSection } from "./integration-section"
 import categoriesIds from "@/constants/categories.json"
+import { getDocumentCount } from "@/sanity/lib/getters"
 
 //======================================
-export function HeadlessCmsSection() {
+export async function HeadlessCmsSection() {
+  const count = await getDocumentCount({
+    docType: "integration",
+    filter: `category.id == ${categoriesIds.headlessCMS.id}`,
+  })
   return (
     <section>
       <ExpandableCard className="md:px-6 border-dashed h-full typography mb-6">
         <CardHeading
-          h1={`Best Headless CMS for Next.js ${new Date().getFullYear()}`}
+          h1={`${count} Best Headless CMS for Next.js ${new Date().getFullYear()}`}
         />
         <div>
           <p>

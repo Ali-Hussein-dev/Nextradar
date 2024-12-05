@@ -183,3 +183,7 @@ export const getLatestRepos = async () => {
         owner, repoName, name, stars, category, tags, homepage, recommended
         }`)
 }
+
+export const getDocumentCount = ({ docType, filter="" }: { docType: string, filter?: string }) => {
+    return client.fetch(`count(*[_type == "${docType}" ${filter ? `&& ${filter}` : ""}])`)
+}

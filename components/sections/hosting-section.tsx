@@ -1,15 +1,20 @@
 import { CardHeading, ExpandableCard } from "@/components/ui/expandable-card"
 import { IntegrationSection } from "./integration-section"
 import categoriesIds from "@/constants/categories.json"
+import { getDocumentCount } from "@/sanity/lib/getters"
 
 //======================================
-export function HostingSection() {
+export async function HostingSection() {
+  const count = await getDocumentCount({
+    docType: "integration",
+    filter: `category.id == ${categoriesIds.hosting.id}`,
+  })
   return (
     <section>
       <ExpandableCard className="md:px-6 border-dashed h-full typography mb-6">
         <CardHeading
-          h1={`Best Next.js Hosting Providers for ${new Date().getFullYear()}`}
-          p="Top Vercel Alternatives"
+          h1={`${count} Top Next.js Hosting Providers in ${new Date().getFullYear()}`}
+          p={`Top Vercel Alternatives`}
         />
         <div>
           <p>
