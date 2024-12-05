@@ -27,3 +27,6 @@ export const urls = {
     // social media
     twitter: "https://twitter.com/ali_hussein_20",
 }
+
+export const urlsSitemap = Object.values(urls).filter(url => !url.startsWith("https://"))
+
