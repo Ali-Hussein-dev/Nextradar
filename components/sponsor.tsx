@@ -18,7 +18,7 @@ export const SponsoredCard = () => {
     <div className="py-3">
       <div
         className={cn(
-          "h-fit py-4 md:py-2 px-3 sm:px-4 w-full rounded-sm font-semibold  overflow-hidden border border-dashed"
+          "h-fit py-4 md:py-2 px-3 sm:px-4 w-full rounded-sm font-semibold  overflow-hidden border border-dashed bg-secondary/20"
         )}
       >
         <button
@@ -36,7 +36,7 @@ export const SponsoredCard = () => {
               </span>
               <span className="font-light">{description}</span>
             </div>
-            <span className="font-light text-muted-foreground">sponsored</span>
+            <span className="font-light text-muted-foreground">Sponsored</span>
           </div>
         </button>
       </div>
