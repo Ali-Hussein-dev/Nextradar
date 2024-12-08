@@ -72,56 +72,30 @@ export default {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			}
-		  },
-		  // @ts-expect-error no tpyes for typography
-		  typography: (theme) => ({
-			  zinc: {
-				  css: {
-					  "--tw-prose-body": theme("colors.zinc[800]"),
-					  "--tw-prose-headings": theme("colors.zinc[900]"),
-					  "--tw-prose-lead": theme("colors.zinc[700]"),
-					  "--tw-prose-links": theme("colors.zinc[900]"),
-					  "--tw-prose-bold": theme("colors.zinc[900]"),
-					  "--tw-prose-counters": theme("colors.zinc[600]"),
-					  "--tw-prose-bullets": theme("colors.zinc[700]"),
-					  "--tw-prose-hr": theme("colors.zinc[300]"),
-					  "--tw-prose-quotes": theme("colors.zinc[900]"),
-					  "--tw-prose-quote-borders": theme("colors.zinc[300]"),
-					  "--tw-prose-captions": theme("colors.zinc[700]"),
-					  "--tw-prose-code": theme("colors.zinc[900]"),
-					  "--tw-prose-pre-code": theme("colors.zinc[100]"),
-					  "--tw-prose-pre-bg": theme("colors.zinc[900]"),
-					  "--tw-prose-th-borders": theme("colors.zinc[300]"),
-					  "--tw-prose-td-borders": theme("colors.zinc[200]"),
-					  // for dark mode
-					  "--tw-prose-invert-body": theme("colors.zinc[400]"),
-					  "--tw-prose-invert-headings": theme("colors.zinc[300]"),
-					  "--tw-prose-invert-lead": theme("colors.zinc[400]"),
-					  "--tw-prose-invert-links": theme("colors.zinc[400]"),
-					  "--tw-prose-invert-bold": theme("colors.zinc[400]"),
-					  "--tw-prose-invert-counters": theme("colors.zinc[400]"),
-					  "--tw-prose-invert-bullets": theme("colors.zinc[400]"),
-					  "--tw-prose-invert-hr": theme("colors.zinc[600]"),
-
-					  "--tw-prose-invert-quotes": theme("colors.zinc[400]"),
-					  "--tw-prose-invert-quote-borders": theme("colors.zinc[700]"),
-
-					  "--tw-prose-invert-captions": theme("colors.zinc[400]"),
-
-					  "--tw-prose-invert-code": theme("colors.white"),
-					  "--tw-prose-invert-pre-code": theme("colors.zinc[300]"),
-					  "--tw-prose-invert-pre-bg": "rgb(0 0 0 / 50%)",
-
-					  "--tw-prose-invert-th-borders": theme("colors.zinc[600]"),
-					  "--tw-prose-invert-td-borders": theme("colors.zinc[700]"),
-				  },
-			  },
-			  DEFAULT: {
-				  css: {
-					  maxWidth: "100%",
-				  },
-			  },
-		  }),
+  		},
+  		typography: '(theme) => ({\r\n			  zinc: {\r\n				  css: {\r\n					  "--tw-prose-body": theme("colors.zinc[800]"),\r\n					  "--tw-prose-headings": theme("colors.zinc[900]"),\r\n					  "--tw-prose-lead": theme("colors.zinc[700]"),\r\n					  "--tw-prose-links": theme("colors.zinc[900]"),\r\n					  "--tw-prose-bold": theme("colors.zinc[900]"),\r\n					  "--tw-prose-counters": theme("colors.zinc[600]"),\r\n					  "--tw-prose-bullets": theme("colors.zinc[700]"),\r\n					  "--tw-prose-hr": theme("colors.zinc[300]"),\r\n					  "--tw-prose-quotes": theme("colors.zinc[900]"),\r\n					  "--tw-prose-quote-borders": theme("colors.zinc[300]"),\r\n					  "--tw-prose-captions": theme("colors.zinc[700]"),\r\n					  "--tw-prose-code": theme("colors.zinc[900]"),\r\n					  "--tw-prose-pre-code": theme("colors.zinc[100]"),\r\n					  "--tw-prose-pre-bg": theme("colors.zinc[900]"),\r\n					  "--tw-prose-th-borders": theme("colors.zinc[300]"),\r\n					  "--tw-prose-td-borders": theme("colors.zinc[200]"),\r\n					  // for dark mode\r\n					  "--tw-prose-invert-body": theme("colors.zinc[400]"),\r\n					  "--tw-prose-invert-headings": theme("colors.zinc[300]"),\r\n					  "--tw-prose-invert-lead": theme("colors.zinc[400]"),\r\n					  "--tw-prose-invert-links": theme("colors.zinc[400]"),\r\n					  "--tw-prose-invert-bold": theme("colors.zinc[400]"),\r\n					  "--tw-prose-invert-counters": theme("colors.zinc[400]"),\r\n					  "--tw-prose-invert-bullets": theme("colors.zinc[400]"),\r\n					  "--tw-prose-invert-hr": theme("colors.zinc[600]"),\r\n\r\n					  "--tw-prose-invert-quotes": theme("colors.zinc[400]"),\r\n					  "--tw-prose-invert-quote-borders": theme("colors.zinc[700]"),\r\n\r\n					  "--tw-prose-invert-captions": theme("colors.zinc[400]"),\r\n\r\n					  "--tw-prose-invert-code": theme("colors.white"),\r\n					  "--tw-prose-invert-pre-code": theme("colors.zinc[300]"),\r\n					  "--tw-prose-invert-pre-bg": "rgb(0 0 0 / 50%)",\r\n\r\n					  "--tw-prose-invert-th-borders": theme("colors.zinc[600]"),\r\n					  "--tw-prose-invert-td-borders": theme("colors.zinc[700]"),\r\n				  },\r\n			  },\r\n			  DEFAULT: {\r\n				  css: {\r\n					  maxWidth: "100%",\r\n				  },\r\n			  },\r\n		  })',
+  		keyframes: {
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		},
+  		animation: {
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
+  		}
   	}
   },
   presets: [createPreset({ preset: "default" })],
