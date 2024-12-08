@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/accordion"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
+import { useRouter } from "next/navigation"
 
 export interface Template {
   name: string
@@ -64,7 +65,7 @@ export function TemplatesSection() {
       return common.length >= mergedParams.length
     })
   }, [JSON.stringify(activeQueryState), urlHasParams])
-
+  const router = useRouter()
   return (
     <div>
       {/* <div className="mb-4 md:mb-8"></div> */}
@@ -137,14 +138,15 @@ export function TemplatesSection() {
                     </Button>
                   )}
                   <Button
-                    asChild
                     variant={"secondary"}
-                    className="rounded-lg gap-3 no-underline dark:text-green-300 text-green-500"
+                    size="sm"
+                    className="rounded-lg gap-2 dark:text-green-300 text-green-500"
+                    onClick={() => {
+                      router.push(o.url)
+                    }}
                   >
-                    <a href={o.url} target="_blank" rel={o.rel}>
-                      Visit
-                      <HiOutlineExternalLink />
-                    </a>
+                    Visit
+                    <HiOutlineExternalLink />
                   </Button>
                 </div>
               </div>
@@ -152,8 +154,8 @@ export function TemplatesSection() {
           ))}
         </div>
         <div className="lg:col-span-2 px-4 border border-dashed rounded-sm py-4 h-fit hidden lg:block">
-          <div className="font-semibold text-secondary-foreground/90 flex-row-start gap-2">
-            Filter Templates {urlHasParams && `- (${filtered.length})`}
+          <div className="font-semibold text-secondary-foreground/60 flex-row-start gap-2">
+            Filter {urlHasParams && `- (${filtered.length})`}
           </div>
           <aside className="py-2">
             <Accordion type="multiple">

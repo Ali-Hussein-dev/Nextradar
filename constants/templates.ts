@@ -36,7 +36,7 @@ export const filterLabels = {
     cms: {
         name: "Headless CMS",
         list: {
-            strapi: { label: "Strapi", value: "strapi" },
+            // strapi: { label: "Strapi", value: "strapi" },
             sanity: { label: "Sanity", value: "sanity" },
             medusa: { label: "Medusa", value: "medusa" },
             wordpress: { label: "WordPress", value: "wordpress" },
@@ -558,7 +558,7 @@ export const templates: Template[] = [
             cms: [],
             cost: getPair("cost", "premium"),
             payment: getPair("payment", ["stripe", "lemonSqueezy"]),
-            backend: getPair("backend", ["supabase", "firebase", "upstash"]),
+            backend: getPair("backend", ["supabase", "firebase", "upstash", "mongodb"]),
             email: getPair("email", ["resend", "nodeMailer", "hubspot"]),
             analytics: getPair("analytics", ["googleAnalytics", "pirsch", "posthog"]),
             styling: getPair("styling", "tailwindcss"),
