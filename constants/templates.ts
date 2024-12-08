@@ -76,7 +76,7 @@ export const filterLabels = {
             plunk: { label: "Plunk", value: "plunk" },
             mailjet: { label: "Mailjet", value: "mailjet" },
             hubspot: { label: "HubSpot", value: "hubspot" },
-            awsSes: { label: "AWS SES", value: "awsses" },
+            awsses: { label: "AWS SES", value: "awsses" },
         },
     },
     analytics: {
@@ -137,9 +137,11 @@ const getPair = (
     if (!param || !listKey || (!listKey && !Array.isArray(listKey))) return []
     if (Array.isArray(listKey)) {
         return listKey.map((n) => {
+            // @ts-expect-error - listKey is an array
             return filterLabels[param].list[n]
         })
     }
+    // @ts-expect-error - listKey is a string
     return [filterLabels[param].list[listKey]]
 }
 
