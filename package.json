@@ -19,6 +19,7 @@
     "@octokit/rest": "^21.0.2",
     "@portabletext/editor": "^1.6.1",
     "@portabletext/react": "^3.1.0",
+    "@radix-ui/react-accordion": "^1.2.1",
     "@radix-ui/react-checkbox": "^1.1.2",
     "@radix-ui/react-collapsible": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.2",
