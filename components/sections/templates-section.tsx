@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 "use client"
 /* eslint-disable @next/next/no-img-element */
 import { FaGithub } from "react-icons/fa"
@@ -17,6 +18,14 @@ import {
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { useRouter } from "next/navigation"
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 
 export interface Template {
   name: string
@@ -27,6 +36,15 @@ export interface Template {
   github?: string
   rel: string
   specs: Record<string, { value: string; label: string }[]>
+  featured?: {
+    testimonials: {
+      quote: string
+      name: string
+      role?: string
+      avatar: string
+      url: string
+    }[]
+  }
 }
 
 export function useFilteredTemplates(templates: Template[], isFree: boolean) {
@@ -37,6 +55,146 @@ export function useFilteredTemplates(templates: Template[], isFree: boolean) {
   return filteredTemplates
 }
 
+const StandardCard = ({
+  template,
+  router,
+}: {
+  template: Template
+  router: AppRouterInstance
+}) => {
+  return (
+    <CardWrapper className="md:px-3 pt-3 overflow-hidden relative h-fit">
+      <div>
+        <div className="flex-row-start gap-3 mb-3">
+          <img
+            src={template.ogImage}
+            className="rounded-md aspect-[8/5] m-0 object-fill max-w-40"
+            alt="opengraph image"
+            loading="lazy"
+          />
+          <div className="flex-col-start gap-0 pt-1">
+            <div className="flex-row-between gap-2 w-full">
+              <h2 className="m-0 font-bold text-lg w-full">{template.name}</h2>
+              {template?.sponsored && (
+                <span className="text-light dark:text-zinc-600 px-1 rounded-sm text-zinc-500">
+                  Sponsored
+                </span>
+              )}
+            </div>
+            <p className="m-0 p-0 line-clamp-2 dark:text-zinc-400 text-zinc-700">
+              {template.description}
+            </p>
+          </div>
+        </div>
+        <div className="flex-row-end border-t border-dashed gap-3 pt-2">
+          {template.github && (
+            <Button
+              asChild
+              variant="outline"
+              size="icon"
+              className="rounded-lg"
+            >
+              <a href={template.github}>
+                <FaGithub />
+              </a>
+            </Button>
+          )}
+          <Button
+            variant={"secondary"}
+            size="sm"
+            className="rounded-lg gap-2 dark:text-green-300 text-green-500"
+            onClick={() => {
+              router.push(template.url)
+            }}
+          >
+            Visit
+            <HiOutlineExternalLink />
+          </Button>
+        </div>
+      </div>
+    </CardWrapper>
+  )
+}
+const FeaturedCard = ({
+  template,
+  router,
+}: {
+  template: Template
+  router: AppRouterInstance
+}) => {
+  const featured = template.featured!
+
+  return (
+    <CardWrapper className="px-3 pt-3 overflow-hidden relative h-fit md:col-span-2 bg-muted/20 border ">
+      <div>
+        <div className="grid lg:grid-cols-2 lg:gap-3 pb-3 gap-4">
+          <div className="flex flex-col gap-3 mb-3 lg:flex-row">
+            <img
+              src={template.ogImage}
+              className="rounded-md aspect-[8/5] m-0 object-fill grow lg:grow-0 lg:max-w-40"
+              alt="opengraph image"
+              loading="lazy"
+            />
+            <div className="flex flex-col gap-0 pt-1">
+              <div className="flex-row-between gap-2 w-full">
+                <h2 className="m-0 font-bold w-full">{template.name}</h2>
+                {template?.sponsored && (
+                  <span className="text-light  px-1 rounded-sm text-muted-foreground">
+                    Sponsored
+                  </span>
+                )}
+              </div>
+              <p className="m-0 p-0 line-clamp-3 dark:text-zinc-400 text-zinc-700">
+                {template.description}
+              </p>
+            </div>
+          </div>
+
+          {featured && (
+            <div className="pb-6 lg:pb-4">
+              <Carousel className="relative">
+                <CarouselContent>
+                  {featured.testimonials.map((o, i) => (
+                    <CarouselItem key={i}>
+                      <div className="flex flex-col gap-1">
+                        <q className="text-muted-foreground">{o.quote}</q>
+                        <div className="flex-row-start gap-2">
+                          <img src={o.avatar} className="rounded-full size-7" />
+                          <span className="text-muted-foreground">
+                            {o.name}
+                          </span>
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="top-full -translate-y-2 -translate-x-[4.2rem] size-7 left-full" />
+                <CarouselNext className="right-10 top-full -translate-y-2 translate-x-10 size-7" />
+              </Carousel>
+            </div>
+          )}
+        </div>
+
+        <div className="flex-row-between border-t border-dashed gap-3 pt-3">
+          <span className="rounded-md px-3 py-1.5 text-secondary-foreground bg-muted">
+            Featured
+          </span>
+          <Button
+            variant={"secondary"}
+            size="sm"
+            className="rounded-lg gap-2 dark:text-green-300 text-green-500"
+            onClick={() => {
+              router.push(template.url)
+            }}
+          >
+            Visit
+            <HiOutlineExternalLink />
+          </Button>
+        </div>
+      </div>
+    </CardWrapper>
+  )
+}
 //======================================
 export function TemplatesSection() {
   const params = Object.keys(filterLabels).reduce(
@@ -74,12 +232,12 @@ export function TemplatesSection() {
           h1={`
             ${templates.length} Best Free and Premium Next.js Templates
           `}
-          p="Discover High-Quality, Ready-to-Use Templates for Your Next.js Projects"
+          p="Jumpstart your next project quickly — built with the latest Next.js 15"
         />
         <div>
-          Explore a wide range of high-quality Next.js templates. Pick from
-          free, open-source, and premium options to build stunning and
-          functional Next.js websites and web apps effortlessly.
+          Explore a wide range of high-quality Next.js starters. Pick from free,
+          open-source, and premium options to build stunning and functional
+          Next.js websites and web apps effortlessly.
           <p>
             Discover a diverse collection of handpicked and ready-to-use
             templates and boilerplates to jumpstart your next project quickly —
@@ -97,61 +255,12 @@ export function TemplatesSection() {
       </ExpandableCard>
       <div className="grid lg:grid-cols-8 gap-6">
         <div className="grid lg:grid-cols-2 gap-3 lg:col-span-6 h-fit px-4 lg:px-0">
-          {filtered.map((o) => (
-            <CardWrapper
-              key={o.name}
-              className="md:px-3 pt-3 overflow-hidden relative h-fit"
-            >
-              <div>
-                <div className="flex-row-start gap-3 mb-3">
-                  <img
-                    src={o.ogImage}
-                    className="rounded-md aspect-[8/5] m-0 object-fill max-w-40"
-                    alt="opengraph image"
-                    loading="lazy"
-                  />
-                  <div className="flex-col-start gap-0 pt-1">
-                    <div className="flex-row-between gap-2 w-full">
-                      <h2 className="m-0 font-bold text-lg w-full">{o.name}</h2>
-                      {o?.sponsored && (
-                        <span className="text-light dark:text-zinc-600 px-1 rounded-sm text-zinc-500">
-                          Sponsored
-                        </span>
-                      )}
-                    </div>
-                    <p className="m-0 p-0 line-clamp-2 dark:text-zinc-400 text-zinc-700">
-                      {o.description}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex-row-end border-t border-dashed gap-3 pt-2">
-                  {o.github && (
-                    <Button
-                      asChild
-                      variant="outline"
-                      size="icon"
-                      className="rounded-lg"
-                    >
-                      <a href={o.github}>
-                        <FaGithub />
-                      </a>
-                    </Button>
-                  )}
-                  <Button
-                    variant={"secondary"}
-                    size="sm"
-                    className="rounded-lg gap-2 dark:text-green-300 text-green-500"
-                    onClick={() => {
-                      router.push(o.url)
-                    }}
-                  >
-                    Visit
-                    <HiOutlineExternalLink />
-                  </Button>
-                </div>
-              </div>
-            </CardWrapper>
-          ))}
+          {filtered.map((o) => {
+            if (o.featured) {
+              return <FeaturedCard key={o.name} template={o} router={router} />
+            }
+            return <StandardCard key={o.name} template={o} router={router} />
+          })}
         </div>
         <div className="lg:col-span-2 px-4 border border-dashed rounded-sm py-4 h-fit hidden lg:block">
           <div className="font-semibold text-secondary-foreground/60 flex-row-start gap-2">
@@ -245,4 +354,3 @@ export function TemplatesSection() {
     </div>
   )
 }
-

@@ -147,25 +147,6 @@ const getPair = (
 
 export const templates: Template[] = [
     {
-        url: "https://indie-starter.dev?ref=nextradar-templates",
-        name: "Indie Starter",
-        description: "Write less code, iterate fast, and earn cash",
-        ogImage: "https://indie-starter.dev/opengraph-image.jpg",
-        sponsored: false,
-        rel: "dofollow",
-        specs: {
-            cms: getPair("cms", "sanity"),
-            cost: getPair("cost", "premium"),
-            payment: getPair("payment", "stripe"),
-            backend: getPair("backend", "supabase"),
-            email: getPair("email", "resend"),
-            analytics: getPair("analytics", "umami"),
-            styling: getPair("styling", "shadcn"),
-            language: getPair("language", "typescript"),
-            others: [],
-        },
-    },
-    {
         url: "https://anotherwrapper.com?aff=pWOZY",
         name: "AnotherWrapper",
         description:
@@ -180,6 +161,44 @@ export const templates: Template[] = [
             email: getPair("email", "sendgrid"),
             analytics: getPair("analytics", "googleAnalytics"),
             styling: getPair("styling", "tailwindcss"),
+            language: getPair("language", "typescript"),
+            others: [],
+        },
+        featured: {
+            testimonials: [
+                {
+                    quote: "Build your AI startup in hours. Save literally weeks of coding.",
+                    name: "Supabase",
+                    avatar: "https://pbs.twimg.com/profile_images/1822981431586439168/7xkKXRGQ_400x400.jpg",
+                    url: ""
+                }, {
+                    quote: "Having 10 demo apps makes it so much easier to understand the next steps to creating your own AI app.",
+                    name: "Lee, Founder Beatchurn.com",
+                    avatar: "https://anotherwrapper.com/avatars/lee.jpg",
+                    url: ""
+                }, {
+                    quote: "Building AI wrappers nowadays is a must. Your product can make it much easier",
+                    name: "Sergey, Founder Screencharm.com",
+                    avatar: "https://anotherwrapper.com/avatars/sergey.jpg",
+                    url: ""
+                }]
+        }
+    },
+    {
+        url: "https://indie-starter.dev?ref=nextradar-templates",
+        name: "Indie Starter",
+        description: "Write less code, iterate fast, and earn cash",
+        ogImage: "https://indie-starter.dev/opengraph-image.jpg",
+        sponsored: false,
+        rel: "dofollow",
+        specs: {
+            cms: getPair("cms", "sanity"),
+            cost: getPair("cost", "premium"),
+            payment: getPair("payment", "stripe"),
+            backend: getPair("backend", "supabase"),
+            email: getPair("email", "resend"),
+            analytics: getPair("analytics", "umami"),
+            styling: getPair("styling", "shadcn"),
             language: getPair("language", "typescript"),
             others: [],
         },
