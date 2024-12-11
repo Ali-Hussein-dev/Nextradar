@@ -48,6 +48,7 @@
     "class-variance-authority": "^0.7.0",
     "cmdk": "1.0.0",
     "date-fns": "^4.1.0",
+    "embla-carousel-react": "^8.5.1",
     "framer-motion": "^11.11.10",
     "fumadocs-core": "13.4.9",
     "fumadocs-mdx": "10.0.2",
