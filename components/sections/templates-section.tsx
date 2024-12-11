@@ -128,21 +128,23 @@ const FeaturedCard = ({
     <CardWrapper className="px-3 pt-3 overflow-hidden relative h-fit md:col-span-2 bg-muted/20 border ">
       <div>
         <div className="grid lg:grid-cols-2 lg:gap-3 pb-3 gap-4">
-          <div className="flex flex-col gap-3 mb-3 lg:flex-row">
-            <img
-              src={template.ogImage}
-              className="rounded-md aspect-[8/5] m-0 object-fill grow lg:grow-0 lg:max-w-40"
-              alt="opengraph image"
-              loading="lazy"
-            />
+          <div className="flex flex-col gap-3 mb-3 lg:flex-row ">
+            <div className="bg-muted relative max-w-full mb-2 lg:mb-0 w-full overflow-hidden aspect-video lg:aspect-[8/5]">
+              <img
+                src={template.ogImage}
+                className="rounded-md m-0 object-cover h-full w-full aspect-video lg:aspect-[8/5]"
+                alt="opengraph image"
+                loading="lazy"
+              />
+            </div>
             <div className="flex flex-col gap-0 pt-1">
               <div className="flex-row-between gap-2 w-full">
                 <h2 className="m-0 font-bold w-full">{template.name}</h2>
-                {template?.sponsored && (
-                  <span className="text-light  px-1 rounded-sm text-muted-foreground">
+                {/* {template?.sponsored && (
+                  <span className="text-light px-1 rounded-sm text-muted-foreground">
                     Sponsored
                   </span>
-                )}
+                )} */}
               </div>
               <p className="m-0 p-0 line-clamp-3 dark:text-zinc-400 text-zinc-700">
                 {template.description}
@@ -256,9 +258,9 @@ export function TemplatesSection() {
       <div className="grid lg:grid-cols-8 gap-6">
         <div className="grid lg:grid-cols-2 gap-3 lg:col-span-6 h-fit px-4 lg:px-0">
           {filtered.map((o) => {
-            if (o.featured) {
-              return <FeaturedCard key={o.name} template={o} router={router} />
-            }
+            // if (o.featured) {
+            //   return <FeaturedCard key={o.name} template={o} router={router} />
+            // }
             return <StandardCard key={o.name} template={o} router={router} />
           })}
         </div>
