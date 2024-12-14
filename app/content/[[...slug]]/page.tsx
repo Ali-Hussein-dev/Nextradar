@@ -11,8 +11,10 @@ import { SponsorSection } from "@/components/sections/sponsor-section"
 import { TemplatesSection } from "@/components/sections/templates-section"
 import { ToolsSection } from "@/components/sections/tools-section"
 import { cn } from "@/lib/utils"
-import { getPageMetadata } from "@/sanity/lib/getters"
+import { getDocumentCount, getPageMetadata } from "@/sanity/lib/getters"
 import * as React from "react"
+import categoriesIds from "@/constants/categories.json"
+import { templates } from "@/constants/templates"
 
 const SharedContainer = ({
   children,
@@ -27,13 +29,34 @@ const SharedContainer = ({
 export const revalidate = 3600 // 1 hour
 
 //======================================
-export default function ContentPage({
+export default async function ContentPage({
   params,
 }: {
   params: { slug: string[] }
 }) {
   const slug = params.slug[0]
+  const date = new Date().getFullYear()
 
+  const object = {
+    "headless-cms": {
+      docType: "integration",
+      filter: `category.id == ${categoriesIds.headlessCMS.id}`,
+    },
+    hosting: {
+      docType: "integration",
+      filter: `category.id == ${categoriesIds.hosting.id}`,
+    },
+  }
+  const slugKeys = Object.keys(object)
+  let count
+
+  if (slugKeys.includes(slug)) {
+    count = await getDocumentCount({
+      docType: object[slug as keyof typeof object]?.docType,
+      filter: object[slug as keyof typeof object]?.filter,
+    })
+  }
+  console.info("🚀 ~ content-page", { count, slug })
   switch (slug) {
     case "latest":
       return (
@@ -44,7 +67,11 @@ export default function ContentPage({
     case "templates":
       return (
         <SharedContainer>
-          <PageHeader name="templates" />
+          <PageHeader
+            name="templates"
+            date={` - ${date}`}
+            count={templates.length}
+          />
           <React.Suspense>
             <TemplatesSection />
           </React.Suspense>
@@ -53,7 +80,7 @@ export default function ContentPage({
     case "learn":
       return (
         <SharedContainer>
-          <PageHeader name="learn" />
+          <PageHeader name="learn" date={` - ${date}`} />
           <React.Suspense>
             <LearnSection />
           </React.Suspense>
@@ -84,14 +111,14 @@ export default function ContentPage({
     case "hosting":
       return (
         <SharedContainer>
-          <PageHeader name="hosting" />
+          <PageHeader name="hosting" date={` - ${date}`} />
           <HostingSection />
         </SharedContainer>
       )
     case "headless-cms":
       return (
         <SharedContainer>
-          <PageHeader name="headless-cms" />
+          <PageHeader name="headless-cms" date={` - ${date}`} count={count} />
           <HeadlessCmsSection />
         </SharedContainer>
       )
