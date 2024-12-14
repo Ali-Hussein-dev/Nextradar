@@ -1,7 +1,7 @@
 import { Newsletter2 } from "@/components/newsletter"
 import { Search } from "@/components/search"
 import { FeedList } from "./feed-list"
-import { getSourcesPage } from "@/sanity/lib/getters"
+import { getPageHeader, getSourcesPage } from "@/sanity/lib/getters"
 import { FaExternalLinkAlt } from "react-icons/fa"
 import { Button } from "@/components/button"
 import { cn } from "@/lib/utils"
@@ -68,16 +68,13 @@ FeedCard.displayName = "FeedCard"
 //======================================
 export const Feed = async () => {
   const page = await getSourcesPage({ page: 1, pageSize: 10 })
+  const header = await getPageHeader({ name: "latest" })
   return (
     <div>
       <div className="grid gap-5 max-w-2xl mx-auto pb-6 pt-3">
         <div className="space-y-1">
-          <h1 className="font-bold text-center">
-            Top curated content about Nextjs
-          </h1>
-          <p className="text-center">
-            Get the latest published high-quality resources about Next.js
-          </p>
+          <h1 className="font-bold text-center">{header.title}</h1>
+          <p className="text-center">{header.subtitle}</p>
         </div>
         <Search />
         <FeedList initialList={page} />
