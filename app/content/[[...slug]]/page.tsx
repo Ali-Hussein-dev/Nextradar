@@ -1,6 +1,6 @@
-import { sidebarLinks } from "@/components/app-shell/app-sidebar"
 import { DatabaseSection } from "@/components/database-section"
 import { Feed } from "@/components/feed"
+import { PageHeader } from "@/components/page-header"
 import { BaasSection } from "@/components/sections/baas-section"
 import { CommerceSection } from "@/components/sections/commerce-section"
 import { HeadlessCmsSection } from "@/components/sections/headless-cms-section"
@@ -11,7 +11,10 @@ import { SponsorSection } from "@/components/sections/sponsor-section"
 import { TemplatesSection } from "@/components/sections/templates-section"
 import { ToolsSection } from "@/components/sections/tools-section"
 import { cn } from "@/lib/utils"
+import { getDocumentCount, getPageMetadata } from "@/sanity/lib/getters"
 import * as React from "react"
+import categoriesIds from "@/constants/categories.json"
+import { templates } from "@/constants/templates"
 
 const SharedContainer = ({
   children,
@@ -26,13 +29,34 @@ const SharedContainer = ({
 export const revalidate = 3600 // 1 hour
 
 //======================================
-export default function ContentPage({
+export default async function ContentPage({
   params,
 }: {
   params: { slug: string[] }
 }) {
   const slug = params.slug[0]
+  const date = new Date().getFullYear()
 
+  const object = {
+    "headless-cms": {
+      docType: "integration",
+      filter: `category.id == ${categoriesIds.headlessCMS.id}`,
+    },
+    hosting: {
+      docType: "integration",
+      filter: `category.id == ${categoriesIds.hosting.id}`,
+    },
+  }
+  const slugKeys = Object.keys(object)
+  let count
+
+  if (slugKeys.includes(slug)) {
+    count = await getDocumentCount({
+      docType: object[slug as keyof typeof object]?.docType,
+      filter: object[slug as keyof typeof object]?.filter,
+    })
+  }
+  console.info("🚀 ~ content-page", { count, slug })
   switch (slug) {
     case "latest":
       return (
@@ -43,6 +67,11 @@ export default function ContentPage({
     case "templates":
       return (
         <SharedContainer>
+          <PageHeader
+            name="templates"
+            date={` - ${date}`}
+            count={templates.length}
+          />
           <React.Suspense>
             <TemplatesSection />
           </React.Suspense>
@@ -51,6 +80,7 @@ export default function ContentPage({
     case "learn":
       return (
         <SharedContainer>
+          <PageHeader name="learn" date={` - ${date}`} />
           <React.Suspense>
             <LearnSection />
           </React.Suspense>
@@ -59,6 +89,7 @@ export default function ContentPage({
     case "tools":
       return (
         <SharedContainer>
+          {/* <PageHeader name="tools" /> */}
           <React.Suspense>
             <ToolsSection category="Tools" />
           </React.Suspense>
@@ -67,6 +98,7 @@ export default function ContentPage({
     case "real-world-apps":
       return (
         <SharedContainer>
+          {/* <PageHeader name="real-world-apps" /> */}
           <OpenSourceProjects />
         </SharedContainer>
       )
@@ -79,18 +111,21 @@ export default function ContentPage({
     case "hosting":
       return (
         <SharedContainer>
+          <PageHeader name="hosting" date={` - ${date}`} />
           <HostingSection />
         </SharedContainer>
       )
     case "headless-cms":
       return (
         <SharedContainer>
+          <PageHeader name="headless-cms" date={` - ${date}`} count={count} />
           <HeadlessCmsSection />
         </SharedContainer>
       )
     case "db":
       return (
         <SharedContainer>
+          <PageHeader name="db" />
           <React.Suspense>
             <DatabaseSection />
           </React.Suspense>
@@ -99,6 +134,7 @@ export default function ContentPage({
     case "commerce":
       return (
         <SharedContainer>
+          <PageHeader name="commerce" />
           <CommerceSection />
         </SharedContainer>
       )
@@ -131,27 +167,25 @@ export async function generateStaticParams() {
   }))
 }
 
-export const generateMetadata = ({
+export const generateMetadata = async ({
   params,
 }: {
   params: { slug?: string[] }
 }) => {
   const slugArray = params.slug
-  const slug = slugArray?.[0]
-
-  let appSidebarItem = sidebarLinks.find((o) => {
-    if (o?.url) {
-      return o.url === `/content/${slug}`
-    } else {
-      return o.items?.find((oo) => oo.url === `/content/${slug}`)
+  const slug = slugArray?.[0] as string
+  const res = await getPageMetadata({ name: slug })
+  if (res.length === 0) {
+    return {
+      title: "Not Found",
+      description: "Not Found",
+      type: "website",
     }
-  })
-  appSidebarItem = appSidebarItem?.items
-    ? appSidebarItem?.items?.find((oo) => oo.url === `/content/${slug}`)
-    : appSidebarItem
+  }
+  const metadata = res[0].metadata
   return {
-    title: appSidebarItem?.title || "",
-    description: appSidebarItem?.description || "",
+    title: metadata.title || "",
+    description: metadata.description || "",
     type: "website",
   }
 }

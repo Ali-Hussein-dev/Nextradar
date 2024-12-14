@@ -6,7 +6,6 @@ import { Button } from "@/components/button"
 import { CardWrapper } from "@/components/ui/card-wrapper"
 import { HiOutlineExternalLink } from "react-icons/hi"
 import { filterLabels, templates } from "@/constants/templates"
-import { CardHeading, ExpandableCard } from "@/components/ui/expandable-card"
 import * as React from "react"
 import { parseAsArrayOf, parseAsString, useQueryStates } from "nuqs"
 import {
@@ -229,32 +228,6 @@ export function TemplatesSection() {
   return (
     <div>
       {/* <div className="mb-4 md:mb-8"></div> */}
-      <ExpandableCard height="8rem" className="md:px-6 typography mb-6 pt-4">
-        <CardHeading
-          h1={`
-            ${templates.length} Best Free and Premium Next.js Templates
-          `}
-          p="Jumpstart your next project quickly — built with the latest Next.js 15"
-        />
-        <div>
-          Explore a wide range of high-quality Next.js starters. Pick from free,
-          open-source, and premium options to build stunning and functional
-          Next.js websites and web apps effortlessly.
-          <p>
-            Discover a diverse collection of handpicked and ready-to-use
-            templates and boilerplates to jumpstart your next project quickly —
-            built with the latest Next.js 14, React 18, and TypeScript for
-            optimal performance and ease of use.
-          </p>
-          <p>The reviewed Next.js templates meet the following criteria:</p>
-          <ul>
-            <li>It uses the last features of Next.js such as the App router</li>
-            <li>Actively maintained and regularly updated</li>
-            <li>The UI is clean and beautiful</li>
-            <li>Clean documentation for onboarding and easy setup</li>
-          </ul>
-        </div>
-      </ExpandableCard>
       <div className="grid lg:grid-cols-8 gap-6">
         <div className="grid lg:grid-cols-2 gap-3 lg:col-span-6 h-fit px-4 lg:px-0">
           {filtered.map((o) => {

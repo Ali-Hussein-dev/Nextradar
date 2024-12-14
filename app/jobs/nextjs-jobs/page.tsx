@@ -1,13 +1,18 @@
 import { InitialJobPostsList } from "@/jobs/components/initial-job-posts-list"
 import { getTopHiringCompanies } from "@/jobs/sanity/getters"
+import { getPageMetadata } from "@/sanity/lib/getters"
 import { format } from "date-fns"
 import * as React from "react"
 
 export const dynamic = "force-dynamic"
-export const metadata = {
-  title: `Next.js Jobs - ${format(new Date(), "MMM yyyy")}`,
-  description:
-    "Explore top Next.js developer jobs worldwide! Find remote, full-time, and freelance opportunities in front-end and full-stack development. Start your Next.js career today!",
+export const generateMetadata = async () => {
+  const res = await getPageMetadata({ name: "nextjs-jobs" })
+  const md = res[0]?.metadata
+
+  return {
+    title: `${md.title} - ${format(new Date(), "MMM yyyy")}`,
+    description: md.description,
+  }
 }
 //======================================
 export default async function NextjsJobsPage() {

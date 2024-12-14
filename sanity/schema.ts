@@ -5,6 +5,7 @@ import SiteSchema from "@/sanity/site-schema"
 import SourceSchema from "@/sanity/source-schema"
 import IntegrationSchema from "@/sanity/schemas/integration-schema"
 import CompanySchema from "@/sanity/schemas/company-schema"
+import PageSchema from "@/sanity/schemas/page-schema"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -14,5 +15,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     SiteSchema,
     IntegrationSchema,
     CompanySchema,
+    PageSchema
   ],
 }
