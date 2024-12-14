@@ -187,3 +187,22 @@ export const getLatestRepos = async () => {
 export const getDocumentCount = ({ docType, filter="" }: { docType: string, filter?: string }) => {
     return client.fetch(`count(*[_type == "${docType}" ${filter ? `&& ${filter}` : ""}])`)
 }
+
+
+export const getPageHeader = async ({ name }: { name: string }) => {
+    const q = defineQuery(`*[_type == "pageHeader" && name == "${name}"] {
+            header
+    }`)
+    const res = await client.fetch(q)
+    return res[0].header
+}
+/**
+ * Get page metadata from Sanity
+ */
+export const getPageMetadata = async ({ name }: { name: string }) => {
+    const q = defineQuery(`*[_type == "pageHeader" && name == "${name}"] {
+            metadata
+    }`)
+    return await client.fetch(q)
+    
+}

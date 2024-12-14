@@ -1,0 +1,90 @@
+import { defineField } from "sanity"
+
+const PageSchema = {
+    name: "pageHeader",
+    title: "Page Header & Metadata",
+    type: "document",
+    fields: [
+        defineField({
+            name: "name",
+            title: "page name",
+            type: "string",
+            options: {
+                list: [
+                    { title: "Latest", value: "latest" },
+                    { title: "Learn", value: "learn" },
+                    { title: "Templates", value: "templates" },
+                    { title: "Tools", value: "tools" },
+                    { title: "Real World Apps", value: "real-world-apps" },
+
+                    { title: "Jobs", value: "jobs" },
+                    { title: "Reactjs Jobs", value: "reactjs-jobs" },
+                    { title: "Nextjs Jobs", value: "nextjs-jobs" },
+
+                    { title: "Database", value: "db" },
+                    { title: "Headless CMS", value: "headless-cms" },
+                    { title: "Hosting", value: "hosting" },
+                    { title: "Baas", value: "baas" },
+                    { title: "Commerce", value: "commerce" },
+                ],
+            },
+            // validation: Rule => Rule.unique()
+        }),
+        defineField({
+            name: "metadata",
+            title: "Metadata",
+            type: "object",
+            fields: [
+                defineField({
+                    name: "title",
+                    title: "Title",
+                    type: "string",
+                }),
+                defineField({
+                    name: "description",
+                    title: "Description",
+                    type: "text",
+                }),
+                defineField({
+                    name: "keywords",
+                    title: "Keywords",
+                    type: "array",
+                    of: [{ type: "string" }],
+                    options: {
+                        layout: "tags",
+                    },
+                }),
+                defineField({
+                    name: "ogImage",
+                    title: "Opengraph Image",
+                    type: "image",
+                }),
+            ],
+        }),
+        defineField({
+            name: "header",
+            title: "Header",
+            type: "object",
+            fields: [
+                defineField({
+                    name: "title",
+                    title: "Title (h1)",
+                    type: "string",
+                }),
+                defineField({
+                    name: "subtitle",
+                    title: "Subtitle",
+                    type: "string",
+                }),
+                defineField({
+                    name: "description",
+                    title: "Description",
+                    type: "array",
+                    of: [{ type: "block" }],
+                }),
+            ],
+        }),
+    ],
+}
+
+export default PageSchema
