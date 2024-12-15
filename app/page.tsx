@@ -5,6 +5,7 @@ import { Faqs } from "@/components/faqs"
 import { Authors } from "@/components/authors"
 import { Newsletter } from "@/components/newsletter"
 import { Footer } from "@/components/shared/footer"
+import { HomepageNavbar } from "@/components/home-page-navbar"
 
 export const metadata: Metadata = {
   title: "The Next.js Ecosystem Overview in One Place",
@@ -37,7 +38,8 @@ const InfoAboutContent = () => (
 )
 export default async function HomePage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen relative">
+      <HomepageNavbar variant="default" />
       <div className="min-h-[90vh] flex-col-center pt-10 sm:pt-16 md:pt-24">
         <div className="flex flex-col justify-center text-center animate-in px-2">
           <h1 className="h1 mb-3 text-3xl font-extrabold md:text-4xl lg:text-5xl tracking-tight text-center max-w-2xl mx-auto text-pretty">
