@@ -33,44 +33,6 @@ const icons = [
   },
 ]
 
-const MobileItems = ({
-  setIsOpen,
-}: {
-  setIsOpen: (isOpen: boolean) => void
-}) => (
-  <>
-    {linksList.map((link) => (
-      <Button
-        key={link.href}
-        asChild
-        variant={"outline"}
-        className="w-full rounded-xl justify-center"
-        size="lg"
-        onClick={() => setIsOpen(false)}
-      >
-        <Link href={link.href}>{link.name}</Link>
-      </Button>
-    ))}
-    <div className="flex-row-end w-full gap-3 border-t pt-4 border-dashed">
-      {icons && (
-        <div className="flex-row-center grow gap-2">
-          {icons.map((icon) => (
-            <Button
-              key={icon.name}
-              size="icon"
-              className="rounded-full"
-              variant={"outline"}
-              asChild
-              onClick={() => setIsOpen(false)}
-            >
-              <Link href={icon.href}>{icon.icon}</Link>
-            </Button>
-          ))}
-        </div>
-      )}
-    </div>
-  </>
-)
 const NavLink = (props: { href: string; name: string }) => {
   return <Link href={props.href}>{props.name}</Link>
 }

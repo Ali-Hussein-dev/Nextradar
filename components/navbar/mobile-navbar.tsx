@@ -42,12 +42,12 @@ export const MobileNavbar = ({
       <dialog
         open={isOpen}
         className={
-          isOpen
-            ? "animate-popover-in flex flex-col gap-3 h-full w-full pt-4 px-4 bg-inherit"
-            : "hidden"
+          isOpen ? "animate-popover-in pt-4 h-full px-4 bg-inherit" : "hidden"
         }
       >
-        {typeof children === "function" ? children({ setIsOpen }) : children}
+        <nav className="flex flex-col gap-3 w-full">
+          {typeof children === "function" ? children({ setIsOpen }) : children}
+        </nav>
       </dialog>
     </div>
   )
