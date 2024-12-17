@@ -203,7 +203,7 @@ export function JobsList({ initialList }: { initialList: JobPostCardProps[] }) {
             variant={"outline"}
             disabled={isFetchingNextPage}
             onClick={() => fetchNextPage()}
-            data-umami-event={`fetch jobs ${infiniteQuery.data.pageParams}`}
+            data-umami-event={`fetch jobs ${infiniteQuery.data.pageParams.length} clicks`}
           >
             {isFetchingNextPage ? "Fetching jobs..." : "Load more jobs"}
           </Button>
