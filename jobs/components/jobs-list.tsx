@@ -146,20 +146,26 @@ export function JobsList({ initialList }: { initialList: JobPostCardProps[] }) {
     initialData: { pages: [initialList], pageParams: [1] },
   })
   const { fetchNextPage, isFetchingNextPage } = infiniteQuery
-  const [data, setData] = React.useState(infiniteQuery.data?.pages.flat())
+  const [jobs, setJobs] = React.useState(infiniteQuery.data?.pages.flat())
 
   React.useEffect(() => {
     if (filterQuery.data) {
-      setData(filterQuery.data)
+      setJobs(filterQuery.data)
     }
   }, [filterQuery.data])
 
+  React.useEffect(() => {
+    if (infiniteQuery.data) {
+      setJobs(infiniteQuery.data.pages.flat())
+    }
+  }, [infiniteQuery.data])
+
   const [queryStates, setQueryStates] = queryStatesReturn
-  const jobsCards = data
+
   const [isFilterOpen, setIsFilterOpen] = React.useState(false)
   const resetFilter = () => {
     setQueryStates(nullifyObject(queryStates))
-    setData(infiniteQuery.data?.pages.flat())
+    setJobs(infiniteQuery.data?.pages.flat())
   }
   return (
     <section>
@@ -186,8 +192,8 @@ export function JobsList({ initialList }: { initialList: JobPostCardProps[] }) {
             />
           )}
         </AnimatePresence>
-        {jobsCards.map((o, i) => (
-          <JobCard key={o.jobTitle} isLast={jobsCards.length - 1 == i} {...o} />
+        {jobs.map((o, i) => (
+          <JobCard key={o.jobTitle} isLast={jobs.length - 1 == i} {...o} />
         ))}
       </div>
       <div className="flex-row-center w-full">
