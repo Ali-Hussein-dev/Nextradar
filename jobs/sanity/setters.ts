@@ -12,7 +12,7 @@ export const createDraftJobPost = async (
 ): Promise<any> => {
 
     const publishedAt = new Date().toISOString()
-    const date = formatDate(publishedAt, "yyyy-MM-dd-HH")
+    const date = formatDate(publishedAt, "yyyy-MM-dd-HH-mm-ss")
 
     const fields: Omit<JobPost, "_createdAt" | "_rev" | "_updatedAt"> = {
         ...jobPost,
