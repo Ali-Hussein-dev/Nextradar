@@ -127,13 +127,16 @@ const FeaturedCard = ({
     <CardWrapper className="px-3 pt-3 overflow-hidden relative h-fit md:col-span-2 bg-muted/20 border ">
       <div>
         <div className="grid lg:grid-cols-2 lg:gap-3 pb-3 gap-4">
-          <div className="flex flex-col gap-3 mb-3 lg:flex-row ">
-            <div className="bg-muted relative max-w-full mb-2 lg:mb-0 w-full overflow-hidden aspect-video lg:aspect-[8/5]">
+          <div className="flex flex-col gap-3 mb-3 min-w-[50%]">
+            <div className="bg-muted relative max-w-full lg:mb-0 w-full overflow-hidden">
               <img
                 src={template.ogImage}
-                className="rounded-md m-0 object-cover h-full w-full aspect-video lg:aspect-[8/5]"
+                className="rounded-md m-0 w-full h-58 object-fill"
                 alt="opengraph image"
                 loading="lazy"
+                width={400}
+                height={300}
+                // className="w-full h-64 object-cover"
               />
             </div>
             <div className="flex flex-col gap-0 pt-1">
@@ -152,32 +155,40 @@ const FeaturedCard = ({
           </div>
 
           {featured && (
-            <div className="pb-6 lg:pb-4">
+            <div className="pb-6 lg:pb-2 border-t border-dashed md:border-none pt-2 md:pt-0">
               <Carousel className="relative">
                 <CarouselContent>
                   {featured.testimonials.map((o, i) => (
                     <CarouselItem key={i}>
-                      <div className="flex flex-col gap-1">
-                        <q className="text-muted-foreground">{o.quote}</q>
-                        <div className="flex-row-start gap-2">
-                          <img src={o.avatar} className="rounded-full size-7" />
-                          <span className="text-muted-foreground">
+                      <div className="flex-col-center gap-4 pt-2">
+                        <div className="flex-col-center gap-2">
+                          <img
+                            src={o.avatar}
+                            className="rounded-full size-14"
+                          />
+
+                          <span className="text-muted-foreground text-sm">
                             {o.name}
                           </span>
+                          <span className="text-muted-foreground text-sm">
+                            {o.role}
+                          </span>
                         </div>
+                        <q className="text-center md:text-lg">{o.quote}</q>
+                        {/* <div className="flex-col-center gap-2"></div> */}
                       </div>
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious className="top-full -translate-y-2 -translate-x-[4.2rem] size-7 left-full" />
-                <CarouselNext className="right-10 top-full -translate-y-2 translate-x-10 size-7" />
+                <CarouselPrevious className="top-full translate-y-0 md:translate-y-4 -translate-x-[2.5rem] size-8 left-1/2" />
+                <CarouselNext className="right-1/2 top-full translate-y-0 md:translate-y-4 translate-x-[2.5rem] size-8" />
               </Carousel>
             </div>
           )}
         </div>
 
         <div className="flex-row-between border-t border-dashed gap-3 pt-3">
-          <span className="rounded-md px-3 py-1.5 text-secondary-foreground bg-muted">
+          <span className="rounded-md px-3 py-1.5 text-muted-foreground bg-muted">
             Featured
           </span>
           <Button
@@ -231,9 +242,9 @@ export function TemplatesSection() {
       <div className="grid lg:grid-cols-8 gap-6">
         <div className="grid lg:grid-cols-2 gap-3 lg:col-span-6 h-fit px-4 lg:px-0">
           {filtered.map((o) => {
-            // if (o.featured) {
-            //   return <FeaturedCard key={o.name} template={o} router={router} />
-            // }
+            if (o.featured) {
+              return <FeaturedCard key={o.name} template={o} router={router} />
+            }
             return <StandardCard key={o.name} template={o} router={router} />
           })}
         </div>

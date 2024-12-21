@@ -169,16 +169,19 @@ export const templates: Template[] = [
                 {
                     quote: "Build your AI startup in hours. Save literally weeks of coding.",
                     name: "Supabase",
+                    role: "Alternative to Firebase",
                     avatar: "https://pbs.twimg.com/profile_images/1822981431586439168/7xkKXRGQ_400x400.jpg",
                     url: ""
                 }, {
                     quote: "Having 10 demo apps makes it so much easier to understand the next steps to creating your own AI app.",
-                    name: "Lee, Founder Beatchurn.com",
+                    name: "Lee",
+                    role: "Founder Beatchurn.com",
                     avatar: "https://anotherwrapper.com/avatars/lee.jpg",
                     url: ""
                 }, {
                     quote: "Building AI wrappers nowadays is a must. Your product can make it much easier",
-                    name: "Sergey, Founder Screencharm.com",
+                    name: "Sergey",
+                    role: "Founder Screencharm.com",
                     avatar: "https://anotherwrapper.com/avatars/sergey.jpg",
                     url: ""
                 }]
