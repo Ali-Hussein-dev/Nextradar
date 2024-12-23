@@ -25,6 +25,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+import { ChevronRight } from "lucide-react"
 
 export interface Template {
   name: string
@@ -236,11 +242,104 @@ export function TemplatesSection() {
     })
   }, [JSON.stringify(activeQueryState), urlHasParams])
   const router = useRouter()
+  const FitlerSection = () => (
+    <aside className="py-2">
+      <Accordion type="multiple">
+        {Object.entries(filterLabels).map(
+          ([filterKey, { name: filterName, list: filterOptions }]) => {
+            const count = activeQueryState[filterKey].length
+            return (
+              <AccordionItem key={filterName} value={filterName}>
+                <AccordionTrigger className="hover:no-underline">
+                  <div className="flex-row-start gap-2">
+                    {filterName}
+                    {count > 0 ? (
+                      <span className="bg-muted text-muted-forground rounded-full p-1 size-6 center">
+                        {count}
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="space-y-2">
+                  {Object.values(filterOptions)
+                    .sort((a, b) => a.label.localeCompare(b.label))
+                    .map(({ label, value }) => (
+                      <Label
+                        key={value}
+                        className="flex-row-start gap-2 bg-muted/50 rounded-sm px-2 py-3"
+                        htmlFor={value}
+                      >
+                        <Checkbox
+                          key={value}
+                          id={value}
+                          checked={activeQueryState[filterKey].includes(value)}
+                          onCheckedChange={(val) => {
+                            if (val) {
+                              setActiveQueryStates({
+                                [filterKey]: [
+                                  ...activeQueryState[filterKey],
+                                  value,
+                                ],
+                              })
+                            } else {
+                              setActiveQueryStates({
+                                [filterKey]: activeQueryState[filterKey].filter(
+                                  (item: string) => item !== value
+                                ),
+                              })
+                            }
+                          }}
+                        />
+                        <div>{label}</div>
+                      </Label>
+                    ))}
+                </AccordionContent>
+              </AccordionItem>
+            )
+          }
+        )}
+      </Accordion>
+      <div className="pt-2">
+        {urlHasParams && (
+          <Button
+            size="sm"
+            className="w-full"
+            type="button"
+            onClick={() => {
+              setActiveQueryStates({
+                ...Object.keys(activeQueryState).reduce(
+                  (acc, key) => ({ ...acc, [key]: [] }),
+                  {}
+                ),
+              })
+            }}
+            variant={"outline"}
+          >
+            Clear Filters
+          </Button>
+        )}
+      </div>
+    </aside>
+  )
+
   return (
     <div>
       {/* <div className="mb-4 md:mb-8"></div> */}
       <div className="grid lg:grid-cols-8 gap-6">
-        <div className="grid lg:grid-cols-2 gap-3 lg:col-span-6 h-fit px-4 lg:px-0">
+        <div className="grid lg:grid-cols-2 gap-3 lg:col-span-6 h-fit px-4 lg:px-0 ">
+          <Collapsible className="lg:hidden border w-full rounded-sm col-span-2 border-dashed py-1 px-3">
+            <CollapsibleTrigger className="w-full pt-1">
+              <div className="flex-row-between w-full">
+                Filter
+                <ChevronRight />
+              </div>
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <FitlerSection />
+            </CollapsibleContent>
+          </Collapsible>
           {filtered.map((o) => {
             if (o.featured) {
               return <FeaturedCard key={o.name} template={o} router={router} />
@@ -252,91 +351,12 @@ export function TemplatesSection() {
           <div className="font-semibold text-secondary-foreground/60 flex-row-start gap-2">
             Filter {urlHasParams && `- (${filtered.length})`}
           </div>
-          <aside className="py-2">
-            <Accordion type="multiple">
-              {Object.entries(filterLabels).map(
-                ([filterKey, { name: filterName, list: filterOptions }]) => {
-                  const count = activeQueryState[filterKey].length
-                  return (
-                    <AccordionItem key={filterName} value={filterName}>
-                      <AccordionTrigger className="hover:no-underline">
-                        <div className="flex-row-start gap-2">
-                          {filterName}
-                          {count > 0 ? (
-                            <span className="bg-muted text-muted-forground rounded-full p-1 size-6 center">
-                              {count}
-                            </span>
-                          ) : (
-                            ""
-                          )}
-                        </div>
-                      </AccordionTrigger>
-                      <AccordionContent className="space-y-2">
-                        {Object.values(filterOptions)
-                          .sort((a, b) => a.label.localeCompare(b.label))
-                          .map(({ label, value }) => (
-                            <Label
-                              key={value}
-                              className="flex-row-start gap-2 bg-muted/50 rounded-sm px-2 py-3"
-                              htmlFor={value}
-                            >
-                              <Checkbox
-                                key={value}
-                                id={value}
-                                checked={activeQueryState[filterKey].includes(
-                                  value
-                                )}
-                                onCheckedChange={(val) => {
-                                  if (val) {
-                                    setActiveQueryStates({
-                                      [filterKey]: [
-                                        ...activeQueryState[filterKey],
-                                        value,
-                                      ],
-                                    })
-                                  } else {
-                                    setActiveQueryStates({
-                                      [filterKey]: activeQueryState[
-                                        filterKey
-                                      ].filter(
-                                        (item: string) => item !== value
-                                      ),
-                                    })
-                                  }
-                                }}
-                              />
-                              <div>{label}</div>
-                            </Label>
-                          ))}
-                      </AccordionContent>
-                    </AccordionItem>
-                  )
-                }
-              )}
-            </Accordion>
-            <div className="pt-2">
-              {urlHasParams && (
-                <Button
-                  size="sm"
-                  className="w-full"
-                  type="button"
-                  onClick={() => {
-                    setActiveQueryStates({
-                      ...Object.keys(activeQueryState).reduce(
-                        (acc, key) => ({ ...acc, [key]: [] }),
-                        {}
-                      ),
-                    })
-                  }}
-                  variant={"outline"}
-                >
-                  Clear Filters
-                </Button>
-              )}
-            </div>
-          </aside>
+          <div className="hidden lg:block">
+            <FitlerSection />
+          </div>
         </div>
       </div>
     </div>
   )
 }
+
