@@ -79,12 +79,14 @@ const StandardCard = ({
           />
           <div className="flex-col-start gap-0 pt-1">
             <div className="flex-row-between gap-2 w-full">
-              <h2 className="m-0 font-bold text-lg w-full">{template.name}</h2>
-              {template?.sponsored && (
+              <h2 className="m-0 font-bold md:text-lg w-full">
+                {template.name}
+              </h2>
+              {/* {template?.sponsored && (
                 <span className="text-light dark:text-zinc-600 px-1 rounded-sm text-zinc-500">
                   Sponsored
                 </span>
-              )}
+              )} */}
             </div>
             <p className="m-0 p-0 line-clamp-2 dark:text-zinc-400 text-zinc-700">
               {template.description}
@@ -130,7 +132,7 @@ const FeaturedCard = ({
   const featured = template.featured!
 
   return (
-    <CardWrapper className="px-3 pt-3 overflow-hidden relative h-fit md:col-span-2 bg-muted/20 border ">
+    <CardWrapper className="px-3 pt-3 overflow-hidden relative h-fit lg:col-span-2 bg-muted/20 border ">
       <div>
         <div className="grid lg:grid-cols-2 lg:gap-3 pb-3 gap-4">
           <div className="flex flex-col gap-3 mb-3 min-w-[50%]">
@@ -194,7 +196,7 @@ const FeaturedCard = ({
         </div>
 
         <div className="flex-row-between border-t border-dashed gap-3 pt-3">
-          <span className="rounded-md px-3 py-1.5 text-muted-foreground bg-muted">
+          <span className="text-muted-foreground bg-muted px-1 rounded-[1px]">
             Featured
           </span>
           <Button
@@ -325,35 +327,32 @@ export function TemplatesSection() {
   )
 
   return (
-    <div>
-      {/* <div className="mb-4 md:mb-8"></div> */}
-      <div className="grid lg:grid-cols-8 gap-6">
-        <div className="grid lg:grid-cols-2 gap-3 lg:col-span-6 h-fit px-4 lg:px-0 ">
-          <Collapsible className="lg:hidden border w-full rounded-sm col-span-2 border-dashed py-1 px-3">
-            <CollapsibleTrigger className="w-full pt-1">
-              <div className="flex-row-between w-full">
-                Filter
-                <ChevronRight />
-              </div>
-            </CollapsibleTrigger>
-            <CollapsibleContent>
-              <FitlerSection />
-            </CollapsibleContent>
-          </Collapsible>
-          {filtered.map((o) => {
-            if (o.featured) {
-              return <FeaturedCard key={o.name} template={o} router={router} />
-            }
-            return <StandardCard key={o.name} template={o} router={router} />
-          })}
+    <div className="px-1">
+      <Collapsible className="lg:hidden border w-full rounded-sm col-span-2 border-dashed py-1 px-3 mb-3">
+        <CollapsibleTrigger className="w-full pt-1">
+          <div className="flex-row-between w-full">
+            Filter
+            <ChevronRight />
+          </div>
+        </CollapsibleTrigger>
+        <CollapsibleContent>
+          <FitlerSection />
+        </CollapsibleContent>
+      </Collapsible>
+      <div className="grid lg:grid-cols-2 gap-3 lg:col-span-6 h-fit lg:px-0 grid-cols-1 w-full">
+        {filtered.map((o) => {
+          if (o.featured) {
+            return <FeaturedCard key={o.name} template={o} router={router} />
+          }
+          return <StandardCard key={o.name} template={o} router={router} />
+        })}
+      </div>
+      <div className="lg:col-span-2 px-4 border border-dashed rounded-sm py-4 h-fit hidden lg:block">
+        <div className="font-semibold text-secondary-foreground/60 flex-row-start gap-2">
+          Filter {urlHasParams && `- (${filtered.length})`}
         </div>
-        <div className="lg:col-span-2 px-4 border border-dashed rounded-sm py-4 h-fit hidden lg:block">
-          <div className="font-semibold text-secondary-foreground/60 flex-row-start gap-2">
-            Filter {urlHasParams && `- (${filtered.length})`}
-          </div>
-          <div className="hidden lg:block">
-            <FitlerSection />
-          </div>
+        <div className="hidden lg:block">
+          <FitlerSection />
         </div>
       </div>
     </div>
