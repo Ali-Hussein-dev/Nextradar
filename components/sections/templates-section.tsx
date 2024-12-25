@@ -334,31 +334,33 @@ export function TemplatesSection() {
 
   return (
     <div className="px-1">
-      <Collapsible className="lg:hidden border w-full rounded-sm col-span-2 border-dashed py-1 px-3 mb-3">
-        <CollapsibleTrigger className="w-full pt-1">
-          <div className="flex-row-between w-full">
-            Filter
-            <ChevronRight />
-          </div>
-        </CollapsibleTrigger>
-        <CollapsibleContent>
-          <FitlerSection />
-        </CollapsibleContent>
-      </Collapsible>
-      <div className="grid lg:grid-cols-2 gap-3 lg:col-span-6 h-fit lg:px-0 grid-cols-1 w-full">
-        {filtered.map((o) => {
-          if (o.featured) {
-            return <FeaturedCard key={o.name} template={o} router={router} />
-          }
-          return <StandardCard key={o.name} template={o} router={router} />
-        })}
-      </div>
-      <div className="lg:col-span-2 px-4 border border-dashed rounded-sm py-4 h-fit hidden lg:block">
-        <div className="font-semibold text-secondary-foreground/60 flex-row-start gap-2">
-          Filter {urlHasParams && `- (${filtered.length})`}
+      <div className="lg:grid lg:grid-cols-8 gap-6">
+        <Collapsible className="lg:hidden border w-full rounded-sm col-span-2 border-dashed py-1 px-3 mb-3">
+          <CollapsibleTrigger className="w-full pt-1">
+            <div className="flex-row-between w-full">
+              Filter
+              <ChevronRight />
+            </div>
+          </CollapsibleTrigger>
+          <CollapsibleContent>
+            <FitlerSection />
+          </CollapsibleContent>
+        </Collapsible>
+        <div className="grid lg:grid-cols-2 gap-3 lg:col-span-6 h-fit lg:px-0 grid-cols-1 w-full">
+          {filtered.map((o) => {
+            if (o.featured) {
+              return <FeaturedCard key={o.name} template={o} router={router} />
+            }
+            return <StandardCard key={o.name} template={o} router={router} />
+          })}
         </div>
-        <div className="hidden lg:block">
-          <FitlerSection />
+        <div className="lg:col-span-2 px-4 border border-dashed rounded-sm py-4 h-fit hidden lg:block">
+          <div className="font-semibold text-secondary-foreground/60 flex-row-start gap-2">
+            Filter {urlHasParams && `- (${filtered.length})`}
+          </div>
+          <div className="hidden lg:block">
+            <FitlerSection />
+          </div>
         </div>
       </div>
     </div>
