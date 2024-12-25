@@ -139,7 +139,7 @@ const FeaturedCard = ({
             <div className="bg-muted relative max-w-full lg:mb-0 w-full overflow-hidden">
               <img
                 src={template.ogImage}
-                className="rounded-md m-0 w-full h-58 object-fill"
+                className="rounded-md m-0 w-full h-56 object-fill"
                 alt="opengraph image"
                 loading="lazy"
                 width={400}
@@ -163,13 +163,17 @@ const FeaturedCard = ({
           </div>
 
           {featured && (
-            <div className="pb-6 lg:pb-2 border-t border-dashed md:border-none pt-2 md:pt-0">
+            <div className="pb-6 lg:pb-2 pt-2 md:pt-0 ">
               <Carousel className="relative">
-                <CarouselContent>
+                <CarouselContent className="ml-0">
                   {featured.testimonials.map((o, i) => (
-                    <CarouselItem key={i}>
-                      <div className="flex-col-center gap-4 pt-2">
-                        <div className="flex-col-center gap-2">
+                    <CarouselItem
+                      key={i}
+                      className="border py-3 h-56 px-35 rounded-sm border-dashed bg-secondary/40"
+                    >
+                      {/* <FaQuoteLeft className="size-8 text-white" /> */}
+                      <div className="flex-col-center gap-4 pt-2 mx-auto">
+                        <div className="flex-col-center gap-1">
                           <img
                             src={o.avatar}
                             className="rounded-full size-14"
@@ -182,7 +186,9 @@ const FeaturedCard = ({
                             {o.role}
                           </span>
                         </div>
-                        <q className="text-center md:text-lg">{o.quote}</q>
+                        <q className="text-center font-medium w-[95%] mx-auto">
+                          {o.quote}
+                        </q>
                         {/* <div className="flex-col-center gap-2"></div> */}
                       </div>
                     </CarouselItem>

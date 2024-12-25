@@ -56,7 +56,6 @@ export default async function ContentPage({
       filter: object[slug as keyof typeof object]?.filter,
     })
   }
-  console.info("🚀 ~ content-page", { count, slug })
   switch (slug) {
     case "latest":
       return (
