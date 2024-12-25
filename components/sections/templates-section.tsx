@@ -219,6 +219,7 @@ const FeaturedCard = ({
     </CardWrapper>
   )
 }
+
 //======================================
 export function TemplatesSection() {
   const params = Object.keys(filterLabels).reduce(
@@ -247,88 +248,9 @@ export function TemplatesSection() {
       return common.length >= mergedParams.length
     })
   }, [JSON.stringify(activeQueryState), urlHasParams])
+
   const router = useRouter()
-  const FitlerSection = () => (
-    <aside className="py-2">
-      <Accordion type="multiple">
-        {Object.entries(filterLabels).map(
-          ([filterKey, { name: filterName, list: filterOptions }]) => {
-            const count = activeQueryState[filterKey].length
-            return (
-              <AccordionItem key={filterName} value={filterName}>
-                <AccordionTrigger className="hover:no-underline">
-                  <div className="flex-row-start gap-2">
-                    {filterName}
-                    {count > 0 ? (
-                      <span className="bg-muted text-muted-forground rounded-full p-1 size-6 center">
-                        {count}
-                      </span>
-                    ) : (
-                      ""
-                    )}
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="space-y-2">
-                  {Object.values(filterOptions)
-                    .sort((a, b) => a.label.localeCompare(b.label))
-                    .map(({ label, value }) => (
-                      <Label
-                        key={value}
-                        className="flex-row-start gap-2 bg-muted/50 rounded-sm px-2 py-3"
-                        htmlFor={value}
-                      >
-                        <Checkbox
-                          key={value}
-                          id={value}
-                          checked={activeQueryState[filterKey].includes(value)}
-                          onCheckedChange={(val) => {
-                            if (val) {
-                              setActiveQueryStates({
-                                [filterKey]: [
-                                  ...activeQueryState[filterKey],
-                                  value,
-                                ],
-                              })
-                            } else {
-                              setActiveQueryStates({
-                                [filterKey]: activeQueryState[filterKey].filter(
-                                  (item: string) => item !== value
-                                ),
-                              })
-                            }
-                          }}
-                        />
-                        <div>{label}</div>
-                      </Label>
-                    ))}
-                </AccordionContent>
-              </AccordionItem>
-            )
-          }
-        )}
-      </Accordion>
-      <div className="pt-2">
-        {urlHasParams && (
-          <Button
-            size="sm"
-            className="w-full"
-            type="button"
-            onClick={() => {
-              setActiveQueryStates({
-                ...Object.keys(activeQueryState).reduce(
-                  (acc, key) => ({ ...acc, [key]: [] }),
-                  {}
-                ),
-              })
-            }}
-            variant={"outline"}
-          >
-            Clear Filters
-          </Button>
-        )}
-      </div>
-    </aside>
-  )
+
 
   return (
     <div className="px-1">
@@ -341,7 +263,89 @@ export function TemplatesSection() {
             </div>
           </CollapsibleTrigger>
           <CollapsibleContent>
-            <FitlerSection />
+            <aside className="py-2">
+              <Accordion type="multiple">
+                {Object.entries(filterLabels).map(
+                  ([filterKey, { name: filterName, list: filterOptions }]) => {
+                    const count = activeQueryState[filterKey].length
+                    return (
+                      <AccordionItem key={filterKey} value={filterName}>
+                        <AccordionTrigger className="hover:no-underline">
+                          <div className="flex-row-start gap-2">
+                            {filterName}
+                            {count > 0 ? (
+                              <span className="bg-muted text-muted-forground rounded-full p-1 size-6 center">
+                                {count}
+                              </span>
+                            ) : (
+                              ""
+                            )}
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="space-y-2">
+                          {Object.values(filterOptions)
+                            .sort((a, b) => a.label.localeCompare(b.label))
+                            .map(({ label, value }) => (
+                              <Label
+                                key={value}
+                                className="flex-row-start gap-2 bg-muted/50 rounded-sm px-2 py-3"
+                                htmlFor={value}
+                              >
+                                <Checkbox
+                                  key={value}
+                                  id={value}
+                                  checked={activeQueryState[filterKey].includes(
+                                    value
+                                  )}
+                                  onCheckedChange={(val) => {
+                                    if (val) {
+                                      setActiveQueryStates({
+                                        [filterKey]: [
+                                          ...activeQueryState[filterKey],
+                                          value,
+                                        ],
+                                      })
+                                    } else {
+                                      setActiveQueryStates({
+                                        [filterKey]: activeQueryState[
+                                          filterKey
+                                        ].filter(
+                                          (item: string) => item !== value
+                                        ),
+                                      })
+                                    }
+                                  }}
+                                />
+                                <div>{label}</div>
+                              </Label>
+                            ))}
+                        </AccordionContent>
+                      </AccordionItem>
+                    )
+                  }
+                )}
+              </Accordion>
+              <div className="pt-2">
+                {urlHasParams && (
+                  <Button
+                    size="sm"
+                    className="w-full"
+                    type="button"
+                    onClick={() => {
+                      setActiveQueryStates({
+                        ...Object.keys(activeQueryState).reduce(
+                          (acc, key) => ({ ...acc, [key]: [] }),
+                          {}
+                        ),
+                      })
+                    }}
+                    variant={"outline"}
+                  >
+                    Clear Filters
+                  </Button>
+                )}
+              </div>
+            </aside>
           </CollapsibleContent>
         </Collapsible>
         <div className="grid lg:grid-cols-2 gap-3 lg:col-span-6 h-fit lg:px-0 grid-cols-1 w-full">
@@ -357,7 +361,89 @@ export function TemplatesSection() {
             Filter {urlHasParams && `- (${filtered.length})`}
           </div>
           <div className="hidden lg:block">
-            <FitlerSection />
+            <aside className="py-2">
+              <Accordion type="multiple">
+                {Object.entries(filterLabels).map(
+                  ([filterKey, { name: filterName, list: filterOptions }]) => {
+                    const count = activeQueryState[filterKey].length
+                    return (
+                      <AccordionItem key={filterKey} value={filterName}>
+                        <AccordionTrigger className="hover:no-underline">
+                          <div className="flex-row-start gap-2">
+                            {filterName}
+                            {count > 0 ? (
+                              <span className="bg-muted text-muted-forground rounded-full p-1 size-6 center">
+                                {count}
+                              </span>
+                            ) : (
+                              ""
+                            )}
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="space-y-2">
+                          {Object.values(filterOptions)
+                            .sort((a, b) => a.label.localeCompare(b.label))
+                            .map(({ label, value }) => (
+                              <Label
+                                key={value}
+                                className="flex-row-start gap-2 bg-muted/50 rounded-sm px-2 py-3"
+                                htmlFor={value}
+                              >
+                                <Checkbox
+                                  key={value}
+                                  id={value}
+                                  checked={activeQueryState[filterKey].includes(
+                                    value
+                                  )}
+                                  onCheckedChange={(val) => {
+                                    if (val) {
+                                      setActiveQueryStates({
+                                        [filterKey]: [
+                                          ...activeQueryState[filterKey],
+                                          value,
+                                        ],
+                                      })
+                                    } else {
+                                      setActiveQueryStates({
+                                        [filterKey]: activeQueryState[
+                                          filterKey
+                                        ].filter(
+                                          (item: string) => item !== value
+                                        ),
+                                      })
+                                    }
+                                  }}
+                                />
+                                <div>{label}</div>
+                              </Label>
+                            ))}
+                        </AccordionContent>
+                      </AccordionItem>
+                    )
+                  }
+                )}
+              </Accordion>
+              <div className="pt-2">
+                {urlHasParams && (
+                  <Button
+                    size="sm"
+                    className="w-full"
+                    type="button"
+                    onClick={() => {
+                      setActiveQueryStates({
+                        ...Object.keys(activeQueryState).reduce(
+                          (acc, key) => ({ ...acc, [key]: [] }),
+                          {}
+                        ),
+                      })
+                    }}
+                    variant={"outline"}
+                  >
+                    Clear Filters
+                  </Button>
+                )}
+              </div>
+            </aside>
           </div>
         </div>
       </div>
