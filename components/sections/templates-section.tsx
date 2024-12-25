@@ -79,16 +79,14 @@ const StandardCard = ({
           />
           <div className="flex-col-start gap-0 pt-1">
             <div className="flex-row-between gap-2 w-full">
-              <h2 className="m-0 font-bold md:text-lg w-full">
-                {template.name}
-              </h2>
+              <h2 className="m-0 font-semibold w-full">{template.name}</h2>
               {/* {template?.sponsored && (
                 <span className="text-light dark:text-zinc-600 px-1 rounded-sm text-zinc-500">
                   Sponsored
                 </span>
               )} */}
             </div>
-            <p className="m-0 p-0 line-clamp-2 dark:text-zinc-400 text-zinc-700">
+            <p className="line-clamp-2 tracking-tight leading-5 dark:text-zinc-400 text-zinc-700">
               {template.description}
             </p>
           </div>

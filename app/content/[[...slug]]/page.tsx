@@ -65,7 +65,7 @@ export default async function ContentPage({
       )
     case "templates":
       return (
-        <SharedContainer>
+        <SharedContainer className="max-w-7xl">
           <PageHeader
             name="templates"
             date={` - ${date}`}
