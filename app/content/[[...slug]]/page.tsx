@@ -23,7 +23,14 @@ const SharedContainer = ({
   className?: string
   children: React.ReactNode
 }) => (
-  <div className={cn("max-w-5xl mx-auto w-full", className)}>{children}</div>
+  <div
+    className={cn(
+      "max-w-5xl mx-auto w-full h-full grow min-h-[88vh]",
+      className
+    )}
+  >
+    {children}
+  </div>
 )
 
 export const revalidate = 3600 // 1 hour

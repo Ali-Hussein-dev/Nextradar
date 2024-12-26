@@ -24,8 +24,8 @@ export function FilterToolsSection({
     },
   })
   return (
-    <div className="w-full pt-4">
-      <div className="flex flex-wrap w-full gap-2 px-1">
+    <div className="w-full py-6 border border-dashed px-2 md:px-5">
+      <div className="flex flex-wrap w-full gap-2 px-1 border-b border-dashed pb-4">
         <Button
           size="sm"
           onClick={() => setFilter("All")}
