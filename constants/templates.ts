@@ -147,6 +147,57 @@ const getPair = (
 
 export const templates: Template[] = [
     {
+        url: "https://makerkit.lemonsqueezy.com?aff=pWOZY",
+        name: "makerkit",
+        description:
+            "Build unlimited SaaS products with any SaaS Starter Kit. Save months of work and focus on building a profitable business.",
+        ogImage: "https://makerkit.dev/assets/images/makerkit.webp",
+        rel: "nofollow",
+        specs: {
+            cms: getPair("cms", ["wordpress", "keystatic"]),
+            cost: getPair("cost", "premium"),
+            payment: getPair("payment", ["stripe", "lemonSqueezy", "paddle"]),
+            backend: getPair("backend", ["firebase", "supabase"]),
+            email: getPair("email", ["resend", "nodemailer"]),
+
+            analytics: getPair("analytics", ["googleAnalytics", "umami", "posthog"]),
+            styling: getPair("styling", ["tailwindcss", "shadcn"]),
+            language: getPair("language", "typescript"),
+            others: getPair("others", ["turborepo"]),
+        },
+        featured: {
+            testimonials: [
+                {
+                    quote: "Makerkit is a pretty nice shortcut for building a SaaS. Code quality and the support Slack channel are excellent",
+                    name: "Janne Aukia",
+                    role: "",
+                    avatar: "https://pbs.twimg.com/profile_images/1276174264551518208/ArwSsAWE_400x400.jpg",
+                    url: "https://x.com/jaukia/status/1852730134215696410"
+                }, {
+                    quote: "Just started using MakerKit and it's a total game-changer. 🚀 Wish I had this when I was building Phishr. Instant team management and billing? Insane.",
+                    name: "Harvey Coplestone",
+                    role: "",
+                    avatar: "https://pbs.twimg.com/profile_images/1825124651535572992/tXIb4YKR_400x400.jpg",
+                    url: "https://x.com/hcoplestone/status/1825193478105534676"
+                },
+                {
+                    quote: "Honestly @makerkit_dev is great. More for B2B products but really clean and well documented",
+                    name: "Kiara Bickers",
+                    role: "",
+                    avatar: "https://pbs.twimg.com/profile_images/1807544605275017217/TPsj_GHj_400x400.jpg",
+                    url: "https://x.com/kiarabickers/status/1832034757779005635"
+                },
+                {
+                    quote: "Tried most of them, makerkit beats them all 🔥",
+                    name: "Mehdi Nabhani",
+                    role: "",
+                    avatar: "https://pbs.twimg.com/profile_images/1657287624049000448/gASq0syB_400x400.jpg",
+                    url: "https://x.com/NabhaniMehdi/status/1820878102274437529"
+                },
+            ]
+        }
+    },
+    {
         url: "https://anotherwrapper.com?aff=pWOZY",
         name: "AnotherWrapper",
         description:
@@ -164,28 +215,28 @@ export const templates: Template[] = [
             language: getPair("language", "typescript"),
             others: [],
         },
-        featured: {
-            testimonials: [
-                {
-                    quote: "Build your AI startup in hours. Save literally weeks of coding.",
-                    name: "Supabase",
-                    role: "Alternative to Firebase",
-                    avatar: "https://pbs.twimg.com/profile_images/1822981431586439168/7xkKXRGQ_400x400.jpg",
-                    url: ""
-                }, {
-                    quote: "Having 10 demo apps makes it so much easier to understand the next steps to creating your own AI app.",
-                    name: "Lee",
-                    role: "Founder Beatchurn.com",
-                    avatar: "https://anotherwrapper.com/avatars/lee.jpg",
-                    url: ""
-                }, {
-                    quote: "Building AI wrappers nowadays is a must. Your product can make it much easier",
-                    name: "Sergey",
-                    role: "Founder Screencharm.com",
-                    avatar: "https://anotherwrapper.com/avatars/sergey.jpg",
-                    url: ""
-                }]
-        }
+        // featured: {
+        //     testimonials: [
+        //         {
+        //             quote: "Build your AI startup in hours. Save literally weeks of coding.",
+        //             name: "Supabase",
+        //             role: "Alternative to Firebase",
+        //             avatar: "https://pbs.twimg.com/profile_images/1822981431586439168/7xkKXRGQ_400x400.jpg",
+        //             url: ""
+        //         }, {
+        //             quote: "Having 10 demo apps makes it so much easier to understand the next steps to creating your own AI app.",
+        //             name: "Lee",
+        //             role: "Founder Beatchurn.com",
+        //             avatar: "https://anotherwrapper.com/avatars/lee.jpg",
+        //             url: ""
+        //         }, {
+        //             quote: "Building AI wrappers nowadays is a must. Your product can make it much easier",
+        //             name: "Sergey",
+        //             role: "Founder Screencharm.com",
+        //             avatar: "https://anotherwrapper.com/avatars/sergey.jpg",
+        //             url: ""
+        //         }]
+        // }
     },
     {
         url: "https://indie-starter.dev?ref=nextradar-templates",
@@ -281,26 +332,6 @@ export const templates: Template[] = [
             styling: getPair("styling", ["shadcn", "tailwindcss"]),
             language: getPair("language", "typescript"),
             others: [],
-        },
-    },
-    {
-        url: "https://makerkit.lemonsqueezy.com?aff=pWOZY",
-        name: "makerkit",
-        description:
-            "Build unlimited SaaS products with any SaaS Starter Kit. Save months of work and focus on building a profitable business.",
-        ogImage: "https://makerkit.dev/assets/images/makerkit.webp",
-        rel: "nofollow",
-        specs: {
-            cms: getPair("cms", ["wordpress", "keystatic"]),
-            cost: getPair("cost", "premium"),
-            payment: getPair("payment", ["stripe", "lemonSqueezy", "paddle"]),
-            backend: getPair("backend", ["firebase", "supabase"]),
-            email: getPair("email", ["resend", "nodemailer"]),
-
-            analytics: getPair("analytics", ["googleAnalytics", "umami", "posthog"]),
-            styling: getPair("styling", ["tailwindcss", "shadcn"]),
-            language: getPair("language", "typescript"),
-            others: getPair("others", ["turborepo"]),
         },
     },
     {
