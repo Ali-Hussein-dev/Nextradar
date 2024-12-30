@@ -5,6 +5,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "scan": "next dev & npx react-scan@latest localhost:3000",
     "lint": "next lint",
     "start": "next start",
     "post:merge": "git checkout main && git pull",
@@ -50,9 +51,6 @@
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.5.1",
     "framer-motion": "^11.11.10",
-    "fumadocs-core": "13.4.9",
-    "fumadocs-mdx": "10.0.2",
-    "fumadocs-ui": "13.4.9",
     "ky": "^1.7.2",
     "lucide-react": "^0.456.0",
     "next": "^14.2.17",
