@@ -9,6 +9,9 @@ import { ImSearch } from "react-icons/im"
 // import { useQueryState, parseAsString } from "nuqs"
 import { PiSpinnerGap } from "react-icons/pi"
 import * as React from "react"
+import Link from "next/link"
+import { urls } from "@/constants/urls"
+
 type Input = {
   q: string
 }
@@ -43,6 +46,68 @@ const useSearch = () => {
     cleanInput,
     // closeResults,
   }
+}
+const recommendation = {
+  jobs: {
+    queries: ["jobs", "careers", "work", "employment", "software dev"],
+    name: "Jobs",
+    href: urls.jobs,
+  },
+  courses: {
+    name: "Courses",
+    href: urls.learn,
+    queries: ["course", " learning", " education", "learn", "tutorial"],
+  },
+  templates: {
+    name: "Templates",
+    href: "/templates",
+    queries: ["template", "starter", "boilerplate", "scaffold"],
+  },
+  cms: {
+    name: "CMS",
+    href: urls.headlessCms,
+    queries: ["cms", "content management system", "headless"],
+  },
+  hosting: {
+    name: "Hosting",
+    href: urls.hosting,
+    queries: ["hosting", "deploy", "deployment", "cloud"],
+  },
+  tools: {
+    name: "Tools",
+    href: urls.tools,
+    queries: ["tool", "software", "utility", "plugin"],
+  },
+  openSource: {
+    name: "Open Source",
+    href: urls.osProjects,
+    queries: ["open source", "real world app", "example", "project"],
+  },
+}
+const NoResults = ({ query }: { query: string }) => {
+  const recommend = Object.values(recommendation).find((o) => {
+    return o.queries.some((q) =>
+      q.toLowerCase().startsWith(query.trim().toLowerCase())
+    )
+  })
+  // console.log("🚀 ~ NoResults ~ recommend:", recommend)
+  return (
+    <div>
+      No results found
+      <div>
+        {recommend ? (
+          <div className="py-1 border-t mt-2">
+            Related secion:{" "}
+            <Button variant="link" size="sm">
+              <Link href={recommend.href}>{recommend.name}</Link>
+            </Button>
+          </div>
+        ) : (
+          <div className="pt-2">Try different keywords</div>
+        )}
+      </div>
+    </div>
+  )
 }
 //======================================
 export function Search() {
@@ -110,9 +175,11 @@ export function Search() {
           {!data.error ? (
             <div>
               <div>
-                {data.length == 0
-                  ? "No results found"
-                  : "Found " + data.length + " results"}
+                {data.length == 0 ? (
+                  <NoResults query={inputValue} />
+                ) : (
+                  "Found " + data.length + " results"
+                )}
               </div>
               <div className="space-y-4 pt-1">
                 {data.map((o: FeedCardProps) => (
