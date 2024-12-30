@@ -29,7 +29,7 @@
             @apply text-gray-600 dark:text-zinc-400;
         }
         .typography {
-            @apply prose prose-zinc dark:prose-invert decoration-muted-foreground prose-a:decoration-inherit
+            @apply prose prose-zinc dark:prose-invert decoration-muted-foreground prose-a:decoration-inherit max-w-full
         }
 }
 /* -----------------------------------------------------ANIMATION */
