@@ -1,4 +1,4 @@
-import { createPreset } from 'fumadocs-ui/tailwind-plugin';
+// import { createPreset } from 'fumadocs-ui/tailwind-plugin';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -98,7 +98,7 @@ export default {
   		}
   	}
   },
-  presets: [createPreset({ preset: "default" })],
+	//   presets: [createPreset({ preset: "default" })],
   plugins: [
     require("tailwind-custom-utilities"),
     require("@tailwindcss/typography"),
