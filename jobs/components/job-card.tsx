@@ -61,7 +61,11 @@ export const JobCard = (props: JobPostCardProps & { isLast: boolean }) => {
         <div className="flex-row-end gap-2">
           {/* <JobPostDrawer {...props} /> */}
           <Button asChild size="sm" variant="secondary" className="rounded-sm">
-            <Link href={`${urls.jobs}/${slug}`} prefetch={false}>
+            <Link
+              href={`${urls.jobs}/${slug}`}
+              prefetch={false}
+              data-umami-event="view-job"
+            >
               View Job
             </Link>
           </Button>
