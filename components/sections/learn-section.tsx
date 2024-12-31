@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Repo } from "@/lib/get-repos-github"
 import {
   Card,
-  CardContent,
+  // CardContent,
   CardHeader,
   CardDescription,
   CardTitle,
@@ -36,12 +36,13 @@ export const SitesList = async () => {
               <div className="flex-col-start gap-1">
                 <CardTitle>{o.name}</CardTitle>
                 <CardDescription>{o.createdBy}</CardDescription>
+                <CardDescription className="line-clamp-2 pt-1">
+                  {o.description}
+                </CardDescription>
               </div>
             </CardHeader>
-            <CardContent className="grow">
-              <p className="line-clamp-3">{o.description}</p>
-            </CardContent>
-            <CardFooter className="flex-row-between border-t border-dashed gap-3 w-full">
+            {/* <CardContent className="grow"></CardContent> */}
+            <CardFooter className="flex-row-between border-t border-dashed gap-3 w-full py-3">
               <div className="flex-row-start h-full grow gap-1">
                 {o?.tags?.map((tag: string) => (
                   <span
