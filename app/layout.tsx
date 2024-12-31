@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <AnalyticsProv />
-        <script src="https://unpkg.com/react-scan/dist/auto.global.js" async />
+        {/* <script src="https://unpkg.com/react-scan/dist/auto.global.js" async /> */}
       </head>
       <body>
         <NuqsAdapter>{children}</NuqsAdapter>
