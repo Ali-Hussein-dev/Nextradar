@@ -1,18 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
 import { Repo } from "@/lib/get-repos-github"
-// import { slugify } from "@/lib/utils"
 import { CiStar } from "react-icons/ci"
 import { TbExternalLink } from "react-icons/tb"
 import { Button } from "@/components/button"
 import { FaGithub } from "react-icons/fa"
-import { CardWrapper } from "@/components/ui/card-wrapper"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardDescription,
+  CardTitle,
+  CardFooter,
+} from "@/components/ui/card"
 
 export const RepoCard = ({ repo }: { repo: Repo }) => {
-  // const slug = slugify(repo.name)
   return (
-    <CardWrapper>
-      <div className="flex-row-between">
-        <h2 className="my-0 scroll-m-20 font-bold text-xl capitalize">
+    <Card className="rounded-sm border-dashed flex flex-col">
+      <CardHeader className="flex-row-between">
+        <CardTitle>
           {repo.avatar && (
             <img
               src={repo.avatar}
@@ -21,7 +26,7 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
             />
           )}
           {repo.name}
-        </h2>
+        </CardTitle>
         {repo?.stars && (
           <span className="flex-row-start gap-1">
             <CiStar size="18" />
@@ -30,22 +35,17 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
               : repo.stars}
           </span>
         )}
-      </div>
-      <div className="mb-3 max-w-2xl h-full">
-        <p className="mt-2 mb-0 dark:text-zinc-300 line-clamp-2">
-          {repo.description}
-        </p>
-        {repo?.createdBy && (
-          <span className="text-sm dark:text-zinc-500">{repo.createdBy}</span>
-        )}
-      </div>
-      <div className="flex flex-col sm:flex-row sm:items-center gap-2 pt-2 dark:border-zinc-700 border-t border-dashed">
-        <div className="flex-row-between grow h-full gap-3">
+      </CardHeader>
+      <CardContent className="grow">
+        <CardDescription>{repo.description}</CardDescription>
+      </CardContent>
+      <CardFooter className="flex flex-col sm:flex-row sm:items-center gap-2 border-t border-dashed">
+        <div className="flex-row-between grow gap-3 w-full">
           <div className="flex-row-start h-full grow gap-1">
             {repo?.tags?.map((tag: string) => (
               <span
                 key={tag}
-                className="px-2.5 h-full center text-xs bg-zinc-200 dark:bg-zinc-900 dark:text-zinc-200 rounded-[2px] capitalize"
+                className="px-2.5 h-full center text-xs bg-zinc-200 dark:bg-zinc-900 dark:text-zinc-200 rounded-[2px] capitalize py-0.5"
               >
                 {tag}
               </span>
@@ -72,7 +72,8 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
               <Button
                 asChild
                 variant={"secondary"}
-                className="rounded-lg gap-3 no-underline dark:text-green-300 text-green-500"
+                className="gap-3 no-underline dark:text-green-300 text-green-500"
+                size="sm"
               >
                 <a href={repo.homepage} target="_blank">
                   Visit
@@ -82,7 +83,7 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
             )}
           </div>
         </div>
-      </div>
-    </CardWrapper>
+      </CardFooter>
+    </Card>
   )
 }

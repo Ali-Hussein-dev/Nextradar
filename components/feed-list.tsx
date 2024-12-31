@@ -23,7 +23,7 @@ export const FeedList = ({ initialList }: { initialList: FeedCardProps[] }) => {
       {/* <div className="text-center">
         {fetchStatus == "fetching" && !data && "fetching data..."}
       </div> */}
-      <div className="space-y-5 md:space-y-7">
+      <div className="space-y-5 md:space-y-7 px-2">
         {data?.pages.flat().map((o, i) => {
           if (i == 2 || i == 11) {
             return (

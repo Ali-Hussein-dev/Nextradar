@@ -3,7 +3,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { FaGithub } from "react-icons/fa"
 import { Button } from "@/components/button"
-import { CardWrapper } from "@/components/ui/card-wrapper"
 import { HiOutlineExternalLink } from "react-icons/hi"
 import { filterLabels, templates } from "@/constants/templates"
 import * as React from "react"
@@ -31,6 +30,14 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 import { ChevronRight } from "lucide-react"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 export interface Template {
   name: string
@@ -185,56 +192,52 @@ const StandardCard = ({
   router: AppRouterInstance
 }) => {
   return (
-    <CardWrapper className="md:px-3 pt-3 overflow-hidden relative h-fit">
-      <div>
-        <div className="flex-row-start gap-3 mb-3">
-          <img
-            src={template.ogImage}
-            className="rounded-md aspect-[8/5] m-0 object-fill max-w-40"
-            alt="opengraph image"
-            loading="lazy"
-          />
-          <div className="flex-col-start gap-0 pt-1">
-            <div className="flex-row-between gap-2 w-full">
-              <h2 className="m-0 font-semibold w-full">{template.name}</h2>
-              {/* {template?.sponsored && (
+    <Card className="animate-in">
+      <CardHeader className="flex-row-start gap-3">
+        <img
+          src={template.ogImage}
+          className="rounded-md aspect-[8/5] m-0 object-fill max-w-40"
+          alt="opengraph image"
+          loading="lazy"
+        />
+        <div className="flex-col-start gap-1 pt-1">
+          <div className="flex-row-between gap-2 w-full">
+            <CardTitle>{template.name}</CardTitle>
+            {/* {template?.sponsored && (
                 <span className="text-light dark:text-zinc-600 px-1 rounded-sm text-zinc-500">
                   Sponsored
                 </span>
               )} */}
-            </div>
-            <p className="line-clamp-2 tracking-tight leading-5 dark:text-zinc-400 text-zinc-700">
-              {template.description}
-            </p>
           </div>
+          <CardDescription className="line-clamp-2 tracking-tight leading-5 ">
+            {template.description}
+          </CardDescription>
         </div>
-        <div className="flex-row-end border-t border-dashed gap-3 pt-2">
-          {template.github && (
-            <Button
-              asChild
-              variant="outline"
-              size="icon"
-              className="rounded-lg"
-            >
-              <a href={template.github}>
-                <FaGithub />
-              </a>
-            </Button>
-          )}
-          <Button
-            variant={"secondary"}
-            size="sm"
-            className="rounded-lg gap-2 dark:text-green-300 text-green-500"
-            onClick={() => {
-              router.push(template.url)
-            }}
-          >
-            Visit
-            <HiOutlineExternalLink />
+      </CardHeader>
+      {/* <CardContent>
+        <p>Card Content</p>
+      </CardContent> */}
+      <CardFooter className="flex-row-end border-t border-dashed gap-3 ">
+        {template.github && (
+          <Button asChild variant="outline" size="icon" className="rounded-lg">
+            <a href={template.github}>
+              <FaGithub />
+            </a>
           </Button>
-        </div>
-      </div>
-    </CardWrapper>
+        )}
+        <Button
+          variant={"secondary"}
+          size="sm"
+          className="gap-2 dark:text-green-300 text-green-500"
+          onClick={() => {
+            router.push(template.url)
+          }}
+        >
+          Visit
+          <HiOutlineExternalLink />
+        </Button>
+      </CardFooter>
+    </Card>
   )
 }
 const FeaturedCard = ({
@@ -247,98 +250,93 @@ const FeaturedCard = ({
   const featured = template.featured!
 
   return (
-    <CardWrapper className="px-3 pt-3 overflow-hidden relative h-fit lg:col-span-2 bg-muted/20 border ">
-      <div>
-        <div className="grid lg:grid-cols-2 lg:gap-3 pb-3 gap-2">
-          <div className="flex flex-col gap-3 mb-3 min-w-[50%]">
-            <div className="bg-muted relative max-w-full lg:mb-0 w-full overflow-hidden">
-              <img
-                src={template.ogImage}
-                className="rounded-md m-0 w-full h-60 object-fill"
-                alt="opengraph image"
-                loading="lazy"
-                width={400}
-                height={300}
-                // className="w-full h-64 object-cover"
-              />
-            </div>
-            <div className="flex flex-col gap-0 pt-1 pb-2 px-2 md:px-3 ">
-              <h2 className="m-0 font-bold w-full">{template.name}</h2>
-
-              <p className="m-0 p-0 line-clamp-3 dark:text-zinc-400 text-zinc-700">
-                {template.description}
-              </p>
-            </div>
+    <Card className="animate-in lg:col-span-2 p-4">
+      <CardContent className="grid lg:grid-cols-2 lg:gap-3 gap-2 p-0">
+        <div className="flex flex-col gap-3 mb-3 min-w-[50%]">
+          <div className="bg-muted relative max-w-full lg:mb-0 w-full overflow-hidden rounded-md">
+            <img
+              src={template.ogImage}
+              className="rounded-md m-0 w-full h-60 object-fill"
+              alt="opengraph image"
+              loading="lazy"
+              width={400}
+              height={300}
+              // className="w-full h-64 object-cover"
+            />
           </div>
+          <div className="flex flex-col gap-0 pt-1 pb-2 px-2 md:px-3 ">
+            <h2 className="m-0 font-bold w-full">{template.name}</h2>
 
-          {featured && (
-            <div className="pb-6 lg:pb-2 pt-2 md:pt-0">
-              <Carousel className="relative">
-                <CarouselContent className="ml-0">
-                  {featured.testimonials.map((o, i) => (
-                    <CarouselItem
-                      key={i}
-                      className="border py-3 h-60 px-35 rounded-sm border-dashed bg-secondary/40"
-                    >
-                      {/* <FaQuoteLeft className="size-8 text-white" /> */}
-                      <div className="flex-col-center gap-4 pt-2 mx-auto">
-                        <div className="flex-col-center gap-1">
-                          <img
-                            src={o.avatar}
-                            className="rounded-full size-14"
-                          />
+            <p className="m-0 p-0 line-clamp-3 dark:text-zinc-400 text-zinc-700">
+              {template.description}
+            </p>
+          </div>
+        </div>
 
+        {featured && (
+          <div className="pb-6 lg:pb-2 pt-2 md:pt-0">
+            <Carousel className="relative">
+              <CarouselContent className="ml-0">
+                {featured.testimonials.map((o, i) => (
+                  <CarouselItem
+                    key={i}
+                    className="border py-3 h-60 px-35 rounded-sm border-dashed bg-secondary/40"
+                  >
+                    {/* <FaQuoteLeft className="size-8 text-white" /> */}
+                    <div className="flex-col-center gap-4 pt-2 mx-auto">
+                      <div className="flex-col-center gap-1">
+                        <img src={o.avatar} className="rounded-full size-14" />
+
+                        <span className="text-muted-foreground text-sm">
+                          {o.name}
+                        </span>
+                        <span className="text-muted-foreground text-sm">
+                          {o.role}
+                        </span>
+                        {o.url && (
                           <span className="text-muted-foreground text-sm">
-                            {o.name}
+                            <a
+                              href={o.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <HiOutlineExternalLink className="size-5" />
+                            </a>
                           </span>
-                          <span className="text-muted-foreground text-sm">
-                            {o.role}
-                          </span>
-                          {o.url && (
-                            <span className="text-muted-foreground text-sm">
-                              <a
-                                href={o.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <HiOutlineExternalLink className="size-5" />
-                              </a>
-                            </span>
-                          )}
-                        </div>
-                        <q className="text-center font-medium w-[95%] mx-auto text-sm italic">
-                          {o.quote}
-                        </q>
-                        {/* <div className="flex-col-center gap-2"></div> */}
+                        )}
                       </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="top-full translate-y-1 md:translate-y-4 -translate-x-[2.5rem] size-8 left-1/2" />
-                <CarouselNext className="right-1/2 top-full translate-y-1 md:translate-y-4 translate-x-[2.5rem] size-8" />
-              </Carousel>
-            </div>
-          )}
-        </div>
+                      <q className="text-center font-medium w-[95%] mx-auto text-sm italic">
+                        {o.quote}
+                      </q>
+                      {/* <div className="flex-col-center gap-2"></div> */}
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="top-full translate-y-1 md:translate-y-4 -translate-x-[2.5rem] size-8 left-1/2" />
+              <CarouselNext className="right-1/2 top-full translate-y-1 md:translate-y-4 translate-x-[2.5rem] size-8" />
+            </Carousel>
+          </div>
+        )}
+      </CardContent>
 
-        <div className="flex-row-between border-t border-dashed gap-3 pt-3">
-          <span className="text-muted-foreground bg-muted px-1 rounded-[1px]">
-            Featured
-          </span>
-          <Button
-            variant={"secondary"}
-            size="sm"
-            className="rounded-lg gap-2 dark:text-green-300 text-green-500"
-            onClick={() => {
-              router.push(template.url)
-            }}
-          >
-            Visit
-            <HiOutlineExternalLink />
-          </Button>
-        </div>
+      <div className="flex-row-between border-t border-dashed gap-3 pt-3">
+        <span className="text-muted-foreground bg-muted px-1 rounded-[1px]">
+          Featured
+        </span>
+        <Button
+          variant={"secondary"}
+          size="sm"
+          className="rounded-lg gap-2 dark:text-green-300 text-green-500"
+          onClick={() => {
+            router.push(template.url)
+          }}
+        >
+          Visit
+          <HiOutlineExternalLink />
+        </Button>
       </div>
-    </CardWrapper>
+    </Card>
   )
 }
 

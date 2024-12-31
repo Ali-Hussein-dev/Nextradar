@@ -1,8 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
-import { CardWrapper } from "@/components/ui/card-wrapper"
 import { Button } from "@/components/button"
 import { TbExternalLink } from "react-icons/tb"
 import { FaGithub } from "react-icons/fa"
+import {
+  Card,
+  CardContent,
+  // CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 export type IntegrationCardProps = {
   name: string
@@ -24,32 +31,32 @@ export const IntegrationCard = ({
   sponsored = false,
 }: IntegrationCardProps) => {
   return (
-    <CardWrapper className="animate-in">
-      <div className="grow">
-        <div className="flex-row-between mb-2">
-          <div className="flex-row-start gap-2">
-            <img
-              src={logoUrl}
-              alt="logo"
-              className="size-8 my-0 rounded-full object-contain"
-              loading="lazy"
-            />
-            <h2 className="my-0 font-bold text-xl w-full">{name}</h2>
-          </div>
-          {sponsored ? (
-            <span className="text-muted-foreground">Sponsored</span>
-          ) : null}
+    <Card className="animate-in">
+      <CardHeader className="flex-row-between ">
+        <div className="flex-row-start gap-2">
+          <img
+            src={logoUrl}
+            alt="logo"
+            className="size-8 my-0 rounded-full object-contain"
+            loading="lazy"
+          />
+          <CardTitle>{name}</CardTitle>
         </div>
-        <p className="mb-2 line-clamp-3">{description}</p>
-      </div>
-      <div className="flex-row-between pt-2 border-t border-dashed w-full">
+        {sponsored ? (
+          <span className="text-muted-foreground">Sponsored</span>
+        ) : null}
+      </CardHeader>
+      <CardContent>
+        <p className="line-clamp-3">{description}</p>
+      </CardContent>
+      <CardFooter className="flex-row-between border-t border-dashed w-full">
         <div className="flex-row-end grow gap-3">
           {exampleUrl && (
             <Button
               asChild
               variant={"outline"}
               size="sm"
-              className="rounded-lg gap-3 no-underline"
+              className="gap-2 no-underline"
             >
               <a href={url} rel="nofollow">
                 <FaGithub />
@@ -62,7 +69,7 @@ export const IntegrationCard = ({
               asChild
               variant={"secondary"}
               size="sm"
-              className="rounded-lg gap-3 no-underline dark:text-green-300 text-green-500"
+              className="gap-2 no-underline dark:text-green-300 text-green-500"
             >
               <a href={url} rel="nofollow">
                 <TbExternalLink size="16" />
@@ -71,7 +78,7 @@ export const IntegrationCard = ({
             </Button>
           )}
         </div>
-      </div>
-    </CardWrapper>
+      </CardFooter>
+    </Card>
   )
 }
