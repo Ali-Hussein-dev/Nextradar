@@ -193,7 +193,7 @@ export function JobsList({ initialList }: { initialList: JobPostCardProps[] }) {
           )}
         </AnimatePresence>
         {jobs.map((o, i) => (
-          <JobCard key={o.jobTitle} isLast={jobs.length - 1 == i} {...o} />
+          <JobCard key={i+1} isLast={jobs.length - 1 == i} {...o} />
         ))}
       </div>
       <div className="flex-row-center w-full">

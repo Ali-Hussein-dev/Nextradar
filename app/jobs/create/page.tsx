@@ -1,12 +1,6 @@
-import dynamic from "next/dynamic"
+import { CreateDraftJobFormDynamic } from "@/jobs/components/create-draft-job-form"
 import { SiVercel, SiUpstash, SiSupabase, SiMedusa } from "react-icons/si"
-const CreateDraftJobForm = dynamic(
-  () =>
-    import("@/jobs/components/create-draft-job-form").then(
-      (mod) => mod.CreateDraftJobForm
-    ),
-  { ssr: false }
-)
+
 const logos = [
   { Icon: SiUpstash, name: "Upstash" },
   { Icon: SiVercel, name: "Vercel" },
@@ -19,7 +13,7 @@ export default function CreateJobPostPage() {
     <div className="max-w-5xl mx-auto p-1.5 md:p-4 w-full lg:relative">
       <div className="grid lg:grid-cols-10 gap-6">
         <div className="p-3 lg:p-6 rounded-sm border border-dashed lg:col-span-7 lg:w-full w-fit bg-secondary/20">
-          <CreateDraftJobForm />
+          <CreateDraftJobFormDynamic />
         </div>
         <div className="lg:col-span-3 animate-in">
           <div className="lg:sticky lg:top-3">

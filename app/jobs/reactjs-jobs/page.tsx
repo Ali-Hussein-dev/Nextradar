@@ -4,7 +4,7 @@ import { getPageMetadata } from "@/sanity/lib/getters"
 import { format } from "date-fns"
 import * as React from "react"
 
-export const dynamic = "force-dynamic"
+// export const dynamic = "force-dynamic"
 
 export const generateMetadata = async () => {
   const res = await getPageMetadata({ name: "reactjs-jobs" })

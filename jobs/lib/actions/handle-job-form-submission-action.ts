@@ -13,11 +13,11 @@ import { createCheckout } from "@/jobs/lib/creem/create-checkout"
  */
 export const handleJobFormSubmission = createServerAction()
     .input(DrafJobFormSchema)
-    .onError((e: any) => {
+    .onError(async (e: any) => {
         console.error(e.data?.issues)
         return "An error occurred while submitting the job post"
     })
-    .onSuccess((onSuccess) => {
+    .onSuccess(async (onSuccess) => {
         // notify me or send an email
         console.log(onSuccess)
         return "Job post submitted successfully"

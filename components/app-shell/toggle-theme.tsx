@@ -18,7 +18,7 @@ const buttonVariants = cva("size-7 rounded-full p-1.5 text-muted-foreground", {
 export function ThemeToggle({
   className,
   ...props
-}: ButtonHTMLAttributes<HTMLButtonElement>): React.ReactElement {
+}: ButtonHTMLAttributes<HTMLButtonElement>): React.ReactElement<any> {
   const { setTheme, resolvedTheme } = useTheme()
 
   const onToggle = useCallback(() => {

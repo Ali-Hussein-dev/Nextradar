@@ -36,11 +36,10 @@ const SharedContainer = ({
 export const revalidate = 3600 // 1 hour
 
 //======================================
-export default async function ContentPage({
-  params,
-}: {
-  params: { slug: string[] }
+export default async function ContentPage(props: {
+  params: Promise<{ slug: string[] }>
 }) {
+  const params = await props.params
   const slug = params.slug[0]
   const date = new Date().getFullYear()
 
@@ -66,7 +65,12 @@ export default async function ContentPage({
   switch (slug) {
     case "latest":
       return (
-        <React.Suspense>
+        <React.Suspense
+          fallback={
+            <div className="py-4 flex-row-center text-lg">Loading...</div>
+          }
+          key="latest"
+        >
           <Feed />
         </React.Suspense>
       )
@@ -173,11 +177,10 @@ export async function generateStaticParams() {
   }))
 }
 
-export const generateMetadata = async ({
-  params,
-}: {
-  params: { slug?: string[] }
+export const generateMetadata = async (props: {
+  params: Promise<{ slug?: string[] }>
 }) => {
+  const params = await props.params
   const slugArray = params.slug
   const slug = slugArray?.[0] as string
   const res = await getPageMetadata({ name: slug })

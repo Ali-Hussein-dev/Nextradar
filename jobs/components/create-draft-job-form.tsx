@@ -13,6 +13,7 @@ import { DrafJobFormSchema } from "@/jobs/sanity/job-payload-z-schema"
 import { useServerActionMutation } from "@/jobs/lib/hooks/server-actions-hooks"
 import { handleJobFormSubmission } from "@/jobs/lib/actions/handle-job-form-submission-action"
 import { products } from "@/constants/creem"
+import dynamic from "next/dynamic"
 
 const benefits = [
   "4 day workweek",
@@ -313,3 +314,12 @@ export function CreateDraftJobForm() {
     </div>
   )
 }
+
+
+export const CreateDraftJobFormDynamic = dynamic(
+  () =>
+    import("@/jobs/components/create-draft-job-form").then(
+      (mod) => mod.CreateDraftJobForm
+    ),
+  { ssr: false }
+)

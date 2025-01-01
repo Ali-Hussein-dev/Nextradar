@@ -162,7 +162,7 @@ export type FieldsElementsList = FormItem[] | (FormItem[] | FormItem)[]
 export const RenderFormElement = (
   field: (FormFieldElement & ControllerRenderProps) | StaticFormElement,
   form: any
-): React.ReactElement => {
+): React.ReactElement<any> => {
   switch (field.variant) {
     case "Input":
       return (

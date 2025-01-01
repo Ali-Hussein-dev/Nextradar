@@ -1,12 +1,13 @@
 import { headers } from "next/headers"
 import Script from "next/script"
+
 const isDev = process.env.NEXT_PUBLIC_VERCEL_ENV !== "production"
 
 //======================================
-export const AnalyticsProv = () => {
+export const AnalyticsProv = async () => {
   if (isDev) return null
 
-  const headersList = headers()
+  const headersList = await headers()
   const pathname = headersList.get("x-pathname")
 
   if (!pathname || pathname.includes("/studio")) {

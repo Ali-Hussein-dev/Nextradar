@@ -1,6 +1,11 @@
 const faqs = [
   {
-    question: "What NextRadar is not?",
+    question: "What is Nextradar?",
+    answer:
+      "Nextradar is a collection of high quality tutorials and resources to stay up to date and to master Nextjs fast.",
+  },
+  {
+    question: "What Nextradar is not?",
     answer:
       "It is not an alterantive to YouTube or Google, but a collection of high quality tutorials and resources to stay up to date and to master Nextjs fast.",
   },
@@ -8,11 +13,6 @@ const faqs = [
     question: "How do I evaluate a resource/tool?",
     answer:
       "When evaluating a resource, I consider several factors such as the author's credibility, its popularity, and my personal experience from over two years of working with Next.js.",
-  },
-  {
-    question: "It's free, who pay for that?",
-    answer:
-      "No one, it doesn't take much time to maintain at the moment, I may add sponsored resources in the future.",
   },
 ]
 
@@ -28,9 +28,20 @@ export const Faqs = () => {
           <div
             key={i}
             className="border border-dashed rounded border-zinc-400 dark:border-zinc-700 p-4"
+            itemScope
+            itemType="https://schema.org/Question"
           >
-            <h3 className="font-semibold text-lg">{faq.question}</h3>
-            <p className="dark:text-zinc-500">{faq.answer}</p>
+            <h3 className="font-semibold text-lg" itemProp="name">
+              {faq.question}
+            </h3>
+            <p
+              className="dark:text-zinc-500"
+              itemProp="acceptedAnswer"
+              itemScope
+              itemType="https://schema.org/Answer"
+            >
+              <span itemProp="text">{faq.answer}</span>
+            </p>
           </div>
         ))}
       </div>

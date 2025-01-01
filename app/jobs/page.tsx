@@ -2,7 +2,7 @@ import { InitialJobPostsList } from "@/jobs/components/initial-job-posts-list"
 import { getTopHiringCompanies } from "@/jobs/sanity/getters"
 import * as React from "react"
 
-export const dynamic = "force-dynamic"
+// export const dynamic = "auto"
 
 //======================================
 export default async function JobsPage() {
@@ -40,7 +40,11 @@ export default async function JobsPage() {
           </div>
         </div>
       </div>
-      <React.Suspense>
+      <React.Suspense
+        fallback={
+          <div className="flex-row-center w-full text-lg">Loading...</div>
+        }
+      >
         <InitialJobPostsList />
       </React.Suspense>
     </div>
