@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Repo } from "@/lib/get-repos-github"
 import { CiStar } from "react-icons/ci"
-import { TbExternalLink } from "react-icons/tb"
+import { MdOutlineArrowOutward } from "react-icons/md"
 import { Button } from "@/components/button"
 import { FaGithub } from "react-icons/fa"
 import {
@@ -72,12 +72,12 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
               <Button
                 asChild
                 variant={"secondary"}
-                className="gap-3 no-underline dark:text-green-300 text-green-500"
+                className="gap-1.5 no-underline"
                 size="sm"
               >
                 <a href={repo.homepage} target="_blank">
                   Visit
-                  <TbExternalLink size="16" />
+                  <MdOutlineArrowOutward size="16" />
                 </a>
               </Button>
             )}

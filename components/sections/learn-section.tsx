@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { getSites } from "@/sanity/lib/getters"
-import { HiOutlineExternalLink } from "react-icons/hi"
+import { MdOutlineArrowOutward } from "react-icons/md"
 import { Button } from "@/components/ui/button"
 import { Repo } from "@/lib/get-repos-github"
 import {
@@ -57,11 +57,11 @@ export const SitesList = async () => {
                 asChild
                 size="sm"
                 variant={"secondary"}
-                className="gap-3 no-underline dark:text-green-300 text-green-500"
+                className="gap-1.5 no-underline"
               >
                 <a href={o.homepage} target="_blank" rel={o.rel}>
                   Visit
-                  <HiOutlineExternalLink />
+                  <MdOutlineArrowOutward />
                 </a>
               </Button>
             </CardFooter>

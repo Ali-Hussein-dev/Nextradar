@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Button } from "@/components/button"
-import { TbExternalLink } from "react-icons/tb"
+import { MdOutlineArrowOutward } from "react-icons/md"
 import { FaGithub } from "react-icons/fa"
 import {
   Card,
@@ -47,7 +47,7 @@ export const IntegrationCard = ({
         ) : null}
       </CardHeader>
       <CardContent>
-        <p className="line-clamp-3">{description}</p>
+        <p className="line-clamp-2">{description}</p>
       </CardContent>
       <CardFooter className="flex-row-between border-t border-dashed w-full">
         <div className="flex-row-end grow gap-3">
@@ -59,8 +59,8 @@ export const IntegrationCard = ({
               className="gap-2 no-underline"
             >
               <a href={url} rel="nofollow">
-                <FaGithub />
                 Starter
+                <FaGithub />
               </a>
             </Button>
           )}
@@ -69,11 +69,11 @@ export const IntegrationCard = ({
               asChild
               variant={"secondary"}
               size="sm"
-              className="gap-2 no-underline dark:text-green-300 text-green-500"
+              className="gap-1.5 no-underline"
             >
               <a href={url} rel="nofollow">
-                <TbExternalLink size="16" />
                 Visit
+                <MdOutlineArrowOutward size="16" />
               </a>
             </Button>
           )}

@@ -3,7 +3,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { FaGithub } from "react-icons/fa"
 import { Button } from "@/components/button"
-import { HiOutlineExternalLink } from "react-icons/hi"
+import { MdOutlineArrowOutward } from "react-icons/md"
 import { filterLabels, templates } from "@/constants/templates"
 import * as React from "react"
 import { parseAsArrayOf, parseAsString, useQueryStates } from "nuqs"
@@ -228,13 +228,13 @@ const StandardCard = ({
         <Button
           variant={"secondary"}
           size="sm"
-          className="gap-2 dark:text-green-300 text-green-500"
+          className="gap-1.5"
           onClick={() => {
             router.push(template.url)
           }}
         >
           Visit
-          <HiOutlineExternalLink />
+          <MdOutlineArrowOutward />
         </Button>
       </CardFooter>
     </Card>
@@ -300,7 +300,7 @@ const FeaturedCard = ({
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              <HiOutlineExternalLink className="size-5" />
+                              <MdOutlineArrowOutward className="size-5" />
                             </a>
                           </span>
                         )}
@@ -327,13 +327,13 @@ const FeaturedCard = ({
         <Button
           variant={"secondary"}
           size="sm"
-          className="rounded-lg gap-2 dark:text-green-300 text-green-500"
+          className="gap-1.5"
           onClick={() => {
             router.push(template.url)
           }}
         >
           Visit
-          <HiOutlineExternalLink />
+          <MdOutlineArrowOutward />
         </Button>
       </div>
     </Card>
