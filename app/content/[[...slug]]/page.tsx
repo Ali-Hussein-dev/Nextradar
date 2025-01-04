@@ -172,6 +172,7 @@ export async function generateStaticParams() {
     "tools",
     "real-world-apps",
     "jobs",
+    "sponsor",
   ].map((slug) => ({
     slug: [slug],
   }))

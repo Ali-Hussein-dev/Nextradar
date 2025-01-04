@@ -26,6 +26,7 @@ const PageSchema = {
                     { title: "Hosting", value: "hosting" },
                     { title: "Baas", value: "baas" },
                     { title: "Commerce", value: "commerce" },
+                    { title: "Sponsor", value: "sponsor" },
                 ],
             },
             // validation: Rule => Rule.unique()
