@@ -1,8 +1,8 @@
 import { Newsletter2 } from "@/components/newsletter"
 import { Search } from "@/components/search"
-import { FeedList } from "./feed-list"
+import { FeedList } from "@/components/feed-list"
 import { getPageHeader, getSourcesPage } from "@/sanity/lib/getters"
-import { FaExternalLinkAlt } from "react-icons/fa"
+import { MdOutlineArrowOutward } from "react-icons/md"
 import { Button } from "@/components/button"
 import { cn } from "@/lib/utils"
 import { YtDialog } from "@/components/yt-dialog"
@@ -22,17 +22,36 @@ export type FeedCardProps = {
   type: string
   author: string
   href: string
+  sponsored: boolean
+  rel: string
 }
 //======================================
 export const FeedCard = React.memo(
-  ({ name, description, author, href, src }: FeedCardProps) => {
+  ({
+    name,
+    description,
+    author,
+    href,
+    src,
+    sponsored,
+    rel = "nofollow",
+  }: FeedCardProps) => {
     return (
-      <Card className="shadow-none">
+      <Card
+        className={`shadow-none ${sponsored ? "dark:border-green-300/30 border-green-300/60 bg-muted/30" : ""}`}
+      >
         <CardHeader className="flex flex-col md:flex-row items-start h-full sm:items-start md:gap-3 w-full">
           {/* --------------------------------YT-Embed */}
           {src && <YtDialog src={src} href={href} />}
           <div className="w-full pt-2 grow flex-col-start md:h-full gap-1">
-            <CardTitle>{name}</CardTitle>
+            <CardTitle className="flex-row-between w-full gap-5">
+              <span className="line-clamp-1">{name}</span>
+              {sponsored && (
+                <span className="text-xs text-green-300 font-light">
+                  Sponsored
+                </span>
+              )}
+            </CardTitle>
             <CardDescription
               className={cn(
                 "mb-1.5 dark:text-zinc-500 text-pretty line-clamp-2 text-zinc-700",
@@ -50,14 +69,14 @@ export const FeedCard = React.memo(
           <span className="text-muted-foreground/80">{author}</span>
           {!src && (
             <Button
-              variant="ghost"
+              variant="outline"
               asChild
-              className="gap-2 no-underline dark:text-green-300 text-green-500"
+              className="gap-1.5 no-underline bg-transparent"
               size="sm"
             >
-              <a href={href} target="_blank" rel="nofollow">
+              <a href={href} target="_blank" rel={rel}>
                 Visit
-                <FaExternalLinkAlt size="14" />
+                <MdOutlineArrowOutward size="14" />
               </a>
             </Button>
           )}

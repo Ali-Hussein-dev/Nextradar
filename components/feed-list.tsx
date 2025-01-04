@@ -3,7 +3,6 @@ import { FeedCard, FeedCardProps } from "@/components/feed"
 import * as React from "react"
 import { useInfiniteQuery } from "@tanstack/react-query"
 import { Button } from "@/components/ui/button"
-import { SponsoredCard } from "@/components/sponsor"
 
 //======================================
 export const FeedList = ({ initialList }: { initialList: FeedCardProps[] }) => {
@@ -23,18 +22,11 @@ export const FeedList = ({ initialList }: { initialList: FeedCardProps[] }) => {
       {/* <div className="text-center">
         {fetchStatus == "fetching" && !data && "fetching data..."}
       </div> */}
-      <div className="space-y-5 md:space-y-7 px-2">
-        {data?.pages.flat().map((o, i) => {
-          if (i == 2 || i == 11) {
-            return (
-              <div key={i}>
-                <SponsoredCard />
-                <FeedCard key={i} {...o} />
-              </div>
-            )
-          }
-          return <FeedCard key={i} {...o} />
-        })}
+      <div className="space-y-2 md:space-y-3 px-2">
+        {data?.pages
+          .flat()
+          .sort((a, b) => (b.sponsored ? 1 : -1) - (a.sponsored ? 1 : -1))
+          .map((o, i) => <FeedCard key={i} {...o} />)}
       </div>
       <div className="flex-row-center w-full">
         <Button

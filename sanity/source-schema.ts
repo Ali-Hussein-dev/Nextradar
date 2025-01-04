@@ -38,6 +38,25 @@ const SourceSchema = {
             title: "Recommended",
             type: "boolean",
             initialValue: false,
+        },
+        {
+            name: "sponsored",
+            title: "Sponsored",
+            type: "boolean",
+            initialValue: false,
+        },
+        {
+            name: "rel",
+            title: "Link rel attribute",
+            type: "string",
+            options: {
+                list: [
+                    { title: "No Follow", value: "nofollow" },
+                    { title: "Sponsored", value: "sponsored" },
+                    { title: "dofollow", value: "dofollow" },
+                ],
+            },
+            initialValue: "nofollow",
         }
     ]
 }

@@ -123,7 +123,7 @@ export const getSources = async ({
 export const getSourcesPage = async ({
     page = 1,
     pageSize = 10,
-    fields = "name, description, type, href, src, author",
+    fields = "name, description, type, href, src, author, sponsored, rel",
 }: {
     page?: number;
     pageSize?: number;
