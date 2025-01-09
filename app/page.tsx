@@ -6,11 +6,14 @@ import { Authors } from "@/components/authors"
 import { Newsletter } from "@/components/newsletter"
 import { Footer } from "@/components/shared/footer"
 import { HomepageNavbar } from "@/components/home-page-navbar"
+import { urls } from "@/constants/urls"
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
+import { RiDoubleQuotesL } from "react-icons/ri"
 
 export const metadata: Metadata = {
   title: "The Next.js Ecosystem Overview in One Place",
   description:
-    "Discover the top curated resources for Nextjs developers with a focus on quality over quantity.",
+    "Easily discover the latest resources. Expert-authored content, and curated lists such templates, OS projects, jobs, courses, and more.",
 }
 
 const ExcludedContent = [
@@ -36,13 +39,58 @@ const InfoAboutContent = () => (
     </ul>
   </div>
 )
+const testimonialsList = [
+  {
+    quote: "Nice one, https://nextradar.dev is pretty cool",
+    name: "Seif Ghezala, co-founder of Tinloof",
+  },
+  {
+    quote: "Its really helpful. Thanks for sharing",
+    name: "Reddit user",
+  },
+  {
+    quote:
+      "Thank you so much for creating such an incredible product. I appreciate your effort, as it has greatly helped me learn and grow.",
+    name: "Anayat Khan, Software Engineer",
+  },
+  {
+    quote:
+      "It is amazing. I like it! also, may I know how did you implemented the global search? Any resources? Im planning to add it on our dashboard. Thanks",
+    name: "Reddit user",
+  },
+  {
+    quote:
+      "Wow! Thank you so much. 😍 This website has pretty good resources links along with a job section and OSS project resources as well! 🎉",
+    name: "Reddit user",
+  },
+]
+const Testimonials = () => (
+  <div className="py-20 mx-auto w-fit px-2 max-w-2xl">
+    <h2 className="font-bold text-xl sm:text-2xl md:text-3xl text-center mb-4">
+      Testimonials
+    </h2>
+    <ul className="grid md:grid-cols-2 gap-4 mx-auto w-fit dark:text-zinc-400 ">
+      {testimonialsList.map((s) => (
+        <Card key={s.quote} className="">
+          <CardHeader>
+            <RiDoubleQuotesL size="20" />
+          </CardHeader>
+          <CardContent className="pb-2">{s.quote}</CardContent>
+          <CardFooter className="pt-0 text-muted-foreground italic">
+            {s.name}
+          </CardFooter>
+        </Card>
+      ))}
+    </ul>
+  </div>
+)
 export default async function HomePage() {
   return (
     <main className="min-h-screen relative">
       <HomepageNavbar variant="default" />
-      <div className="min-h-[90vh] flex-col-center pt-10 sm:pt-16 md:pt-24">
+      <div className="min-h-[85vh] flex-col-center pt-10">
         <div className="flex flex-col justify-center text-center animate-in px-2">
-          <h1 className="h1 mb-3 text-3xl font-extrabold md:text-4xl lg:text-5xl tracking-tight text-center max-w-2xl mx-auto text-pretty">
+          <h1 className="h1 mb-3 text-3xl font-extrabold md:text-4xl lg:text-6xl tracking-tight text-center max-w-2xl mx-auto text-pretty">
             {metadata.title as string}
           </h1>
           <p className="text-lg md:text-xl text-center max-w-xl mx-auto dark:text-zinc-500 font-medium pt-3 mb-4 text-pretty">
@@ -52,11 +100,12 @@ export default async function HomePage() {
             asChild
             className="mt-4 max-w-[12rem] font-semibold w-full mx-auto text-lg"
           >
-            <Link href="/docs/latest">Discover</Link>
+            <Link href={urls.latest}>Discover</Link>
           </Button>
         </div>
       </div>
       <InfoAboutContent />
+      <Testimonials />
       <Newsletter />
       <Authors />
       <Faqs />
