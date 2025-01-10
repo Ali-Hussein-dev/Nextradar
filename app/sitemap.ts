@@ -10,7 +10,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url = url.replace(/\/$/, "");
     const lastModified = new Date();
     const jobPostsSlugs = (await getAllJobPostSlugs())
+
     const jobPostsPaths = jobPostsSlugs.map(o => `${urls.jobs}/${o.slug}`);
+
     const paths = [
         "/",
         ...urlsSitemap,
@@ -20,5 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return paths.map(path => ({
         url: `${url}${path}`,
         lastModified,
+        changeFrequency: "daily",
+        priority: 0.7,
     }));
 }
