@@ -165,37 +165,37 @@ export const templates: Template[] = [
             language: getPair("language", "typescript"),
             others: getPair("others", ["turborepo"]),
         },
-        featured: {
-            testimonials: [
-                {
-                    quote: "Makerkit is a pretty nice shortcut for building a SaaS. Code quality and the support Slack channel are excellent",
-                    name: "Janne Aukia",
-                    role: "",
-                    avatar: "https://pbs.twimg.com/profile_images/1276174264551518208/ArwSsAWE_400x400.jpg",
-                    url: "https://x.com/jaukia/status/1852730134215696410"
-                }, {
-                    quote: "Just started using MakerKit and it's a total game-changer. 🚀 Wish I had this when I was building Phishr. Instant team management and billing? Insane.",
-                    name: "Harvey Coplestone",
-                    role: "",
-                    avatar: "https://pbs.twimg.com/profile_images/1825124651535572992/tXIb4YKR_400x400.jpg",
-                    url: "https://x.com/hcoplestone/status/1825193478105534676"
-                },
-                {
-                    quote: "Honestly @makerkit_dev is great. More for B2B products but really clean and well documented",
-                    name: "Kiara Bickers",
-                    role: "",
-                    avatar: "https://pbs.twimg.com/profile_images/1807544605275017217/TPsj_GHj_400x400.jpg",
-                    url: "https://x.com/kiarabickers/status/1832034757779005635"
-                },
-                {
-                    quote: "Tried most of them, makerkit beats them all 🔥",
-                    name: "Mehdi Nabhani",
-                    role: "",
-                    avatar: "https://pbs.twimg.com/profile_images/1657287624049000448/gASq0syB_400x400.jpg",
-                    url: "https://x.com/NabhaniMehdi/status/1820878102274437529"
-                },
-            ]
-        }
+        // featured: {
+        //     testimonials: [
+        //         {
+        //             quote: "Makerkit is a pretty nice shortcut for building a SaaS. Code quality and the support Slack channel are excellent",
+        //             name: "Janne Aukia",
+        //             role: "",
+        //             avatar: "https://pbs.twimg.com/profile_images/1276174264551518208/ArwSsAWE_400x400.jpg",
+        //             url: "https://x.com/jaukia/status/1852730134215696410"
+        //         }, {
+        //             quote: "Just started using MakerKit and it's a total game-changer. 🚀 Wish I had this when I was building Phishr. Instant team management and billing? Insane.",
+        //             name: "Harvey Coplestone",
+        //             role: "",
+        //             avatar: "https://pbs.twimg.com/profile_images/1825124651535572992/tXIb4YKR_400x400.jpg",
+        //             url: "https://x.com/hcoplestone/status/1825193478105534676"
+        //         },
+        //         {
+        //             quote: "Honestly @makerkit_dev is great. More for B2B products but really clean and well documented",
+        //             name: "Kiara Bickers",
+        //             role: "",
+        //             avatar: "https://pbs.twimg.com/profile_images/1807544605275017217/TPsj_GHj_400x400.jpg",
+        //             url: "https://x.com/kiarabickers/status/1832034757779005635"
+        //         },
+        //         {
+        //             quote: "Tried most of them, makerkit beats them all 🔥",
+        //             name: "Mehdi Nabhani",
+        //             role: "",
+        //             avatar: "https://pbs.twimg.com/profile_images/1657287624049000448/gASq0syB_400x400.jpg",
+        //             url: "https://x.com/NabhaniMehdi/status/1820878102274437529"
+        //         },
+        //     ]
+        // },
     },
     {
         url: "https://anotherwrapper.com?aff=pWOZY",
@@ -243,7 +243,7 @@ export const templates: Template[] = [
         name: "Indie Starter",
         description: "Write less code, iterate fast, and earn cash",
         ogImage: "https://indie-starter.dev/opengraph-image.jpg",
-        sponsored: false,
+        sponsored: true,
         rel: "dofollow",
         specs: {
             cms: getPair("cms", "sanity"),
@@ -272,6 +272,25 @@ export const templates: Template[] = [
             backend: getPair("backend", ["nextAuth", "vercelPostgres"]),
             email: getPair(),
             analytics: getPair("analytics", "vercelAnalytics"),
+            styling: getPair("styling", ["tailwindcss", "shadcn"]),
+            language: getPair("language", "typescript"),
+            others: [],
+        },
+    },
+    {
+        url: "https://irsyad.co/templates",
+        name: "Irsyad",
+        description: "A collection of well-crafted UI templates for your next project",
+        ogImage:
+            "https://irsyad.co/images/templates/first-bundler/1.jpg",
+        rel: "nofollow",
+        specs: {
+            cms: [],
+            cost: getPair("cost", "premium"),
+            payment: getPair(),
+            backend: getPair(),
+            email: getPair(),
+            analytics: getPair(),
             styling: getPair("styling", ["tailwindcss", "shadcn"]),
             language: getPair("language", "typescript"),
             others: [],

@@ -26,7 +26,7 @@
         @apply dark:h1-dark h1-light bg-clip-text text-transparent;
     }
         p {
-            @apply text-gray-600 dark:text-zinc-400;
+            @apply text-zinc-600 dark:text-zinc-400;
         }
         .typography {
             @apply prose prose-zinc dark:prose-invert decoration-muted-foreground prose-a:decoration-inherit max-w-full

@@ -192,7 +192,9 @@ const StandardCard = ({
   router: AppRouterInstance
 }) => {
   return (
-    <Card className="animate-in">
+    <Card
+      className={`shadow-none ${template.sponsored ? "dark:border-green-300/30 border-green-300/60 bg-muted/30" : ""}`}
+    >
       <CardHeader className="flex-row-start gap-3">
         <img
           src={template.ogImage}
@@ -218,6 +220,12 @@ const StandardCard = ({
         <p>Card Content</p>
       </CardContent> */}
       <CardFooter className="flex-row-end border-t border-dashed gap-3 ">
+        {template.sponsored && (
+          <span className="mr-auto px-1 text-card-foreground/60">
+            Sponsored
+          </span>
+        )}
+
         {template.github && (
           <Button asChild variant="outline" size="icon" className="rounded-lg">
             <a href={template.github}>
@@ -353,11 +361,13 @@ export function TemplatesSection() {
     clearOnDefault: true,
   })
   const urlHasParams = Object.values(activeQueryState).some((v) => v.length > 0)
+  const mergedParams = React.useMemo(
+    () => Object.values(activeQueryState).flat(),
+    [activeQueryState]
+  )
   const filtered = React.useMemo(() => {
     if (!urlHasParams) return templates
     return templates.filter(({ specs }) => {
-      // loops count of activeQueryState
-      const mergedParams = Object.values(activeQueryState).flat()
       const mergedSpecs = Object.values(specs)
         .flat()
         .map((o) => o?.value)
@@ -367,7 +377,7 @@ export function TemplatesSection() {
       // Do template specs have at least all serach params
       return common.length >= mergedParams.length
     })
-  }, [JSON.stringify(activeQueryState), urlHasParams])
+  }, [mergedParams, urlHasParams])
 
   const router = useRouter()
 
@@ -393,12 +403,11 @@ export function TemplatesSection() {
           </CollapsibleContent>
         </Collapsible>
         <div className="grid lg:grid-cols-2 gap-3 lg:col-span-6 h-fit lg:px-0 grid-cols-1 w-full">
-          {filtered.map((o) => {
-            if (o.featured) {
-              return <FeaturedCard key={o.name} template={o} router={router} />
-            }
-            return <StandardCard key={o.name} template={o} router={router} />
-          })}
+          {filtered
+            .sort((a, b) => (b.sponsored ? 1 : 0) - (a.sponsored ? 1 : 0))
+            .map((o) => (
+              <StandardCard key={o.name} template={o} router={router} />
+            ))}
         </div>
         <div className="lg:col-span-2 px-4 border border-dashed rounded-sm py-4 h-fit hidden lg:block">
           <FilterAccordion
