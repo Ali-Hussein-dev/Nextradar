@@ -54,6 +54,7 @@ export const filterLabels = {
             drizzle: { label: "Drizzle", value: "drizzle" },
             neon: { label: "Neon", value: "neon" },
             express: { label: "Express", value: "express" },
+            convex: { label: "Convex", value: "convex" },
             vercelPostgres: { label: "Vercel Postgres", value: "vercelPostgres" },
             upstash: { label: "upstash", value: "upstash" },
             mongodb: { label: "MongoDB", value: "mongodb" },
@@ -61,6 +62,7 @@ export const filterLabels = {
             zenstack: { label: "ZenStack", value: "zenstack" },
             postgres: { label: "Postgres", value: "postgres" },
             mysql: { label: "MySQL", value: "mysql" },
+            hono: { label: "Hono", value: "hono" },
         },
     },
     email: {
@@ -239,7 +241,7 @@ export const templates: Template[] = [
         // }
     },
     {
-        url: "https://indie-starter.dev?ref=nextradar-templates",
+        url: "https://indie-starter.dev",
         name: "Indie Starter",
         description: "Write less code, iterate fast, and earn cash",
         ogImage: "https://indie-starter.dev/opengraph-image.jpg",
@@ -335,7 +337,7 @@ export const templates: Template[] = [
         },
     },
     {
-        url: "https://directory.indie-starter.dev?ref=nextradar-templates",
+        url: "https://directory.indie-starter.dev",
         name: "Directory Starter",
         description:
             "Expand your audience, showcase your offerings, and boost your visibility",
@@ -373,6 +375,65 @@ export const templates: Template[] = [
             language: getPair("language", "typescript"),
             others: getPair("others", ["turborepo"]),
         },
+    },
+    {
+        url: "https://achromatic.dev/?ref=nextradar",
+        name: "Achromatic",
+        description:
+            "Get all the tools you need to build and scale your SaaS, AI tool or web application with our comprehensive feature set and straightforward pricing.",
+        ogImage: "https://achromatic.dev/og.jpg",
+        rel: "nofollow",
+        specs: {
+            cms: [],
+            cost: getPair("cost", "premium"),
+            payment: getPair("payment", "stripe"),
+            backend: getPair("backend", ["supabase", "nextAuth", "prisma"]),
+            email: getPair("email", "resend"),
+            analytics: getPair(),
+            styling: getPair("styling", ["tailwindcss", "shadcn"]),
+            language: getPair("language", "typescript"),
+            others: [],
+        },
+    },
+    {
+
+        url: "https://trpc.io",
+        github: "https://github.com/trpc/trpc",
+        name: "tRPC",
+        description: "Move fast and break nothing. End-to-end typesafe APIs made easy.",
+        ogImage:"https://og-image.trpc.io/api/landing?cache-buster=10",
+        rel: "nofollow",
+        specs: {
+            cms: [],
+            cost: getPair("cost", "free"),
+            payment: getPair(),
+            backend: getPair("backend", []),
+            email: getPair(),
+            analytics: getPair(),
+            styling: getPair("styling", ["tailwindcss"]),
+            language: getPair("language", "typescript"),
+            others: [],
+        },
+    },
+    {
+        url: "https://jstack.app",
+        github: "https://github.com/upstash/jstack",
+        name: "JStack",
+        description: "Ship high-performance ⚡ Next.js apps in minutes",
+        ogImage:"https://jstack.app/thumbnail.png",
+        rel: "nofollow",
+        specs: {
+            cms: [],
+            cost: getPair("cost", "free"),
+            payment: getPair(),
+            backend: getPair("backend", ["Hono"]),
+            email: getPair(),
+            analytics: getPair(),
+            styling: getPair("styling", ["tailwindcss"]),
+            language: getPair("language", "typescript"),
+            others: [],
+        },
+    
     },
     {
         url: "https://create.t3.gg/",
@@ -525,25 +586,6 @@ export const templates: Template[] = [
         },
     },
     {
-        url: "https://achromatic.dev",
-        name: "Achromatic",
-        description:
-            "Get all the tools you need to build and scale your SaaS, AI tool or web application with our comprehensive feature set and straightforward pricing.",
-        ogImage: "https://achromatic.dev/og.jpg",
-        rel: "nofollow",
-        specs: {
-            cms: [],
-            cost: getPair("cost", "premium"),
-            payment: getPair("payment", "stripe"),
-            backend: getPair("backend", ["supabase", "nextAuth", "prisma"]),
-            email: getPair("email", "resend"),
-            analytics: getPair(),
-            styling: getPair("styling", ["tailwindcss", "shadcn"]),
-            language: getPair("language", "typescript"),
-            others: [],
-        },
-    },
-    {
         url: "https://shipixen.com?aff=pWOZY",
         name: "Shipixen",
         description:
@@ -620,25 +662,25 @@ export const templates: Template[] = [
             others: [],
         },
     },
-    {
-        url: "https://code-templates.lemonsqueezy.com?aff=pWOZY",
-        name: "LaunchFast",
-        description:
-            "Comprehensive Astro, Next.js and SvelteKit Starter Kits for SEO, Analytics, Storage, Auth, Payments, Blogs, and Email - everything a developer needs to kickstart their project.",
-        ogImage: "https://ik.imagekit.io/vjeqenuhn/launchfast-website/seo.png",
-        rel: "nofollow",
-        specs: {
-            cms: [],
-            cost: getPair("cost", "premium"),
-            payment: getPair("payment", ["stripe", "lemonSqueezy"]),
-            backend: getPair("backend", ["supabase", "firebase", "upstash", "mongodb"]),
-            email: getPair("email", ["resend", "nodeMailer", "hubspot"]),
-            analytics: getPair("analytics", ["googleAnalytics", "pirsch", "posthog"]),
-            styling: getPair("styling", "tailwindcss"),
-            language: getPair("language", "typescript"),
-            others: [],
-        },
-    },
+    // {
+    //     url: "https://code-templates.lemonsqueezy.com?aff=pWOZY",
+    //     name: "LaunchFast",
+    //     description:
+    //         "Comprehensive Astro, Next.js and SvelteKit Starter Kits for SEO, Analytics, Storage, Auth, Payments, Blogs, and Email - everything a developer needs to kickstart their project.",
+    //     ogImage: "https://ik.imagekit.io/vjeqenuhn/launchfast-website/seo.png",
+    //     rel: "nofollow",
+    //     specs: {
+    //         cms: [],
+    //         cost: getPair("cost", "premium"),
+    //         payment: getPair("payment", ["stripe", "lemonSqueezy"]),
+    //         backend: getPair("backend", ["supabase", "firebase", "upstash", "mongodb"]),
+    //         email: getPair("email", ["resend", "nodeMailer", "hubspot"]),
+    //         analytics: getPair("analytics", ["googleAnalytics", "pirsch", "posthog"]),
+    //         styling: getPair("styling", "tailwindcss"),
+    //         language: getPair("language", "typescript"),
+    //         others: [],
+    //     },
+    // },
     {
         url: "https://turso-per-user-starter.vercel.app/",
         name: "Turso Starter (SqLite)",
@@ -680,6 +722,45 @@ export const templates: Template[] = [
         },
     },
     {
+        url: "https://starter.schemaui.com/",
+        name: "Schema UI",
+        github:"https://github.com/serge-0v/next-js-sanity-starter",
+        description:
+            "This starter is a part of Schema UI project, a comprehensive page builder that provides production-ready React components with pre-built Sanity schemas and GROQ queries, enabling rapid development of content-driven websites with Sanity CMS and Next.js.",
+        ogImage: "https://starter.schemaui.com/images/og-image.jpg",
+        rel: "nofollow",
+        specs: {
+            cms: getPair("cms","sanity"),
+            cost: getPair("cost", "free"),
+            payment: getPair("payment", []),
+            backend: getPair("backend", []),
+            email: getPair(),
+            analytics: getPair("analytics", []),
+            styling: getPair("styling", ["tailwindcss", "shadcn"]),
+            language: getPair("language", "typescript"),
+            others: getPair("others", ["turborepo", "trpc"]),
+        },
+    },
+    {
+        url: "https://supastarter.dev?aff=pWOZY",
+        name: "supastarter",
+        description:
+            "supastarter is a production-ready SaaS boilerplate for Nuxt 3 and Next.js 14. It includes authentication, billing, internationalization, multi-tenancy, and more.",
+        ogImage: "https://supastarter.dev/images/meta.png",
+        rel: "nofollow",
+        specs: {
+            cms: [],
+            cost: getPair("cost", "premium"),
+            payment: getPair("payment", ["stripe", "lemonSqueezy", "chargebee"]),
+            backend: getPair("backend", ["mongodb", "supabase", "mysql", "postgres", "prisma"]),
+            email: getPair("email", ["resend", "postmark", "plunk", "nodemailer"]),
+            analytics: getPair("analytics", ["googleAnalytics", "umami", "posthog", "plausible", "pirsch"]),
+            styling: getPair("styling", ["tailwindcss", "shadcn"]),
+            language: getPair("language", "typescript"),
+            others: getPair("others", ["turborepo", "trpc"]),
+        },
+    },
+    {
         url: "https://munchies-tinloof.vercel.app/",
         name: "Medusa B2C Starter",
         description:
@@ -718,25 +799,6 @@ export const templates: Template[] = [
             styling: getPair("styling", "tailwindcss"),
             language: getPair("language", "typescript"),
             others: [],
-        },
-    },
-    {
-        url: "https://supastarter.dev?aff=pWOZY",
-        name: "supastarter",
-        description:
-            "supastarter is a production-ready SaaS boilerplate for Nuxt 3 and Next.js 14. It includes authentication, billing, internationalization, multi-tenancy, and more.",
-        ogImage: "https://supastarter.dev/images/meta.png",
-        rel: "nofollow",
-        specs: {
-            cms: [],
-            cost: getPair("cost", "premium"),
-            payment: getPair("payment", ["stripe", "lemonSqueezy", "chargebee"]),
-            backend: getPair("backend", ["mongodb", "supabase", "mysql", "postgres", "prisma"]),
-            email: getPair("email", ["resend", "postmark", "plunk", "nodemailer"]),
-            analytics: getPair("analytics", ["googleAnalytics", "umami", "posthog", "plausible", "pirsch"]),
-            styling: getPair("styling", ["tailwindcss", "shadcn"]),
-            language: getPair("language", "typescript"),
-            others: getPair("others", ["turborepo", "trpc"]),
         },
     },
     // {
