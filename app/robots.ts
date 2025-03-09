@@ -16,6 +16,10 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
                 userAgent: "LinkedInBot", // for LinkedInBot
                 allow: "/", // allow everything
             },
+            {
+                userAgent: "AhrefsBot", // for AhrefsBot
+                allow: "/", // allow everything
+            },
         ],
         sitemap: `https://${host}/sitemap.xml`,
     };
