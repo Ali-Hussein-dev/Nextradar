@@ -20,7 +20,7 @@ export const AnalyticsProv = async () => {
     <>
       <script
         src="https://analytics.ahrefs.com/analytics.js"
-        data-key={env.AHREF_KEY}
+        data-key={env.NEXT_PUBLIC_AHREF_KEY}
         async
       ></script>
       <Script
