@@ -1,12 +1,12 @@
-import { AnalyticsProv } from "@/components/analytics-prov"
-import "./global.css"
-import { Poppins } from "next/font/google"
-import type { ReactNode } from "react"
-import { NuqsAdapter } from "nuqs/adapters/next/app"
+import { AnalyticsProv } from "@/components/analytics-prov";
+import "./global.css";
+import { Poppins } from "next/font/google";
+import type { ReactNode } from "react";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 const font = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
-})
+});
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
@@ -16,6 +16,11 @@ export default function Layout({ children }: { children: ReactNode }) {
       suppressHydrationWarning
     >
       <head>
+        <script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="XZvZQAylBpQaYiQbo5TKkA"
+          async
+        ></script>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <AnalyticsProv />
         {/* <script src="https://unpkg.com/react-scan/dist/auto.global.js" async /> */}
@@ -24,5 +29,5 @@ export default function Layout({ children }: { children: ReactNode }) {
         <NuqsAdapter>{children}</NuqsAdapter>
       </body>
     </html>
-  )
+  );
 }
