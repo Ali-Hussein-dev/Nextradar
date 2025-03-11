@@ -20,6 +20,10 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
                 userAgent: "AhrefsBot", // for AhrefsBot
                 allow: "/", // allow everything
             },
+            {
+                userAgent: "AhrefsSiteAudit", // for AhrefsSiteAudit
+                allow: "/", // allow everything
+            }
         ],
         sitemap: `https://${host}/sitemap.xml`,
     };
