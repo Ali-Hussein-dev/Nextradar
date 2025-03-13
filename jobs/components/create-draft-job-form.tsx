@@ -1,19 +1,19 @@
-"use client"
-import { ControllerRenderProps, useForm } from "react-hook-form"
+"use client";
+import { ControllerRenderProps, useForm } from "react-hook-form";
 import {
   RenderFormElement,
   FormFieldElement,
   FieldsElementsList,
-} from "@/components/render-form-element"
-import { z } from "zod"
-import { Form, FormField } from "@/components/ui/form"
-import { Button } from "@/components/ui/button"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { DrafJobFormSchema } from "@/jobs/sanity/job-payload-z-schema"
-import { useServerActionMutation } from "@/jobs/lib/hooks/server-actions-hooks"
-import { handleJobFormSubmission } from "@/jobs/lib/actions/handle-job-form-submission-action"
-import { products } from "@/constants/creem"
-import dynamic from "next/dynamic"
+} from "@/components/render-form-element";
+import { z } from "zod";
+import { Form, FormField } from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { DrafJobFormSchema } from "@/jobs/sanity/job-payload-z-schema";
+import { useServerActionMutation } from "@/jobs/lib/hooks/server-actions-hooks";
+import { handleJobFormSubmission } from "@/jobs/lib/actions/handle-job-form-submission-action";
+import { products } from "@/constants/creem";
+import dynamic from "next/dynamic";
 
 const benefits = [
   "4 day workweek",
@@ -44,9 +44,9 @@ const benefits = [
   "Vision insurance",
   // "Comprehensive Health, Dental, and Vision insurance",
   "We hire old (and young)",
-]
+];
 
-type FormDrafJob = z.infer<typeof DrafJobFormSchema>
+type FormDrafJob = z.infer<typeof DrafJobFormSchema>;
 //======================================
 export function CreateDraftJobForm() {
   const form = useForm<FormDrafJob>({
@@ -61,14 +61,14 @@ export function CreateDraftJobForm() {
       company: {},
     },
     resolver: zodResolver(DrafJobFormSchema),
-  })
-  const { handleSubmit } = form
+  });
+  const { handleSubmit } = form;
   const { mutate, status } = useServerActionMutation(handleJobFormSubmission, {
     mutationKey: ["createDraftJobPost-1"],
-  })
+  });
   const onSubmit: (data: FormDrafJob) => void = (data) => {
-    mutate(data)
-  }
+    mutate(data);
+  };
   const fields: FieldsElementsList = [
     {
       variant: "H2",
@@ -233,7 +233,7 @@ export function CreateDraftJobForm() {
       label: "I agree to the terms and conditions",
       required: true,
     },
-  ]
+  ];
   return (
     <div className="max-w-[38rem] mx-auto animate-in">
       <Form {...form}>
@@ -250,7 +250,7 @@ export function CreateDraftJobForm() {
                 >
                   {item.map((element) => {
                     if ("static" in element) {
-                      return RenderFormElement(element, form)
+                      return RenderFormElement(element, form);
                     }
                     return (
                       <FormField
@@ -267,13 +267,13 @@ export function CreateDraftJobForm() {
                           )
                         }
                       />
-                    )
+                    );
                   })}
                 </div>
-              )
+              );
             }
             if ("static" in item) {
-              return RenderFormElement(item, form)
+              return RenderFormElement(item, form);
             }
             return (
               <FormField
@@ -290,12 +290,12 @@ export function CreateDraftJobForm() {
                   )
                 }
               />
-            )
+            );
           })}
           <div className="flex-row-between">
             <div className="p-2 text-lg dark:text-zinc-300">
               Price {products.jobPost.priceLabel}{" "}
-              <span className="line-through">1400€</span>
+              {/* <span className="line-through">1400€</span> */}
             </div>
             {/* <Button type="button" onClick={() => form.reset()}>
               Reset
@@ -312,9 +312,8 @@ export function CreateDraftJobForm() {
       </Form>
       {/* <pre className="max-w-xl">{JSON.stringify(form.watch(), null, 2)} </pre> */}
     </div>
-  )
+  );
 }
-
 
 export const CreateDraftJobFormDynamic = dynamic(
   () =>
@@ -322,4 +321,4 @@ export const CreateDraftJobFormDynamic = dynamic(
       (mod) => mod.CreateDraftJobForm
     ),
   { ssr: false }
-)
+);
