@@ -16,11 +16,6 @@ export default function Layout({ children }: { children: ReactNode }) {
       suppressHydrationWarning
     >
       <head>
-        <script
-          src="https://analytics.ahrefs.com/analytics.js"
-          data-key="XZvZQAylBpQaYiQbo5TKkA"
-          async
-        ></script>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <AnalyticsProv />
         {/* <script src="https://unpkg.com/react-scan/dist/auto.global.js" async /> */}

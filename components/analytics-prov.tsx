@@ -18,17 +18,18 @@ export const AnalyticsProv = async () => {
 
   return (
     <>
-      <script
-        src="https://analytics.ahrefs.com/analytics.js"
-        data-key={env.NEXT_PUBLIC_AHREF_KEY}
+      <Script
         async
-      ></script>
+        strategy="afterInteractive"
+        src="https://analytics.ahrefs.com/analytics.js"
+        data-key="XZvZQAylBpQaYiQbo5TKkA"
+      />
       <Script
         async
         strategy="afterInteractive"
         src="https://aliytics.netlify.app/script.js"
         data-website-id="176aa3d6-7cb7-4bef-af6a-644d42b42833"
-      ></Script>
+      />
     </>
   );
 };
