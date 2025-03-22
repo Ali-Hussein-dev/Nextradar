@@ -4,8 +4,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../ui/card";
-import { Button } from "../ui/button";
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { urls } from "@/constants/urls";
 
 const Testimonials = () => (
@@ -50,8 +50,8 @@ const Testimonials = () => (
 //======================================
 export function SponsorSection() {
   return (
-    <section className="border rounded border-dashed dark:bg-zinc-900/70 bg-zinc-50 pb-12 sm:mt-12">
-      <div className="max-w-3xl mx-auto">
+    <section className="">
+      <div className="max-w-3xl mx-auto py-4">
         <div className="pb-6">
           <h2 className="text-2xl pt-8 font-bold">Advertise on Nextradar</h2>
           <p className="text-muted-foreground pt-1">
@@ -111,7 +111,6 @@ export function SponsorSection() {
             </CardFooter>
           </Card>
         </div>
-        {/* <Testimonials /> */}
       </div>
     </section>
   );

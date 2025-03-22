@@ -1,35 +1,35 @@
 /* eslint-disable jsx-a11y/alt-text */
-"use client"
+"use client";
 /* eslint-disable @next/next/no-img-element */
-import { FaGithub } from "react-icons/fa"
-import { Button } from "@/components/button"
-import { MdOutlineArrowOutward } from "react-icons/md"
-import { filterLabels, templates } from "@/constants/templates"
-import * as React from "react"
-import { parseAsArrayOf, parseAsString, useQueryStates } from "nuqs"
+import { FaGithub } from "react-icons/fa";
+import { Button } from "@/components/button";
+import { MdOutlineArrowOutward } from "react-icons/md";
+import { filterLabels, templates } from "@/constants/templates";
+import * as React from "react";
+import { parseAsArrayOf, parseAsString, useQueryStates } from "nuqs";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Label } from "@/components/ui/label"
-import { useRouter } from "next/navigation"
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
+} from "@/components/ui/accordion";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+import { useRouter } from "next/navigation";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+// import {
+//   Carousel,
+//   CarouselContent,
+//   CarouselItem,
+//   CarouselNext,
+//   CarouselPrevious,
+// } from "@/components/ui/carousel";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible"
-import { ChevronRight } from "lucide-react"
+} from "@/components/ui/collapsible";
+import { ChevronRight } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -37,44 +37,44 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 
 export interface Template {
-  name: string
-  description: string
-  url: string
-  ogImage: string
-  sponsored?: boolean
-  github?: string
-  rel: string
-  specs: Record<string, { value: string; label: string }[]>
+  name: string;
+  description: string;
+  url: string;
+  ogImage: string;
+  sponsored?: boolean;
+  github?: string;
+  rel: string;
+  specs: Record<string, { value: string; label: string }[]>;
   featured?: {
     testimonials: {
-      quote: string
-      name: string
-      role?: string
-      avatar: string
-      url: string
-    }[]
-  }
+      quote: string;
+      name: string;
+      role?: string;
+      avatar: string;
+      url: string;
+    }[];
+  };
 }
 interface FilterOption {
-  label: string
-  value: string
+  label: string;
+  value: string;
 }
 
 interface FilterLabel {
-  name: string
-  list: Record<string, FilterOption>
+  name: string;
+  list: Record<string, FilterOption>;
 }
 
 interface FilterAccordionProps {
-  filterLabels: Record<string, FilterLabel>
-  activeQueryState: Record<string, string[]>
-  setActiveQueryStates: (value: Record<string, string[]>) => void
-  urlHasParams: boolean
-  filtered?: any[]
-  className?: string
+  filterLabels: Record<string, FilterLabel>;
+  activeQueryState: Record<string, string[]>;
+  setActiveQueryStates: (value: Record<string, string[]>) => void;
+  urlHasParams: boolean;
+  filtered?: any[];
+  className?: string;
 }
 
 export function FilterAccordion({
@@ -98,7 +98,7 @@ export function FilterAccordion({
       <Accordion type="multiple">
         {Object.entries(filterLabels).map(
           ([filterKey, { name: filterName, list: filterOptions }]) => {
-            const count = activeQueryState[filterKey].length
+            const count = activeQueryState[filterKey].length;
             return (
               <AccordionItem key={filterKey} value={filterName}>
                 <AccordionTrigger className="hover:no-underline">
@@ -133,13 +133,13 @@ export function FilterAccordion({
                                   ...activeQueryState[filterKey],
                                   value,
                                 ],
-                              })
+                              });
                             } else {
                               setActiveQueryStates({
                                 [filterKey]: activeQueryState[filterKey].filter(
                                   (item: string) => item !== value
                                 ),
-                              })
+                              });
                             }
                           }}
                         />
@@ -148,7 +148,7 @@ export function FilterAccordion({
                     ))}
                 </AccordionContent>
               </AccordionItem>
-            )
+            );
           }
         )}
       </Accordion>
@@ -164,7 +164,7 @@ export function FilterAccordion({
                   (acc, key) => ({ ...acc, [key]: [] }),
                   {}
                 ),
-              })
+              });
             }}
             variant={"outline"}
           >
@@ -173,27 +173,31 @@ export function FilterAccordion({
         )}
       </div>
     </aside>
-  )
+  );
 }
 
 export function useFilteredTemplates(templates: Template[], isFree: boolean) {
   const filteredTemplates = React.useMemo(() => {
-    return templates.filter((template) => !!template.github === isFree)
-  }, [templates, isFree])
+    return templates.filter((template) => !!template.github === isFree);
+  }, [templates, isFree]);
 
-  return filteredTemplates
+  return filteredTemplates;
 }
 
 const StandardCard = ({
   template,
   router,
 }: {
-  template: Template
-  router: AppRouterInstance
+  template: Template;
+  router: AppRouterInstance;
 }) => {
   return (
     <Card
-      className={`shadow-none ${template.sponsored ? "dark:border-green-300/30 border-green-300/60 bg-muted/30" : ""}`}
+      className={`shadow-none ${
+        template.sponsored
+          ? "dark:border-green-300/30 border-green-300/60 bg-muted/30"
+          : ""
+      }`}
     >
       <CardHeader className="flex-row-start gap-3">
         <img
@@ -219,7 +223,7 @@ const StandardCard = ({
       {/* <CardContent>
         <p>Card Content</p>
       </CardContent> */}
-      <CardFooter className="flex-row-end border-t border-dashed gap-3 ">
+      <CardFooter className="flex-row-end gap-3">
         {template.sponsored && (
           <span className="mr-auto px-1 text-card-foreground/60">
             Sponsored
@@ -238,7 +242,7 @@ const StandardCard = ({
           size="sm"
           className="gap-1.5"
           onClick={() => {
-            router.push(template.url)
+            router.push(template.url);
           }}
         >
           Visit
@@ -246,140 +250,142 @@ const StandardCard = ({
         </Button>
       </CardFooter>
     </Card>
-  )
-}
-const FeaturedCard = ({
-  template,
-  router,
-}: {
-  template: Template
-  router: AppRouterInstance
-}) => {
-  const featured = template.featured!
+  );
+};
+// const FeaturedCard = ({
+//   template,
+//   router,
+// }: {
+//   template: Template;
+//   router: AppRouterInstance;
+// }) => {
+//   const featured = template.featured!;
 
-  return (
-    <Card className="animate-in lg:col-span-2 p-4">
-      <CardContent className="grid lg:grid-cols-2 lg:gap-3 gap-2 p-0">
-        <div className="flex flex-col gap-3 mb-3 min-w-[50%]">
-          <div className="bg-muted relative max-w-full lg:mb-0 w-full overflow-hidden rounded-md">
-            <img
-              src={template.ogImage}
-              className="rounded-md m-0 w-full h-60 object-fill"
-              alt="opengraph image"
-              loading="lazy"
-              width={400}
-              height={300}
-              // className="w-full h-64 object-cover"
-            />
-          </div>
-          <div className="flex flex-col gap-0 pt-1 pb-2 px-2 md:px-3 ">
-            <h2 className="m-0 font-bold w-full">{template.name}</h2>
+//   return (
+//     <Card className="animate-in lg:col-span-2 p-4">
+//       <CardContent className="grid lg:grid-cols-2 lg:gap-3 gap-2 p-0">
+//         <div className="flex flex-col gap-3 mb-3 min-w-[50%]">
+//           <div className="bg-muted relative max-w-full lg:mb-0 w-full overflow-hidden rounded-md">
+//             <img
+//               src={template.ogImage}
+//               className="rounded-md m-0 w-full h-60 object-fill"
+//               alt="opengraph image"
+//               loading="lazy"
+//               width={400}
+//               height={300}
+//               // className="w-full h-64 object-cover"
+//             />
+//           </div>
+//           <div className="flex flex-col gap-0 pt-1 pb-2 px-2 md:px-3 ">
+//             <h2 className="m-0 font-bold w-full">{template.name}</h2>
 
-            <p className="m-0 p-0 line-clamp-3 dark:text-zinc-400 text-zinc-700">
-              {template.description}
-            </p>
-          </div>
-        </div>
+//             <p className="m-0 p-0 line-clamp-3 dark:text-zinc-400 text-zinc-700">
+//               {template.description}
+//             </p>
+//           </div>
+//         </div>
 
-        {featured && (
-          <div className="pb-6 lg:pb-2 pt-2 md:pt-0">
-            <Carousel className="relative">
-              <CarouselContent className="ml-0">
-                {featured.testimonials.map((o, i) => (
-                  <CarouselItem
-                    key={i}
-                    className="border py-3 h-60 px-35 rounded-sm border-dashed bg-secondary/40"
-                  >
-                    {/* <FaQuoteLeft className="size-8 text-white" /> */}
-                    <div className="flex-col-center gap-4 pt-2 mx-auto">
-                      <div className="flex-col-center gap-1">
-                        <img src={o.avatar} className="rounded-full size-14" />
+//         {featured && (
+//           <div className="pb-6 lg:pb-2 pt-2 md:pt-0">
+//             <Carousel className="relative">
+//               <CarouselContent className="ml-0">
+//                 {featured.testimonials.map((o, i) => (
+//                   <CarouselItem
+//                     key={i}
+//                     className="border py-3 h-60 px-35 rounded-sm border-dashed bg-secondary/40"
+//                   >
+//                     {/* <FaQuoteLeft className="size-8 text-white" /> */}
+//                     <div className="flex-col-center gap-4 pt-2 mx-auto">
+//                       <div className="flex-col-center gap-1">
+//                         <img src={o.avatar} className="rounded-full size-14" />
 
-                        <span className="text-muted-foreground text-sm">
-                          {o.name}
-                        </span>
-                        <span className="text-muted-foreground text-sm">
-                          {o.role}
-                        </span>
-                        {o.url && (
-                          <span className="text-muted-foreground text-sm">
-                            <a
-                              href={o.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <MdOutlineArrowOutward className="size-5" />
-                            </a>
-                          </span>
-                        )}
-                      </div>
-                      <q className="text-center font-medium w-[95%] mx-auto text-sm italic">
-                        {o.quote}
-                      </q>
-                      {/* <div className="flex-col-center gap-2"></div> */}
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="top-full translate-y-1 md:translate-y-4 -translate-x-[2.5rem] size-8 left-1/2" />
-              <CarouselNext className="right-1/2 top-full translate-y-1 md:translate-y-4 translate-x-[2.5rem] size-8" />
-            </Carousel>
-          </div>
-        )}
-      </CardContent>
+//                         <span className="text-muted-foreground text-sm">
+//                           {o.name}
+//                         </span>
+//                         <span className="text-muted-foreground text-sm">
+//                           {o.role}
+//                         </span>
+//                         {o.url && (
+//                           <span className="text-muted-foreground text-sm">
+//                             <a
+//                               href={o.url}
+//                               target="_blank"
+//                               rel="noopener noreferrer"
+//                             >
+//                               <MdOutlineArrowOutward className="size-5" />
+//                             </a>
+//                           </span>
+//                         )}
+//                       </div>
+//                       <q className="text-center font-medium w-[95%] mx-auto text-sm italic">
+//                         {o.quote}
+//                       </q>
+//                       {/* <div className="flex-col-center gap-2"></div> */}
+//                     </div>
+//                   </CarouselItem>
+//                 ))}
+//               </CarouselContent>
+//               <CarouselPrevious className="top-full translate-y-1 md:translate-y-4 -translate-x-[2.5rem] size-8 left-1/2" />
+//               <CarouselNext className="right-1/2 top-full translate-y-1 md:translate-y-4 translate-x-[2.5rem] size-8" />
+//             </Carousel>
+//           </div>
+//         )}
+//       </CardContent>
 
-      <div className="flex-row-between border-t border-dashed gap-3 pt-3">
-        <span className="text-muted-foreground bg-muted px-1 rounded-[1px]">
-          Featured
-        </span>
-        <Button
-          variant={"secondary"}
-          size="sm"
-          className="gap-1.5"
-          onClick={() => {
-            router.push(template.url)
-          }}
-        >
-          Visit
-          <MdOutlineArrowOutward />
-        </Button>
-      </div>
-    </Card>
-  )
-}
+//       <div className="flex-row-between border-t border-dashed gap-3 pt-3">
+//         <span className="text-muted-foreground bg-muted px-1 rounded-[1px]">
+//           Featured
+//         </span>
+//         <Button
+//           variant={"secondary"}
+//           size="sm"
+//           className="gap-1.5"
+//           onClick={() => {
+//             router.push(template.url);
+//           }}
+//         >
+//           Visit
+//           <MdOutlineArrowOutward />
+//         </Button>
+//       </div>
+//     </Card>
+//   );
+// };
 
 //======================================
 export function TemplatesSection() {
   const params = Object.keys(filterLabels).reduce(
     (acc: Record<string, any>, key) => {
-      acc[key] = parseAsArrayOf(parseAsString).withDefault([])
-      return acc
+      acc[key] = parseAsArrayOf(parseAsString).withDefault([]);
+      return acc;
     },
     {} as Record<string, any>
-  )
+  );
   const [activeQueryState, setActiveQueryStates] = useQueryStates(params, {
     clearOnDefault: true,
-  })
-  const urlHasParams = Object.values(activeQueryState).some((v) => v.length > 0)
+  });
+  const urlHasParams = Object.values(activeQueryState).some(
+    (v) => v.length > 0
+  );
   const mergedParams = React.useMemo(
     () => Object.values(activeQueryState).flat(),
     [activeQueryState]
-  )
+  );
   const filtered = React.useMemo(() => {
-    if (!urlHasParams) return templates
+    if (!urlHasParams) return templates;
     return templates.filter(({ specs }) => {
       const mergedSpecs = Object.values(specs)
         .flat()
-        .map((o) => o?.value)
-      const pramsSet = new Set(mergedParams)
-      const specsSet = new Set(mergedSpecs)
-      const common = [...pramsSet].filter((str) => specsSet.has(str as string))
+        .map((o) => o?.value);
+      const pramsSet = new Set(mergedParams);
+      const specsSet = new Set(mergedSpecs);
+      const common = [...pramsSet].filter((str) => specsSet.has(str as string));
       // Do template specs have at least all serach params
-      return common.length >= mergedParams.length
-    })
-  }, [mergedParams, urlHasParams])
+      return common.length >= mergedParams.length;
+    });
+  }, [mergedParams, urlHasParams]);
 
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <div className="px-1">
@@ -420,6 +426,5 @@ export function TemplatesSection() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

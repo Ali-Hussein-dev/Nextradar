@@ -14,7 +14,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const jobPostsPaths = jobPostsSlugs.map(o => `${urls.jobs}/${o.slug}`);
 
     const paths = [
-        "/",
         ...urlsSitemap,
         ...jobPostsPaths,
     ];

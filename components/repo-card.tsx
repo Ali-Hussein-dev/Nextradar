@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import { Repo } from "@/lib/get-repos-github"
-import { CiStar } from "react-icons/ci"
-import { MdOutlineArrowOutward } from "react-icons/md"
-import { Button } from "@/components/button"
-import { FaGithub } from "react-icons/fa"
+import { Repo } from "@/lib/get-repos-github";
+import { CiStar } from "react-icons/ci";
+import { MdOutlineArrowOutward } from "react-icons/md";
+import { Button } from "@/components/button";
+import { FaGithub } from "react-icons/fa";
 import {
   Card,
   CardContent,
@@ -11,7 +11,7 @@ import {
   CardDescription,
   CardTitle,
   CardFooter,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 
 export const RepoCard = ({ repo }: { repo: Repo }) => {
   return (
@@ -39,7 +39,7 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
       <CardContent className="grow">
         <CardDescription>{repo.description}</CardDescription>
       </CardContent>
-      <CardFooter className="flex flex-col sm:flex-row sm:items-center gap-2 border-t border-dashed">
+      <CardFooter className="flex flex-col sm:flex-row sm:items-center gap-2">
         <div className="flex-row-between grow gap-3 w-full">
           <div className="flex-row-start h-full grow gap-1">
             {repo?.tags?.map((tag: string) => (
@@ -85,5 +85,5 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
         </div>
       </CardFooter>
     </Card>
-  )
-}
+  );
+};

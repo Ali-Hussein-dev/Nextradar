@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { getSites } from "@/sanity/lib/getters"
-import { MdOutlineArrowOutward } from "react-icons/md"
-import { Button } from "@/components/ui/button"
-import { Repo } from "@/lib/get-repos-github"
+import { getSites } from "@/sanity/lib/getters";
+import { MdOutlineArrowOutward } from "react-icons/md";
+import { Button } from "@/components/ui/button";
+import { Repo } from "@/lib/get-repos-github";
 import {
   Card,
   // CardContent,
@@ -10,10 +10,10 @@ import {
   CardDescription,
   CardTitle,
   CardFooter,
-} from "@/components/ui/card"
-type Site = Repo & { ogImage: string; rel: string }
+} from "@/components/ui/card";
+type Site = Repo & { ogImage: string; rel: string };
 export const SitesList = async () => {
-  const list = (await getSites()) as Site[]
+  const list = (await getSites()) as Site[];
 
   return (
     <div className="grid lg:grid-cols-2 gap-4 w-full">
@@ -42,7 +42,7 @@ export const SitesList = async () => {
               </div>
             </CardHeader>
             {/* <CardContent className="grow"></CardContent> */}
-            <CardFooter className="flex-row-between border-t border-dashed gap-3 w-full py-3">
+            <CardFooter className="flex-row-between gap-3 w-full py-3">
               <div className="flex-row-start h-full grow gap-1">
                 {o?.tags?.map((tag: string) => (
                   <span
@@ -68,10 +68,10 @@ export const SitesList = async () => {
           </Card>
         ))}
     </div>
-  )
-}
+  );
+};
 
 //======================================
 export function LearnSection() {
-  return <SitesList />
+  return <SitesList />;
 }

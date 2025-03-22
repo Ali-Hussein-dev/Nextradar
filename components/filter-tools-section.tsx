@@ -1,30 +1,30 @@
-"use client"
-import { Repo } from "@/lib/get-repos-github"
-import { useFilter } from "@/hooks/use-filtered-list"
-import { RepoCard } from "@/components/repo-card"
-import { Button } from "@/components/ui/button"
+"use client";
+import { Repo } from "@/lib/get-repos-github";
+import { useFilter } from "@/hooks/use-filtered-list";
+import { RepoCard } from "@/components/repo-card";
+import { Button } from "@/components/ui/button";
 
 //======================================
 export function FilterToolsSection({
   list,
   tags,
 }: {
-  list: Repo[]
-  tags: string[]
+  list: Repo[];
+  tags: string[];
 }) {
   const { current, filtered, setFilter } = useFilter({
     list: list,
     filterFn: (item, filter) => {
-      if (filter === "All") return true
-      return item.tags?.includes(filter)
+      if (filter === "All") return true;
+      return item.tags?.includes(filter);
     },
     param: {
       name: "tag",
       value: "All",
     },
-  })
+  });
   return (
-    <div className="w-full py-6 border border-dashed px-2 md:px-5">
+    <div className="w-full py-6 px-2 md:px-5">
       <div className="flex flex-wrap w-full gap-2 px-1 border-b border-dashed pb-4">
         <Button
           size="sm"
@@ -55,5 +55,5 @@ export function FilterToolsSection({
           ))}{" "}
       </div>
     </div>
-  )
+  );
 }

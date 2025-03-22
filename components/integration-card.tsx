@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import { Button } from "@/components/button"
-import { MdOutlineArrowOutward } from "react-icons/md"
-import { FaGithub } from "react-icons/fa"
+import { Button } from "@/components/button";
+import { MdOutlineArrowOutward } from "react-icons/md";
+import { FaGithub } from "react-icons/fa";
 import {
   Card,
   CardContent,
@@ -9,17 +9,17 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 
 export type IntegrationCardProps = {
-  name: string
-  description: string
-  url: string
-  exampleUrl: string
-  logoUrl: string
-  tags?: string[]
-  sponsored?: boolean
-}
+  name: string;
+  description: string;
+  url: string;
+  exampleUrl: string;
+  logoUrl: string;
+  tags?: string[];
+  sponsored?: boolean;
+};
 
 //======================================
 export const IntegrationCard = ({
@@ -49,7 +49,7 @@ export const IntegrationCard = ({
       <CardContent>
         <p className="line-clamp-2">{description}</p>
       </CardContent>
-      <CardFooter className="flex-row-between border-t border-dashed w-full">
+      <CardFooter className="flex-row-between w-full">
         <div className="flex-row-end grow gap-3">
           {exampleUrl && (
             <Button
@@ -80,5 +80,5 @@ export const IntegrationCard = ({
         </div>
       </CardFooter>
     </Card>
-  )
-}
+  );
+};
