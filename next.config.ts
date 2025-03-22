@@ -5,6 +5,11 @@ const config: NextConfig = {
   async redirects() {
     return [
       {
+        source:'/',
+        destination:'/content/latest',
+        permanent:true
+      },
+      {
         source: '/docs/integrations/headless-cms',
         destination: '/content/headless-cms',
         permanent: true,

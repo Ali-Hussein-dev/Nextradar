@@ -149,7 +149,7 @@ const getPair = (
 
 export const templates: Template[] = [
     {
-        url: "https://makerkit.lemonsqueezy.com?aff=pWOZY",
+        url: "https://makerkit.dev?atp=a5B3Wj",
         name: "makerkit",
         description:
             "Build unlimited SaaS products with any SaaS Starter Kit. Save months of work and focus on building a profitable business.",
@@ -800,7 +800,30 @@ export const templates: Template[] = [
             language: getPair("language", "typescript"),
             others: [],
         },
+        
     },
+    // {
+    //     url: "https://coolify.io",
+    //     name: "Coolify Next.js examples",
+    //     description:
+    //         "",
+    //     ogImage: "",
+    //     github: "https://github.com/coollabsio/coolify-examples/tree/main/nextjs",
+    //     rel: "nofollow",
+    //     specs: {
+    //         cms: [],
+    //         cost: getPair("cost", "free"),
+    //         payment: getPair(),
+    //         backend: getPair("backend", "prisma"),
+    //         email: getPair(),
+    //         analytics: getPair(),
+    //         styling: getPair("styling", "tailwindcss"),
+    //         language: getPair("language", "typescript"),
+    //         others: [],
+    //     },
+        
+    // },
+    
     // {
     //     url: "next-saas-start.vercel.app",
     //     name: "Next.js SaaS Starter",
