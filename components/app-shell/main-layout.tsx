@@ -7,98 +7,61 @@ import { SidebarMenutBtn } from "./sidebar-menu-button";
 import Link from "next/link";
 import { ThemeToggle } from "./toggle-theme";
 import { Button } from "../ui/button";
+import { BsShop } from "react-icons/bs";
 
 type SidebarLink = {
   label: string;
   url: string;
-  /**
-   * Use for SEO
-   */
-  title: string;
-  /**
-   * Use for SEO
-   */
-  description: string;
-  items?: SidebarLink[];
-  isActive?: boolean;
+  icon?: React.ReactNode;
 };
-export const sidebarLinks = [
+export const sidebarLinks: SidebarLink[] = [
   {
     label: "Latest",
     url: urls.latest,
     // icon: Home,
-    title: "Latest Next.js Articles & Tutorials",
-    description:
-      "Next.js mastery: From beginner to enterprise-level expertise by tech leaders",
   },
   {
     label: "Learn",
     url: urls.learn,
-    // icon: Inbox,
-    title: "Learn Nexjs with the top courses and tutorials",
-    description: "Learn Nextjs with the best courses and tutorials",
+    // icon: 
   },
   {
     label: "Templates",
     url: urls.templates,
     // icon: Calendar,
-    title: "Top Next.js Templates and Examples",
-    description: "Discover top Next.js examples and templates",
   },
   {
     label: "Tools",
     url: urls.tools,
-    title: "Top Next.js Tools & Plugins",
-    description: "Discover top used Next.js tools and plugins",
   },
   {
     label: "OS Projects",
     url: urls.osProjects,
-    title: "Top Open Source Next.js Projects",
-    description: "Discover top open-source projects built with Next.js",
   },
   {
     label: "Jobs",
     url: urls.jobs,
-    title: "Nextjs Jobs and Reactjs Jobs",
-    description:
-      "Find remote Next.js and React.js developer jobs in the USA, Canada, Europe, and worldwide.",
   },
 
   {
     label: "Hosting",
     url: urls.hosting,
-    title: "Top Vercel Alternatives with Example Starters",
-    description:
-      "Discover top Vercel alternataives such as Netlify, Coolify, Deno deploy, Render and more.",
   },
   {
-    label: "Headless CMS",
+    label: "CMS",
     url: urls.headlessCms,
-    title: "Top Headless CMS Platform for Next.js with Example Starters",
-    description:
-      "Discover top headless CMS platforms for Next.js such as Strapi, Sanity, Contentful, DatoCMS and more",
   },
   {
     label: "Commerce",
     url: urls.commerce,
-    title: "E-commerce Platforms for Next.js",
-    description:
-      "Find top e-commerce platforms for Next.js such as Medusa, Shopify, BigCommerce, Snipcart, Commerce.js and more",
   },
   {
     label: "Databases",
     url: urls.db,
-    title: "Databases for Next.js",
-    description:
-      "Discover top databases for Next.js such as Upstash, FaunaDB, Prisma, Supabase, Firebase, MongoDB and more",
   },
   {
     label: "BaaS",
     url: urls.baas,
-    title: "Backend as a Service for Next.js",
-    description:
-      "Discover top BaaS for Next.js such as Supabase, PlantScale, Convex, and more",
   },
 ];
 function Sidebar() {
@@ -132,7 +95,7 @@ export default function MainLayout({
           </div>
         </nav>
         <div className="py-10 relative">
-          <BaseLayout className="">
+          <BaseLayout>
             <LeftSidebar
               collapsibleTrigger={"Categories"}
               className=" rounded-sm h-fit border-dashed lg:sticky lg:top-4"
