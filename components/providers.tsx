@@ -2,6 +2,7 @@
 import { QueryClientProvider } from "@tanstack/react-query";
 import { getQueryClient } from "@/lib/get-query-client";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 export const ReactQueryProv = ({ children }: { children: React.ReactNode }) => {
   const queryClient = getQueryClient();
@@ -30,7 +31,9 @@ export function ThemeProvider({
 export function SharedProviders({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider>
-      <ReactQueryProv>{children}</ReactQueryProv>
+      <NuqsAdapter>
+        <ReactQueryProv>{children}</ReactQueryProv>
+      </NuqsAdapter>
     </ThemeProvider>
   );
 }

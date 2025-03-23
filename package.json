@@ -9,7 +9,7 @@
     "lint": "next lint",
     "start": "next start",
     "post:merge": "git checkout main && git pull",
-    "type-check": "tsc --noEmit -p tsconfig.json",
+    "tc": "tsc --noEmit -p tsconfig.json",
     "cf:login": "pnpm dlx cloudflared tunnel login",
     "cf:run": "pnpm dlx cloudflared tunnel --url http://localhost:3000",
     "typegen": "npx sanity schema extract --path=./sanity/extract.json && npx sanity typegen generate"
