@@ -1,13 +1,24 @@
 import { SharedProviders } from "@/components/providers";
 import { Footer } from "@/components/shared/footer";
 import { BaseLayout, LeftSidebar, MainContent } from "../ui/base-layout";
-
 import { urls } from "@/constants/urls";
 import { SidebarMenutBtn } from "./sidebar-menu-button";
-import Link from "next/link";
 import { ThemeToggle } from "./toggle-theme";
-import { Button } from "../ui/button";
-import { BsShop } from "react-icons/bs";
+import { Button } from "@/components/ui/button";
+import {
+  AiOutlineClockCircle,
+  AiOutlineCloud,
+  AiOutlineDatabase,
+  AiOutlineCloudServer,
+} from "react-icons/ai";
+import { MdOutlineSchool } from "react-icons/md";
+import { FaWrench } from "react-icons/fa";
+import { RiDatabase2Line } from "react-icons/ri";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { PiShoppingCartLight } from "react-icons/pi";
+import { IoBriefcaseOutline } from "react-icons/io5";
+import { HiOutlineTemplate } from "react-icons/hi";
+import Link from "next/link";
 
 type SidebarLink = {
   label: string;
@@ -18,50 +29,57 @@ export const sidebarLinks: SidebarLink[] = [
   {
     label: "Latest",
     url: urls.latest,
-    // icon: Home,
+    icon: <AiOutlineClockCircle />,
   },
   {
     label: "Learn",
     url: urls.learn,
-    // icon: 
+    icon: <MdOutlineSchool />,
   },
   {
     label: "Templates",
     url: urls.templates,
-    // icon: Calendar,
+    icon: <HiOutlineTemplate />,
   },
   {
     label: "Tools",
     url: urls.tools,
+    icon: <FaWrench />,
   },
   {
     label: "OS Projects",
     url: urls.osProjects,
+    icon: <GitHubLogoIcon />,
   },
   {
     label: "Jobs",
     url: urls.jobs,
+    icon: <IoBriefcaseOutline />,
   },
-
   {
     label: "Hosting",
     url: urls.hosting,
+    icon: <AiOutlineCloud />,
   },
   {
     label: "CMS",
     url: urls.headlessCms,
+    icon: <AiOutlineCloudServer />,
   },
   {
     label: "Commerce",
     url: urls.commerce,
+    icon: <PiShoppingCartLight />,
   },
   {
     label: "Databases",
     url: urls.db,
+    icon: <RiDatabase2Line />,
   },
   {
     label: "BaaS",
     url: urls.baas,
+    icon: <AiOutlineDatabase />,
   },
 ];
 function Sidebar() {
@@ -69,7 +87,10 @@ function Sidebar() {
     <div className="space-y-2">
       {sidebarLinks.map((item) => (
         <div key={item.label}>
-          <SidebarMenutBtn label={item.label} url={item.url} />
+          <SidebarMenutBtn url={item.url}>
+            {item.icon && <div>{item.icon}</div>}
+            <span>{item.label}</span>
+          </SidebarMenutBtn>
         </div>
       ))}
     </div>

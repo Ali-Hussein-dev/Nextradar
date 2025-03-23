@@ -66,7 +66,7 @@ export const LeftSidebar = ({
           <span>{collapsibleTrigger}</span>
           <LuChevronsUpDown />
         </CollapsibleTrigger>
-        <CollapsibleContent>{children}</CollapsibleContent>
+        <CollapsibleContent className="py-2">{children}</CollapsibleContent>
       </Collapsible>
     </>
   );
