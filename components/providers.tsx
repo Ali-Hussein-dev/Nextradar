@@ -1,14 +1,14 @@
-"use client"
-import { QueryClientProvider } from "@tanstack/react-query"
-import { getQueryClient } from "@/lib/get-query-client"
-import { ThemeProvider as NextThemesProvider } from "next-themes"
+"use client";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { getQueryClient } from "@/lib/get-query-client";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 export const ReactQueryProv = ({ children }: { children: React.ReactNode }) => {
-  const queryClient = getQueryClient()
+  const queryClient = getQueryClient();
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-  )
-}
+  );
+};
 
 export function ThemeProvider({
   children,
@@ -22,7 +22,15 @@ export function ThemeProvider({
       disableTransitionOnChange
       {...props}
     >
-      {children}
+      <ReactQueryProv>{children}</ReactQueryProv>
     </NextThemesProvider>
-  )
+  );
+}
+
+export function SharedProviders({ children }: { children: React.ReactNode }) {
+  return (
+    <ThemeProvider>
+      <ReactQueryProv>{children}</ReactQueryProv>
+    </ThemeProvider>
+  );
 }
