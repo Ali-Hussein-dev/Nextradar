@@ -1,15 +1,15 @@
-import { urls } from "@/constants/urls"
-import Link from "next/link"
+import { urls } from "@/constants/urls";
+import Link from "next/link";
 
 const links = {
   jobs: [
     {
-      label: "React.js Jobs",
-      url: urls.reactJobs,
+      label: "Chatgpt Alternatives",
+      url: urls.chatgptAlternatives,
     },
     {
-      label: "Next.js Jobs",
-      url: urls.nextJobs,
+      label: "Indie Starter",
+      url: urls.indieStarter,
     },
   ],
   legal: [
@@ -22,7 +22,7 @@ const links = {
       url: urls.terms,
     },
   ],
-}
+};
 export const Footer = () => (
   <footer className="text-center py-4 border-t text-sm dark:text-zinc-500 w-full">
     <div className="flex-row-center flex-wrap mx-auto px-3">
@@ -42,4 +42,4 @@ export const Footer = () => (
       </div>
     </div>
   </footer>
-)
+);

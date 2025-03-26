@@ -27,7 +27,9 @@ export const urls = {
     // social media
     twitter: "https://twitter.com/ali_hussein_20",
     sponsorArticle:"https://www.creem.io/payment/prod_X6e6WvvE8HRhnOOkCuvEL",
-    sponsorProduct:"https://www.creem.io/payment/prod_4923J97j2SLxwpgyAlRGfr"
+    sponsorProduct:"https://www.creem.io/payment/prod_4923J97j2SLxwpgyAlRGfr",
+    chatgptAlternatives: "https://chatgptalternatives.app",
+    indieStarter: "https://indie-starter.dev",
 }
 
 export const urlsSitemap = Object.values(urls).filter(url => !url.startsWith("https://"))
