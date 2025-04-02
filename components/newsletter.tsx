@@ -1,3 +1,4 @@
+import { MdOutlineArrowOutward } from "react-icons/md";
 import { Button } from "./button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 //======================================
@@ -110,40 +111,54 @@ const HighlightText = ({ children }: { children: React.ReactNode }) => (
     {children}
   </span>
 );
+const Card = ({ children }: { children: React.ReactNode }) => (
+  <div className="w-full rounded-xl overflow-hidden dark:border-zinc-900 dark:bg-zinc-950 p-1 py-2 mx-auto">
+    <div className="size-full bg-repeat bg-[url(/grid-ellipsis.svg)] bg-[length:45px_45px]">
+      <div className="size-full bg-gradient-to-tr from-zinc-950 via-zinc-950/70 to-zinc-950">
+        {children}
+      </div>
+    </div>
+  </div>
+);
 //======================================
 export function Newsletter3() {
   return (
-    <div className="pt-8 pb-12 px-2">
-      <div className="flex-col-center gap-1 p-8 border rounded-lg max-w-2xl mx-auto border-dashed">
-        <h3 className="text-xl sm:text-2xl md:text-3xl mb-1 font-bold tracking-tighter text-center">
-          Biweekly Newsletter
-        </h3>
-        <p className="pb-6 text-center">
-          Quality-first resources straight into your inbox from the minds of{" "}
-          <HighlightText>founders</HighlightText>,{" "}
-          <HighlightText>lead engineers</HighlightText>,{" "}
-          <HighlightText>CTOs</HighlightText>, and{" "}
-          <HighlightText>seasoned pros</HighlightText> in the field.
-        </p>
-        <div className="space-y-3 mb-4">
-          <div className="flex flex-wrap -space-x-4 overflow-hidden justify-center items-center">
-            {experts.map((expert, index) => (
-              <Avatar key={index} className="size-12 border-2 border-black">
-                <AvatarImage src={expert.src} alt={expert.name} />
-                <AvatarFallback className="bg-gray-800">
-                  {expert.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
-                </AvatarFallback>
-              </Avatar>
-            ))}
+    <div className="pt-8">
+      <Card>
+        <div className="flex-col-center gap-1 p-1 sm:p-3 lg:p-8">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl mb-1 font-bold tracking-tighter text-center">
+            Biweekly Newsletter
+          </h3>
+          <p className="pb-8 text-center text-sm max-w-xl mx-auto">
+            Quality-first resources straight into your inbox from the minds of{" "}
+            <HighlightText>founders</HighlightText>,{" "}
+            <HighlightText>lead engineers</HighlightText>,{" "}
+            <HighlightText>CTOs</HighlightText>, and{" "}
+            <HighlightText>seasoned pros</HighlightText> in the field.
+          </p>
+          <div className="space-y-3 mb-6">
+            <div className="flex flex-wrap -space-x-4 overflow-hidden justify-center items-center">
+              {experts.map((expert, index) => (
+                <Avatar key={index} className="size-12 border-2 border-black">
+                  <AvatarImage src={expert.src} alt={expert.name} />
+                  <AvatarFallback className="bg-gray-800">
+                    {expert.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
+                  </AvatarFallback>
+                </Avatar>
+              ))}
+            </div>
           </div>
+          <Button asChild className="px-6 rounded-xl gap-2">
+            <a href="https://nextradar.substack.com/">
+              Subscribe
+              <MdOutlineArrowOutward size="14" />
+            </a>
+          </Button>{" "}
         </div>
-        <Button asChild className="w-full">
-          <a href="https://nextradar.substack.com/">Subscribe</a>
-        </Button>{" "}
-      </div>
+      </Card>
     </div>
   );
 }
