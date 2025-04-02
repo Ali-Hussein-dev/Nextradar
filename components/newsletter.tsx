@@ -1,5 +1,5 @@
-import { Button } from "./button"
-
+import { Button } from "./button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 //======================================
 export function Newsletter() {
   return (
@@ -17,7 +17,7 @@ export function Newsletter() {
         </Button>{" "}
       </div>
     </div>
-  )
+  );
 }
 
 //======================================
@@ -40,5 +40,110 @@ export function Newsletter2() {
         </div>
       </div>
     </div>
-  )
+  );
+}
+
+const experts = [
+  {
+    name: "Seif Ghezala",
+    subtitle: "Co-founder",
+    company: "Tinloof",
+    src: "/authors/Seif_Ghezala.png",
+  },
+  {
+    name: "David Mytton",
+    subtitle: "CEO",
+    company: "Arcjet",
+    src: "/authors/David_Mytton.png",
+  },
+  {
+    name: "Jeff Delaney",
+    subtitle: "Founder",
+    company: "Fireship.io",
+    src: "/authors/Jeff_Delaney.png",
+  },
+  {
+    name: "Malte Ubl",
+    subtitle: "CTO",
+    company: "Vercel",
+    src: "/authors/Malte_Ubl.png",
+  },
+  {
+    name: "Jack Herrington",
+    subtitle: "Principal engineer",
+    company: "Blue Collar Coder",
+    src: "/authors/Jack_Herrington.png",
+  },
+  {
+    name: "Lee Robinson",
+    subtitle: "VP of Product - Vercel",
+    company: "Vercel",
+    src: "/authors/Lee_Robinson.png",
+  },
+  {
+    name: "Scott Moss",
+    subtitle: "CEO & Co-founder",
+    company: "Superfilter AI",
+    src: "/authors/Scott_Moss.png",
+  },
+  {
+    name: "Delba Oliveira",
+    subtitle: "Developer advocate",
+    company: "Vercel",
+    src: "/authors/Delba_Oliveira.png",
+  },
+  {
+    name: "Vishwas Gopinath",
+    subtitle: "DevRel",
+    company: "Builder.io",
+    src: "/authors/Vishwas_Gopinath.png",
+  },
+  {
+    name: "Dominik Ferber",
+    subtitle: "Founder",
+    company: "HappyKit",
+    src: "/authors/Dominik_Ferber.png",
+  },
+];
+const HighlightText = ({ children }: { children: React.ReactNode }) => (
+  <span className="bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent font-medium">
+    {children}
+  </span>
+);
+//======================================
+export function Newsletter3() {
+  return (
+    <div className="pt-8 pb-12 px-2">
+      <div className="flex-col-center gap-1 p-8 border rounded-lg max-w-2xl mx-auto border-dashed">
+        <h3 className="text-xl sm:text-2xl md:text-3xl mb-1 font-bold tracking-tighter text-center">
+          Biweekly Newsletter
+        </h3>
+        <p className="pb-6 text-center">
+          Quality-first resources straight into your inbox from the minds of{" "}
+          <HighlightText>founders</HighlightText>,{" "}
+          <HighlightText>lead engineers</HighlightText>,{" "}
+          <HighlightText>CTOs</HighlightText>, and{" "}
+          <HighlightText>seasoned pros</HighlightText> in the field.
+        </p>
+        <div className="space-y-3 mb-4">
+          <div className="flex flex-wrap -space-x-4 overflow-hidden justify-center items-center">
+            {experts.map((expert, index) => (
+              <Avatar key={index} className="size-12 border-2 border-black">
+                <AvatarImage src={expert.src} alt={expert.name} />
+                <AvatarFallback className="bg-gray-800">
+                  {expert.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")}
+                </AvatarFallback>
+              </Avatar>
+            ))}
+          </div>
+        </div>
+        <Button asChild className="w-full">
+          <a href="https://nextradar.substack.com/">Subscribe</a>
+        </Button>{" "}
+      </div>
+    </div>
+  );
 }

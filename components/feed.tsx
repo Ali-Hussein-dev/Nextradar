@@ -1,4 +1,4 @@
-import { Newsletter2 } from "@/components/newsletter";
+import { Newsletter3 } from "@/components/newsletter";
 import { Search } from "@/components/search";
 import { FeedList } from "@/components/feed-list";
 import { getPageHeader, getSourcesPage } from "@/sanity/lib/getters";
@@ -102,7 +102,7 @@ export const Feed = async () => {
         <Search />
         <FeedList initialList={page} />
       </div>
-      <Newsletter2 />
+      <Newsletter3 />
     </div>
   );
 };
