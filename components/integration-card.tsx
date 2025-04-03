@@ -51,7 +51,7 @@ export const IntegrationCard = ({
       </CardContent>
       <CardFooter className="flex-row-between w-full">
         <div className="flex-row-end grow gap-3">
-          {exampleUrl && (
+          {/* {exampleUrl && (
             <Button
               asChild
               variant={"outline"}
@@ -63,7 +63,7 @@ export const IntegrationCard = ({
                 <FaGithub />
               </a>
             </Button>
-          )}
+          )} */}
           {url && (
             <Button
               asChild

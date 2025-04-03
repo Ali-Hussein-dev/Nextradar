@@ -53,7 +53,7 @@ const cmsFilterLabels = {
     },
   },
   apiType: {
-    name: "API-type",
+    name: "API type",
     list: {
       restfulapi: { label: "Restful API", value: "restful-api" },
       graphQL: { label: "GraphQL", value: "graphql" },
@@ -211,7 +211,7 @@ export function FilterAccordion({
 
 //======================================
 
-export function CmsSection({ list }: { list: any[] }) {
+export function FilterableCms({ list }: { list: any[] }) {
   const params = Object.keys(cmsFilterLabels).reduce(
     (acc: Record<string, any>, key) => {
       acc[key] = parseAsArrayOf(parseAsString).withDefault([]);
@@ -248,43 +248,41 @@ export function CmsSection({ list }: { list: any[] }) {
   }, [mergedParams, urlHasParams]);
 
   return (
-    <div className="px-1 relative">
-      <div className="lg:grid lg:grid-cols-8 gap-6">
-        <Collapsible className="lg:hidden border w-full rounded-sm col-span-2 border-dashed py-1 px-3 mb-3">
-          <CollapsibleTrigger className="w-full pt-1">
-            <div className="flex-row-between w-full">
-              Filter {filtered && urlHasParams && `- ${filtered.length}`}
-              <ChevronRight />
-            </div>
-          </CollapsibleTrigger>
-          <CollapsibleContent>
-            <FilterAccordion
-              filterLabels={cmsFilterLabels}
-              activeQueryState={activeQueryState}
-              setActiveQueryStates={setActiveQueryStates}
-              urlHasParams={urlHasParams}
-              filtered={filtered}
-              className="py-2"
-            />
-          </CollapsibleContent>
-        </Collapsible>
-        <div className="grid lg:grid-cols-2 gap-3 lg:col-span-6 h-fit lg:px-0 grid-cols-1 w-full">
-          {filtered
-            .sort((a, b) => (b.sponsored ? 1 : 0) - (a.sponsored ? 1 : 0))
-            .map((o) => (
-              <IntegrationCard key={o.name} {...o} />
-            ))}
-        </div>
-        <div className="lg:col-span-2 px-4 border border-dashed rounded-sm py-4 h-fit hidden lg:block sticky top-5">
+    <>
+      <Collapsible className="lg:hidden border w-full rounded-sm col-span-2 border-dashed py-1 px-3 mb-3">
+        <CollapsibleTrigger className="w-full pt-1">
+          <div className="flex-row-between w-full">
+            Filter {filtered && urlHasParams && `- ${filtered.length}`}
+            <ChevronRight />
+          </div>
+        </CollapsibleTrigger>
+        <CollapsibleContent>
           <FilterAccordion
             filterLabels={cmsFilterLabels}
             activeQueryState={activeQueryState}
             setActiveQueryStates={setActiveQueryStates}
             urlHasParams={urlHasParams}
             filtered={filtered}
+            className="py-2"
           />
-        </div>
+        </CollapsibleContent>
+      </Collapsible>
+      <div className="grid lg:grid-cols-2 gap-3 lg:col-span-6 h-fit lg:px-0 grid-cols-1 w-full">
+        {filtered
+          .sort((a, b) => (b.sponsored ? 1 : 0) - (a.sponsored ? 1 : 0))
+          .map((o) => (
+            <IntegrationCard key={o.name} {...o} />
+          ))}
       </div>
-    </div>
+      <div className="lg:col-span-2 px-4 border border-dashed rounded-sm py-4 h-fit hidden lg:block sticky top-5">
+        <FilterAccordion
+          filterLabels={cmsFilterLabels}
+          activeQueryState={activeQueryState}
+          setActiveQueryStates={setActiveQueryStates}
+          urlHasParams={urlHasParams}
+          filtered={filtered}
+        />
+      </div>
+    </>
   );
 }

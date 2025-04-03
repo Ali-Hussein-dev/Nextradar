@@ -4,7 +4,6 @@ import {
   IntegrationCard,
   IntegrationCardProps,
 } from "@/components/integration-card";
-import { CmsSection } from "./cms-section";
 
 //======================================
 export const IntegrationSection = async ({
@@ -15,14 +14,6 @@ export const IntegrationSection = async ({
   const list = (await getIntegrationsByCategory(
     categoryId
   )) as IntegrationCardProps[];
-
-  if (categoryId === 1001) {
-    return (
-      <div>
-        <CmsSection list={list} />
-      </div>
-    );
-  }
 
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
