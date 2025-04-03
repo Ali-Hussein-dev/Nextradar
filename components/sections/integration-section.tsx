@@ -1,26 +1,36 @@
 /* eslint-disable @next/next/no-img-element */
-import { getIntegrationsByCategory } from "@/sanity/lib/getters"
+import { getIntegrationsByCategory } from "@/sanity/lib/getters";
 import {
   IntegrationCard,
   IntegrationCardProps,
-} from "@/components/integration-card"
+} from "@/components/integration-card";
+import { CmsSection } from "./cms-section";
 
 //======================================
 export const IntegrationSection = async ({
   categoryId,
 }: {
-  categoryId: number
+  categoryId: number;
 }) => {
   const list = (await getIntegrationsByCategory(
     categoryId
-  )) as IntegrationCardProps[]
+  )) as IntegrationCardProps[];
+
+  if (categoryId === 1001) {
+    return (
+      <div>
+        <CmsSection list={list} />
+      </div>
+    );
+  }
+
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
       {list
-      .sort((a, b) => (b.sponsored ? 1 : 0) - (a.sponsored ? 1 : 0))
-      .map((o, i) => (
-        <IntegrationCard key={i} {...o} />
-      ))}
+        .sort((a, b) => (b.sponsored ? 1 : 0) - (a.sponsored ? 1 : 0))
+        .map((o, i) => (
+          <IntegrationCard key={i} {...o} />
+        ))}
     </div>
-  )
-}
+  );
+};
