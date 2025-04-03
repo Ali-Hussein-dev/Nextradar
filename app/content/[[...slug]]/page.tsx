@@ -82,7 +82,7 @@ export default async function ContentPage(props: {
             date={` - ${date}`}
             count={templates.length}
           />
-          <React.Suspense>
+          <React.Suspense key="templates">
             <TemplatesSection />
           </React.Suspense>
         </SharedContainer>
@@ -100,7 +100,7 @@ export default async function ContentPage(props: {
       return (
         <SharedContainer>
           {/* <PageHeader name="tools" /> */}
-          <React.Suspense>
+          <React.Suspense key="tools">
             <ToolsSection category="Tools" />
           </React.Suspense>
         </SharedContainer>
@@ -129,14 +129,16 @@ export default async function ContentPage(props: {
       return (
         <SharedContainer>
           <PageHeader name="headless-cms" date={` - ${date}`} count={count} />
-          <HeadlessCmsSection />
+          <React.Suspense key="cms">
+            <HeadlessCmsSection />
+          </React.Suspense>
         </SharedContainer>
       );
     case "db":
       return (
         <SharedContainer>
           <PageHeader name="db" />
-          <React.Suspense>
+          <React.Suspense key="db">
             <DatabaseSection />
           </React.Suspense>
         </SharedContainer>

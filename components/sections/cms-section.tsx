@@ -1,10 +1,7 @@
-/* eslint-disable jsx-a11y/alt-text */
 "use client";
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { FaGithub } from "react-icons/fa";
 import { Button } from "@/components/button";
-import { MdOutlineArrowOutward } from "react-icons/md";
-import { filterLabels, templates } from "@/constants/templates";
 import * as React from "react";
 import { parseAsArrayOf, parseAsString, useQueryStates } from "nuqs";
 import {
@@ -15,41 +12,85 @@ import {
 } from "@/components/ui/accordion";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { useRouter } from "next/navigation";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { ChevronRight } from "lucide-react";
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { IntegrationCard } from "@/components/integration-card";
 
-export interface Template {
-  name: string;
-  description: string;
-  url: string;
-  ogImage: string;
-  sponsored?: boolean;
-  github?: string;
-  rel: string;
-  specs: Record<string, { value: string; label: string }[]>;
-  featured?: {
-    testimonials: {
-      quote: string;
-      name: string;
-      role?: string;
-      avatar: string;
-      url: string;
-    }[];
-  };
-}
+type DatabaseType =
+  | "PostgreSQL"
+  | "MySQL"
+  | "MariaDB"
+  | "MongoDB"
+  | "SQLite"
+  | "Proprietary Content Lake"
+  | (string & {});
+
+type ApiType = "RestfulAPI" | "GraphQL" | "LocalAPI";
+
+type CMSFilter = {
+  openSource: boolean;
+  apiType: ApiType[];
+  RealtimeColaboration: boolean;
+  databaseType: DatabaseType[];
+  freeTier: boolean;
+  hosting: ("self-hosting" | "Cloud-based" | "Partial Self-hosting")[];
+} & Record<string, unknown>;
+
+const cmsFilterLabels = {
+  hosting: {
+    name: "Hosting",
+    list: {
+      selfhosting: { label: "Self-hosting", value: "self-hosting" },
+      cloudBased: { label: "Cloud-based", value: "cloud-based" },
+      // partialSelfhosting: {
+      //   label: "Partial Self-hosting",
+      //   value: "partial-self-hosting",
+      // },
+    },
+  },
+  apiType: {
+    name: "API-type",
+    list: {
+      restfulapi: { label: "Restful API", value: "restful-api" },
+      graphQL: { label: "GraphQL", value: "graphql" },
+      localAPI: { label: "Local API", value: "localapi" },
+    },
+  },
+  databaseType: {
+    name: "Database Type",
+    list: {
+      postgresql: { label: "Postgres", value: "postgres" },
+      mysql: { label: "MySQL", value: "mysql" },
+      sqlite: { label: "SQLite", value: "sqlite" },
+      mongodb: { label: "MongoDB", value: "mongodb" },
+      proprietaryContentLake: {
+        label: "Proprietary Content Lake",
+        value: "proprietary-content-lake",
+      },
+      builtInPersistentDatabase: {
+        label: "Built-in Persistent Database",
+        value: "built-in-persistent-database",
+      },
+      gitBased: { label: "Git-based", value: "git-based" },
+    },
+  },
+  others: {
+    name: "Others",
+    list: {
+      freeTier: { label: "Free Tier", value: "free-tier" },
+      openSource: { label: "Open Source", value: "open-source" },
+      realtimeColaboration: {
+        label: "Realtime Colaboration",
+        value: "realtime-colaboration",
+      },
+    },
+  },
+};
+
 interface FilterOption {
   label: string;
   value: string;
@@ -168,86 +209,10 @@ export function FilterAccordion({
   );
 }
 
-// function useFilteredTemplates(templates: Template[], isFree: boolean) {
-//   const filteredTemplates = React.useMemo(() => {
-//     return templates.filter((template) => !!template.github === isFree);
-//   }, [templates, isFree]);
-
-//   return filteredTemplates;
-// }
-
-const StandardCard = ({
-  template,
-  router,
-}: {
-  template: Template;
-  router: AppRouterInstance;
-}) => {
-  return (
-    <Card
-      className={`shadow-none ${
-        template.sponsored
-          ? "dark:border-green-300/30 border-green-300/60 bg-muted/30"
-          : ""
-      }`}
-    >
-      <CardHeader className="flex-row-start gap-3">
-        <img
-          src={template.ogImage}
-          className="rounded-md aspect-[8/5] m-0 object-fill max-w-40"
-          alt="opengraph image"
-          loading="lazy"
-        />
-        <div className="flex-col-start gap-1 pt-1">
-          <div className="flex-row-between gap-2 w-full">
-            <CardTitle>{template.name}</CardTitle>
-            {/* {template?.sponsored && (
-                <span className="text-light dark:text-zinc-600 px-1 rounded-sm text-zinc-500">
-                  Sponsored
-                </span>
-              )} */}
-          </div>
-          <CardDescription className="line-clamp-2 tracking-tight leading-5 ">
-            {template.description}
-          </CardDescription>
-        </div>
-      </CardHeader>
-      {/* <CardContent>
-        <p>Card Content</p>
-      </CardContent> */}
-      <CardFooter className="flex-row-end gap-3">
-        {template.sponsored && (
-          <span className="mr-auto px-1 text-card-foreground/60">
-            Sponsored
-          </span>
-        )}
-
-        {template.github && (
-          <Button asChild variant="outline" size="icon" className="rounded-lg">
-            <a href={template.github}>
-              <FaGithub />
-            </a>
-          </Button>
-        )}
-        <Button
-          variant={"secondary"}
-          size="sm"
-          className="gap-1.5"
-          onClick={() => {
-            router.push(template.url);
-          }}
-        >
-          Visit
-          <MdOutlineArrowOutward />
-        </Button>
-      </CardFooter>
-    </Card>
-  );
-};
-
 //======================================
-export function TemplatesSection() {
-  const params = Object.keys(filterLabels).reduce(
+
+export function CmsSection({ list }: { list: any[] }) {
+  const params = Object.keys(cmsFilterLabels).reduce(
     (acc: Record<string, any>, key) => {
       acc[key] = parseAsArrayOf(parseAsString).withDefault([]);
       return acc;
@@ -265,20 +230,22 @@ export function TemplatesSection() {
     [activeQueryState]
   );
   const filtered = React.useMemo(() => {
-    if (!urlHasParams) return templates;
-    return templates.filter(({ specs }) => {
-      const mergedSpecs = Object.values(specs)
-        .flat()
-        .map((o) => o?.value);
-      const pramsSet = new Set(mergedParams);
-      const specsSet = new Set(mergedSpecs);
-      const common = [...pramsSet].filter((str) => specsSet.has(str as string));
+    if (!urlHasParams) return list;
+    return list.filter(({ tags, name }) => {
+      // const mergedSpecs = tags;
+      const selectedTagsSet = new Set(mergedParams.map((s) => s.toLowerCase()));
+      const cmsTagsSet = new Set(tags);
+      const common = [...selectedTagsSet].filter((str) =>
+        cmsTagsSet.has(str as string)
+      );
+      console.log({
+        name,
+        cmsTags: tags,
+      });
       // Do template specs have at least all serach params
       return common.length >= mergedParams.length;
     });
   }, [mergedParams, urlHasParams]);
-
-  const router = useRouter();
 
   return (
     <div className="px-1 relative">
@@ -292,7 +259,7 @@ export function TemplatesSection() {
           </CollapsibleTrigger>
           <CollapsibleContent>
             <FilterAccordion
-              filterLabels={filterLabels}
+              filterLabels={cmsFilterLabels}
               activeQueryState={activeQueryState}
               setActiveQueryStates={setActiveQueryStates}
               urlHasParams={urlHasParams}
@@ -305,12 +272,12 @@ export function TemplatesSection() {
           {filtered
             .sort((a, b) => (b.sponsored ? 1 : 0) - (a.sponsored ? 1 : 0))
             .map((o) => (
-              <StandardCard key={o.name} template={o} router={router} />
+              <IntegrationCard key={o.name} {...o} />
             ))}
         </div>
         <div className="lg:col-span-2 px-4 border border-dashed rounded-sm py-4 h-fit hidden lg:block sticky top-5">
           <FilterAccordion
-            filterLabels={filterLabels}
+            filterLabels={cmsFilterLabels}
             activeQueryState={activeQueryState}
             setActiveQueryStates={setActiveQueryStates}
             urlHasParams={urlHasParams}
