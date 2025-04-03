@@ -84,8 +84,8 @@ const cmsFilterLabels = {
       freeTier: { label: "Free Tier", value: "free-tier" },
       openSource: { label: "Open Source", value: "open-source" },
       realtimeColaboration: {
-        label: "Realtime Colaboration",
-        value: "realtime-colaboration",
+        label: "Realtime collaboration",
+        value: "realtime-collaboration",
       },
     },
   },
