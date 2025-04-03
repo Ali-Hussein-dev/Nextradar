@@ -128,10 +128,10 @@ export default async function ContentPage(props: {
     case "headless-cms":
       return (
         <SharedContainer>
+          <PageHeader name="headless-cms" date={` - ${date}`} count={count} />
           <React.Suspense key="cms">
-            <PageHeader name="headless-cms" date={` - ${date}`} count={count} />
+            <HeadlessCmsSection />
           </React.Suspense>
-          <HeadlessCmsSection />
         </SharedContainer>
       );
     case "db":
