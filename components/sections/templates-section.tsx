@@ -17,13 +17,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-// import {
-//   Carousel,
-//   CarouselContent,
-//   CarouselItem,
-//   CarouselNext,
-//   CarouselPrevious,
-// } from "@/components/ui/carousel";
 import {
   Collapsible,
   CollapsibleContent,
@@ -32,7 +25,6 @@ import {
 import { ChevronRight } from "lucide-react";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -176,13 +168,13 @@ export function FilterAccordion({
   );
 }
 
-export function useFilteredTemplates(templates: Template[], isFree: boolean) {
-  const filteredTemplates = React.useMemo(() => {
-    return templates.filter((template) => !!template.github === isFree);
-  }, [templates, isFree]);
+// function useFilteredTemplates(templates: Template[], isFree: boolean) {
+//   const filteredTemplates = React.useMemo(() => {
+//     return templates.filter((template) => !!template.github === isFree);
+//   }, [templates, isFree]);
 
-  return filteredTemplates;
-}
+//   return filteredTemplates;
+// }
 
 const StandardCard = ({
   template,
@@ -252,105 +244,6 @@ const StandardCard = ({
     </Card>
   );
 };
-// const FeaturedCard = ({
-//   template,
-//   router,
-// }: {
-//   template: Template;
-//   router: AppRouterInstance;
-// }) => {
-//   const featured = template.featured!;
-
-//   return (
-//     <Card className="animate-in lg:col-span-2 p-4">
-//       <CardContent className="grid lg:grid-cols-2 lg:gap-3 gap-2 p-0">
-//         <div className="flex flex-col gap-3 mb-3 min-w-[50%]">
-//           <div className="bg-muted relative max-w-full lg:mb-0 w-full overflow-hidden rounded-md">
-//             <img
-//               src={template.ogImage}
-//               className="rounded-md m-0 w-full h-60 object-fill"
-//               alt="opengraph image"
-//               loading="lazy"
-//               width={400}
-//               height={300}
-//               // className="w-full h-64 object-cover"
-//             />
-//           </div>
-//           <div className="flex flex-col gap-0 pt-1 pb-2 px-2 md:px-3 ">
-//             <h2 className="m-0 font-bold w-full">{template.name}</h2>
-
-//             <p className="m-0 p-0 line-clamp-3 dark:text-zinc-400 text-zinc-700">
-//               {template.description}
-//             </p>
-//           </div>
-//         </div>
-
-//         {featured && (
-//           <div className="pb-6 lg:pb-2 pt-2 md:pt-0">
-//             <Carousel className="relative">
-//               <CarouselContent className="ml-0">
-//                 {featured.testimonials.map((o, i) => (
-//                   <CarouselItem
-//                     key={i}
-//                     className="border py-3 h-60 px-35 rounded-sm border-dashed bg-secondary/40"
-//                   >
-//                     {/* <FaQuoteLeft className="size-8 text-white" /> */}
-//                     <div className="flex-col-center gap-4 pt-2 mx-auto">
-//                       <div className="flex-col-center gap-1">
-//                         <img src={o.avatar} className="rounded-full size-14" />
-
-//                         <span className="text-muted-foreground text-sm">
-//                           {o.name}
-//                         </span>
-//                         <span className="text-muted-foreground text-sm">
-//                           {o.role}
-//                         </span>
-//                         {o.url && (
-//                           <span className="text-muted-foreground text-sm">
-//                             <a
-//                               href={o.url}
-//                               target="_blank"
-//                               rel="noopener noreferrer"
-//                             >
-//                               <MdOutlineArrowOutward className="size-5" />
-//                             </a>
-//                           </span>
-//                         )}
-//                       </div>
-//                       <q className="text-center font-medium w-[95%] mx-auto text-sm italic">
-//                         {o.quote}
-//                       </q>
-//                       {/* <div className="flex-col-center gap-2"></div> */}
-//                     </div>
-//                   </CarouselItem>
-//                 ))}
-//               </CarouselContent>
-//               <CarouselPrevious className="top-full translate-y-1 md:translate-y-4 -translate-x-[2.5rem] size-8 left-1/2" />
-//               <CarouselNext className="right-1/2 top-full translate-y-1 md:translate-y-4 translate-x-[2.5rem] size-8" />
-//             </Carousel>
-//           </div>
-//         )}
-//       </CardContent>
-
-//       <div className="flex-row-between border-t border-dashed gap-3 pt-3">
-//         <span className="text-muted-foreground bg-muted px-1 rounded-[1px]">
-//           Featured
-//         </span>
-//         <Button
-//           variant={"secondary"}
-//           size="sm"
-//           className="gap-1.5"
-//           onClick={() => {
-//             router.push(template.url);
-//           }}
-//         >
-//           Visit
-//           <MdOutlineArrowOutward />
-//         </Button>
-//       </div>
-//     </Card>
-//   );
-// };
 
 //======================================
 export function TemplatesSection() {
@@ -388,7 +281,7 @@ export function TemplatesSection() {
   const router = useRouter();
 
   return (
-    <div className="px-1">
+    <div className="px-1 relative">
       <div className="lg:grid lg:grid-cols-8 gap-6">
         <Collapsible className="lg:hidden border w-full rounded-sm col-span-2 border-dashed py-1 px-3 mb-3">
           <CollapsibleTrigger className="w-full pt-1">
@@ -415,7 +308,7 @@ export function TemplatesSection() {
               <StandardCard key={o.name} template={o} router={router} />
             ))}
         </div>
-        <div className="lg:col-span-2 px-4 border border-dashed rounded-sm py-4 h-fit hidden lg:block">
+        <div className="lg:col-span-2 px-4 border border-dashed rounded-sm py-4 h-fit hidden lg:block sticky top-5">
           <FilterAccordion
             filterLabels={filterLabels}
             activeQueryState={activeQueryState}
