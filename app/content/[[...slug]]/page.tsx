@@ -15,6 +15,7 @@ import { getDocumentCount, getPageMetadata } from "@/sanity/lib/getters";
 import * as React from "react";
 import categoriesIds from "@/constants/categories.json";
 import { templates } from "@/constants/templates";
+import { urls } from "@/constants/urls";
 
 const SharedContainer = ({
   children,
@@ -195,9 +196,30 @@ export const generateMetadata = async (props: {
     };
   }
   const metadata = res[0].metadata;
+  const title = metadata.title || "";
+  const description = metadata.description || "";
+  let ogImage = `${urls.siteUrl}/og?title=${title}`;
+
   return {
-    title: metadata.title || "",
-    description: metadata.description || "",
+    title,
+    description,
     type: "website",
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      url: `${urls.siteUrl}/content/${params.slug}`,
+      images: [
+        {
+          url: ogImage,
+        },
+      ],
+    },
   };
 };

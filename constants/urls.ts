@@ -1,7 +1,9 @@
 /**
  * This file contains all the urls used in the application
  */
+const siteUrl= {prod: "https://nextradar.io", dev: "http://localhost:3000"}
 export const urls = {
+    siteUrl: process.env.NODE_ENV === "development" ? siteUrl.dev : siteUrl.prod,
     learn: "/content/learn",
     tools: "/content/tools",
     latest: "/content/latest",
