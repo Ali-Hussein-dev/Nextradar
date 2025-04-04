@@ -13,7 +13,7 @@ export async function GET(req: NextRequest) {
   )
     .then((res) => res.arrayBuffer())
     .catch(console.error);
-  
+
   return new ImageResponse(
     (
       <div
@@ -49,7 +49,7 @@ export async function GET(req: NextRequest) {
       fonts: [
         {
           name: "Poppins",
-          data: fontData,
+          data: fontData!,
           style: "normal",
         },
       ],
