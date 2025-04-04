@@ -2,6 +2,7 @@
 import { urls } from "@/constants/urls";
 import { ImageResponse } from "next/og";
 import { NextRequest } from "next/server";
+// import localFont from "next/font/local";
 
 export const runtime = "edge";
 
@@ -10,15 +11,15 @@ export async function GET(req: NextRequest) {
   const postTitle = searchParams.get("title");
   const fontData = await fetch(
     new URL(`${urls.siteUrl}/Poppins-Bold.ttf`, import.meta.url)
-  )
-    .then((res) => res.arrayBuffer())
-    .catch(console.error);
+  ).then((res) => res.arrayBuffer());
+  // const fontData = localFont({ src: "./public/Poppins-Bold.ttf" })
 
   return new ImageResponse(
     (
       <div
         tw="h-full w-full flex flex-col items-center text-center justify-center font-bold capitalize"
         style={{
+          // backgroundImage: "url('/public/og-bg.jpg')",
           backgroundImage: `url(${urls.siteUrl}/og-bg.jpg)`,
         }}
       >
@@ -33,9 +34,9 @@ export async function GET(req: NextRequest) {
             fontStyle: "normal",
             color: "white",
             letterSpacing: "0.02em",
-            lineHeight: "86px",
+            lineHeight: "100px",
             whiteSpace: "pre-wrap",
-            maxWidth: "968px",
+            // maxWidth: "1000px",
             textAlign: "center",
           }}
         >
