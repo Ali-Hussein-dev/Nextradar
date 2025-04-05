@@ -13,10 +13,11 @@ export function SidebarMenutBtn({
 }) {
   const segment = useSelectedLayoutSegment();
   const linkSegment = url.split("/")[2];
+  const isActive = linkSegment == segment;
   return (
     <Button
       asChild
-      variant={linkSegment == segment ? "secondary" : "ghost"}
+      variant={isActive ? "secondary" : "ghost"}
       className="w-full justify-start dark:text-secondary-foreground/80 gap-2 items-center"
     >
       <Link href={url}>

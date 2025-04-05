@@ -55,12 +55,12 @@ export const LeftSidebar = ({
 }) => {
   return (
     <>
-      <nav
+      <div
         data-slot="left-sidebar"
         className={cn("hidden md:block md:col-span-2 p-4", className)}
       >
         {children}
-      </nav>
+      </div>
       <Collapsible className={cn("md:hidden", className)}>
         <CollapsibleTrigger className="flex px-4 items-center w-full justify-between rounded-sm py-3 bg-secondary">
           <span>{collapsibleTrigger}</span>

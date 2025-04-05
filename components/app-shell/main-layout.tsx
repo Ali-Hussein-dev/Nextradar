@@ -86,12 +86,12 @@ function Sidebar() {
   return (
     <div className="space-y-2">
       {sidebarLinks.map((item) => (
-        <div key={item.label}>
+        <nav key={item.label}>
           <SidebarMenutBtn url={item.url}>
             {item.icon && <div>{item.icon}</div>}
             <span>{item.label}</span>
           </SidebarMenutBtn>
-        </div>
+        </nav>
       ))}
     </div>
   );

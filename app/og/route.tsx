@@ -5,6 +5,7 @@ import { NextRequest } from "next/server";
 // import localFont from "next/font/local";
 
 export const runtime = "edge";
+export const contentType = 'image/png'
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
