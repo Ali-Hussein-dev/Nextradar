@@ -5,7 +5,7 @@
 const siteUrl = {
     development: "http://localhost:3000",
     preview: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
-    production: "https://nextradar.io",
+    production: "https://nextradar.dev",
 };
 export const devEnv = (process.env.NEXT_PUBLIC_VERCEL_ENV ?? "development") as keyof typeof siteUrl;
 
