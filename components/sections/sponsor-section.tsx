@@ -8,45 +8,45 @@ import {
 import { Button } from "@/components/ui/button";
 import { urls } from "@/constants/urls";
 
-const Testimonials = () => (
-  <div className="typography">
-    <h2>Testimonials</h2>
-    <blockquote>
-      Nice one, https://nextradar.dev is pretty cool -{" "}
-      <div className="text-muted-forground inline-block font-light">
-        Seif Ghezala, co-founder of Tinloof
-      </div>
-    </blockquote>
-    <blockquote>
-      Great idea! I would love to sign up for a newsletter or roundup of new
-      additions. -{" "}
-      <div className="text-muted-forground inline-block font-light">
-        Reddit user
-      </div>
-    </blockquote>
-    <blockquote>
-      Wow! Thank you so much. 😍 This website has pretty good resources links
-      along with a job section and OSS project resources as well! 🎉 -{" "}
-      <div className="text-muted-forground inline-block font-light">
-        Reddit user
-      </div>
-    </blockquote>
-    <blockquote>
-      It is amazing. I like it! also, may I know how did you implemented the
-      global search? Any resources? Im planning to add it on our dashboard.
-      Thanks -{" "}
-      <div className="text-muted-forground inline-block font-light">
-        Reddit user
-      </div>
-    </blockquote>
-    <blockquote>
-      Its really helpful. Thanks for sharing -{" "}
-      <div className="text-muted-forground inline-block font-light">
-        Reddit user
-      </div>
-    </blockquote>
-  </div>
-);
+// const Testimonials = () => (
+//   <div className="typography">
+//     <h2>Testimonials</h2>
+//     <blockquote>
+//       Nice one, https://nextradar.dev is pretty cool -{" "}
+//       <div className="text-muted-forground inline-block font-light">
+//         Seif Ghezala, co-founder of Tinloof
+//       </div>
+//     </blockquote>
+//     <blockquote>
+//       Great idea! I would love to sign up for a newsletter or roundup of new
+//       additions. -{" "}
+//       <div className="text-muted-forground inline-block font-light">
+//         Reddit user
+//       </div>
+//     </blockquote>
+//     <blockquote>
+//       Wow! Thank you so much. 😍 This website has pretty good resources links
+//       along with a job section and OSS project resources as well! 🎉 -{" "}
+//       <div className="text-muted-forground inline-block font-light">
+//         Reddit user
+//       </div>
+//     </blockquote>
+//     <blockquote>
+//       It is amazing. I like it! also, may I know how did you implemented the
+//       global search? Any resources? Im planning to add it on our dashboard.
+//       Thanks -{" "}
+//       <div className="text-muted-forground inline-block font-light">
+//         Reddit user
+//       </div>
+//     </blockquote>
+//     <blockquote>
+//       Its really helpful. Thanks for sharing -{" "}
+//       <div className="text-muted-forground inline-block font-light">
+//         Reddit user
+//       </div>
+//     </blockquote>
+//   </div>
+// );
 //======================================
 export function SponsorSection() {
   return (

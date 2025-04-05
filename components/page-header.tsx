@@ -28,7 +28,7 @@ export const PageHeader = async ({
   const header = await getPageHeader({ name })
   const h1 = `${count ? count : ""} ${header.title} ${date ? `${date}` : ""}`
   return (
-    <ExpandableCard height="8rem" className="md:px-6 typography mb-6 pt-4">
+    <ExpandableCard height="8rem" className="md:px-6 mb-6 pt-4">
       <div>
         <CardHeading h1={h1} p={header.subtitle} />
         <div className="typography">

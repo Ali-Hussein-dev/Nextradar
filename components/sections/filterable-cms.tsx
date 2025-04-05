@@ -20,25 +20,25 @@ import {
 import { ChevronRight } from "lucide-react";
 import { IntegrationCard } from "@/components/integration-card";
 
-type DatabaseType =
-  | "PostgreSQL"
-  | "MySQL"
-  | "MariaDB"
-  | "MongoDB"
-  | "SQLite"
-  | "Proprietary Content Lake"
-  | (string & {});
+// type DatabaseType =
+//   | "PostgreSQL"
+//   | "MySQL"
+//   | "MariaDB"
+//   | "MongoDB"
+//   | "SQLite"
+//   | "Proprietary Content Lake"
+//   | (string & {});
 
-type ApiType = "RestfulAPI" | "GraphQL" | "LocalAPI";
+// type ApiType = "RestfulAPI" | "GraphQL" | "LocalAPI";
 
-type CMSFilter = {
-  openSource: boolean;
-  apiType: ApiType[];
-  RealtimeColaboration: boolean;
-  databaseType: DatabaseType[];
-  freeTier: boolean;
-  hosting: ("self-hosting" | "Cloud-based" | "Partial Self-hosting")[];
-} & Record<string, unknown>;
+// type CMSFilter = {
+//   openSource: boolean;
+//   apiType: ApiType[];
+//   RealtimeColaboration: boolean;
+//   databaseType: DatabaseType[];
+//   freeTier: boolean;
+//   hosting: ("self-hosting" | "Cloud-based" | "Partial Self-hosting")[];
+// } & Record<string, unknown>;
 
 const cmsFilterLabels = {
   hosting: {
