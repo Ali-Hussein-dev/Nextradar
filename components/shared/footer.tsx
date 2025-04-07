@@ -11,6 +11,10 @@ const links = {
       label: "Indie Starter",
       url: urls.indieStarter,
     },
+    {
+      label: "DeepReact",
+      url: urls.deepReact,
+    },
   ],
   legal: [
     {

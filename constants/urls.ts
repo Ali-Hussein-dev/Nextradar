@@ -39,6 +39,7 @@ export const urls = {
   sponsorProduct: "https://www.creem.io/payment/prod_4923J97j2SLxwpgyAlRGfr",
   chatgptAlternatives: "https://chatgptalternatives.app",
   indieStarter: "https://indie-starter.dev",
+  deepReact: "https://deepreact.dev",
 };
 
 export const urlsSitemap = Object.values(urls).filter(
