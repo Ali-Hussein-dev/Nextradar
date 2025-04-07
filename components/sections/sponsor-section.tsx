@@ -1,5 +1,6 @@
 import {
   Card,
+  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -7,6 +8,8 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { urls } from "@/constants/urls";
+import { cn } from "@/lib/utils";
+import { getStats } from "@/lib/stats";
 
 // const Testimonials = () => (
 //   <div className="typography">
@@ -47,8 +50,30 @@ import { urls } from "@/constants/urls";
 //     </blockquote>
 //   </div>
 // );
+interface StatsCardProps {
+  title: string;
+  count: number | string;
+  className?: string;
+}
+export function StatsCard({ title, count, className }: StatsCardProps) {
+  return (
+    <Card className={cn("overflow-hidden rounded-2xl border-solid", className)}>
+      <CardContent className="p-6 ">
+        <h2 className="text-3xl font-bold tracking-tight mt-2 mb-1 text-center">
+          {count.toLocaleString()}
+        </h2>
+        <p className="text-sm font-medium text-muted-foreground text-center">
+          {title}
+        </p>
+      </CardContent>
+    </Card>
+  );
+}
+
 //======================================
-export function SponsorSection() {
+export async function SponsorSection() {
+  const res = await getStats();
+
   return (
     <section className="">
       <div className="max-w-3xl mx-auto py-4">
@@ -110,6 +135,14 @@ export function SponsorSection() {
               </Button>
             </CardFooter>
           </Card>
+        </div>
+        <div className="grid md:grid-cols-3 sm:grid-cols-2 py-10 gap-6">
+          <StatsCard title="Minimum sales made for products" count={"$2,170"} />
+          <StatsCard
+            title="Page views 2025"
+            count={12_360 + (res?.pageviews?.value || 0)}
+          />
+          <StatsCard title="Average visit duration" count={"3m 47s"} />
         </div>
       </div>
     </section>
