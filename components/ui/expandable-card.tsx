@@ -1,7 +1,7 @@
-"use client"
-import { cn } from "@/lib/utils"
-import * as React from "react"
-import { Button } from "@/components/ui/button"
+"use client";
+import { cn } from "@/lib/utils";
+import * as React from "react";
+import { Button } from "@/components/ui/button";
 
 export function ExpandableCard({
   /**
@@ -18,20 +18,20 @@ export function ExpandableCard({
    */
   wide = false,
 }: {
-  height?: string
-  wide?: boolean
-  className?: string
-  children: React.ReactNode
+  height?: string;
+  wide?: boolean;
+  className?: string;
+  children: React.ReactNode;
 }) {
-  const [isExpanded, setIsExpanded] = React.useState(false)
-  const [contentHeight, setContentHeight] = React.useState(0)
-  const contentRef = React.useRef<HTMLDivElement>(null)
+  const [isExpanded, setIsExpanded] = React.useState(false);
+  const [contentHeight, setContentHeight] = React.useState(0);
+  const contentRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     if (contentRef.current) {
-      setContentHeight(contentRef.current.scrollHeight)
+      setContentHeight(contentRef.current.scrollHeight);
     }
-  }, [])
+  }, []);
   return (
     <div
       className={cn(
@@ -72,12 +72,12 @@ export function ExpandableCard({
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export const CardHeading = ({ h1: h1 = "", p }: { h1: string; p?: string }) => (
   <div className="mb-5">
     <h1 className="text-2xl font-extrabold mb-0 mt-2">{h1}</h1>
-    {!!p && <p className="text-lg font-medium mb-0 mt-2 prose-p:mt-1">{p}</p>}
+    {!!p && <h2 className="text-lg font-medium mb-0 mt-2 prose-p:mt-1">{p}</h2>}
   </div>
-)
+);
