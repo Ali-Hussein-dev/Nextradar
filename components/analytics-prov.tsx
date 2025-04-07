@@ -1,4 +1,3 @@
-import { env } from "@/env.mjs";
 import { headers } from "next/headers";
 import Script from "next/script";
 
@@ -27,8 +26,8 @@ export const AnalyticsProv = async () => {
       <Script
         async
         strategy="afterInteractive"
-        src="https://aliytics.netlify.app/script.js"
-        data-website-id="176aa3d6-7cb7-4bef-af6a-644d42b42833"
+        src="https://alityics.netlify.app/script.js"
+        data-website-id="67493152-9f8c-4d3e-806b-7781045212c0"
       />
     </>
   );
