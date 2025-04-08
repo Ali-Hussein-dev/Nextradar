@@ -15,7 +15,7 @@ import {
 
 export const RepoCard = ({ repo }: { repo: Repo }) => {
   return (
-    <Card className="rounded-sm border-dashed flex flex-col">
+    <Card className="border-dashed flex flex-col">
       <CardHeader className="flex-row-between">
         <CardTitle>
           {repo.avatar && (

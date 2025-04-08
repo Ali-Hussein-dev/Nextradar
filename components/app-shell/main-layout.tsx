@@ -119,11 +119,11 @@ export default function MainLayout({
           <BaseLayout>
             <LeftSidebar
               collapsibleTrigger={"Categories"}
-              className=" rounded-sm h-fit border-dashed lg:sticky lg:top-4"
+              className="h-fit lg:sticky lg:top-4"
             >
               <Sidebar />
             </LeftSidebar>
-            <MainContent className="border rounded-sm border-dashed">
+            <MainContent className="border rounded-[2rem] border-dashed py-6 md:px-6">
               {children}
             </MainContent>
           </BaseLayout>

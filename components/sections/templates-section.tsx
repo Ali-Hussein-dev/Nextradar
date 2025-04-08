@@ -81,7 +81,7 @@ export function FilterAccordion({
     <aside className={className}>
       <div className="hidden lg:block">
         {filtered && (
-          <div className="font-medium flex-row-start gap-2 mb-2 border-b border-dashed w-full pb-2">
+          <div className="flex-row-start gap-2 mb-2 border-b w-full pb-2 text-muted-foreground">
             Filter {urlHasParams && `- ${filtered.length}`}
           </div>
         )}
@@ -308,7 +308,7 @@ export function TemplatesSection() {
               <StandardCard key={o.name} template={o} router={router} />
             ))}
         </div>
-        <div className="lg:col-span-2 px-4 border border-dashed rounded-sm py-4 h-fit hidden lg:block sticky top-5">
+        <div className="lg:col-span-2 px-4 border border-dashed rounded-xl py-4 h-fit hidden lg:block sticky top-5">
           <FilterAccordion
             filterLabels={filterLabels}
             activeQueryState={activeQueryState}

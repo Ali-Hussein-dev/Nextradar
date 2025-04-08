@@ -20,10 +20,7 @@ export const SitesList = async () => {
       {list
         .sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0))
         .map((o, i) => (
-          <Card
-            key={o.name}
-            className="flex-col-start w-full border-dashed rounded-sm"
-          >
+          <Card key={o.name} className="flex-col-start w-full border-dashed">
             <CardHeader className="flex-row-start gap-2 py-4">
               {o.ogImage && (
                 <img
