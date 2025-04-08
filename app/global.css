@@ -8,6 +8,23 @@
     justify-content: center;
     align-items: center;
 }
+@layer utilities {
+    .masonry-cols-4 {
+      column-count: 4;
+      column-gap: 1em;
+    }
+    .masonry-cols-3 {
+      column-count: 3;
+      column-gap: 1em;
+    }
+    .masonry-cols-2 {
+      column-count: 2;
+      column-gap: 1em;
+    }
+    .break-inside {
+      break-inside: avoid;
+    }
+  }
 @layer components {
     .h1-dark {
         background: linear-gradient(180deg, #ffffff 0%, hsl(0, 0%, 67%) 100%),
