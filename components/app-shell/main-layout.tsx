@@ -1,9 +1,13 @@
 import { SharedProviders } from "@/components/providers";
 import { Footer } from "@/components/shared/footer";
-import { BaseLayout, LeftSidebar, MainContent } from "../ui/base-layout";
+import {
+  BaseLayout,
+  LeftSidebar,
+  MainContent,
+} from "@/components/ui/base-layout";
 import { urls } from "@/constants/urls";
-import { SidebarMenutBtn } from "./sidebar-menu-button";
-import { ThemeToggle } from "./toggle-theme";
+import { SidebarMenutBtn } from "@/components/app-shell/sidebar-menu-button";
+import { ThemeToggle } from "@/components/app-shell/toggle-theme";
 import { Button } from "@/components/ui/button";
 import {
   AiOutlineClockCircle,
@@ -19,6 +23,7 @@ import { PiShoppingCartLight } from "react-icons/pi";
 import { IoBriefcaseOutline } from "react-icons/io5";
 import { HiOutlineTemplate } from "react-icons/hi";
 import Link from "next/link";
+import { Newsletter } from "@/components/newsletter";
 
 type SidebarLink = {
   label: string;
@@ -123,8 +128,9 @@ export default function MainLayout({
             >
               <Sidebar />
             </LeftSidebar>
-            <MainContent className="border rounded-[2rem] border-dashed py-6 md:px-6">
-              {children}
+            <MainContent className="border rounded-[2rem] border-dashed overflow-hidden sm:p-1 px-2.5">
+              <div className="py-6 md:px-6">{children}</div>
+              <Newsletter />
             </MainContent>
           </BaseLayout>
         </div>
