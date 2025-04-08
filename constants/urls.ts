@@ -35,13 +35,15 @@ export const urls = {
   // imprint: "/legal/imprint",
   // social media
   twitter: "https://twitter.com/ali_hussein_20",
-  sponsorArticle: "https://www.creem.io/payment/prod_X6e6WvvE8HRhnOOkCuvEL",
-  sponsorProduct: "https://www.creem.io/payment/prod_4923J97j2SLxwpgyAlRGfr",
+  sponsorship: {
+    topPosition: "https://www.creem.io/payment/prod_3oF1TawDRPo5JVhmcC7m3G",
+    premiumSpot: "https://www.creem.io/payment/prod_1G1bpyvLWhleW71xriyCBB",
+  },
   chatgptAlternatives: "https://chatgptalternatives.app",
   indieStarter: "https://indie-starter.dev",
   deepReact: "https://deepreact.dev",
 };
 
 export const urlsSitemap = Object.values(urls).filter(
-  (url) => !url.startsWith("https://")
+  (url) => typeof url === "string" && !url.startsWith("https://")
 );
