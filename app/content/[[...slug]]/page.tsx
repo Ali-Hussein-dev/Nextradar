@@ -64,7 +64,7 @@ export default async function ContentPage(props: {
     });
   }
   switch (slug) {
-    case "latest":
+    case "nextjs":
       return (
         <React.Suspense
           fallback={
@@ -169,7 +169,8 @@ export async function generateStaticParams() {
     "headless-cms",
     "db",
     "commerce",
-    "latest",
+    // "latest",
+    "nextjs",
     "templates",
     "learn",
     "tools",

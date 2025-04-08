@@ -6,12 +6,17 @@ const config: NextConfig = {
     return [
       {
         source:'/content',
-        destination:'/content/latest',
+        destination:'/content/nextjs',
+        permanent:true
+      },
+      {
+        source:'/content/latest',
+        destination:'/content/nextjs',
         permanent:true
       },
       {
         source:'/',
-        destination:'/content/latest',
+        destination:'/content/nextjs',
         permanent:true
       },
       {

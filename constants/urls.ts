@@ -13,7 +13,7 @@ export const urls = {
   siteUrl: siteUrl[devEnv],
   learn: "/content/learn",
   tools: "/content/tools",
-  latest: "/content/latest",
+  latest: "/content/nextjs",
   sponsor: "/content/sponsor",
   templates: "/content/templates",
   osProjects: "/content/real-world-apps",
