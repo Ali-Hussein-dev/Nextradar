@@ -243,7 +243,7 @@ export const templates: Template[] = [
     {
         url: "https://indie-starter.dev",
         name: "Indie Starter",
-        description: "Write less code, iterate fast, and earn cash",
+        description: "Writing code is time-consuming, jumpstart your app development process with Indie Starter.",
         ogImage: "https://indie-starter.dev/opengraph-image.jpg",
         sponsored: true,
         rel: "dofollow",

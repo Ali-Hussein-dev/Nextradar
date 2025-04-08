@@ -31,7 +31,9 @@ export const IntegrationCard = ({
   sponsored = false,
 }: IntegrationCardProps) => {
   return (
-    <Card className="animate-in">
+    <Card
+      className={`animate-in ${sponsored ? "dark:border-green-300/30 border-green-300/60" : ""}`}
+    >
       <CardHeader className="flex-row-between ">
         <div className="flex-row-start gap-2">
           <img

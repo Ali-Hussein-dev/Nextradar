@@ -271,7 +271,9 @@ export function FilterableCms({ list }: { list: any[] }) {
         {filtered
           .sort((a, b) => (b.sponsored ? 1 : 0) - (a.sponsored ? 1 : 0))
           .map((o) => (
-            <IntegrationCard key={o.name} {...o} />
+            <div className={o.sponsored ? "col-span-2" : ""} key={o.name}>
+              <IntegrationCard key={o.name} {...o} />
+            </div>
           ))}
       </div>
       <div className="lg:col-span-2 px-4 border border-dashed rounded-xl py-4 h-fit hidden lg:block sticky top-5">

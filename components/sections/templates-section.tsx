@@ -187,7 +187,7 @@ const StandardCard = ({
     <Card
       className={`shadow-none ${
         template.sponsored
-          ? "dark:border-green-300/30 border-green-300/60 bg-muted/30"
+          ? "dark:border-green-300/30 border-green-300/60 md:col-span-2"
           : ""
       }`}
     >
