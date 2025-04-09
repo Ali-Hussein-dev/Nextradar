@@ -9,15 +9,15 @@ export const cmsFilterLabels = {
       tags: [
         {
           label: "Free Tier",
-          value: "freetier",
+          value: "free-tier",
           description:
-            "Offers a no-cost option with basic functionality for testing or small projects",
+            "Offers a no-cost option with basic functionality",
         },
         {
           label: "Open Source",
           value: "open-source",
           description:
-            "Software with source code that is freely available for modification and distribution",
+            "Available under an open-source license",
         },
       ],
     },
@@ -58,12 +58,12 @@ export const cmsFilterLabels = {
           description:
             "Implements a custom-designed proprietary storage solution",
         },
-        {
-          label: "Built-in Persistent Database",
-          value: "built-in-persistent-database",
-          description:
-            "Includes a self-contained database system requiring no external setup",
-        },
+        // {
+        //   label: "Built-in Persistent Database",
+        //   value: "built-in-persistent-database",
+        //   description:
+        //     "Includes a self-contained database system requiring no external setup",
+        // },
       ],
     },
     {

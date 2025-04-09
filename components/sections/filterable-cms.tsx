@@ -17,13 +17,29 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, InfoIcon } from "lucide-react";
 import { IntegrationCard } from "@/components/integration-card";
 import { ToggleView, usePreferencesStore } from "../ui/toggle-view";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cmsFilterLabels } from "@/constants/cms-filter";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
+const TooltipWrapper = ({ description }: { description: string }) => (
+  <TooltipProvider delayDuration={100}>
+    <Tooltip>
+      <TooltipTrigger className="opacity-0 group-hover:opacity-100 transition-all">
+        <InfoIcon />
+      </TooltipTrigger>
+      <TooltipContent>{description}</TooltipContent>
+    </Tooltip>
+  </TooltipProvider>
+);
 
 interface FilterAccordionProps {
   filterLabels: typeof cmsFilterLabels.categories;
@@ -72,10 +88,10 @@ export function FilterAccordion({
               <AccordionContent className="space-y-2">
                 {filterSection.tags
                   .sort((a, b) => a.label.localeCompare(b.label))
-                  .map(({ label, value }) => (
+                  .map(({ label, value, description }) => (
                     <Label
                       key={value}
-                      className="flex-row-start gap-2 bg-muted/50 rounded-sm px-2 py-3"
+                      className="flex justify-start items-center gap-2 bg-muted/50 rounded-sm px-2 py-3 grow text-sm group"
                       htmlFor={value}
                     >
                       <Checkbox
@@ -101,7 +117,8 @@ export function FilterAccordion({
                           }
                         }}
                       />
-                      <div>{label}</div>
+                      <div className="flex-1">{label}</div>
+                      <TooltipWrapper description={description} />
                     </Label>
                   ))}
               </AccordionContent>
