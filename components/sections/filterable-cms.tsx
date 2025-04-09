@@ -22,57 +22,57 @@ import { IntegrationCard } from "@/components/integration-card";
 import { ToggleView, usePreferencesStore } from "../ui/toggle-view";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { cmsFilterLabels } from "@/constants/cms-filter";
 
 interface FilterSection {
   name: string;
-  list: Array<{
+  tags: Array<{
     label: string;
     value: string;
   }>;
 }
 
-const cmsFilterLabels: FilterSection[] = [
-  {
-    name: "Hosting",
-    list: [
-      { label: "Self-hosting", value: "self-hosting" },
-      { label: "Cloud-based", value: "cloud-based" },
-      // { label: "Partial Self-hosting", value: "partial-self-hosting" }
-    ],
-  },
-  {
-    name: "API type",
-    list: [
-      { label: "Restful API", value: "restful-api" },
-      { label: "GraphQL", value: "graphql" },
-      { label: "Local API", value: "localapi" },
-    ],
-  },
-  {
-    name: "Database Type",
-    list: [
-      { label: "Postgres", value: "postgres" },
-      { label: "MySQL", value: "mysql" },
-      { label: "SQLite", value: "sqlite" },
-      { label: "MongoDB", value: "mongodb" },
-      { label: "Proprietary Content Lake", value: "proprietary-content-lake" },
-      {
-        label: "Built-in Persistent Database",
-        value: "built-in-persistent-database",
-      },
-      { label: "Git-based", value: "git-based" },
-    ],
-  },
-  {
-    name: "Others",
-    list: [
-      { label: "Free Tier", value: "free-tier" },
-      { label: "Open Source", value: "open-source" },
-      { label: "Realtime collaboration", value: "realtime-collaboration" },
-    ],
-  },
-];
-
+// const cmsFilterLabels: FilterSection[] = [
+//   {
+//     name: "Hosting",
+//     tags: [
+//       { label: "Self-hosting", value: "self-hosting" },
+//       { label: "Cloud-based", value: "cloud-based" },
+//       // { label: "Partial Self-hosting", value: "partial-self-hosting" }
+//     ],
+//   },
+//   {
+//     name: "API type",
+//     tags: [
+//       { label: "Restful API", value: "restful-api" },
+//       { label: "GraphQL", value: "graphql" },
+//       { label: "Local API", value: "localapi" },
+//     ],
+//   },
+//   {
+//     name: "Database Type",
+//     tags: [
+//       { label: "Postgres", value: "postgres" },
+//       { label: "MySQL", value: "mysql" },
+//       { label: "SQLite", value: "sqlite" },
+//       { label: "MongoDB", value: "mongodb" },
+//       { label: "Proprietary Content Lake", value: "proprietary-content-lake" },
+//       {
+//         label: "Built-in Persistent Database",
+//         value: "built-in-persistent-database",
+//       },
+//       { label: "Git-based", value: "git-based" },
+//     ],
+//   },
+//   {
+//     name: "Others",
+//     tags: [
+//       { label: "Free Tier", value: "free-tier" },
+//       { label: "Open Source", value: "open-source" },
+//       { label: "Realtime collaboration", value: "realtime-collaboration" },
+//     ],
+//   },
+// ];
 
 interface FilterAccordionProps {
   filterLabels: FilterSection[];
@@ -103,7 +103,7 @@ export function FilterAccordion({
 
       <Accordion type="multiple">
         {filterLabels.map((filterSection) => {
-          const count = activeQueryState[filterSection.name].length;
+          const count = activeQueryState[filterSection.value].length;
           return (
             <AccordionItem key={filterSection.name} value={filterSection.name}>
               <AccordionTrigger className="hover:no-underline">
@@ -119,7 +119,7 @@ export function FilterAccordion({
                 </div>
               </AccordionTrigger>
               <AccordionContent className="space-y-2">
-                {filterSection.list
+                {filterSection.tags
                   .sort((a, b) => a.label.localeCompare(b.label))
                   .map(({ label, value }) => (
                     <Label
@@ -130,21 +130,21 @@ export function FilterAccordion({
                       <Checkbox
                         key={value}
                         id={value}
-                        checked={activeQueryState[filterSection.name].includes(
+                        checked={activeQueryState[filterSection.value].includes(
                           value
                         )}
                         onCheckedChange={(val) => {
                           if (val) {
                             setActiveQueryStates({
-                              [filterSection.name]: [
-                                ...activeQueryState[filterSection.name],
+                              [filterSection.value]: [
+                                ...activeQueryState[filterSection.value],
                                 value,
                               ],
                             });
                           } else {
                             setActiveQueryStates({
-                              [filterSection.name]: activeQueryState[
-                                filterSection.name
+                              [filterSection.value]: activeQueryState[
+                                filterSection.value
                               ].filter((item: string) => item !== value),
                             });
                           }
@@ -185,9 +185,9 @@ export function FilterAccordion({
 //======================================
 
 export function FilterableCms({ list }: { list: any[] }) {
-  const params = cmsFilterLabels.reduce(
+  const params = cmsFilterLabels.categories.reduce(
     (acc: Record<string, any>, filterSection) => {
-      acc[filterSection.name] = parseAsArrayOf(parseAsString).withDefault([]);
+      acc[filterSection.value] = parseAsArrayOf(parseAsString).withDefault([]);
       return acc;
     },
     {} as Record<string, any>
@@ -229,7 +229,7 @@ export function FilterableCms({ list }: { list: any[] }) {
           </CollapsibleTrigger>
           <CollapsibleContent>
             <FilterAccordion
-              filterLabels={cmsFilterLabels}
+              filterLabels={cmsFilterLabels.categories}
               activeQueryState={activeQueryState}
               setActiveQueryStates={setActiveQueryStates}
               urlHasParams={urlHasParams}
@@ -265,7 +265,7 @@ export function FilterableCms({ list }: { list: any[] }) {
             <ToggleView />
           </div>
           <FilterAccordion
-            filterLabels={cmsFilterLabels}
+            filterLabels={cmsFilterLabels.categories}
             activeQueryState={activeQueryState}
             setActiveQueryStates={setActiveQueryStates}
             urlHasParams={urlHasParams}
