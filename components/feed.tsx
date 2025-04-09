@@ -2,7 +2,7 @@ import { Search } from "@/components/search";
 import { FeedList } from "@/components/feed-list";
 import { getPageHeader, getSourcesPage } from "@/sanity/lib/getters";
 import { MdOutlineArrowOutward } from "react-icons/md";
-import { Button } from "@/components/button";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { YtDialog } from "@/components/yt-dialog";
 import * as React from "react";

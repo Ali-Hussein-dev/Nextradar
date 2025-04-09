@@ -2,7 +2,7 @@
 import { Repo } from "@/lib/get-repos-github";
 import { CiStar } from "react-icons/ci";
 import { MdOutlineArrowOutward } from "react-icons/md";
-import { Button } from "@/components/button";
+import { Button } from "@/components/ui/button";
 import { FaGithub } from "react-icons/fa";
 import {
   Card,

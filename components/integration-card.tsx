@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { Button } from "@/components/button";
+import { Button } from "@/components/ui/button";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
 import {
@@ -33,7 +33,7 @@ export const IntegrationCard = ({
   exampleUrl,
   sponsored = false,
   features,
-  extended
+  extended,
 }: IntegrationCardProps) => {
   return (
     <Card

@@ -1,19 +1,19 @@
-"use client"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/button"
-import Link from "next/link"
-import { FaArrowRight } from "react-icons/fa"
-import { useRouter } from "next/navigation"
+"use client";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 const sponsors = {
   anotherWrapper: {
     name: "AnotherWrapper",
     description: "Build your AI startup in hours",
     url: "https://anotherwrapper.com/?aff=pWOZY",
   },
-}
+};
 export const SponsoredCard = () => {
-  const { name, description, url } = sponsors.anotherWrapper
-  const router = useRouter()
+  const { name, description, url } = sponsors.anotherWrapper;
+  const router = useRouter();
   return (
     <div className="py-3">
       <div
@@ -23,7 +23,7 @@ export const SponsoredCard = () => {
       >
         <button
           onClick={() => {
-            router.push(url)
+            router.push(url);
           }}
           data-umami-event="sponsor-card"
           type="button"
@@ -41,8 +41,8 @@ export const SponsoredCard = () => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 //======================================
 export const Sponsor = () => {
   return (
@@ -71,8 +71,8 @@ export const Sponsor = () => {
         </Button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 //======================================
 export function Promote({ children }: { children: React.ReactNode }) {
@@ -92,7 +92,7 @@ export function Promote({ children }: { children: React.ReactNode }) {
         </Link>
       </Button>
     </div>
-  )
+  );
 }
 
 /**

@@ -2,7 +2,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 import { FaGithub } from "react-icons/fa";
-import { Button } from "@/components/button";
+import { Button } from "@/components/ui/button";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { filterLabels, templates } from "@/constants/templates";
 import * as React from "react";

@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Button } from "../button";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { BsList } from "react-icons/bs";
 import { CiGrid41 } from "react-icons/ci";

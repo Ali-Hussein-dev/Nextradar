@@ -1,10 +1,10 @@
-import { getFormattedTime } from "@/lib/get-formatted-time"
-import { Button } from "@/components/button"
-import React from "react"
-import Link from "next/link"
-import { IoTimeOutline } from "react-icons/io5"
-import { JobPost } from "@/sanity/types"
-import { urls } from "@/constants/urls"
+import { getFormattedTime } from "@/lib/get-formatted-time";
+import { Button } from "@/components/ui/button";
+import React from "react";
+import Link from "next/link";
+import { IoTimeOutline } from "react-icons/io5";
+import { JobPost } from "@/sanity/types";
+import { urls } from "@/constants/urls";
 
 export type JobPostCardProps = Pick<
   JobPost,
@@ -24,7 +24,7 @@ export type JobPostCardProps = Pick<
   | "timeZone"
   | "company"
   | "workplaceType"
->
+>;
 export const JobCard = (props: JobPostCardProps & { isLast: boolean }) => {
   const {
     jobTitle,
@@ -34,8 +34,8 @@ export const JobCard = (props: JobPostCardProps & { isLast: boolean }) => {
     companyName,
     timeZone,
     location = "",
-  } = props
-  const isTimezone = (timeZone ?? []).length > 0
+  } = props;
+  const isTimezone = (timeZone ?? []).length > 0;
   return (
     <div
       className={`rounded-none dark:bg-transparent md:border-t md:border-x border-dashed py-5 md:py-6 sm:px-4 md:px-6 flex flex-col justify-start w-full animate-in ${isLast ? "md:border-b" : ""}`}
@@ -75,5 +75,5 @@ export const JobCard = (props: JobPostCardProps & { isLast: boolean }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

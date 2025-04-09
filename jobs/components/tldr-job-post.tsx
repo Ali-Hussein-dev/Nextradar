@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { useCompletion } from "ai/react"
-import { Button } from "@/components/button"
-import { type TypedObject } from "sanity"
-import { Markdown } from "@/components/markdown"
-import { blocksToText } from "@/lib/utils"
-import { BsStars } from "react-icons/bs"
+import { useCompletion } from "ai/react";
+import { Button } from "@/components/ui/button";
+import { type TypedObject } from "sanity";
+import { Markdown } from "@/components/markdown";
+import { blocksToText } from "@/lib/utils";
+import { BsStars } from "react-icons/bs";
 
 //======================================
 export const TldrJobPost = ({ jobPost }: { jobPost: TypedObject[] }) => {
   const { handleSubmit, isLoading, complete, completion } = useCompletion({
     api: "/api/summarize",
-  })
-  const plainText = blocksToText(jobPost)
+  });
+  const plainText = blocksToText(jobPost);
   return (
     <div>
       <form onSubmit={handleSubmit} className="flex-row-start w-full">
@@ -34,5 +34,5 @@ export const TldrJobPost = ({ jobPost }: { jobPost: TypedObject[] }) => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};

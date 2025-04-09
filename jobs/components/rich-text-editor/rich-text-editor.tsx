@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   BaseDefinition,
   defineSchema,
@@ -14,9 +14,9 @@ import {
   useEditor,
   usePortableTextEditor,
   usePortableTextEditorSelection,
-} from "@portabletext/editor"
-import React, { useEffect } from "react"
-import "./editor.css"
+} from "@portabletext/editor";
+import React, { useEffect } from "react";
+import "./editor.css";
 import {
   BoldIcon,
   Heading1Icon,
@@ -31,15 +31,15 @@ import {
   StrikethroughIcon,
   TextQuoteIcon,
   UnderlineIcon,
-} from "lucide-react"
-import { Button } from "@/components/button"
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@/components/ui/select";
 
 // Define the schema for the editor
 // All options are optional
@@ -109,7 +109,7 @@ const schemaDefinition = defineSchema<
     },
   ],
   blockObjects: [{ name: "image" }],
-})
+});
 
 export function RichTextEditor({
   value = "",
@@ -117,27 +117,27 @@ export function RichTextEditor({
   setValue,
   placeholder,
 }: {
-  placeholder: string
-  value: string
-  name: string
-  setValue: (key: string, value: string) => void
+  placeholder: string;
+  value: string;
+  name: string;
+  setValue: (key: string, value: string) => void;
 }) {
   // Create an editor
   const editor = useEditor({
     schemaDefinition,
-  })
+  });
 
   // Subscribe to editor changes
   useEffect(() => {
     const subscription = editor.on("mutation", (mutation) => {
-      setValue(name, JSON.stringify(mutation.snapshot))
+      setValue(name, JSON.stringify(mutation.snapshot));
       // setValue(mutation.snapshot)
-    })
+    });
 
     return () => {
-      subscription.unsubscribe()
-    }
-  }, [editor, name, setValue])
+      subscription.unsubscribe();
+    };
+  }, [editor, name, setValue]);
 
   return (
     <div className="border border-dashed rounded-sm relative">
@@ -176,31 +176,33 @@ export function RichTextEditor({
         />
       </PortableTextEditor>
     </div>
-  )
+  );
 }
 const renderLists: RenderListItemFunction = (props) => {
-  return <>{props.children}</>
-}
+  return <>{props.children}</>;
+};
 const renderDecorator: RenderDecoratorFunction = (props) => {
   if (props.value === "strong") {
-    return <strong>{props.children}</strong>
+    return <strong>{props.children}</strong>;
   }
   if (props.value === "em") {
-    return <em>{props.children}</em>
+    return <em>{props.children}</em>;
   }
   if (props.value === "underline") {
-    return <u>{props.children}</u>
+    return <u>{props.children}</u>;
   }
-  return <>{props.children}</>
-}
+  return <>{props.children}</>;
+};
 
 const renderAnnotation: RenderAnnotationFunction = (props) => {
   if (props.schemaType.name === "link") {
-    return <span style={{ textDecoration: "underline" }}>{props.children}</span>
+    return (
+      <span style={{ textDecoration: "underline" }}>{props.children}</span>
+    );
   }
 
-  return <>{props.children}</>
-}
+  return <>{props.children}</>;
+};
 
 const renderBlock: RenderBlockFunction = (props) => {
   if (props.schemaType.name === "image" && isImage(props.value)) {
@@ -214,34 +216,34 @@ const renderBlock: RenderBlockFunction = (props) => {
       >
         IMG: {props.value.src}
       </div>
-    )
+    );
   }
 
-  return <div style={{ marginBlockEnd: "0.25em" }}>{props.children}</div>
-}
+  return <div style={{ marginBlockEnd: "0.25em" }}>{props.children}</div>;
+};
 
 function isImage(
   props: PortableTextBlock
 ): props is PortableTextBlock & { src: string } {
-  return "src" in props
+  return "src" in props;
 }
 
 const renderStyle: RenderStyleFunction = (props) => {
-  const styleValue = props.schemaType.value
+  const styleValue = props.schemaType.value;
   if (styleValue === "h1") {
-    return <h1>{props.children}</h1>
+    return <h1>{props.children}</h1>;
   }
   if (styleValue === "h2") {
-    return <h2>{props.children}</h2>
+    return <h2>{props.children}</h2>;
   }
   if (styleValue === "h3") {
-    return <h3>{props.children}</h3>
+    return <h3>{props.children}</h3>;
   }
   // if (styleValue === "blockquote") {
   //   return <blockquote>{props.children}</blockquote>
   // }
-  return <>{props.children}</>
-}
+  return <>{props.children}</>;
+};
 
 // const renderChild: RenderChildFunction = (props) => {
 //   if (props.schemaType.name === "stock-ticker" && isStockTicker(props.value)) {
@@ -268,17 +270,17 @@ const renderStyle: RenderStyleFunction = (props) => {
 
 function Toolbar() {
   // Obtain the editor instance provided from the `PortableTextEditor` component
-  const editor = usePortableTextEditor()
+  const editor = usePortableTextEditor();
   // Rerender the toolbar whenever the selection changes
-  usePortableTextEditorSelection()
+  usePortableTextEditorSelection();
   const {
     styles = [],
     decorators = [],
     lists = [],
     annotations = [],
-  } = schemaDefinition
+  } = schemaDefinition;
   const decoratorButtons = decorators.map((decorator) => {
-    const Icon = decorator.icon as React.ElementType
+    const Icon = decorator.icon as React.ElementType;
     return (
       <Button
         type="button"
@@ -291,15 +293,15 @@ function Toolbar() {
         key={decorator.name}
         onClick={() => {
           // Toggle the decorator by name
-          PortableTextEditor.toggleMark(editor, decorator.name)
+          PortableTextEditor.toggleMark(editor, decorator.name);
           // Pressing this button steals focus so let's focus the editor again
-          PortableTextEditor.focus(editor)
+          PortableTextEditor.focus(editor);
         }}
       >
         <Icon className="size-4" />
       </Button>
-    )
-  })
+    );
+  });
 
   const Annotations = annotations.map((annotation) => (
     <Button
@@ -313,21 +315,21 @@ function Toolbar() {
       }
       onClick={() => {
         if (PortableTextEditor.isAnnotationActive(editor, annotation.name)) {
-          PortableTextEditor.removeAnnotation(editor, annotation)
+          PortableTextEditor.removeAnnotation(editor, annotation);
         } else {
           PortableTextEditor.addAnnotation(editor, annotation, {
             href: "https://example.com",
-          })
+          });
         }
-        PortableTextEditor.focus(editor)
+        PortableTextEditor.focus(editor);
       }}
     >
       <LinkIcon className="size-4" />
     </Button>
-  ))
+  ));
   function StyleSelector() {
     // const styles = editor.schemaTypes.styles
-    const focusBlock = PortableTextEditor.focusBlock(editor)
+    const focusBlock = PortableTextEditor.focusBlock(editor);
 
     const activeStyle = React.useMemo(
       () =>
@@ -337,14 +339,14 @@ function Toolbar() {
             )?.value ?? null)
           : null,
       [focusBlock]
-    )
+    );
     return (
       <Select
         value={activeStyle ?? "normal"}
         onValueChange={(style) => {
           if (typeof style === "string") {
-            PortableTextEditor.toggleBlockStyle(editor, style)
-            PortableTextEditor.focus(editor)
+            PortableTextEditor.toggleBlockStyle(editor, style);
+            PortableTextEditor.focus(editor);
           }
         }}
         defaultValue={activeStyle ?? "normal"}
@@ -354,7 +356,7 @@ function Toolbar() {
         </SelectTrigger>
         <SelectContent>
           {styles.map((style) => {
-            const Icon = style.icon as React.ElementType
+            const Icon = style.icon as React.ElementType;
             return (
               <SelectItem
                 key={style.value}
@@ -366,16 +368,16 @@ function Toolbar() {
                   <span>{style.title}</span>
                 </div>
               </SelectItem>
-            )
+            );
           })}
         </SelectContent>
       </Select>
-    )
+    );
   }
 
   const listButtons = lists.map((list) => {
-    const active = PortableTextEditor.hasListStyle(editor, list.name)
-    const Icon = list.icon as React.ElementType
+    const active = PortableTextEditor.hasListStyle(editor, list.name);
+    const Icon = list.icon as React.ElementType;
     return (
       <Button
         type="button"
@@ -383,14 +385,14 @@ function Toolbar() {
         size="sm"
         key={list.name}
         onClick={() => {
-          PortableTextEditor.toggleList(editor, list.name)
-          PortableTextEditor.focus(editor)
+          PortableTextEditor.toggleList(editor, list.name);
+          PortableTextEditor.focus(editor);
         }}
       >
         <Icon className="size-4" />
       </Button>
-    )
-  })
+    );
+  });
 
   return (
     <div className="w-full border-dashed border-b sticky top-0 flex-row-start gap-1 flex-wrap pb-2 z-10 p-2.5 dark:bg-zinc-950 bg-zinc-50">
@@ -399,5 +401,5 @@ function Toolbar() {
       {Annotations}
       {listButtons}
     </div>
-  )
+  );
 }

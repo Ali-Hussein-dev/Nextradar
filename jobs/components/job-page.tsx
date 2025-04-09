@@ -1,23 +1,23 @@
-import { Button } from "@/components/button"
-import Link from "next/link"
-import { FaArrowLeft } from "react-icons/fa"
-import { PortableText } from "next-sanity"
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { FaArrowLeft } from "react-icons/fa";
+import { PortableText } from "next-sanity";
 // import { TldrJobPost } from "@/jobs/components/tldr-job-post"
-import { urls } from "@/constants/urls"
-import { IoEarthOutline } from "react-icons/io5"
-import { CiLocationOn } from "react-icons/ci"
-import { GiMoneyStack } from "react-icons/gi"
-import { CgFileDocument } from "react-icons/cg"
-import { cn } from "@/lib/utils"
-import { GoArrowUpRight } from "react-icons/go"
-import { JobPost } from "@/sanity/types"
-import { MdOutlineAlternateEmail } from "react-icons/md"
-import { FiExternalLink } from "react-icons/fi"
-import { PiHouseLine } from "react-icons/pi"
+import { urls } from "@/constants/urls";
+import { IoEarthOutline } from "react-icons/io5";
+import { CiLocationOn } from "react-icons/ci";
+import { GiMoneyStack } from "react-icons/gi";
+import { CgFileDocument } from "react-icons/cg";
+import { cn } from "@/lib/utils";
+import { GoArrowUpRight } from "react-icons/go";
+import { JobPost } from "@/sanity/types";
+import { MdOutlineAlternateEmail } from "react-icons/md";
+import { FiExternalLink } from "react-icons/fi";
+import { PiHouseLine } from "react-icons/pi";
 
 //======================================
 export const FullJobPost = ({ post }: { post: JobPost }) => {
-  const benefits = post?.benefits ?? []
+  const benefits = post?.benefits ?? [];
   return (
     <section className="py-6 mx-auto border border-dashed">
       <div className="flex-col-center gap-8 dark:text-zinc-400 text-zinc-700 p-3 py-6 border-b border-dashed">
@@ -112,5 +112,5 @@ export const FullJobPost = ({ post }: { post: JobPost }) => {
         </Button>
       </div>
     </section>
-  )
-}
+  );
+};
