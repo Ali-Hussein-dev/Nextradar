@@ -24,58 +24,9 @@ import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cmsFilterLabels } from "@/constants/cms-filter";
 
-interface FilterSection {
-  name: string;
-  tags: Array<{
-    label: string;
-    value: string;
-  }>;
-}
-
-// const cmsFilterLabels: FilterSection[] = [
-//   {
-//     name: "Hosting",
-//     tags: [
-//       { label: "Self-hosting", value: "self-hosting" },
-//       { label: "Cloud-based", value: "cloud-based" },
-//       // { label: "Partial Self-hosting", value: "partial-self-hosting" }
-//     ],
-//   },
-//   {
-//     name: "API type",
-//     tags: [
-//       { label: "Restful API", value: "restful-api" },
-//       { label: "GraphQL", value: "graphql" },
-//       { label: "Local API", value: "localapi" },
-//     ],
-//   },
-//   {
-//     name: "Database Type",
-//     tags: [
-//       { label: "Postgres", value: "postgres" },
-//       { label: "MySQL", value: "mysql" },
-//       { label: "SQLite", value: "sqlite" },
-//       { label: "MongoDB", value: "mongodb" },
-//       { label: "Proprietary Content Lake", value: "proprietary-content-lake" },
-//       {
-//         label: "Built-in Persistent Database",
-//         value: "built-in-persistent-database",
-//       },
-//       { label: "Git-based", value: "git-based" },
-//     ],
-//   },
-//   {
-//     name: "Others",
-//     tags: [
-//       { label: "Free Tier", value: "free-tier" },
-//       { label: "Open Source", value: "open-source" },
-//       { label: "Realtime collaboration", value: "realtime-collaboration" },
-//     ],
-//   },
-// ];
 
 interface FilterAccordionProps {
-  filterLabels: FilterSection[];
+  filterLabels: typeof cmsFilterLabels.categories;
   activeQueryState: Record<string, string[]>;
   setActiveQueryStates: (value: Record<string, string[]>) => void;
   urlHasParams: boolean;

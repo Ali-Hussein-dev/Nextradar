@@ -1,12 +1,11 @@
-
-export const cmsFilterLabels = {  
+export const cmsFilterLabels = {
   version: "1.0.0",
   description:
     "Comprehensive tag collection for filtering headless CMS platforms",
   categories: [
     {
       name: "Core Features",
-      value:"core-features",
+      value: "core-features",
       tags: [
         {
           label: "Free Tier",
@@ -24,7 +23,7 @@ export const cmsFilterLabels = {
     },
     {
       name: "Database Support",
-      value:"database-support",
+      value: "database-support",
       tags: [
         {
           label: "PostgreSQL",
@@ -40,14 +39,12 @@ export const cmsFilterLabels = {
         {
           label: "MariaDB",
           value: "mariadb",
-          description:
-            "Works with MariaDB as an alternative to MySQL database",
+          description: "Works with MariaDB as an alternative to MySQL database",
         },
         {
           label: "MongoDB",
           value: "mongodb",
-          description:
-            "Uses MongoDB for NoSQL document-based content storage",
+          description: "Uses MongoDB for NoSQL document-based content storage",
         },
         {
           label: "SQLite",
@@ -71,7 +68,7 @@ export const cmsFilterLabels = {
     },
     {
       name: "API Type",
-      value:"api-type",
+      value: "api-type",
       tags: [
         {
           label: "Restful API",
@@ -82,8 +79,7 @@ export const cmsFilterLabels = {
         {
           label: "Local API",
           value: "local-api",
-          description:
-            "Offers a local API for content management and delivery",
+          description: "Offers a local API for content management and delivery",
         },
         {
           label: "GraphQL",
@@ -95,7 +91,7 @@ export const cmsFilterLabels = {
     },
     {
       name: "Hosting",
-      value:"hosting",
+      value: "hosting",
       tags: [
         {
           label: "Self-Hosting",
@@ -137,7 +133,7 @@ export const cmsFilterLabels = {
     },
     {
       name: "Content Management",
-      value:"content-management",
+      value: "content-management",
       tags: [
         {
           label: "Content Versioning",
@@ -179,7 +175,7 @@ export const cmsFilterLabels = {
     },
     {
       name: "Developer Experience",
-      value:"developer-experience",
+      value: "developer-experience",
       tags: [
         {
           label: "Realtime Collaboration",
@@ -209,7 +205,7 @@ export const cmsFilterLabels = {
     },
     {
       name: "Performance & Security",
-      value:"performance-security",
+      value: "performance-security",
       tags: [
         {
           label: "Caching Support",
@@ -217,12 +213,12 @@ export const cmsFilterLabels = {
           description:
             "Implements content caching strategies to improve delivery performance",
         },
-      //   {
-      //     label: "Authentication Options",
-      //     value: "authentication-options",
-      //     description:
-      //       "Supports various authentication methods like OAuth, JWT, or SSO",
-      //   },
+        //   {
+        //     label: "Authentication Options",
+        //     value: "authentication-options",
+        //     description:
+        //       "Supports various authentication methods like OAuth, JWT, or SSO",
+        //   },
         {
           label: "Role-based Access",
           value: "role-based-access",
@@ -248,6 +244,6 @@ export const cmsFilterLabels = {
             "Implements encryption for data in transit and at rest to enhance security",
         },
       ],
-    }
+    },
   ],
 };
