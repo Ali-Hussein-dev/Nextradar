@@ -198,27 +198,20 @@ export function FilterableCms({ list }: { list: any[] }) {
   const urlHasParams = Object.values(activeQueryState).some(
     (v) => v.length > 0
   );
-  const mergedParams = React.useMemo(
-    () => Object.values(activeQueryState).flat(),
-    [activeQueryState]
-  );
-  const filtered = React.useMemo(() => {
-    if (!urlHasParams) return list;
-    return list.filter(({ tags, name }) => {
+  const mergedParams = Object.values(activeQueryState).flat();
+  let filtered = list;
+  if (urlHasParams) {
+    filtered = list.filter(({ tags, name }) => {
       // const mergedSpecs = tags;
       const selectedTagsSet = new Set(mergedParams.map((s) => s.toLowerCase()));
       const cmsTagsSet = new Set(tags);
       const common = [...selectedTagsSet].filter((str) =>
         cmsTagsSet.has(str as string)
       );
-      console.log({
-        name,
-        cmsTags: tags,
-      });
       // Do template specs have at least all serach params
       return common.length >= mergedParams.length;
     });
-  }, [mergedParams, urlHasParams]);
+  }
   const { view } = usePreferencesStore();
   const isMobile = useIsMobile();
   return (
