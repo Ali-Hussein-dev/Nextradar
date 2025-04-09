@@ -56,16 +56,21 @@ export const IntegrationCard = ({
       <CardContent>
         <p className="line-clamp-2 text-sm">{description}</p>
         {features && extended && (
-          <ul className="list-none pl-1 pt-2 text-secondary-foreground/70 typography ">
-            {features.map((feature) => (
-              <li key={feature} className="flex-row-start gap-2 font-light">
-                <span className="border rounded-full p-1 ">
-                  <Check className="size-4" />
-                </span>{" "}
-                {feature}
-              </li>
-            ))}
-          </ul>
+          <div className="pt-5 space-y-2">
+            <span className="font-bold text-secondary-foreground">
+              ⭐ Additional Features
+            </span>
+            <ul className="list-none prose-li:pl-0 text-secondary-foreground/70 typography ">
+              {features.map((feature) => (
+                <li key={feature} className="flex-row-start gap-2 font-light">
+                  <span className="border rounded-full p-1">
+                    <Check className="size-4" />
+                  </span>{" "}
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </CardContent>
       <CardFooter className="flex-row-between w-full">
