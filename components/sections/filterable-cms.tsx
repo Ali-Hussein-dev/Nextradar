@@ -23,89 +23,59 @@ import { ToggleView, usePreferencesStore } from "../ui/toggle-view";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-// type DatabaseType =
-//   | "PostgreSQL"
-//   | "MySQL"
-//   | "MariaDB"
-//   | "MongoDB"
-//   | "SQLite"
-//   | "Proprietary Content Lake"
-//   | (string & {});
+interface FilterSection {
+  name: string;
+  list: Array<{
+    label: string;
+    value: string;
+  }>;
+}
 
-// type ApiType = "RestfulAPI" | "GraphQL" | "LocalAPI";
-
-// type CMSFilter = {
-//   openSource: boolean;
-//   apiType: ApiType[];
-//   RealtimeColaboration: boolean;
-//   databaseType: DatabaseType[];
-//   freeTier: boolean;
-//   hosting: ("self-hosting" | "Cloud-based" | "Partial Self-hosting")[];
-// } & Record<string, unknown>;
-
-const cmsFilterLabels = {
-  hosting: {
+const cmsFilterLabels: FilterSection[] = [
+  {
     name: "Hosting",
-    list: {
-      selfhosting: { label: "Self-hosting", value: "self-hosting" },
-      cloudBased: { label: "Cloud-based", value: "cloud-based" },
-      // partialSelfhosting: {
-      //   label: "Partial Self-hosting",
-      //   value: "partial-self-hosting",
-      // },
-    },
+    list: [
+      { label: "Self-hosting", value: "self-hosting" },
+      { label: "Cloud-based", value: "cloud-based" },
+      // { label: "Partial Self-hosting", value: "partial-self-hosting" }
+    ],
   },
-  apiType: {
+  {
     name: "API type",
-    list: {
-      restfulapi: { label: "Restful API", value: "restful-api" },
-      graphQL: { label: "GraphQL", value: "graphql" },
-      localAPI: { label: "Local API", value: "localapi" },
-    },
+    list: [
+      { label: "Restful API", value: "restful-api" },
+      { label: "GraphQL", value: "graphql" },
+      { label: "Local API", value: "localapi" },
+    ],
   },
-  databaseType: {
+  {
     name: "Database Type",
-    list: {
-      postgresql: { label: "Postgres", value: "postgres" },
-      mysql: { label: "MySQL", value: "mysql" },
-      sqlite: { label: "SQLite", value: "sqlite" },
-      mongodb: { label: "MongoDB", value: "mongodb" },
-      proprietaryContentLake: {
-        label: "Proprietary Content Lake",
-        value: "proprietary-content-lake",
-      },
-      builtInPersistentDatabase: {
+    list: [
+      { label: "Postgres", value: "postgres" },
+      { label: "MySQL", value: "mysql" },
+      { label: "SQLite", value: "sqlite" },
+      { label: "MongoDB", value: "mongodb" },
+      { label: "Proprietary Content Lake", value: "proprietary-content-lake" },
+      {
         label: "Built-in Persistent Database",
         value: "built-in-persistent-database",
       },
-      gitBased: { label: "Git-based", value: "git-based" },
-    },
+      { label: "Git-based", value: "git-based" },
+    ],
   },
-  others: {
+  {
     name: "Others",
-    list: {
-      freeTier: { label: "Free Tier", value: "free-tier" },
-      openSource: { label: "Open Source", value: "open-source" },
-      realtimeColaboration: {
-        label: "Realtime collaboration",
-        value: "realtime-collaboration",
-      },
-    },
+    list: [
+      { label: "Free Tier", value: "free-tier" },
+      { label: "Open Source", value: "open-source" },
+      { label: "Realtime collaboration", value: "realtime-collaboration" },
+    ],
   },
-};
+];
 
-interface FilterOption {
-  label: string;
-  value: string;
-}
-
-interface FilterLabel {
-  name: string;
-  list: Record<string, FilterOption>;
-}
 
 interface FilterAccordionProps {
-  filterLabels: Record<string, FilterLabel>;
+  filterLabels: FilterSection[];
   activeQueryState: Record<string, string[]>;
   setActiveQueryStates: (value: Record<string, string[]>) => void;
   urlHasParams: boolean;
@@ -132,61 +102,61 @@ export function FilterAccordion({
       </div>
 
       <Accordion type="multiple">
-        {Object.entries(filterLabels).map(
-          ([filterKey, { name: filterName, list: filterOptions }]) => {
-            const count = activeQueryState[filterKey].length;
-            return (
-              <AccordionItem key={filterKey} value={filterName}>
-                <AccordionTrigger className="hover:no-underline">
-                  <div className="flex-row-start gap-2">
-                    {filterName}
-                    {count > 0 ? (
-                      <span className="bg-muted text-muted-forground rounded-full p-1 size-6 center">
-                        {count}
-                      </span>
-                    ) : (
-                      ""
-                    )}
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="space-y-2">
-                  {Object.values(filterOptions)
-                    .sort((a, b) => a.label.localeCompare(b.label))
-                    .map(({ label, value }) => (
-                      <Label
+        {filterLabels.map((filterSection) => {
+          const count = activeQueryState[filterSection.name].length;
+          return (
+            <AccordionItem key={filterSection.name} value={filterSection.name}>
+              <AccordionTrigger className="hover:no-underline">
+                <div className="flex-row-start gap-2">
+                  {filterSection.name}
+                  {count > 0 ? (
+                    <span className="bg-muted text-muted-forground rounded-full p-1 size-6 center">
+                      {count}
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="space-y-2">
+                {filterSection.list
+                  .sort((a, b) => a.label.localeCompare(b.label))
+                  .map(({ label, value }) => (
+                    <Label
+                      key={value}
+                      className="flex-row-start gap-2 bg-muted/50 rounded-sm px-2 py-3"
+                      htmlFor={value}
+                    >
+                      <Checkbox
                         key={value}
-                        className="flex-row-start gap-2 bg-muted/50 rounded-sm px-2 py-3"
-                        htmlFor={value}
-                      >
-                        <Checkbox
-                          key={value}
-                          id={value}
-                          checked={activeQueryState[filterKey].includes(value)}
-                          onCheckedChange={(val) => {
-                            if (val) {
-                              setActiveQueryStates({
-                                [filterKey]: [
-                                  ...activeQueryState[filterKey],
-                                  value,
-                                ],
-                              });
-                            } else {
-                              setActiveQueryStates({
-                                [filterKey]: activeQueryState[filterKey].filter(
-                                  (item: string) => item !== value
-                                ),
-                              });
-                            }
-                          }}
-                        />
-                        <div>{label}</div>
-                      </Label>
-                    ))}
-                </AccordionContent>
-              </AccordionItem>
-            );
-          }
-        )}
+                        id={value}
+                        checked={activeQueryState[filterSection.name].includes(
+                          value
+                        )}
+                        onCheckedChange={(val) => {
+                          if (val) {
+                            setActiveQueryStates({
+                              [filterSection.name]: [
+                                ...activeQueryState[filterSection.name],
+                                value,
+                              ],
+                            });
+                          } else {
+                            setActiveQueryStates({
+                              [filterSection.name]: activeQueryState[
+                                filterSection.name
+                              ].filter((item: string) => item !== value),
+                            });
+                          }
+                        }}
+                      />
+                      <div>{label}</div>
+                    </Label>
+                  ))}
+              </AccordionContent>
+            </AccordionItem>
+          );
+        })}
       </Accordion>
       <div className="pt-2">
         {urlHasParams && (
@@ -215,9 +185,9 @@ export function FilterAccordion({
 //======================================
 
 export function FilterableCms({ list }: { list: any[] }) {
-  const params = Object.keys(cmsFilterLabels).reduce(
-    (acc: Record<string, any>, key) => {
-      acc[key] = parseAsArrayOf(parseAsString).withDefault([]);
+  const params = cmsFilterLabels.reduce(
+    (acc: Record<string, any>, filterSection) => {
+      acc[filterSection.name] = parseAsArrayOf(parseAsString).withDefault([]);
       return acc;
     },
     {} as Record<string, any>
