@@ -16,7 +16,7 @@ export const BaseLayout = ({
   return (
     <div
       className={cn(
-        "grid md:grid-cols-8 lg:grid-cols-12 mx-auto max-w-7xl w-full gap-4 md:gap-6 lg:gap-8",
+        "grid md:grid-cols-8 lg:grid-cols-12 mx-auto max-w-7xl w-full gap-4 md:gap-6 lg:gap-8 relative",
         // If right sidebar is present, main content should span 8 columns
         "[&:has(>_[data-slot='right-sidebar'])]:[&_[data-slot='main-content']]:lg:col-span-8",
         className

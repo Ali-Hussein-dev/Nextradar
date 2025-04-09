@@ -251,7 +251,7 @@ export function FilterableCms({ list }: { list: any[] }) {
   const { view } = usePreferencesStore();
 
   return (
-    <>
+    <div className="lg:grid lg:grid-cols-8 gap-6">
       <Collapsible className="lg:hidden border w-full rounded-sm col-span-2 border-dashed py-1 px-3 mb-3">
         <CollapsibleTrigger className="w-full pt-1">
           <div className="flex-row-between w-full">
@@ -299,6 +299,6 @@ export function FilterableCms({ list }: { list: any[] }) {
           filtered={filtered}
         />
       </div>
-    </>
+    </div>
   );
 }

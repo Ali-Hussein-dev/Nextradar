@@ -128,7 +128,7 @@ export default function MainLayout({
             >
               <Sidebar />
             </LeftSidebar>
-            <MainContent className="border rounded-[2rem] border-dashed overflow-hidden sm:p-1 px-2.5">
+            <MainContent className="border rounded-[2rem] border-dashed sm:p-1 px-2.5">
               <div className="py-6 md:px-6">{children}</div>
               <Newsletter />
             </MainContent>

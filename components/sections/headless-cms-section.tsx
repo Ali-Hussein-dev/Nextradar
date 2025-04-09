@@ -14,11 +14,5 @@ export async function HeadlessCmsSection() {
   const list = (await getIntegrationsByCategory(
     categoriesIds.headlessCMS.id as number
   )) as IntegrationCardProps[];
-  return (
-    <div className="px-1 relative">
-      <div className="lg:grid lg:grid-cols-8 gap-6">
-        <FilterableCms list={list} />
-      </div>
-    </div>
-  );
+  return <FilterableCms list={list} />;
 }

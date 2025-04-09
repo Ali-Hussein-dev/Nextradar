@@ -25,8 +25,9 @@ const SharedContainer = ({
   children: React.ReactNode;
 }) => (
   <div
+    id="shared-container"
     className={cn(
-      "max-w-5xl mx-auto w-full h-full grow min-h-[88vh]",
+      "max-w-5xl mx-auto w-full h-full grow min-h-[88vh] relative",
       className
     )}
   >
