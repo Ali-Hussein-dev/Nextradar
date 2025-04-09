@@ -69,7 +69,7 @@ const HighlightText = ({ children }: { children: React.ReactNode }) => (
   </span>
 );
 const Card = ({ children }: { children: React.ReactNode }) => (
-  <div className="w-full rounded-xl overflow-hidden dark:border-zinc-900 dark:bg-zinc-950 p-1 py-2 mx-auto">
+  <div className="w-full overflow-hidden border-zinc-900 bg-zinc-950 px-1 py-5 mx-auto rounded-[2rem]">
     <div className="size-full bg-repeat bg-[url(/grid-ellipsis.svg)] bg-[length:45px_45px]">
       <div className="size-full bg-gradient-to-tr from-zinc-950 via-zinc-950/70 to-zinc-950">
         {children}
@@ -80,13 +80,13 @@ const Card = ({ children }: { children: React.ReactNode }) => (
 //======================================
 export function Newsletter() {
   return (
-    <div className="pt-8">
+    <div className="pt-8 md:p-2 dark:p-0">
       <Card>
         <div className="flex-col-center gap-1 p-1 sm:p-3 lg:p-8">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl mb-1 font-bold tracking-tighter text-center">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl mb-1 font-bold tracking-tighter text-center text-zinc-100">
             Biweekly Newsletter
           </h3>
-          <p className="pb-8 text-center text-sm max-w-xl mx-auto">
+          <p className="pb-8 text-center text-sm max-w-xl mx-auto text-zinc-200">
             Quality-first resources straight into your inbox from the minds of{" "}
             <HighlightText>founders</HighlightText>,{" "}
             <HighlightText>lead engineers</HighlightText>,{" "}
