@@ -21,6 +21,7 @@ import { ChevronRight } from "lucide-react";
 import { IntegrationCard } from "@/components/integration-card";
 import { ToggleView, usePreferencesStore } from "../ui/toggle-view";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 // type DatabaseType =
 //   | "PostgreSQL"
@@ -249,56 +250,66 @@ export function FilterableCms({ list }: { list: any[] }) {
     });
   }, [mergedParams, urlHasParams]);
   const { view } = usePreferencesStore();
-
+  const isMobile = useIsMobile();
   return (
     <div className="lg:grid lg:grid-cols-8 gap-6">
-      <Collapsible className="lg:hidden border w-full rounded-sm col-span-2 border-dashed py-1 px-3 mb-3">
-        <CollapsibleTrigger className="w-full pt-1">
-          <div className="flex-row-between w-full">
-            Filter {filtered && urlHasParams && `- ${filtered.length}`}{" "}
-            <ChevronRight />
-          </div>
-        </CollapsibleTrigger>
-        <CollapsibleContent>
-          <FilterAccordion
-            filterLabels={cmsFilterLabels}
-            activeQueryState={activeQueryState}
-            setActiveQueryStates={setActiveQueryStates}
-            urlHasParams={urlHasParams}
-            filtered={filtered}
-            className="py-2"
-          />
-        </CollapsibleContent>
-      </Collapsible>
+      {isMobile && (
+        <Collapsible
+          id="filterable-cms-mobile"
+          className="lg:hidden border w-full rounded-sm col-span-2 border-dashed py-1 px-3 mb-3"
+        >
+          <CollapsibleTrigger className="w-full pt-1">
+            <div className="flex-row-between w-full">
+              Filter {filtered && urlHasParams && `- ${filtered.length}`}{" "}
+              <ChevronRight />
+            </div>
+          </CollapsibleTrigger>
+          <CollapsibleContent>
+            <FilterAccordion
+              filterLabels={cmsFilterLabels}
+              activeQueryState={activeQueryState}
+              setActiveQueryStates={setActiveQueryStates}
+              urlHasParams={urlHasParams}
+              filtered={filtered}
+              className="py-2"
+            />
+          </CollapsibleContent>
+        </Collapsible>
+      )}
       <div
         className={cn(
-          "grid gap-5 lg:col-span-6 h-fit lg:px-0 w-full",
-          view === "grid" ? "lg:grid-cols-2" : "lg:grid-cols-1"
+          "grid gap-5 lg:col-span-6 h-fit lg:px-0 w-full grid-cols-1",
+          view === "grid" ? "lg:grid-cols-2" : ""
         )}
       >
         {filtered
           .sort((a, b) => (b.sponsored ? 1 : 0) - (a.sponsored ? 1 : 0))
           .map((o) => (
             <div
-              className={o.sponsored && view === "grid" ? "col-span-2" : ""}
+              className={o.sponsored && view === "grid" ? "lg:col-span-2" : ""}
               key={o.name}
             >
               <IntegrationCard key={o.name} {...o} extended={view === "list"} />
             </div>
           ))}
       </div>
-      <div className="lg:col-span-2 px-4 border border-dashed rounded-xl py-4 h-fit hidden lg:block sticky top-5">
-        <div className="pb-2">
-          <ToggleView />
+      {!isMobile && (
+        <div
+          id="filterable-cms-desktop"
+          className="lg:col-span-2 px-4 border border-dashed rounded-xl py-4 h-fit hidden lg:block sticky top-5"
+        >
+          <div className="pb-2">
+            <ToggleView />
+          </div>
+          <FilterAccordion
+            filterLabels={cmsFilterLabels}
+            activeQueryState={activeQueryState}
+            setActiveQueryStates={setActiveQueryStates}
+            urlHasParams={urlHasParams}
+            filtered={filtered}
+          />
         </div>
-        <FilterAccordion
-          filterLabels={cmsFilterLabels}
-          activeQueryState={activeQueryState}
-          setActiveQueryStates={setActiveQueryStates}
-          urlHasParams={urlHasParams}
-          filtered={filtered}
-        />
-      </div>
+      )}
     </div>
   );
 }
