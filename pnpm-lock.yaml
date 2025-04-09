@@ -183,6 +183,9 @@ importers:
       zsa-react-query:
         specifier: ^0.2.1
         version: 0.2.1(@tanstack/react-query@5.62.11(react@19.0.0))(react@19.0.0)(zod@3.23.8)
+      zustand:
+        specifier: ^5.0.3
+        version: 5.0.3(@types/react@19.0.2)(immer@10.1.1)(react@19.0.0)(use-sync-external-store@1.2.2(react@19.0.0))
     devDependencies:
       '@types/mdx':
         specifier: ^2.0.13
@@ -6673,6 +6676,24 @@ packages:
     resolution: {integrity: sha512-Pq3X4T0dna5s4dIevYOJiRdM3DUHRvEHS2q1AH/bvkPSh640u+9veVj5zmzmbL0A6cpXMYagwKsR4keGOc0jPQ==}
     peerDependencies:
       zod: ^3.23.5
+
+  zustand@5.0.3:
+    resolution: {integrity: sha512-14fwWQtU3pH4dE0dOpdMiWjddcH+QzKIgk1cl8epwSE7yag43k/AD/m4L6+K7DytAOr9gGBe3/EXj9g7cdostg==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      '@types/react': 19.0.2
+      immer: '>=9.0.6'
+      react: '>=18.0.0'
+      use-sync-external-store: '>=1.2.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
+      use-sync-external-store:
+        optional: true
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -14142,5 +14163,12 @@ snapshots:
   zsa@0.6.0(zod@3.23.8):
     dependencies:
       zod: 3.23.8
+
+  zustand@5.0.3(@types/react@19.0.2)(immer@10.1.1)(react@19.0.0)(use-sync-external-store@1.2.2(react@19.0.0)):
+    optionalDependencies:
+      '@types/react': 19.0.2
+      immer: 10.1.1
+      react: 19.0.0
+      use-sync-external-store: 1.2.2(react@19.0.0)
 
   zwitch@2.0.4: {}

@@ -10,6 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Check } from "lucide-react";
 
 export type IntegrationCardProps = {
   name: string;
@@ -19,6 +20,8 @@ export type IntegrationCardProps = {
   logoUrl: string;
   tags?: string[];
   sponsored?: boolean;
+  features?: string[];
+  extended?: boolean;
 };
 
 //======================================
@@ -29,6 +32,8 @@ export const IntegrationCard = ({
   logoUrl,
   exampleUrl,
   sponsored = false,
+  features,
+  extended
 }: IntegrationCardProps) => {
   return (
     <Card
@@ -49,7 +54,19 @@ export const IntegrationCard = ({
         ) : null}
       </CardHeader>
       <CardContent>
-        <p className="line-clamp-2">{description}</p>
+        <p className="line-clamp-2 text-sm">{description}</p>
+        {features && extended && (
+          <ul className="list-none pl-1 pt-2 text-secondary-foreground/70 typography ">
+            {features.map((feature) => (
+              <li key={feature} className="flex-row-start gap-2 font-light">
+                <span className="border rounded-full p-1 ">
+                  <Check className="size-4" />
+                </span>{" "}
+                {feature}
+              </li>
+            ))}
+          </ul>
+        )}
       </CardContent>
       <CardFooter className="flex-row-between w-full">
         <div className="flex-row-end grow gap-3">

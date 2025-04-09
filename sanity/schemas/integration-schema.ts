@@ -50,6 +50,15 @@ const IntegrationSchema = {
       },
     },
     {
+      name: "features",
+      title: "Features",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        layout: "list",
+      },
+    },
+    {
       name: "sponsored",
       title: "Is Sponsored?",
       type: "boolean",

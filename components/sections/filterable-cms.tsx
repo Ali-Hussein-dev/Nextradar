@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { Button } from "@/components/button";
+import { Button } from "@/components/ui/button";
 import * as React from "react";
 import { parseAsArrayOf, parseAsString, useQueryStates } from "nuqs";
 import {
@@ -19,6 +19,8 @@ import {
 } from "@/components/ui/collapsible";
 import { ChevronRight } from "lucide-react";
 import { IntegrationCard } from "@/components/integration-card";
+import { ToggleView, usePreferencesStore } from "../ui/toggle-view";
+import { cn } from "@/lib/utils";
 
 // type DatabaseType =
 //   | "PostgreSQL"
@@ -246,13 +248,14 @@ export function FilterableCms({ list }: { list: any[] }) {
       return common.length >= mergedParams.length;
     });
   }, [mergedParams, urlHasParams]);
+  const { view } = usePreferencesStore();
 
   return (
     <>
       <Collapsible className="lg:hidden border w-full rounded-sm col-span-2 border-dashed py-1 px-3 mb-3">
         <CollapsibleTrigger className="w-full pt-1">
           <div className="flex-row-between w-full">
-            Filter {filtered && urlHasParams && `- ${filtered.length}`}
+            Filter {filtered && urlHasParams && `- ${filtered.length}`}{" "}
             <ChevronRight />
           </div>
         </CollapsibleTrigger>
@@ -267,16 +270,27 @@ export function FilterableCms({ list }: { list: any[] }) {
           />
         </CollapsibleContent>
       </Collapsible>
-      <div className="grid lg:grid-cols-2 gap-3 lg:col-span-6 h-fit lg:px-0 grid-cols-1 w-full">
+      <div
+        className={cn(
+          "grid gap-5 lg:col-span-6 h-fit lg:px-0 w-full",
+          view === "grid" ? "lg:grid-cols-2" : "lg:grid-cols-1"
+        )}
+      >
         {filtered
           .sort((a, b) => (b.sponsored ? 1 : 0) - (a.sponsored ? 1 : 0))
           .map((o) => (
-            <div className={o.sponsored ? "col-span-2" : ""} key={o.name}>
-              <IntegrationCard key={o.name} {...o} />
+            <div
+              className={o.sponsored && view === "grid" ? "col-span-2" : ""}
+              key={o.name}
+            >
+              <IntegrationCard key={o.name} {...o} extended={view === "list"} />
             </div>
           ))}
       </div>
       <div className="lg:col-span-2 px-4 border border-dashed rounded-xl py-4 h-fit hidden lg:block sticky top-5">
+        <div className="pb-2">
+          <ToggleView />
+        </div>
         <FilterAccordion
           filterLabels={cmsFilterLabels}
           activeQueryState={activeQueryState}
