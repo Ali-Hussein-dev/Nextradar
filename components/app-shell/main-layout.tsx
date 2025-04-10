@@ -77,7 +77,7 @@ export const sidebarLinks: SidebarLink[] = [
     icon: <PiShoppingCartLight />,
   },
   {
-    label: "DB",
+    label: "Database",
     url: urls.db,
     icon: <RiDatabase2Line />,
   },

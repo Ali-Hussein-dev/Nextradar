@@ -1,6 +1,7 @@
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { urls } from "@/constants/urls";
 const experts = [
   {
     name: "Seif Ghezala",
@@ -109,7 +110,7 @@ export function Newsletter() {
             </div>
           </div>
           <Button asChild className="px-6 rounded-xl gap-2">
-            <a href="https://nextradar.substack.com/">
+            <a href={urls.newsletter}>
               Subscribe
               <MdOutlineArrowOutward size="14" />
             </a>
