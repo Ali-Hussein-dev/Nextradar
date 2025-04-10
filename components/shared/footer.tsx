@@ -2,18 +2,22 @@ import { urls } from "@/constants/urls";
 import Link from "next/link";
 
 const links = {
-  jobs: [
+  externalProjects: [
     {
-      label: "Chatgpt Alternatives",
-      url: urls.chatgptAlternatives,
+      label: "DeepReact",
+      url: urls.deepReact,
     },
     {
       label: "Indie Starter",
       url: urls.indieStarter,
     },
     {
-      label: "DeepReact",
-      url: urls.deepReact,
+      label: "Chatgpt Alternatives",
+      url: urls.chatgptAlternatives,
+    },
+    {
+      label: "Personal site",
+      url: urls.portfolio,
     },
   ],
   legal: [
@@ -26,24 +30,77 @@ const links = {
       url: urls.terms,
     },
   ],
+  internal: [
+    {
+      label: "Vercel Alternatives",
+      url: urls.vercelAlternatives,
+    },
+    {
+      label: "Next.js Templates",
+      url: urls.templates,
+    },
+    {
+      label: "Next.js Courses",
+      url: urls.learn,
+    },
+    {
+      label: "Headless CMS for Next.js",
+      url: urls.headlessCms,
+    },
+    {
+      label: "Managed Database for Next.js",
+      url: urls.db,
+    },
+  ],
+  quickLinks: [
+    {
+      label: "Sponsor",
+      url: urls.sponsor,
+    },
+    {
+      label: "Newsletter",
+      url: urls.newsletter,
+    },
+    {
+      label: "Nextjs Jobs",
+      url: urls.jobs,
+    },
+  ],
+};
+const LinksCol = ({
+  links,
+  title,
+}: {
+  links: Array<{ label: string; url: string }>;
+  title: string;
+}) => {
+  return (
+    <div className="flex flex-col items-start gap-2">
+      <h3 className="font-semibold dark:text-zinc-300 text-zinc-800">
+        {title}
+      </h3>
+      <ul className="flex flex-col items-start gap-2 list-none">
+        {links.map(({ label, url }) => (
+          <li key={label}>
+            <Link href={url}>
+              <span className="dark:text-zinc-400 text-zinc-700">{label}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 export const Footer = () => (
-  <footer className="text-center py-4 border-t text-sm dark:text-zinc-500 w-full">
-    <div className="flex-row-center flex-wrap mx-auto px-3">
-      <div className="flex-row-center gap-2 flex-wrap">
-        {links.jobs.map(({ label, url }) => (
-          <Link key={label} prefetch={false} href={url}>
-            <span className="dark:text-zinc-500 text-zinc-700">{label}</span>
-          </Link>
-        ))}
-        <div className="flex-row-center gap-2 flex-wrap ">
-          {links.legal.map(({ label, url }) => (
-            <Link key={label} prefetch={false} href={url}>
-              <span className="dark:text-zinc-500 text-zinc-700">{label}</span>
-            </Link>
-          ))}
-        </div>
-      </div>
+  <footer className="text-center py-4 border-t text-sm dark:text-zinc-500 w-full px-3">
+    <div className="grid xs:grid-cols-2 gap-y-5 md:grid-cols-4 gap-4 mx-auto max-w-6xl border-b border-dashed pb-4">
+      <LinksCol links={links.internal} title="Browse" />
+      <LinksCol links={links.quickLinks} title="Quick Links" />
+      <LinksCol links={links.legal} title="Legal" />
+      <LinksCol links={links.externalProjects} title="Other Projects" />
+    </div>
+    <div className="pt-2">
+      {new Date().getFullYear()} Nextradar. Website may contain affiliate links.
     </div>
   </footer>
 );
