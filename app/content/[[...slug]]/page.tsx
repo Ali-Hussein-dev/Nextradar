@@ -122,6 +122,19 @@ export default async function ContentPage(props: {
       );
     case "hosting":
       return (
+        <>
+          <head>
+            <link rel="canonical" href={urls.vercelAlternatives} />
+          </head>
+          <SharedContainer>
+            <PageHeader name="hosting" date={` - ${date}`} />
+            <HostingSection />
+          </SharedContainer>
+        </>
+      );
+    // created for SEO purposes
+    case "vercel-alternatives":
+      return (
         <SharedContainer>
           <PageHeader name="hosting" date={` - ${date}`} />
           <HostingSection />

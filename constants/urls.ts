@@ -19,6 +19,7 @@ export const urls = {
   osProjects: "/content/real-world-apps",
   // Integrations
   hosting: "/content/hosting",
+  vercelAlternatives: "/content/vercel-alternatives",
   headlessCms: "/content/headless-cms",
   baas: "/content/baas",
   db: "/content/db",
