@@ -35,24 +35,14 @@ export const FeedCard = ({
   rel = "nofollow",
 }: FeedCardProps) => {
   return (
-    <Card
-      className={`shadow-none ${
-        sponsored
-          ? "dark:border-green-300/30 border-green-300/60 bg-muted/30"
-          : ""
-      }`}
-    >
-      <CardHeader className="flex flex-col md:flex-row items-start h-full sm:items-start md:gap-3 w-full">
+    <Card className={`shadow-none ${sponsored ? "" : ""} border-none`}>
+      <CardHeader className="flex flex-col md:flex-row items-start h-full sm:items-start md:gap-3 w-full p-0 sm:py-4">
         {/* --------------------------------YT-Embed */}
         {src && <YtDialog src={src} href={href} />}
         <div className="w-full pt-2 grow flex-col-start md:h-full gap-1.5">
           <CardTitle className="flex-row-between w-full gap-5 dark:text-zinc-300 text-zinc-700">
             <span className="line-clamp-1">{name}</span>
-            {sponsored && (
-              <span className="text-xs text-green-300 font-light">
-                Sponsored
-              </span>
-            )}
+            {sponsored && <span className="text-xs font-light">Sponsored</span>}
           </CardTitle>
           <CardDescription
             className={cn(
@@ -67,7 +57,7 @@ export const FeedCard = ({
       {/* <CardContent>
           <p>Card Content</p>
         </CardContent> */}
-      <CardFooter className="flex-row-between gap-2 w-full text-sm pt-0">
+      <CardFooter className="flex-row-between gap-2 w-full text-sm pt-0 p-0 sm:pb-4">
         <span className="text-muted-foreground/80">{author}</span>
         {!src && (
           <Button
