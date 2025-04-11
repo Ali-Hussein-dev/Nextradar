@@ -1,7 +1,5 @@
-import { ItemsList } from "@/components/List";
-import { CardHeading, ExpandableCard } from "@/components/ui/expandable-card";
-
+import { ReposList } from "@/components/repos-list";
 //======================================
 export function OpenSourceProjects() {
-  return <ItemsList category="real-world-apps" />;
+  return <ReposList category="real-world-apps" />;
 }
