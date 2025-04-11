@@ -110,7 +110,7 @@ export default async function ContentPage(props: {
     case "real-world-apps":
       return (
         <SharedContainer>
-          {/* <PageHeader name="real-world-apps" /> */}
+          <PageHeader name="real-world-apps" />
           <OpenSourceProjects />
         </SharedContainer>
       );
