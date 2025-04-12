@@ -171,26 +171,26 @@ export function Search() {
         </InputBlock>
       </form>
       {data && (
-        <div className="py-4 md:px-3 animate-in px-2 border border-dashed rounded mt-5 dark:bg-zinc-900/70 bg-white">
-          {!data.error ? (
+        <div className="py-5 md:px-4 animate-in px-2 border border-dashed rounded-2xl mt-5">
+        {!data.error ? (
+          <div>
             <div>
-              <div>
-                {data.length == 0 ? (
-                  <NoResults query={inputValue} />
-                ) : (
-                  "Found " + data.length + " results"
-                )}
-              </div>
-              <div className="space-y-4 pt-1">
-                {data.map((o: FeedCardProps) => (
-                  <FeedCard key={o.name} {...o} />
-                ))}
-              </div>
+              {data.length == 0 ? (
+                <NoResults query={inputValue} />
+              ) : (
+                data.length + " results found"
+              )}
             </div>
-          ) : (
-            <div>{data.error.message}</div>
-          )}
-        </div>
+            <div className="space-y-4">
+              {data.map((o: FeedCardProps) => (
+                <FeedCard key={o.name} {...o} />
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div>{data.error.message}</div>
+        )}
+      </div>
       )}
     </div>
   )
