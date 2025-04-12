@@ -168,14 +168,6 @@ export function FilterAccordion({
   );
 }
 
-// function useFilteredTemplates(templates: Template[], isFree: boolean) {
-//   const filteredTemplates = React.useMemo(() => {
-//     return templates.filter((template) => !!template.github === isFree);
-//   }, [templates, isFree]);
-
-//   return filteredTemplates;
-// }
-
 const StandardCard = ({
   template,
   router,

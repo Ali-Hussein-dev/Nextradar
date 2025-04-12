@@ -12,6 +12,7 @@ import {
   CardTitle,
   CardFooter,
 } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export const RepoCard = ({ repo }: { repo: Repo }) => {
   return (
@@ -43,12 +44,13 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
         <div className="flex-row-between grow gap-3 w-full">
           <div className="flex-row-start h-full grow gap-1">
             {repo?.tags?.map((tag: string) => (
-              <span
+              <Badge
                 key={tag}
-                className="px-2.5 h-full center text-xs bg-zinc-200 dark:bg-zinc-900 dark:text-zinc-200 rounded-[2px] capitalize py-0.5"
+                className="capitalize rounded-sm"
+                variant={"secondary"}
               >
                 {tag}
-              </span>
+              </Badge>
             ))}
           </div>
           <div className="flex-row-end gap-2">
