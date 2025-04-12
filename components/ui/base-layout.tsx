@@ -1,10 +1,15 @@
 import { cn } from "@/lib/utils";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
 import { LuChevronsUpDown } from "react-icons/lu";
+import {
+  Drawer,
+  DrawerContent,
+  // DrawerClose,
+  // DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 
 export const BaseLayout = ({
   children,
@@ -61,13 +66,27 @@ export const LeftSidebar = ({
       >
         {children}
       </div>
-      <Collapsible className={cn("md:hidden", className)}>
-        <CollapsibleTrigger className="flex px-4 items-center w-full justify-between rounded-sm py-3 bg-secondary">
-          <span>{collapsibleTrigger}</span>
-          <LuChevronsUpDown />
-        </CollapsibleTrigger>
-        <CollapsibleContent className="py-2">{children}</CollapsibleContent>
-      </Collapsible>
+      <div className="md:hidden">
+        <Drawer>
+          <DrawerTrigger className="flex px-4 items-center w-full justify-between rounded-xl py-2.5 bg-secondary">
+            <span>{collapsibleTrigger}</span>
+            <LuChevronsUpDown />
+          </DrawerTrigger>
+          <DrawerContent className="px-4">
+            <DrawerHeader>
+              <DrawerTitle>Select Category</DrawerTitle>
+              {/* <DrawerDescription>This action cannot be undone.</DrawerDescription> */}
+            </DrawerHeader>
+            {children}
+            <DrawerFooter>
+              {/* <Button>{collapsibleTrigger}</Button>
+            <DrawerClose>
+              <Button variant="outline">Cancel</Button>
+            </DrawerClose> */}
+            </DrawerFooter>
+          </DrawerContent>
+        </Drawer>
+      </div>
     </>
   );
 };
