@@ -44,7 +44,7 @@ export const FeedList = ({ initialList }: { initialList: FeedCardProps[] }) => {
             <div className="pb-4 border-b border-dashed">
               <h2
                 id={`#${month}`}
-                className="flex items-center font-medium mb-2 pt-2 text-secondary-foreground/80"
+                className="flex items-center font-medium pt-2 text-secondary-foreground/80"
               >
                 <CalendarIcon className="mr-2 size-5" />
                 {month}

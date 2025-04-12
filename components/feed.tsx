@@ -35,8 +35,8 @@ export const FeedCard = ({
   rel = "nofollow",
 }: FeedCardProps) => {
   return (
-    <Card className={`shadow-none ${sponsored ? "" : ""} border-none`}>
-      <CardHeader className="flex flex-col md:flex-row items-start h-full sm:items-start md:gap-3 w-full p-0 sm:py-4">
+    <Card className="shadow-none border-none">
+      <CardHeader className="flex flex-col md:flex-row items-start h-full sm:items-start md:gap-3 w-full p-0 sm:py-4 sm:px-0">
         {/* --------------------------------YT-Embed */}
         {src && <YtDialog src={src} href={href} />}
         <div className="w-full pt-2 grow flex-col-start md:h-full gap-1.5">
@@ -57,7 +57,7 @@ export const FeedCard = ({
       {/* <CardContent>
           <p>Card Content</p>
         </CardContent> */}
-      <CardFooter className="flex-row-between gap-2 w-full text-sm pt-0 p-0 sm:pb-4">
+      <CardFooter className="flex-row-between gap-2 w-full text-sm pt-0 p-0 sm:pb-4 sm:px-0">
         <span className="text-muted-foreground/80">{author}</span>
         {!src && (
           <Button
