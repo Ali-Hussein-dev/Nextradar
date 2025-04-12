@@ -122,23 +122,31 @@ export const getSources = async ({
 }
 export const getSourcesPage = async ({
     page = 1,
-    pageSize = 12,
+    pageSize = 10,
     fields = "name, description, type, href, src, author, sponsored, rel, _createdAt",
-}: {
+  }: {
     page?: number;
     pageSize?: number;
-    recommended?: boolean | null;
     /**
      * Select fields to return from the query
      */
-    fields?: string
-}) => {
+    fields?: string;
+  }) => {
+    const sponsoredQuery = "&& sponsored == true";
+    const nonSponsoredQuery = "&& sponsored != true";
     const offset = (page - 1) * pageSize;
-    const sponsoredQuery= page < 2 ? "&& sponsored == true" : "";
-    return client.fetch(`*[_type == "source" ${sponsoredQuery}] | order(_createdAt desc) [${offset}...${offset + pageSize}] {
-        ${fields}
-    }`);
-};
+    const sponsoredSources =
+      page < 2
+        ? await client.fetch(`*[_type == "source" ${sponsoredQuery}] | order(_createdAt desc) {
+          ${fields}
+      }`)
+        : [];
+    const nonSponsoredSources =
+      await client.fetch(`*[_type == "source" ${nonSponsoredQuery}] | order(_createdAt desc) [${offset}...${offset + pageSize}] {
+          ${fields}
+      }`);
+    return [...sponsoredSources, ...nonSponsoredSources];
+  };
 //------------------------------------------------------------Resources-By-Term
 export const getResourcesByTerm = async ({
     q,
