@@ -131,11 +131,11 @@ export const getSourcesPage = async ({
     /**
      * Select fields to return from the query
      */
-    fields?: string;
+    fields?: string
 }) => {
     const offset = (page - 1) * pageSize;
-
-    return client.fetch(`*[_type == "source"] | order(_createdAt desc) [${offset}...${offset + pageSize}] {
+    const sponsoredQuery= page < 2 ? "&& sponsored == true" : "";
+    return client.fetch(`*[_type == "source" ${sponsoredQuery}] | order(_createdAt desc) [${offset}...${offset + pageSize}] {
         ${fields}
     }`);
 };
