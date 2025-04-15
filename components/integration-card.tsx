@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Button } from "@/components/ui/button";
 import { MdOutlineArrowOutward } from "react-icons/md";
-import { FaGithub } from "react-icons/fa";
+// import { FaGithub } from "react-icons/fa";
 import {
   Card,
   CardContent,
@@ -11,6 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Check } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export type IntegrationCardProps = {
   name: string;
@@ -22,8 +23,101 @@ export type IntegrationCardProps = {
   sponsored?: boolean;
   features?: string[];
   extended?: boolean;
+  pricing?: PricingCatalogProps;
 };
 
+type PricingCatalogProps = {
+  pricingUrl: string;
+  currency: string;
+  tiers: {
+    name: string;
+    monthlyPrice: number;
+    yearlyPrice: number;
+    isTrial: boolean;
+    trialDurationDays: number;
+  }[];
+};
+
+function PriceFormat({ price, currency }: { price: number; currency: string }) {
+  return (
+    <div className="">
+      {price === 0 ? (
+        "Free"
+      ) : price === -1 ? (
+        "Custom"
+      ) : (
+        <span>
+          {currency}
+          {price.toLocaleString()}
+        </span>
+      )}
+    </div>
+  );
+}
+function PricingCatalog({ pricingUrl, currency, tiers }: PricingCatalogProps) {
+  const hasYearlyPlan = tiers.find((o) => o.yearlyPrice && o.yearlyPrice > 0);
+  return (
+    <div className="pt-4">
+      <div
+        className={`border border-dashed rounded-xl overflow-hidden ${hasYearlyPlan ? "pt-4" : ""}`}
+      >
+        <Tabs defaultValue="monthly" className="justify-center">
+          {hasYearlyPlan && (
+            <TabsList className="mx-auto flex w-fit mt-0 mb-3">
+              <TabsTrigger value="monthly">Monthly</TabsTrigger>
+              <TabsTrigger value="yearly">Yearly</TabsTrigger>
+            </TabsList>
+          )}
+          <TabsContent className="mt-0" value="monthly">
+            <div
+              className={`flex w-full border-dashed ${hasYearlyPlan ? "border-y" : "border-b"}`}
+            >
+              {tiers.map((o, i) => (
+                <div
+                  className={`px-3 flex gap-0.5 grow flex-col flex-wrap items-start justify-start py-1.5 ${i < tiers.length - 1 && "border-r border-dashed"}`}
+                  key={o.name}
+                >
+                  <span className="text-lg text-muted-foreground">
+                    {o.name}
+                  </span>
+                  <span>
+                    <PriceFormat price={o.monthlyPrice} currency={currency} />
+                  </span>
+                </div>
+              ))}
+            </div>
+          </TabsContent>
+          <TabsContent className="mt-0" value="yearly">
+            <div className="flex w-full border-y border-dashed">
+              {tiers.map((o, i) => (
+                <div
+                  className={`px-3 flex gap-0.5 grow flex-col flex-wrap items-start justify-start py-1.5 ${i < tiers.length - 1 && "border-r border-dashed"}`}
+                  key={o.name}
+                >
+                  <span className="text-lg text-muted-foreground">
+                    {o.name}
+                  </span>
+                  <span>
+                    <PriceFormat price={o.yearlyPrice} currency={currency} />
+                  </span>
+                </div>
+              ))}
+            </div>
+          </TabsContent>
+        </Tabs>
+        <Button
+          variant="link"
+          asChild
+          className="mx-auto flex gap-1 items-center justify-center w-fit pt-3"
+        >
+          <a href={pricingUrl} rel="noopener noreferrer" target="_blank">
+            Pricing details <MdOutlineArrowOutward size="16" />
+          </a>
+        </Button>
+      </div>
+    </div>
+  );
+}
 //======================================
 export const IntegrationCard = ({
   name,
@@ -34,6 +128,7 @@ export const IntegrationCard = ({
   sponsored = false,
   features,
   extended,
+  pricing,
 }: IntegrationCardProps) => {
   return (
     <Card
@@ -55,6 +150,7 @@ export const IntegrationCard = ({
       </CardHeader>
       <CardContent>
         <p className="line-clamp-2 text-sm">{description}</p>
+        {pricing && extended && <PricingCatalog {...pricing} />}
         {features && extended && (
           <div className="pt-5 space-y-2">
             <span className="font-bold text-secondary-foreground">
