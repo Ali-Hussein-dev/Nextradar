@@ -200,6 +200,25 @@ export const templates: Template[] = [
         // },
     },
     {
+        url: "https://directorystack.com/?via=nextradar",
+        name: "Directorystack",
+        description:
+            "A highly modular, production-ready Next.js 15 & TypeScript template for building ai-powered, seo-optimized & revenue-generating directories quickly!",
+        ogImage: "https://directorystack.com/img/og_1200x630.png",
+        rel: "nofollow",
+        specs: {
+            cms: [],
+            cost: getPair("cost", "premium"),
+            payment: getPair("payment", "stripe"),
+            backend: getPair("backend", "supabase"),
+            email: getPair("email", "resend"),
+            analytics: getPair("analytics", "umami"),
+            styling: getPair("styling", "tailwindcss"),
+            language: getPair("language", "typescript"),
+            others: getPair("others", "sentry"),
+        },
+    },
+    {
         url: "https://anotherwrapper.com?aff=pWOZY",
         name: "AnotherWrapper",
         description:

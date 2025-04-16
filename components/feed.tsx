@@ -86,7 +86,7 @@ export const Feed = async () => {
       <div className="grid gap-5 max-w-2xl mx-auto pb-6 pt-3">
         <div className="space-y-1">
           <h1 className="font-bold text-center">{header.title}</h1>
-          <p className="text-center">{header.subtitle}</p>
+          <h2 className="text-center">{header.subtitle}</h2>
         </div>
         <Search />
         <FeedList initialList={page} />

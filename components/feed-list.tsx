@@ -42,13 +42,13 @@ export const FeedList = ({ initialList }: { initialList: FeedCardProps[] }) => {
         ).map(([month, items], i) => (
           <React.Fragment key={i}>
             <div className="pb-4 border-b border-dashed">
-              <h2
+              <div
                 id={`#${month}`}
                 className="flex items-center font-medium pt-2 text-secondary-foreground/80"
               >
                 <CalendarIcon className="mr-2 size-5" />
                 {month}
-              </h2>
+              </div>
               <div className="space-y-4">
                 {(items as FeedCardProps[])
                   .sort(
