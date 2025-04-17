@@ -1,35 +1,31 @@
-import { SharedProviders } from "@/components/providers";
-import { Footer } from "@/components/shared/footer";
-import {
-  BaseLayout,
-  LeftSidebar,
-  MainContent,
-} from "@/components/ui/base-layout";
-import { urls } from "@/constants/urls";
-import { SidebarMenutBtn } from "@/components/app-shell/sidebar-menu-button";
-import { ThemeToggle } from "@/components/app-shell/toggle-theme";
-import { Button } from "@/components/ui/button";
+import { SharedProviders } from "@/components/providers"
+import { Footer } from "@/components/shared/footer"
+import { BaseLayout, LeftSidebar, MainContent } from "@/components/ui/base-layout"
+import { urls } from "@/constants/urls"
+import { SidebarMenutBtn } from "@/components/app-shell/sidebar-menu-button"
+import { ThemeToggle } from "@/components/app-shell/toggle-theme"
+import { Button } from "@/components/ui/button"
 import {
   AiOutlineClockCircle,
   AiOutlineCloud,
   AiOutlineDatabase,
   AiOutlineCloudServer,
-} from "react-icons/ai";
-import { MdOutlineSchool } from "react-icons/md";
-import { FaWrench } from "react-icons/fa";
-import { RiDatabase2Line } from "react-icons/ri";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { PiShoppingCartLight } from "react-icons/pi";
-import { IoBriefcaseOutline } from "react-icons/io5";
-import { HiOutlineTemplate } from "react-icons/hi";
-import Link from "next/link";
-import { Newsletter } from "@/components/newsletter";
+} from "react-icons/ai"
+import { MdOutlineSchool } from "react-icons/md"
+import { FaWrench } from "react-icons/fa"
+import { RiDatabase2Line } from "react-icons/ri"
+import { GitHubLogoIcon } from "@radix-ui/react-icons"
+import { PiShoppingCartLight } from "react-icons/pi"
+import { IoBriefcaseOutline } from "react-icons/io5"
+import { HiOutlineTemplate } from "react-icons/hi"
+import Link from "next/link"
+import { Newsletter } from "@/components/newsletter"
 
 type SidebarLink = {
-  label: string;
-  url: string;
-  icon?: React.ReactNode;
-};
+  label: string
+  url: string
+  icon?: React.ReactNode
+}
 export const sidebarLinks: SidebarLink[] = [
   {
     label: "Latest",
@@ -86,7 +82,7 @@ export const sidebarLinks: SidebarLink[] = [
     url: urls.baas,
     icon: <AiOutlineDatabase />,
   },
-];
+]
 function Sidebar() {
   return (
     <div className="space-y-2">
@@ -99,13 +95,9 @@ function Sidebar() {
         </nav>
       ))}
     </div>
-  );
+  )
 }
-export default function MainLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
     <SharedProviders>
       <div className="px-2 lg:px-0">
@@ -122,10 +114,7 @@ export default function MainLayout({
         </nav>
         <div className="py-10 relative">
           <BaseLayout>
-            <LeftSidebar
-              collapsibleTrigger={"Categories"}
-              className="h-fit lg:sticky lg:top-4"
-            >
+            <LeftSidebar collapsibleTrigger={"Categories"} className="h-fit lg:sticky lg:top-4">
               <Sidebar />
             </LeftSidebar>
             <MainContent className="border rounded-[2rem] border-dashed sm:p-1 px-2.5">
@@ -137,5 +126,5 @@ export default function MainLayout({
         <Footer />
       </div>
     </SharedProviders>
-  );
+  )
 }

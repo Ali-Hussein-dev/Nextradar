@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { getSites } from "@/sanity/lib/getters";
-import { MdOutlineArrowOutward } from "react-icons/md";
-import { Button } from "@/components/ui/button";
-import { Repo } from "@/lib/get-repos-github";
+import { getSites } from "@/sanity/lib/getters"
+import { MdOutlineArrowOutward } from "react-icons/md"
+import { Button } from "@/components/ui/button"
+import { Repo } from "@/lib/get-repos-github"
 import {
   Card,
   // CardContent,
@@ -10,10 +10,10 @@ import {
   CardDescription,
   CardTitle,
   CardFooter,
-} from "@/components/ui/card";
-type Site = Repo & { ogImage: string; rel: string };
+} from "@/components/ui/card"
+type Site = Repo & { ogImage: string; rel: string }
 export const SitesList = async () => {
-  const list = (await getSites()) as Site[];
+  const list = (await getSites()) as Site[]
 
   return (
     <div className="grid lg:grid-cols-2 gap-4 w-full">
@@ -33,9 +33,7 @@ export const SitesList = async () => {
               <div className="flex-col-start gap-1">
                 <CardTitle>{o.name}</CardTitle>
                 <CardDescription>{o.createdBy}</CardDescription>
-                <CardDescription className="line-clamp-2 pt-1">
-                  {o.description}
-                </CardDescription>
+                <CardDescription className="line-clamp-2 pt-1">{o.description}</CardDescription>
               </div>
             </CardHeader>
             {/* <CardContent className="grow"></CardContent> */}
@@ -50,12 +48,7 @@ export const SitesList = async () => {
                   </span>
                 ))}
               </div>
-              <Button
-                asChild
-                size="sm"
-                variant={"secondary"}
-                className="gap-1.5 no-underline"
-              >
+              <Button asChild size="sm" variant={"secondary"} className="gap-1.5 no-underline">
                 <a href={o.homepage} target="_blank" rel={o.rel}>
                   Visit
                   <MdOutlineArrowOutward />
@@ -65,10 +58,10 @@ export const SitesList = async () => {
           </Card>
         ))}
     </div>
-  );
-};
+  )
+}
 
 //======================================
 export function LearnSection() {
-  return <SitesList />;
+  return <SitesList />
 }

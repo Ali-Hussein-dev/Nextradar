@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import { Repo } from "@/lib/get-repos-github";
-import { CiStar } from "react-icons/ci";
-import { MdOutlineArrowOutward } from "react-icons/md";
-import { Button } from "@/components/ui/button";
-import { FaGithub } from "react-icons/fa";
+import { Repo } from "@/lib/get-repos-github"
+import { CiStar } from "react-icons/ci"
+import { MdOutlineArrowOutward } from "react-icons/md"
+import { Button } from "@/components/ui/button"
+import { FaGithub } from "react-icons/fa"
 import {
   Card,
   CardContent,
@@ -11,8 +11,8 @@ import {
   CardDescription,
   CardTitle,
   CardFooter,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+} from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 
 export const RepoCard = ({ repo }: { repo: Repo }) => {
   return (
@@ -31,9 +31,7 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
         {repo?.stars && (
           <span className="flex-row-start gap-1">
             <CiStar size="18" />
-            {repo.stars > 1000
-              ? `${(repo.stars / 1000).toFixed(1)}k`
-              : repo.stars}
+            {repo.stars > 1000 ? `${(repo.stars / 1000).toFixed(1)}k` : repo.stars}
           </span>
         )}
       </CardHeader>
@@ -44,23 +42,14 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
         <div className="flex-row-between grow gap-3 w-full">
           <div className="flex-row-start h-full grow gap-1">
             {repo?.tags?.map((tag: string) => (
-              <Badge
-                key={tag}
-                className="capitalize rounded-sm"
-                variant={"secondary"}
-              >
+              <Badge key={tag} className="capitalize rounded-sm" variant={"secondary"}>
                 {tag}
               </Badge>
             ))}
           </div>
           <div className="flex-row-end gap-2">
             {repo?.owner && repo.repoName && (
-              <Button
-                size="icon"
-                asChild
-                variant="outline"
-                className="rounded-lg"
-              >
+              <Button size="icon" asChild variant="outline" className="rounded-lg">
                 <a
                   href={`https://github.com/${repo.owner}/${repo.repoName}`}
                   target="_blank"
@@ -71,12 +60,7 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
               </Button>
             )}
             {repo?.homepage && (
-              <Button
-                asChild
-                variant={"secondary"}
-                className="gap-1.5 no-underline"
-                size="sm"
-              >
+              <Button asChild variant={"secondary"} className="gap-1.5 no-underline" size="sm">
                 <a href={repo.homepage} target="_blank">
                   Visit
                   <MdOutlineArrowOutward size="16" />
@@ -87,5 +71,5 @@ export const RepoCard = ({ repo }: { repo: Repo }) => {
         </div>
       </CardFooter>
     </Card>
-  );
-};
+  )
+}

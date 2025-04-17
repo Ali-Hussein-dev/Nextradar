@@ -5,15 +5,15 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { urls } from "@/constants/urls";
-import { cn } from "@/lib/utils";
-import { getStats } from "@/lib/stats";
-import { Check } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { QuoteIcon } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+} from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { urls } from "@/constants/urls"
+import { cn } from "@/lib/utils"
+import { getStats } from "@/lib/stats"
+import { Check } from "lucide-react"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { QuoteIcon } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 
 const testimonials = [
   {
@@ -36,8 +36,7 @@ const testimonials = [
     author: "Reddit user",
   },
   {
-    quote:
-      "Great idea! I would love to sign up for a newsletter or roundup of new additions.",
+    quote: "Great idea! I would love to sign up for a newsletter or roundup of new additions.",
     author: "Reddit user",
   },
   // {
@@ -48,7 +47,7 @@ const testimonials = [
     quote: `Can you add some filtering on boolean flags? "self-host", and "can be used for free for small projects" being the two i care about.`,
     author: "Reddit user",
   },
-];
+]
 
 export function TestimonialCard({
   quote,
@@ -59,13 +58,13 @@ export function TestimonialCard({
 }: TestimonialProps) {
   // Get initials for avatar fallback if not provided
   const getInitials = () => {
-    if (avatarFallback) return avatarFallback;
+    if (avatarFallback) return avatarFallback
     return author
       .split(" ")
       .map((n) => n[0])
       .join("")
-      .toUpperCase();
-  };
+      .toUpperCase()
+  }
 
   return (
     <Card className="break-inside-avoid mb-4 bg-secondary/50 border-none">
@@ -73,9 +72,7 @@ export function TestimonialCard({
         <div className="text-green-600 mb-2">
           <QuoteIcon className="size-6" />
         </div>
-        <blockquote className="text-base mb-4 text-muted-foreground">
-          {quote}
-        </blockquote>
+        <blockquote className="text-base mb-4 text-muted-foreground">{quote}</blockquote>
         <div className="flex items-center mt-2">
           {/* <Avatar className="h-10 w-10 mr-3">
             <AvatarImage src={avatarUrl} alt={author} />
@@ -83,20 +80,18 @@ export function TestimonialCard({
           </Avatar> */}
           <div>
             <div className="font-medium">{author}</div>
-            {title && (
-              <div className="text-sm text-muted-foreground">{title}</div>
-            )}
+            {title && <div className="text-sm text-muted-foreground">{title}</div>}
           </div>
         </div>
       </CardContent>
     </Card>
-  );
+  )
 }
 //-------------------------------------------
 interface StatsCardProps {
-  title: string;
-  count: number | string;
-  className?: string;
+  title: string
+  count: number | string
+  className?: string
 }
 function StatsCard({ title, count, className }: StatsCardProps) {
   return (
@@ -105,33 +100,31 @@ function StatsCard({ title, count, className }: StatsCardProps) {
         <h2 className="text-3xl font-bold tracking-tight mt-2 mb-1 text-center">
           {count.toLocaleString()}
         </h2>
-        <p className="text-sm font-medium text-muted-foreground text-center">
-          {title}
-        </p>
+        <p className="text-sm font-medium text-muted-foreground text-center">{title}</p>
       </CardContent>
     </Card>
-  );
+  )
 }
 
 export interface BenefitItem {
-  text: string;
+  text: string
 }
 
 export interface HighlightCardProps {
-  title: string;
-  price?: string;
-  benefits: BenefitItem[];
-  buttonText?: string;
-  isHighlighted?: boolean;
-  checkoutUrl: string;
+  title: string
+  price?: string
+  benefits: BenefitItem[]
+  buttonText?: string
+  isHighlighted?: boolean
+  checkoutUrl: string
   // onCheckout?: () => void
 }
 export interface TestimonialProps {
-  quote: string;
-  author: string;
-  title?: string;
-  avatarUrl?: string;
-  avatarFallback?: string;
+  quote: string
+  author: string
+  title?: string
+  avatarUrl?: string
+  avatarFallback?: string
 }
 
 function PlanCard({
@@ -149,9 +142,7 @@ function PlanCard({
       <CardHeader>
         <div className="flex justify-between items-center">
           <CardTitle className="text-2xl font-bold">{title}</CardTitle>
-          {price && (
-            <span className="text-lg font-semibold text-primary">{price}</span>
-          )}
+          {price && <span className="text-lg font-semibold text-primary">{price}</span>}
         </div>
       </CardHeader>
       <CardContent className="space-y-4 flex-1">
@@ -165,15 +156,12 @@ function PlanCard({
         </ul>
       </CardContent>
       <CardFooter className="flex justify-end">
-        <Button
-          variant={isHighlighted ? "default" : "outline"}
-          className="w-full"
-        >
+        <Button variant={isHighlighted ? "default" : "outline"} className="w-full">
           <a href={checkoutUrl}>{buttonText}</a>
         </Button>
       </CardFooter>
     </Card>
-  );
+  )
 }
 const plans = [
   {
@@ -201,10 +189,10 @@ const plans = [
     isHighlighted: true,
     checkoutUrl: urls.sponsorship.premiumSpot,
   },
-];
+]
 //======================================
 export async function SponsorSection() {
-  const res = await getStats();
+  const res = await getStats()
 
   return (
     <section className="">
@@ -218,24 +206,16 @@ export async function SponsorSection() {
               Advertising on Nextradar
             </h1>
             <p className="text-muted-foreground text-center">
-              Connect with thousands of React/Next.js developers and showcase
-              your product where it matters most.
+              Connect with thousands of React/Next.js developers and showcase your product where it
+              matters most.
             </p>
           </div>
         </div>
         <div className="py-4">
-          <h2 className="text-xl md:text-2xl font-bold text-center mb-4">
-            Stats
-          </h2>
+          <h2 className="text-xl md:text-2xl font-bold text-center mb-4">Stats</h2>
           <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6 ">
-            <StatsCard
-              title="Minimum sales made for products"
-              count={"$2,170"}
-            />
-            <StatsCard
-              title="Page views 2025"
-              count={12_360 + (res?.pageviews?.value || 0)}
-            />
+            <StatsCard title="Minimum sales made for products" count={"$2,170"} />
+            <StatsCard title="Page views 2025" count={12_360 + (res?.pageviews?.value || 0)} />
             <StatsCard title="Average visit duration" count={"3m 47s"} />
           </div>
         </div>
@@ -246,9 +226,7 @@ export async function SponsorSection() {
           ))}
         </div>
         <div className="pt-10">
-          <h2 className="text-xl md:text-2xl font-bold text-center mb-4">
-            Testimonials
-          </h2>
+          <h2 className="text-xl md:text-2xl font-bold text-center mb-4">Testimonials</h2>
           <div className="sm:masonry-cols-2">
             {testimonials.map((testimonial) => (
               <TestimonialCard key={testimonial.quote} {...testimonial} />
@@ -257,5 +235,5 @@ export async function SponsorSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

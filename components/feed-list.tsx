@@ -1,9 +1,9 @@
-"use client";
-import { FeedCard, FeedCardProps } from "@/components/feed";
-import * as React from "react";
-import { useInfiniteQuery } from "@tanstack/react-query";
-import { Button } from "@/components/ui/button";
-import { CalendarIcon } from "lucide-react";
+"use client"
+import { FeedCard, FeedCardProps } from "@/components/feed"
+import * as React from "react"
+import { useInfiniteQuery } from "@tanstack/react-query"
+import { Button } from "@/components/ui/button"
+import { CalendarIcon } from "lucide-react"
 
 //======================================
 export const FeedList = ({ initialList }: { initialList: FeedCardProps[] }) => {
@@ -13,10 +13,10 @@ export const FeedList = ({ initialList }: { initialList: FeedCardProps[] }) => {
       fetch(`/api/feed?page=${pageParam}`).then((res) => res.json()),
     initialPageParam: 1,
     getNextPageParam: (lastPage, pages) => {
-      return pages.length + 1;
+      return pages.length + 1
     },
     initialData: { pages: [initialList], pageParams: [1] },
-  });
+  })
 
   return (
     <>
@@ -24,21 +24,21 @@ export const FeedList = ({ initialList }: { initialList: FeedCardProps[] }) => {
         {Object.entries(
           data?.pages?.flat()?.reduce(
             (result, item) => {
-              const date = new Date(item._createdAt);
+              const date = new Date(item._createdAt)
               const month = date.toLocaleString("default", {
                 month: "short",
-              });
-              const year = date.getFullYear();
-              const monthYear = `${month} ${year}`;
+              })
+              const year = date.getFullYear()
+              const monthYear = `${month} ${year}`
 
               if (!result[monthYear]) {
-                result[monthYear] = [];
+                result[monthYear] = []
               }
-              result[monthYear].push(item);
-              return result;
+              result[monthYear].push(item)
+              return result
             },
-            {} as { [key: string]: FeedCardProps[] }
-          )
+            {} as { [key: string]: FeedCardProps[] },
+          ),
         ).map(([month, items], i) => (
           <React.Fragment key={i}>
             <div className="pb-4 border-b border-dashed">
@@ -51,9 +51,7 @@ export const FeedList = ({ initialList }: { initialList: FeedCardProps[] }) => {
               </div>
               <div className="space-y-4">
                 {(items as FeedCardProps[])
-                  .sort(
-                    (a, b) => (b.sponsored ? 1 : -1) - (a.sponsored ? 1 : -1)
-                  )
+                  .sort((a, b) => (b.sponsored ? 1 : -1) - (a.sponsored ? 1 : -1))
                   .map((o, j) => (
                     <FeedCard key={j} {...o} />
                   ))}
@@ -73,5 +71,5 @@ export const FeedList = ({ initialList }: { initialList: FeedCardProps[] }) => {
         </Button>
       </div>
     </>
-  );
-};
+  )
+}

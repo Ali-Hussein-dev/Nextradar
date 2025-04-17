@@ -1,19 +1,13 @@
-"use client";
-import Link from "next/link";
-import { useSelectedLayoutSegment } from "next/navigation";
-import { Button } from "@/components/ui/button";
+"use client"
+import Link from "next/link"
+import { useSelectedLayoutSegment } from "next/navigation"
+import { Button } from "@/components/ui/button"
 
 //======================================
-export function SidebarMenutBtn({
-  children,
-  url,
-}: {
-  url: string;
-  children: React.ReactNode;
-}) {
-  const segment = useSelectedLayoutSegment();
-  const linkSegment = url.split("/")[2];
-  const isActive = linkSegment == segment;
+export function SidebarMenutBtn({ children, url }: { url: string; children: React.ReactNode }) {
+  const segment = useSelectedLayoutSegment()
+  const linkSegment = url.split("/")[2]
+  const isActive = linkSegment == segment
   return (
     <Button
       asChild
@@ -24,5 +18,5 @@ export function SidebarMenutBtn({
         <>{children}</>
       </Link>
     </Button>
-  );
+  )
 }

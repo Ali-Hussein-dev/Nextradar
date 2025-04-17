@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import { Button } from "@/components/ui/button";
-import { MdOutlineArrowOutward } from "react-icons/md";
+import { Button } from "@/components/ui/button"
+import { MdOutlineArrowOutward } from "react-icons/md"
 // import { FaGithub } from "react-icons/fa";
 import {
   Card,
@@ -9,34 +9,34 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Check } from "lucide-react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+} from "@/components/ui/card"
+import { Check } from "lucide-react"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export type IntegrationCardProps = {
-  name: string;
-  description: string;
-  url: string;
-  exampleUrl: string;
-  logoUrl: string;
-  tags?: string[];
-  sponsored?: boolean;
-  features?: string[];
-  extended?: boolean;
-  pricing?: PricingCatalogProps;
-};
+  name: string
+  description: string
+  url: string
+  exampleUrl: string
+  logoUrl: string
+  tags?: string[]
+  sponsored?: boolean
+  features?: string[]
+  extended?: boolean
+  pricing?: PricingCatalogProps
+}
 
 type PricingCatalogProps = {
-  pricingUrl: string;
-  currency: string;
+  pricingUrl: string
+  currency: string
   tiers: {
-    name: string;
-    monthlyPrice: number;
-    yearlyPrice: number;
-    isTrial: boolean;
-    trialDurationDays: number;
-  }[];
-};
+    name: string
+    monthlyPrice: number
+    yearlyPrice: number
+    isTrial: boolean
+    trialDurationDays: number
+  }[]
+}
 
 function PriceFormat({ price, currency }: { price: number; currency: string }) {
   return (
@@ -52,10 +52,10 @@ function PriceFormat({ price, currency }: { price: number; currency: string }) {
         </span>
       )}
     </div>
-  );
+  )
 }
 function PricingCatalog({ pricingUrl, currency, tiers }: PricingCatalogProps) {
-  const hasYearlyPlan = tiers.find((o) => o.yearlyPrice && o.yearlyPrice > 0);
+  const hasYearlyPlan = tiers.find((o) => o.yearlyPrice && o.yearlyPrice > 0)
   return (
     <div className="pt-4">
       <div
@@ -69,17 +69,13 @@ function PricingCatalog({ pricingUrl, currency, tiers }: PricingCatalogProps) {
             </TabsList>
           )}
           <TabsContent className="mt-0" value="monthly">
-            <div
-              className={`flex w-full border-dashed ${hasYearlyPlan ? "border-y" : "border-b"}`}
-            >
+            <div className={`flex w-full border-dashed ${hasYearlyPlan ? "border-y" : "border-b"}`}>
               {tiers.map((o, i) => (
                 <div
                   className={`px-3 flex gap-0.5 grow flex-col flex-wrap items-start justify-start py-1.5 ${i < tiers.length - 1 && "border-r border-dashed"}`}
                   key={o.name}
                 >
-                  <span className="text-lg text-muted-foreground">
-                    {o.name}
-                  </span>
+                  <span className="text-lg text-muted-foreground">{o.name}</span>
                   <span>
                     <PriceFormat price={o.monthlyPrice} currency={currency} />
                   </span>
@@ -94,9 +90,7 @@ function PricingCatalog({ pricingUrl, currency, tiers }: PricingCatalogProps) {
                   className={`px-3 flex gap-0.5 grow flex-col flex-wrap items-start justify-start py-1.5 ${i < tiers.length - 1 && "border-r border-dashed"}`}
                   key={o.name}
                 >
-                  <span className="text-lg text-muted-foreground">
-                    {o.name}
-                  </span>
+                  <span className="text-lg text-muted-foreground">{o.name}</span>
                   <span>
                     <PriceFormat price={o.yearlyPrice} currency={currency} />
                   </span>
@@ -116,7 +110,7 @@ function PricingCatalog({ pricingUrl, currency, tiers }: PricingCatalogProps) {
         </Button>
       </div>
     </div>
-  );
+  )
 }
 //======================================
 export const IntegrationCard = ({
@@ -144,18 +138,14 @@ export const IntegrationCard = ({
           />
           <CardTitle>{name}</CardTitle>
         </div>
-        {sponsored ? (
-          <span className="text-muted-foreground">Sponsored</span>
-        ) : null}
+        {sponsored ? <span className="text-muted-foreground">Sponsored</span> : null}
       </CardHeader>
       <CardContent>
         <p className="line-clamp-2 text-sm">{description}</p>
         {pricing && extended && <PricingCatalog {...pricing} />}
         {features && extended && (
           <div className="pt-5 space-y-2">
-            <span className="font-bold text-secondary-foreground">
-              ⭐ Additional Features
-            </span>
+            <span className="font-bold text-secondary-foreground">⭐ Additional Features</span>
             <ul className="list-none prose-li:pl-0 text-secondary-foreground/70 typography ">
               {features.map((feature) => (
                 <li key={feature} className="flex-row-start gap-2 font-light">
@@ -185,12 +175,7 @@ export const IntegrationCard = ({
             </Button>
           )} */}
           {url && (
-            <Button
-              asChild
-              variant={"secondary"}
-              size="sm"
-              className="gap-1.5 no-underline"
-            >
+            <Button asChild variant={"secondary"} size="sm" className="gap-1.5 no-underline">
               <a href={url} rel="nofollow">
                 Visit
                 <MdOutlineArrowOutward size="16" />
@@ -200,5 +185,5 @@ export const IntegrationCard = ({
         </div>
       </CardFooter>
     </Card>
-  );
-};
+  )
+}

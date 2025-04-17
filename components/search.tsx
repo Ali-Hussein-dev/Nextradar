@@ -21,8 +21,7 @@ const useSearch = () => {
   // const [q, setQ] = useQueryState("q", parseAsString.withDefault(inputValue))
   const { data, refetch, fetchStatus } = useQuery({
     queryKey: ["search", inputValue],
-    queryFn: async () =>
-      fetch(`/api/search?q=${inputValue}`).then((res) => res.json()),
+    queryFn: async () => fetch(`/api/search?q=${inputValue}`).then((res) => res.json()),
     enabled: false,
   })
   const onSubmit: SubmitHandler<Input> = () => {
@@ -86,9 +85,7 @@ const recommendation = {
 }
 const NoResults = ({ query }: { query: string }) => {
   const recommend = Object.values(recommendation).find((o) => {
-    return o.queries.some((q) =>
-      q.toLowerCase().startsWith(query.trim().toLowerCase())
-    )
+    return o.queries.some((q) => q.toLowerCase().startsWith(query.trim().toLowerCase()))
   })
   // console.log("🚀 ~ NoResults ~ recommend:", recommend)
   return (
@@ -124,10 +121,7 @@ export function Search() {
 
   return (
     <div>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex-row-start gap-1 w-full"
-      >
+      <form onSubmit={handleSubmit(onSubmit)} className="flex-row-start gap-1 w-full">
         <InputBlock
           root={{
             className: "rounded-full md:pl-3 lg:pl-4",
@@ -172,25 +166,25 @@ export function Search() {
       </form>
       {data && (
         <div className="py-5 md:px-4 animate-in px-2 border border-dashed rounded-2xl mt-5">
-        {!data.error ? (
-          <div>
+          {!data.error ? (
             <div>
-              {data.length == 0 ? (
-                <NoResults query={inputValue} />
-              ) : (
-                data.length + " results found"
-              )}
+              <div>
+                {data.length == 0 ? (
+                  <NoResults query={inputValue} />
+                ) : (
+                  data.length + " results found"
+                )}
+              </div>
+              <div className="space-y-4">
+                {data.map((o: FeedCardProps) => (
+                  <FeedCard key={o.name} {...o} />
+                ))}
+              </div>
             </div>
-            <div className="space-y-4">
-              {data.map((o: FeedCardProps) => (
-                <FeedCard key={o.name} {...o} />
-              ))}
-            </div>
-          </div>
-        ) : (
-          <div>{data.error.message}</div>
-        )}
-      </div>
+          ) : (
+            <div>{data.error.message}</div>
+          )}
+        </div>
       )}
     </div>
   )

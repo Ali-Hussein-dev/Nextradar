@@ -1,16 +1,16 @@
-import { Repo } from "@/lib/get-repos-github";
-import { RepoCard } from "@/components/repo-card";
-import { getReposList, RepoCategory } from "@/sanity/lib/getters";
+import { Repo } from "@/lib/get-repos-github"
+import { RepoCard } from "@/components/repo-card"
+import { getReposList, RepoCategory } from "@/sanity/lib/getters"
 
 //======================================
 export const ReposList = async ({
   category,
   recommended = false,
 }: {
-  category: RepoCategory;
-  recommended?: boolean;
+  category: RepoCategory
+  recommended?: boolean
 }) => {
-  const list = (await getReposList({ recommended, category })) as Repo[];
+  const list = (await getReposList({ recommended, category })) as Repo[]
 
   return (
     <div className="grid lg:grid-cols-2 gap-4 w-full">
@@ -21,5 +21,5 @@ export const ReposList = async ({
           <RepoCard key={i} repo={repo} />
         ))}
     </div>
-  );
-};
+  )
+}

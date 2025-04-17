@@ -36,11 +36,7 @@ const icons = [
 const NavLink = (props: { href: string; name: string }) => {
   return <Link href={props.href}>{props.name}</Link>
 }
-export const HomepageNavbar = ({
-  variant = "default",
-}: {
-  variant: "default" | "centered"
-}) => (
+export const HomepageNavbar = ({ variant = "default" }: { variant: "default" | "centered" }) => (
   <Navbar
     Logo={<LogoLink />}
     desktopItems={

@@ -12,7 +12,6 @@ const username = env.ALIYTICS_USERNAME
 const password = env.ALIYTICS_PASSWORD
 //======================================
 export const AdStats = async () => {
-
   const getCachedAuthResponse = cache(
     async () =>
       await ky
@@ -27,7 +26,7 @@ export const AdStats = async () => {
     ["ad-stats"],
     {
       revalidate: 43200, // 12 hours
-    }
+    },
   )
   const authResponse = (await getCachedAuthResponse()) as { token: string }
   const token = authResponse?.token
@@ -44,7 +43,7 @@ export const AdStats = async () => {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      }
+      },
     )
     .json()) as {
     pageviews: { value: number }

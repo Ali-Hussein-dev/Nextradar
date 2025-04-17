@@ -1,9 +1,6 @@
 "use client"
 import { Button } from "@/components/ui/button"
-import {
-  IntegrationCardProps,
-  IntegrationCard,
-} from "@/components/integration-card"
+import { IntegrationCardProps, IntegrationCard } from "@/components/integration-card"
 import * as React from "react"
 import { useFilter } from "@/hooks/use-filtered-list"
 

@@ -6,7 +6,7 @@ import categoriesIds from "@/constants/categories.json"
 //======================================
 export const DatabaseSection = async () => {
   const list = (await getIntegrationsByCategory(
-    categoriesIds.database.id
+    categoriesIds.database.id,
   )) as IntegrationCardProps[]
 
   return <DatabasesList list={list} />

@@ -1,72 +1,62 @@
 /* eslint-disable jsx-a11y/alt-text */
-"use client";
+"use client"
 /* eslint-disable @next/next/no-img-element */
-import { FaGithub } from "react-icons/fa";
-import { Button } from "@/components/ui/button";
-import { MdOutlineArrowOutward } from "react-icons/md";
-import { filterLabels, templates } from "@/constants/templates";
-import * as React from "react";
-import { parseAsArrayOf, parseAsString, useQueryStates } from "nuqs";
+import { FaGithub } from "react-icons/fa"
+import { Button } from "@/components/ui/button"
+import { MdOutlineArrowOutward } from "react-icons/md"
+import { filterLabels, templates } from "@/constants/templates"
+import * as React from "react"
+import { parseAsArrayOf, parseAsString, useQueryStates } from "nuqs"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
-import { useRouter } from "next/navigation";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import { ChevronRight } from "lucide-react";
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+} from "@/components/ui/accordion"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Label } from "@/components/ui/label"
+import { useRouter } from "next/navigation"
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime"
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
+import { ChevronRight } from "lucide-react"
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 export interface Template {
-  name: string;
-  description: string;
-  url: string;
-  ogImage: string;
-  sponsored?: boolean;
-  github?: string;
-  rel: string;
-  specs: Record<string, { value: string; label: string }[]>;
+  name: string
+  description: string
+  url: string
+  ogImage: string
+  sponsored?: boolean
+  github?: string
+  rel: string
+  specs: Record<string, { value: string; label: string }[]>
   featured?: {
     testimonials: {
-      quote: string;
-      name: string;
-      role?: string;
-      avatar: string;
-      url: string;
-    }[];
-  };
+      quote: string
+      name: string
+      role?: string
+      avatar: string
+      url: string
+    }[]
+  }
 }
 interface FilterOption {
-  label: string;
-  value: string;
+  label: string
+  value: string
 }
 
 interface FilterLabel {
-  name: string;
-  list: Record<string, FilterOption>;
+  name: string
+  list: Record<string, FilterOption>
 }
 
 interface FilterAccordionProps {
-  filterLabels: Record<string, FilterLabel>;
-  activeQueryState: Record<string, string[]>;
-  setActiveQueryStates: (value: Record<string, string[]>) => void;
-  urlHasParams: boolean;
-  filtered?: any[];
-  className?: string;
+  filterLabels: Record<string, FilterLabel>
+  activeQueryState: Record<string, string[]>
+  setActiveQueryStates: (value: Record<string, string[]>) => void
+  urlHasParams: boolean
+  filtered?: any[]
+  className?: string
 }
 
 export function FilterAccordion({
@@ -90,7 +80,7 @@ export function FilterAccordion({
       <Accordion type="multiple">
         {Object.entries(filterLabels).map(
           ([filterKey, { name: filterName, list: filterOptions }]) => {
-            const count = activeQueryState[filterKey].length;
+            const count = activeQueryState[filterKey].length
             return (
               <AccordionItem key={filterKey} value={filterName}>
                 <AccordionTrigger className="hover:no-underline">
@@ -121,17 +111,14 @@ export function FilterAccordion({
                           onCheckedChange={(val) => {
                             if (val) {
                               setActiveQueryStates({
-                                [filterKey]: [
-                                  ...activeQueryState[filterKey],
-                                  value,
-                                ],
-                              });
+                                [filterKey]: [...activeQueryState[filterKey], value],
+                              })
                             } else {
                               setActiveQueryStates({
                                 [filterKey]: activeQueryState[filterKey].filter(
-                                  (item: string) => item !== value
+                                  (item: string) => item !== value,
                                 ),
-                              });
+                              })
                             }
                           }}
                         />
@@ -140,8 +127,8 @@ export function FilterAccordion({
                     ))}
                 </AccordionContent>
               </AccordionItem>
-            );
-          }
+            )
+          },
         )}
       </Accordion>
       <div className="pt-2">
@@ -152,11 +139,8 @@ export function FilterAccordion({
             type="button"
             onClick={() => {
               setActiveQueryStates({
-                ...Object.keys(activeQueryState).reduce(
-                  (acc, key) => ({ ...acc, [key]: [] }),
-                  {}
-                ),
-              });
+                ...Object.keys(activeQueryState).reduce((acc, key) => ({ ...acc, [key]: [] }), {}),
+              })
             }}
             variant={"outline"}
           >
@@ -165,22 +149,14 @@ export function FilterAccordion({
         )}
       </div>
     </aside>
-  );
+  )
 }
 
-const StandardCard = ({
-  template,
-  router,
-}: {
-  template: Template;
-  router: AppRouterInstance;
-}) => {
+const StandardCard = ({ template, router }: { template: Template; router: AppRouterInstance }) => {
   return (
     <Card
       className={`shadow-none ${
-        template.sponsored
-          ? "dark:border-green-300/30 border-green-300/60 md:col-span-2"
-          : ""
+        template.sponsored ? "dark:border-green-300/30 border-green-300/60 md:col-span-2" : ""
       }`}
     >
       <CardHeader className="flex-row-start gap-3">
@@ -209,9 +185,7 @@ const StandardCard = ({
       </CardContent> */}
       <CardFooter className="flex-row-end gap-3">
         {template.sponsored && (
-          <span className="mr-auto px-1 text-card-foreground/60">
-            Sponsored
-          </span>
+          <span className="mr-auto px-1 text-card-foreground/60">Sponsored</span>
         )}
 
         {template.github && (
@@ -226,7 +200,7 @@ const StandardCard = ({
           size="sm"
           className="gap-1.5"
           onClick={() => {
-            router.push(template.url);
+            router.push(template.url)
           }}
         >
           Visit
@@ -234,43 +208,41 @@ const StandardCard = ({
         </Button>
       </CardFooter>
     </Card>
-  );
-};
+  )
+}
 
 //======================================
 export function TemplatesSection() {
   const params = Object.keys(filterLabels).reduce(
     (acc: Record<string, any>, key) => {
-      acc[key] = parseAsArrayOf(parseAsString).withDefault([]);
-      return acc;
+      acc[key] = parseAsArrayOf(parseAsString).withDefault([])
+      return acc
     },
-    {} as Record<string, any>
-  );
+    {} as Record<string, any>,
+  )
   const [activeQueryState, setActiveQueryStates] = useQueryStates(params, {
     clearOnDefault: true,
-  });
-  const urlHasParams = Object.values(activeQueryState).some(
-    (v) => v.length > 0
-  );
+  })
+  const urlHasParams = Object.values(activeQueryState).some((v) => v.length > 0)
   const mergedParams = React.useMemo(
     () => Object.values(activeQueryState).flat(),
-    [activeQueryState]
-  );
+    [activeQueryState],
+  )
   const filtered = React.useMemo(() => {
-    if (!urlHasParams) return templates;
+    if (!urlHasParams) return templates
     return templates.filter(({ specs }) => {
       const mergedSpecs = Object.values(specs)
         .flat()
-        .map((o) => o?.value);
-      const pramsSet = new Set(mergedParams);
-      const specsSet = new Set(mergedSpecs);
-      const common = [...pramsSet].filter((str) => specsSet.has(str as string));
+        .map((o) => o?.value)
+      const pramsSet = new Set(mergedParams)
+      const specsSet = new Set(mergedSpecs)
+      const common = [...pramsSet].filter((str) => specsSet.has(str as string))
       // Do template specs have at least all serach params
-      return common.length >= mergedParams.length;
-    });
-  }, [mergedParams, urlHasParams]);
+      return common.length >= mergedParams.length
+    })
+  }, [mergedParams, urlHasParams])
 
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <div className="px-1 relative">
@@ -311,5 +283,5 @@ export function TemplatesSection() {
         </div>
       </div>
     </div>
-  );
+  )
 }

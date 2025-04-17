@@ -1,29 +1,29 @@
-"use client";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa";
-import { useRouter } from "next/navigation";
+"use client"
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { FaArrowRight } from "react-icons/fa"
+import { useRouter } from "next/navigation"
 const sponsors = {
   anotherWrapper: {
     name: "AnotherWrapper",
     description: "Build your AI startup in hours",
     url: "https://anotherwrapper.com/?aff=pWOZY",
   },
-};
+}
 export const SponsoredCard = () => {
-  const { name, description, url } = sponsors.anotherWrapper;
-  const router = useRouter();
+  const { name, description, url } = sponsors.anotherWrapper
+  const router = useRouter()
   return (
     <div className="py-3">
       <div
         className={cn(
-          "h-fit py-4 md:py-2 px-3 sm:px-4 w-full rounded-sm font-semibold  overflow-hidden border border-dashed bg-secondary/20"
+          "h-fit py-4 md:py-2 px-3 sm:px-4 w-full rounded-sm font-semibold  overflow-hidden border border-dashed bg-secondary/20",
         )}
       >
         <button
           onClick={() => {
-            router.push(url);
+            router.push(url)
           }}
           data-umami-event="sponsor-card"
           type="button"
@@ -31,9 +31,7 @@ export const SponsoredCard = () => {
         >
           <div className="flex items-end md:items-center justify-between h-full gap-1 sm:gap-2 no-underline overflow-hidden">
             <div className="grow flex flex-col justify-start md:flex-row gap-1">
-              <span className="pr-2 md:pr-3 font-semibold text-sm sm:text-base ">
-                {name}
-              </span>
+              <span className="pr-2 md:pr-3 font-semibold text-sm sm:text-base ">{name}</span>
               <span className="font-light">{description}</span>
             </div>
             <span className="font-light text-muted-foreground">Sponsored</span>
@@ -41,8 +39,8 @@ export const SponsoredCard = () => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 //======================================
 export const Sponsor = () => {
   return (
@@ -53,7 +51,7 @@ export const Sponsor = () => {
         <Button
           // {...props}
           className={cn(
-            "h-fit py-3 md:py-2 px-5 w-full rounded-xl font-semibold text-zinc-800 dark:text-zinc-200 backdrop-blur-xl bg-zinc-50 dark:bg-zinc-900 overflow-hidden"
+            "h-fit py-3 md:py-2 px-5 w-full rounded-xl font-semibold text-zinc-800 dark:text-zinc-200 backdrop-blur-xl bg-zinc-50 dark:bg-zinc-900 overflow-hidden",
             // props.className
           )}
         >
@@ -71,8 +69,8 @@ export const Sponsor = () => {
         </Button>
       </div>
     </div>
-  );
-};
+  )
+}
 
 //======================================
 export function Promote({ children }: { children: React.ReactNode }) {
@@ -92,7 +90,7 @@ export function Promote({ children }: { children: React.ReactNode }) {
         </Link>
       </Button>
     </div>
-  );
+  )
 }
 
 /**

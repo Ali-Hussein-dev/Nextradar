@@ -9,8 +9,7 @@ const buttonVariants = cva("size-7 rounded-full p-1.5 text-muted-foreground", {
   variants: {
     dark: {
       true: "dark:bg-accent dark:text-accent-foreground",
-      false:
-        "bg-accent text-accent-foreground dark:bg-transparent dark:text-muted-foreground",
+      false: "bg-accent text-accent-foreground dark:bg-transparent dark:text-muted-foreground",
     },
   },
 })
@@ -28,10 +27,7 @@ export function ThemeToggle({
   return (
     <button
       type="button"
-      className={cn(
-        "inline-flex items-center rounded-full border p-0.5",
-        className
-      )}
+      className={cn("inline-flex items-center rounded-full border p-0.5", className)}
       aria-label="Toggle Theme"
       onClick={onToggle}
       {...props}

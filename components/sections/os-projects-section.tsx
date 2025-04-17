@@ -1,5 +1,5 @@
-import { ReposList } from "@/components/repos-list";
+import { ReposList } from "@/components/repos-list"
 //======================================
 export function OpenSourceProjects() {
-  return <ReposList category="real-world-apps" />;
+  return <ReposList category="real-world-apps" />
 }

@@ -1,34 +1,25 @@
-"use client";
+"use client"
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { Button } from "@/components/ui/button";
-import * as React from "react";
-import { parseAsArrayOf, parseAsString, useQueryStates } from "nuqs";
+import { Button } from "@/components/ui/button"
+import * as React from "react"
+import { parseAsArrayOf, parseAsString, useQueryStates } from "nuqs"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import { ChevronRight, InfoIcon } from "lucide-react";
-import { IntegrationCard } from "@/components/integration-card";
-import { ToggleView, usePreferencesStore } from "../ui/toggle-view";
-import { cn } from "@/lib/utils";
-import { useIsMobile } from "@/hooks/use-mobile";
-import { cmsFilterLabels } from "@/constants/cms-filter";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/components/ui/accordion"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Label } from "@/components/ui/label"
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
+import { ChevronRight, InfoIcon } from "lucide-react"
+import { IntegrationCard } from "@/components/integration-card"
+import { ToggleView, usePreferencesStore } from "../ui/toggle-view"
+import { cn } from "@/lib/utils"
+import { useIsMobile } from "@/hooks/use-mobile"
+import { cmsFilterLabels } from "@/constants/cms-filter"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
 const TooltipWrapper = ({ description }: { description: string }) => (
   <TooltipProvider delayDuration={100}>
@@ -39,15 +30,15 @@ const TooltipWrapper = ({ description }: { description: string }) => (
       <TooltipContent>{description}</TooltipContent>
     </Tooltip>
   </TooltipProvider>
-);
+)
 
 interface FilterAccordionProps {
-  filterLabels: typeof cmsFilterLabels.categories;
-  activeQueryState: Record<string, string[]>;
-  setActiveQueryStates: (value: Record<string, string[]>) => void;
-  urlHasParams: boolean;
-  filtered?: any[];
-  className?: string;
+  filterLabels: typeof cmsFilterLabels.categories
+  activeQueryState: Record<string, string[]>
+  setActiveQueryStates: (value: Record<string, string[]>) => void
+  urlHasParams: boolean
+  filtered?: any[]
+  className?: string
 }
 
 export function FilterAccordion({
@@ -70,7 +61,7 @@ export function FilterAccordion({
 
       <Accordion type="multiple">
         {filterLabels.map((filterSection) => {
-          const count = activeQueryState[filterSection.value].length;
+          const count = activeQueryState[filterSection.value].length
           return (
             <AccordionItem key={filterSection.name} value={filterSection.name}>
               <AccordionTrigger className="hover:no-underline">
@@ -97,9 +88,7 @@ export function FilterAccordion({
                       <Checkbox
                         key={value}
                         id={value}
-                        checked={activeQueryState[filterSection.value].includes(
-                          value
-                        )}
+                        checked={activeQueryState[filterSection.value].includes(value)}
                         onCheckedChange={(val) => {
                           if (val) {
                             setActiveQueryStates({
@@ -107,13 +96,13 @@ export function FilterAccordion({
                                 ...activeQueryState[filterSection.value],
                                 value,
                               ],
-                            });
+                            })
                           } else {
                             setActiveQueryStates({
-                              [filterSection.value]: activeQueryState[
-                                filterSection.value
-                              ].filter((item: string) => item !== value),
-                            });
+                              [filterSection.value]: activeQueryState[filterSection.value].filter(
+                                (item: string) => item !== value,
+                              ),
+                            })
                           }
                         }}
                       />
@@ -123,7 +112,7 @@ export function FilterAccordion({
                   ))}
               </AccordionContent>
             </AccordionItem>
-          );
+          )
         })}
       </Accordion>
       <div className="pt-2">
@@ -134,11 +123,8 @@ export function FilterAccordion({
             type="button"
             onClick={() => {
               setActiveQueryStates({
-                ...Object.keys(activeQueryState).reduce(
-                  (acc, key) => ({ ...acc, [key]: [] }),
-                  {}
-                ),
-              });
+                ...Object.keys(activeQueryState).reduce((acc, key) => ({ ...acc, [key]: [] }), {}),
+              })
             }}
             variant={"outline"}
           >
@@ -147,7 +133,7 @@ export function FilterAccordion({
         )}
       </div>
     </aside>
-  );
+  )
 }
 
 //======================================
@@ -155,33 +141,29 @@ export function FilterAccordion({
 export function FilterableCms({ list }: { list: any[] }) {
   const params = cmsFilterLabels.categories.reduce(
     (acc: Record<string, any>, filterSection) => {
-      acc[filterSection.value] = parseAsArrayOf(parseAsString).withDefault([]);
-      return acc;
+      acc[filterSection.value] = parseAsArrayOf(parseAsString).withDefault([])
+      return acc
     },
-    {} as Record<string, any>
-  );
+    {} as Record<string, any>,
+  )
   const [activeQueryState, setActiveQueryStates] = useQueryStates(params, {
     clearOnDefault: true,
-  });
-  const urlHasParams = Object.values(activeQueryState).some(
-    (v) => v.length > 0
-  );
-  const mergedParams = Object.values(activeQueryState).flat();
-  let filtered = list;
+  })
+  const urlHasParams = Object.values(activeQueryState).some((v) => v.length > 0)
+  const mergedParams = Object.values(activeQueryState).flat()
+  let filtered = list
   if (urlHasParams) {
     filtered = list.filter(({ tags, name }) => {
       // const mergedSpecs = tags;
-      const selectedTagsSet = new Set(mergedParams.map((s) => s.toLowerCase()));
-      const cmsTagsSet = new Set(tags);
-      const common = [...selectedTagsSet].filter((str) =>
-        cmsTagsSet.has(str as string)
-      );
+      const selectedTagsSet = new Set(mergedParams.map((s) => s.toLowerCase()))
+      const cmsTagsSet = new Set(tags)
+      const common = [...selectedTagsSet].filter((str) => cmsTagsSet.has(str as string))
       // Do template specs have at least all serach params
-      return common.length >= mergedParams.length;
-    });
+      return common.length >= mergedParams.length
+    })
   }
-  const { view } = usePreferencesStore();
-  const isMobile = useIsMobile();
+  const { view } = usePreferencesStore()
+  const isMobile = useIsMobile()
   return (
     <div className="lg:grid lg:grid-cols-8 gap-6">
       {isMobile && (
@@ -191,8 +173,7 @@ export function FilterableCms({ list }: { list: any[] }) {
         >
           <CollapsibleTrigger className="w-full pt-1">
             <div className="flex-row-between w-full">
-              Filter {filtered && urlHasParams && `- ${filtered.length}`}{" "}
-              <ChevronRight />
+              Filter {filtered && urlHasParams && `- ${filtered.length}`} <ChevronRight />
             </div>
           </CollapsibleTrigger>
           <CollapsibleContent>
@@ -210,16 +191,13 @@ export function FilterableCms({ list }: { list: any[] }) {
       <div
         className={cn(
           "grid gap-5 lg:col-span-6 h-fit lg:px-0 w-full grid-cols-1",
-          view === "grid" ? "lg:grid-cols-2" : ""
+          view === "grid" ? "lg:grid-cols-2" : "",
         )}
       >
         {filtered
           .sort((a, b) => (b.sponsored ? 1 : 0) - (a.sponsored ? 1 : 0))
           .map((o) => (
-            <div
-              className={o.sponsored && view === "grid" ? "lg:col-span-2" : ""}
-              key={o.name}
-            >
+            <div className={o.sponsored && view === "grid" ? "lg:col-span-2" : ""} key={o.name}>
               <IntegrationCard key={o.name} {...o} extended={view === "list"} />
             </div>
           ))}
@@ -242,5 +220,5 @@ export function FilterableCms({ list }: { list: any[] }) {
         </div>
       )}
     </div>
-  );
+  )
 }

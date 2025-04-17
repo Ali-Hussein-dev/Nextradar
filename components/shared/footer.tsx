@@ -1,5 +1,5 @@
-import { urls } from "@/constants/urls";
-import Link from "next/link";
+import { urls } from "@/constants/urls"
+import Link from "next/link"
 
 const links = {
   externalProjects: [
@@ -70,19 +70,17 @@ const links = {
       url: urls.jobs,
     },
   ],
-};
+}
 const LinksCol = ({
   links,
   title,
 }: {
-  links: Array<{ label: string; url: string }>;
-  title: string;
+  links: Array<{ label: string; url: string }>
+  title: string
 }) => {
   return (
     <div className="flex flex-col items-start gap-2">
-      <h3 className="font-semibold dark:text-zinc-300 text-zinc-800">
-        {title}
-      </h3>
+      <h3 className="font-semibold dark:text-zinc-300 text-zinc-800">{title}</h3>
       <ul className="flex flex-col items-start gap-2 list-none">
         {links.map(({ label, url }) => (
           <li key={label}>
@@ -93,8 +91,8 @@ const LinksCol = ({
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 export const Footer = () => (
   <footer className="text-center py-4 border-t text-sm dark:text-zinc-500 w-full px-3">
     <div className="grid xs:grid-cols-2 gap-y-5 md:grid-cols-4 gap-4 mx-auto max-w-6xl border-b border-dashed pb-4">
@@ -107,4 +105,4 @@ export const Footer = () => (
       {new Date().getFullYear()} Nextradar. Website may contain affiliate links.
     </div>
   </footer>
-);
+)

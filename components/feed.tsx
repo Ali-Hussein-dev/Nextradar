@@ -1,29 +1,23 @@
-import { Search } from "@/components/search";
-import { FeedList } from "@/components/feed-list";
-import { getPageHeader, getSourcesPage } from "@/sanity/lib/getters";
-import { MdOutlineArrowOutward } from "react-icons/md";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { YtDialog } from "@/components/yt-dialog";
-import * as React from "react";
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Search } from "@/components/search"
+import { FeedList } from "@/components/feed-list"
+import { getPageHeader, getSourcesPage } from "@/sanity/lib/getters"
+import { MdOutlineArrowOutward } from "react-icons/md"
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+import { YtDialog } from "@/components/yt-dialog"
+import * as React from "react"
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 export type FeedCardProps = {
-  name: string;
-  src?: string;
-  description: string;
-  type: string;
-  author: string;
-  href: string;
-  sponsored: boolean;
-  rel: string;
-};
+  name: string
+  src?: string
+  description: string
+  type: string
+  author: string
+  href: string
+  sponsored: boolean
+  rel: string
+}
 //======================================
 export const FeedCard = ({
   name,
@@ -47,7 +41,7 @@ export const FeedCard = ({
           <CardDescription
             className={cn(
               "mb-1.5 dark:text-zinc-500 text-pretty line-clamp-2 text-zinc-700",
-              src ? "hidden md:line-clamp-2" : ""
+              src ? "hidden md:line-clamp-2" : "",
             )}
           >
             {description}
@@ -74,13 +68,13 @@ export const FeedCard = ({
         )}
       </CardFooter>
     </Card>
-  );
-};
+  )
+}
 
 //======================================
 export const Feed = async () => {
-  const page = await getSourcesPage({ page: 1, pageSize: 10 });
-  const header = await getPageHeader({ name: "latest" });
+  const page = await getSourcesPage({ page: 1, pageSize: 10 })
+  const header = await getPageHeader({ name: "latest" })
   return (
     <div>
       <div className="grid gap-5 max-w-2xl mx-auto pb-6 pt-3">
@@ -92,5 +86,5 @@ export const Feed = async () => {
         <FeedList initialList={page} />
       </div>
     </div>
-  );
-};
+  )
+}

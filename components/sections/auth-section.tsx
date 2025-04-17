@@ -1,13 +1,13 @@
-import { Repo } from "@/lib/get-repos-github";
-import { RepoCard } from "../repo-card";
-import { getReposList } from "@/sanity/lib/getters";
+import { Repo } from "@/lib/get-repos-github"
+import { RepoCard } from "../repo-card"
+import { getReposList } from "@/sanity/lib/getters"
 
 //======================================
 export async function AuthSection() {
   const list = (await getReposList({
     category: "Tools",
     tags: ["auth"],
-  })) as Repo[];
+  })) as Repo[]
   return (
     <div className="grid lg:grid-cols-2 gap-4 w-full pt-8">
       {list
@@ -16,5 +16,5 @@ export async function AuthSection() {
           <RepoCard key={i} repo={repo} />
         ))}
     </div>
-  );
+  )
 }

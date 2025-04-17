@@ -1,7 +1,7 @@
-"use client";
-import { cn } from "@/lib/utils";
-import * as React from "react";
-import { Button } from "@/components/ui/button";
+"use client"
+import { cn } from "@/lib/utils"
+import * as React from "react"
+import { Button } from "@/components/ui/button"
 
 export function ExpandableCard({
   /**
@@ -18,25 +18,25 @@ export function ExpandableCard({
    */
   wide = false,
 }: {
-  height?: string;
-  wide?: boolean;
-  className?: string;
-  children: React.ReactNode;
+  height?: string
+  wide?: boolean
+  className?: string
+  children: React.ReactNode
 }) {
-  const [isExpanded, setIsExpanded] = React.useState(false);
-  const [contentHeight, setContentHeight] = React.useState(0);
-  const contentRef = React.useRef<HTMLDivElement>(null);
+  const [isExpanded, setIsExpanded] = React.useState(false)
+  const [contentHeight, setContentHeight] = React.useState(0)
+  const contentRef = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
     if (contentRef.current) {
-      setContentHeight(contentRef.current.scrollHeight);
+      setContentHeight(contentRef.current.scrollHeight)
     }
-  }, []);
+  }, [])
   return (
     <div
       className={cn(
         "bg-white dark:bg-zinc-950 dark:from-zinc-950 from-white w-full px-4 pt-8 pb-3",
-        className
+        className,
       )}
     >
       <div className="relative overflow-hidden bg-inherit dark:bg-inherit">
@@ -57,7 +57,7 @@ export function ExpandableCard({
           className={cn(
             "mx-auto bg-inherit dark:bg-inherit rounded-lg",
             wide ? "w-full" : "w-fit",
-            isExpanded ? "pt-2" : "absolute bottom-4 inset-x-0"
+            isExpanded ? "pt-2" : "absolute bottom-4 inset-x-0",
           )}
         >
           <Button
@@ -72,7 +72,7 @@ export function ExpandableCard({
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export const CardHeading = ({ h1: h1 = "", p }: { h1: string; p?: string }) => (
@@ -80,4 +80,4 @@ export const CardHeading = ({ h1: h1 = "", p }: { h1: string; p?: string }) => (
     <h1 className="text-2xl font-extrabold mb-0 mt-2">{h1}</h1>
     {!!p && <h2 className="text-lg font-medium mb-0 mt-2 prose-p:mt-1">{p}</h2>}
   </div>
-);
+)

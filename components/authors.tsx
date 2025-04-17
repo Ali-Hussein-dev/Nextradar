@@ -81,9 +81,7 @@ const Card = ({
 export const Authors = () => {
   return (
     <div className="max-w-2xl mx-auto py-10 px-2">
-      <h2 className="font-bold text-xl sm:text-2xl md:text-3xl text-center mb-1">
-        Expert Voices
-      </h2>
+      <h2 className="font-bold text-xl sm:text-2xl md:text-3xl text-center mb-1">Expert Voices</h2>
       <h3 className="text-center dark:text-zinc-500 text-lg">
         Learn and grow quickly from the best in the industry
       </h3>

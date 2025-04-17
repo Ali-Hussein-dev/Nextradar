@@ -161,7 +161,7 @@ export type FieldsElementsList = FormItem[] | (FormItem[] | FormItem)[]
 
 export const RenderFormElement = (
   field: (FormFieldElement & ControllerRenderProps) | StaticFormElement,
-  form: any
+  form: any,
 ): React.ReactElement<any> => {
   switch (field.variant) {
     case "Input":
@@ -169,9 +169,7 @@ export const RenderFormElement = (
         <FormItem className="w-full">
           <FormLabel>{field.label}</FormLabel> {field.required && "*"}
           <FormControl>
-            <InputBlock
-              root={{ className: "bg-background dark:bg-background" }}
-            >
+            <InputBlock root={{ className: "bg-background dark:bg-background" }}>
               <Input
                 {...field}
                 className="bg-background dark:bg-background"
@@ -190,11 +188,7 @@ export const RenderFormElement = (
       return (
         <FormItem className="flex items-center justify-start space-x-3 space-y-0 rounded-sm border-dashed border p-3 bg-background dark:bg-background">
           <FormControl>
-            <Checkbox
-              {...field}
-              checked={field.value}
-              onCheckedChange={field.onChange}
-            />
+            <Checkbox {...field} checked={field.value} onCheckedChange={field.onChange} />
           </FormControl>
           <div className="space-y-1 leading-none">
             <FormLabel>{field.label}</FormLabel>
@@ -209,22 +203,22 @@ export const RenderFormElement = (
         <FormItem className="w-full">
           <FormLabel>{field.label}</FormLabel>
           <div className="bg-background dark:bg-background">
-          <MultiSelect value={field.value} onValueChange={field.onChange}>
-            <FormControl>
-              <MultiSelectTrigger className="min-w-full">
-                <MultiSelectValue placeholder={field.placeholder} />
-              </MultiSelectTrigger>
-            </FormControl>
-            <MultiSelectContent>
-              <MultiSelectList>
-                {field.options.map(({ label, value }) => (
-                  <MultiSelectItem key={label} value={value}>
-                    {label}
-                  </MultiSelectItem>
-                ))}
-              </MultiSelectList>
-            </MultiSelectContent>
-          </MultiSelect>
+            <MultiSelect value={field.value} onValueChange={field.onChange}>
+              <FormControl>
+                <MultiSelectTrigger className="min-w-full">
+                  <MultiSelectValue placeholder={field.placeholder} />
+                </MultiSelectTrigger>
+              </FormControl>
+              <MultiSelectContent>
+                <MultiSelectList>
+                  {field.options.map(({ label, value }) => (
+                    <MultiSelectItem key={label} value={value}>
+                      {label}
+                    </MultiSelectItem>
+                  ))}
+                </MultiSelectList>
+              </MultiSelectContent>
+            </MultiSelect>
           </div>
           <FormDescription>{field.description}</FormDescription>
           <FormMessage />
@@ -265,11 +259,7 @@ export const RenderFormElement = (
               {field.required && "*"}
             </FormLabel>
             <FormControl>
-              <Switch
-                {...field}
-                checked={field.value}
-                onCheckedChange={field.onChange}
-              />
+              <Switch {...field} checked={field.value} onCheckedChange={field.onChange} />
             </FormControl>
           </div>
           <FormDescription>{field.description}</FormDescription>
@@ -301,21 +291,13 @@ export const RenderFormElement = (
       )
     case "H1":
       return (
-        <h1
-          key={field.name}
-          {...field}
-          className={cn("mt-6 font-bold text-3xl", field.className)}
-        >
+        <h1 key={field.name} {...field} className={cn("mt-6 font-bold text-3xl", field.className)}>
           {field.content}
         </h1>
       )
     case "H2":
       return (
-        <h2
-          key={field.name}
-          {...field}
-          className={cn("mt-4 font-bold text-xl", field.className)}
-        >
+        <h2 key={field.name} {...field} className={cn("mt-4 font-bold text-xl", field.className)}>
           {field.content}
         </h2>
       )
@@ -338,11 +320,7 @@ export const RenderFormElement = (
     case "Separator":
       return (
         <div className="py-3">
-          <Separator
-            key={field.name}
-            {...field}
-            className={cn("", field.className)}
-          />
+          <Separator key={field.name} {...field} className={cn("", field.className)} />
         </div>
       )
     default:
