@@ -40,7 +40,7 @@ const links = {
       url: urls.templates,
     },
     {
-      label: "Next.js Courses",
+      label: "Next.js Tutorials",
       url: urls.learn,
     },
     {

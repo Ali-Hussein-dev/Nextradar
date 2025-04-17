@@ -219,45 +219,23 @@ export const templates: Template[] = [
         },
     },
     {
-        url: "https://anotherwrapper.com?aff=pWOZY",
-        name: "AnotherWrapper",
+        url: "https://usenextbase.com?atp=nextradar",
+        name: "Nextbase",
         description:
-            "Build and launch your AI app without the headaches and frustration by leveraging customizable demo applications and boilerplate code.",
-        ogImage: "https://anotherwrapper.com/og.png",
+            "Start your SaaS with auth, payments, organizations, edge functions, admin panel, blog, feedback collection, roadmap and more.",
+        ogImage: "https://framerusercontent.com/assets/qb5Pgg24LjkGE1dtqqIRReLwz6k.png",
         rel: "nofollow",
         specs: {
             cms: [],
             cost: getPair("cost", "premium"),
             payment: getPair("payment", "stripe"),
-            backend: getPair("backend", "firebase"),
-            email: getPair("email", "sendgrid"),
-            analytics: getPair("analytics", "googleAnalytics"),
+            backend: getPair("backend", "supabase"),
+            email: getPair("email", "resend"),
+            analytics: getPair("analytics", ["posthog","googleAnalytics"]),
             styling: getPair("styling", "tailwindcss"),
             language: getPair("language", "typescript"),
-            others: [],
+            others: getPair("others", "sentry"),
         },
-        // featured: {
-        //     testimonials: [
-        //         {
-        //             quote: "Build your AI startup in hours. Save literally weeks of coding.",
-        //             name: "Supabase",
-        //             role: "Alternative to Firebase",
-        //             avatar: "https://pbs.twimg.com/profile_images/1822981431586439168/7xkKXRGQ_400x400.jpg",
-        //             url: ""
-        //         }, {
-        //             quote: "Having 10 demo apps makes it so much easier to understand the next steps to creating your own AI app.",
-        //             name: "Lee",
-        //             role: "Founder Beatchurn.com",
-        //             avatar: "https://anotherwrapper.com/avatars/lee.jpg",
-        //             url: ""
-        //         }, {
-        //             quote: "Building AI wrappers nowadays is a must. Your product can make it much easier",
-        //             name: "Sergey",
-        //             role: "Founder Screencharm.com",
-        //             avatar: "https://anotherwrapper.com/avatars/sergey.jpg",
-        //             url: ""
-        //         }]
-        // }
     },
     {
         url: "https://indie-starter.dev",
@@ -299,6 +277,25 @@ export const templates: Template[] = [
         },
     },
     {
+        url: "https://anotherwrapper.com?aff=pWOZY",
+        name: "AnotherWrapper",
+        description:
+            "Build and launch your AI app without the headaches and frustration by leveraging customizable demo applications and boilerplate code.",
+        ogImage: "https://anotherwrapper.com/og.png",
+        rel: "nofollow",
+        specs: {
+            cms: [],
+            cost: getPair("cost", "premium"),
+            payment: getPair("payment", "stripe"),
+            backend: getPair("backend", "firebase"),
+            email: getPair("email", "sendgrid"),
+            analytics: getPair("analytics", "googleAnalytics"),
+            styling: getPair("styling", "tailwindcss"),
+            language: getPair("language", "typescript"),
+            others: [],
+        },
+    },
+    {
         url: "https://irsyad.co/templates",
         name: "Irsyad",
         description: "A collection of well-crafted UI templates for your next project",
@@ -313,6 +310,24 @@ export const templates: Template[] = [
             email: getPair(),
             analytics: getPair(),
             styling: getPair("styling", ["tailwindcss", "shadcn"]),
+            language: getPair("language", "typescript"),
+            others: [],
+        },
+    },
+    {
+        url: "https://shipped.club?aff=pWOZY",
+        name: "Shipped",
+        description: "Build and ship your Startup in days. And make money.",
+        ogImage: "https://d2bzf0z2yzi3mc.cloudfront.net/Shipped_OG_image.jpg",
+        rel: "nofollow",
+        specs: {
+            cms: [],
+            cost: getPair("cost", "premium"),
+            payment: getPair("payment", "lemonSqueezy"),
+            backend: getPair("backend", ["nextAuth", "supabase", "prisma"]),
+            email: getPair("email", ["mailchimp", "loops"]),
+            analytics: getPair("analytics", "pirsch"),
+            styling: getPair("styling", ["tailwindcss", "shadcn", "chakra"]),
             language: getPair("language", "typescript"),
             others: [],
         },
@@ -333,25 +348,6 @@ export const templates: Template[] = [
             analytics: getPair("analytics", "builtIn"),
             styling: getPair("styling", ["tailwindcss", "shadcn"]),
             language: getPair("language", "javascript"),
-            others: [],
-        },
-    },
-
-    {
-        url: "https://shipped.club?aff=pWOZY",
-        name: "Shipped",
-        description: "Build and ship your Startup in days. And make money.",
-        ogImage: "https://d2bzf0z2yzi3mc.cloudfront.net/Shipped_OG_image.jpg",
-        rel: "nofollow",
-        specs: {
-            cms: [],
-            cost: getPair("cost", "premium"),
-            payment: getPair("payment", "lemonSqueezy"),
-            backend: getPair("backend", ["nextAuth", "supabase", "prisma"]),
-            email: getPair("email", ["mailchimp", "loops"]),
-            analytics: getPair("analytics", "pirsch"),
-            styling: getPair("styling", ["tailwindcss", "shadcn", "chakra"]),
-            language: getPair("language", "typescript"),
             others: [],
         },
     },
