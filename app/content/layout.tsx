@@ -1,7 +1,7 @@
-import MainLayout from "@/components/app-shell/main-layout";
-import { urls } from "@/constants/urls";
-import { StructuredDataScript } from "@/lib/seo";
-import type { WithContext, BreadcrumbList } from "schema-dts";
+import MainLayout from "@/components/app-shell/main-layout"
+import { urls } from "@/constants/urls"
+import { StructuredDataScript } from "@/lib/seo"
+import type { WithContext, BreadcrumbList } from "schema-dts"
 
 const list = [
   {
@@ -20,7 +20,7 @@ const list = [
     name: "Courses",
     item: `${urls.siteUrl}/${urls.learn}`,
   },
-];
+]
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const structuredData: WithContext<BreadcrumbList> = {
@@ -34,11 +34,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       name: item.name,
       item: item.item,
     })),
-  };
+  }
   return (
     <>
       <StructuredDataScript data={structuredData} />
       <MainLayout>{children}</MainLayout>
     </>
-  );
+  )
 }

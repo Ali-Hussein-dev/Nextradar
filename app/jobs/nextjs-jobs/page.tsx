@@ -40,9 +40,7 @@ export default async function NextjsJobsPage() {
                   .map(({ name }, i) => (
                     <div key={i} className="">
                       {/* <Icon className="size-7 dark:text-zinc-300 text-zinc-700" /> */}
-                      <span className="dark:text-zinc-500 text-zinc-700">
-                        {name}
-                      </span>
+                      <span className="dark:text-zinc-500 text-zinc-700">{name}</span>
                     </div>
                   ))}
               </div>

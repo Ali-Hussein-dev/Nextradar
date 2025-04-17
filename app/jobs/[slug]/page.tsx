@@ -10,12 +10,8 @@ import { formatDate } from "date-fns"
 
 export const revalidate = 3600
 
-export default async function JobPage(
-  props: {
-    params: Promise<{ slug: string }>
-  }
-) {
-  const params = await props.params;
+export default async function JobPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params
   const post = await getFullJobPostBySlug({ slug: params.slug })
   if (!post) {
     redirect(urls.jobsExpired)
@@ -59,12 +55,8 @@ export default async function JobPage(
   )
 }
 
-export async function generateMetadata(
-  props: {
-    params: Promise<{ slug?: string }>
-  }
-) {
-  const params = await props.params;
+export async function generateMetadata(props: { params: Promise<{ slug?: string }> }) {
+  const params = await props.params
   const data = await getJobPostMetaSlug({ slug: params.slug! })
   if (!data) {
     redirect(urls.jobsExpired)

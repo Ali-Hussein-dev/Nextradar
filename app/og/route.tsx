@@ -1,18 +1,18 @@
 // import config from '@/configs'
-import { urls } from "@/constants/urls";
-import { ImageResponse } from "next/og";
-import { NextRequest } from "next/server";
+import { urls } from "@/constants/urls"
+import { ImageResponse } from "next/og"
+import { NextRequest } from "next/server"
 // import localFont from "next/font/local";
 
-export const runtime = "edge";
-export const contentType = 'image/png'
+export const runtime = "edge"
+export const contentType = "image/png"
 
 export async function GET(req: NextRequest) {
-  const { searchParams } = req.nextUrl;
-  const postTitle = searchParams.get("title");
-  const fontData = await fetch(
-    new URL(`${urls.siteUrl}/Poppins-Bold.ttf`, import.meta.url)
-  ).then((res) => res.arrayBuffer());
+  const { searchParams } = req.nextUrl
+  const postTitle = searchParams.get("title")
+  const fontData = await fetch(new URL(`${urls.siteUrl}/Poppins-Bold.ttf`, import.meta.url)).then(
+    (res) => res.arrayBuffer(),
+  )
   // const fontData = localFont({ src: "./public/Poppins-Bold.ttf" })
 
   return new ImageResponse(
@@ -55,6 +55,6 @@ export async function GET(req: NextRequest) {
           style: "normal",
         },
       ],
-    }
-  );
+    },
+  )
 }

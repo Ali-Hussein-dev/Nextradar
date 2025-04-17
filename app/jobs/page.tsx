@@ -29,9 +29,7 @@ export default async function JobsPage() {
                   .map(({ name }, i) => (
                     <div key={i} className="">
                       {/* <Icon className="size-7 dark:text-zinc-300 text-zinc-700" /> */}
-                      <span className="dark:text-zinc-500 text-zinc-700">
-                        {name}
-                      </span>
+                      <span className="dark:text-zinc-500 text-zinc-700">{name}</span>
                     </div>
                   ))}
               </div>
@@ -40,11 +38,7 @@ export default async function JobsPage() {
           </div>
         </div>
       </div>
-      <React.Suspense
-        fallback={
-          <div className="flex-row-center w-full text-lg">Loading...</div>
-        }
-      >
+      <React.Suspense fallback={<div className="flex-row-center w-full text-lg">Loading...</div>}>
         <InitialJobPostsList />
       </React.Suspense>
     </div>

@@ -39,9 +39,7 @@ Note: This is a general template, and you should review and customize it to ensu
 const PrivacyPage = () => {
   return (
     <div className="px-2 pb-16">
-      <h1 className="mb-4 border-b pb-2 text-2xl font-bold dark:border-zinc-800">
-        Privacy Policy
-      </h1>
+      <h1 className="mb-4 border-b pb-2 text-2xl font-bold dark:border-zinc-800">Privacy Policy</h1>
       <article className="mx-auto max-w-3xl dark:text-zinc-300">
         <pre className="whitespace-pre-wrap">{content}</pre>
       </article>

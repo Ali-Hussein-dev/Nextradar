@@ -9,7 +9,7 @@ import * as React from "react"
 export const generateMetadata = async () => {
   const res = await getPageMetadata({ name: "reactjs-jobs" })
   const md = res[0]?.metadata
-  
+
   return {
     title: `${md.title} - ${format(new Date(), "MMM yyyy")}`,
     description: md.description,
@@ -40,9 +40,7 @@ export default async function reactjsJobsPage() {
                   .map(({ name }, i) => (
                     <div key={i} className="">
                       {/* <Icon className="size-7 dark:text-zinc-300 text-zinc-700" /> */}
-                      <span className="dark:text-zinc-500 text-zinc-700">
-                        {name}
-                      </span>
+                      <span className="dark:text-zinc-500 text-zinc-700">{name}</span>
                     </div>
                   ))}
               </div>

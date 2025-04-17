@@ -7,9 +7,7 @@ import Link from "next/link"
 export default function ExpiredPage() {
   return (
     <div className="flex-col-center w-full mx-auto gap-2 py-6 sm:py-10">
-      <h1 className="text-2xl sm:text-4xl mb-5 font-bold">
-        Job post is expired!
-      </h1>
+      <h1 className="text-2xl sm:text-4xl mb-5 font-bold">Job post is expired!</h1>
       <Button asChild variant="secondary">
         <Link href={urls.jobs} className="no-underline">
           Back to jobs

@@ -36,9 +36,7 @@ export default function CreateJobPostPage() {
               </ul>
             </div>
             <div className="border-b border-x md:px-6 py-7 border-dashed p-4">
-              <h2 className="text-lg text-center font-medium mb-2">
-                Featured Companies
-              </h2>
+              <h2 className="text-lg text-center font-medium mb-2">Featured Companies</h2>
               <div className="flex flex-wrap gap-4 justify-center">
                 {logos.map((logo, i) => (
                   <div key={i} className="">
