@@ -36,7 +36,7 @@ const links = {
       url: urls.nextjsAuth,
     },
     {
-      label: "Next.js Templates",
+      label: "Next.js Starters",
       url: urls.templates,
     },
     {
@@ -44,7 +44,7 @@ const links = {
       url: urls.learn,
     },
     {
-      label: "Next.js Headless CMS",
+      label: "Next.js CMS",
       url: urls.headlessCms,
     },
     {

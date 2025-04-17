@@ -33,7 +33,7 @@ export const sidebarLinks: SidebarLink[] = [
     icon: <AiOutlineClockCircle />,
   },
   {
-    label: "Learn",
+    label: "Tutorials",
     url: urls.learn,
     icon: <MdOutlineSchool />,
   },
