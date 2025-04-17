@@ -13,6 +13,7 @@ const PageSchema = {
                 list: [
                     { title: "Latest", value: "latest" },
                     { title: "Nextjs", value: "nextjs" },
+                    { title: "Auth", value: "nextjs-auth" },
                     { title: "Learn", value: "learn" },
                     { title: "Templates", value: "templates" },
                     { title: "Tools", value: "tools" },

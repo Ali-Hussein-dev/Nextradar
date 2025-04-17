@@ -7,7 +7,7 @@ export const ToolsSection = async ({
 }: {
   category: RepoCategory
 }) => {
-  const list = (await getReposList({ recommended: false, category })) as Repo[]
+  const list = (await getReposList({ category })) as Repo[]
   const tags = await getTagsList({ category })
 
   const uniqueTags = Array.from(

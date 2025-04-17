@@ -16,6 +16,7 @@ import * as React from "react";
 import categoriesIds from "@/constants/categories.json";
 import { templates } from "@/constants/templates";
 import { urls } from "@/constants/urls";
+import { AuthSection } from "@/components/sections/auth-section";
 
 const SharedContainer = ({
   children,
@@ -107,6 +108,15 @@ export default async function ContentPage(props: {
           </React.Suspense>
         </SharedContainer>
       );
+    case "nextjs-auth":
+      return (
+        <SharedContainer>
+          <PageHeader name="nextjs-auth" />
+          <React.Suspense key="nextjs-auth">
+            <AuthSection />
+          </React.Suspense>
+        </SharedContainer>
+      );
     case "real-world-apps":
       return (
         <SharedContainer>
@@ -185,6 +195,7 @@ export async function generateStaticParams() {
     "commerce",
     // "latest",
     "nextjs",
+    "nextjs-auth",
     "templates",
     "learn",
     "tools",

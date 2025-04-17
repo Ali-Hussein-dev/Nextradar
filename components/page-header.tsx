@@ -8,6 +8,7 @@ type PageHeaderName =
   | "learn"
   | "real-world-apps"
   | "jobs"
+  | "nextjs-auth"
   | "reactjs-jobs"
   | "nextjs-jobs"
   | "db"

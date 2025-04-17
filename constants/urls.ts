@@ -14,6 +14,7 @@ export const urls = {
   learn: "/content/learn",
   tools: "/content/tools",
   latest: "/content/nextjs",
+  nextjsAuth: "/content/nextjs-auth",
   sponsor: "/content/sponsor",
   templates: "/content/templates",
   osProjects: "/content/real-world-apps",

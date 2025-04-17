@@ -32,8 +32,8 @@ const links = {
   ],
   internal: [
     {
-      label: "Vercel Alternatives",
-      url: urls.vercelAlternatives,
+      label: "Nextjs Auth",
+      url: urls.nextjsAuth,
     },
     {
       label: "Next.js Templates",
@@ -44,8 +44,12 @@ const links = {
       url: urls.learn,
     },
     {
-      label: "Headless CMS for Next.js",
+      label: "Next.js Headless CMS",
       url: urls.headlessCms,
+    },
+    {
+      label: "Vercel Alternatives",
+      url: urls.vercelAlternatives,
     },
     {
       label: "Managed Database for Next.js",
