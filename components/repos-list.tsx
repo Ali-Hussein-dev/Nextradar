@@ -3,14 +3,8 @@ import { RepoCard } from "@/components/repo-card"
 import { getReposList, RepoCategory } from "@/sanity/lib/getters"
 
 //======================================
-export const ReposList = async ({
-  category,
-  recommended = false,
-}: {
-  category: RepoCategory
-  recommended?: boolean
-}) => {
-  const list = (await getReposList({ recommended, category })) as Repo[]
+export const ReposList = async ({ category }: { category: RepoCategory }) => {
+  const list = (await getReposList({ category })) as Repo[]
 
   return (
     <div className="grid lg:grid-cols-2 gap-4 w-full">
