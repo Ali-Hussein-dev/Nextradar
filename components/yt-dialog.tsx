@@ -20,17 +20,17 @@ const PlayBtn = ({ videoId }: { videoId: string }) => (
   </>
 )
 //======================================
-export const YtDialog = ({ href, src }: { src: string; href: string }) => {
+export const YtDialog = ({ href }: { href: string }) => {
   // src= https://img.youtube.com/vi/75oXnWzhJts/hqdefault.jpg
   const videoId = href.split("v=")[1].split("&")[0]
   return (
     <Dialog>
-      <DialogTrigger className="relative aspect-video md:aspect-[8/5] h-full rounded-md overflow-hidden w-full max-w-sm xs:max-w-[520px] sm:max-w-[630px] md:max-w-40 p-0">
+      <DialogTrigger className="relative aspect-video md:aspect-[8/5] h-full rounded-lg overflow-hidden w-full max-w-sm xs:max-w-[520px] sm:max-w-[630px] md:max-w-40 p-0">
         <PlayBtn videoId={videoId} />
       </DialogTrigger>
       <DialogContent className="w-full max-w-7xl h-full max-h-[760px] p-0 dark:bg-zinc-900 bg-zinc-100 overflow-hidden aspect-video">
         <iframe
-          src={src + "&autoplay=1"}
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
           width={560}
           height={315}
           title="YouTube video player"

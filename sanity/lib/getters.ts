@@ -90,51 +90,10 @@ export const getRecentSources = async ({
     }`);
 }
 //------------------------------------------------------------Resources
-export const getSources = async ({
-    year,
-    month,
-    recommended = null,
-    fields = "name, description, type, href, src, author",
-}: {
-        year: number
-        month: number
-        recommended?: boolean | null
-        /**
-         * Select fields to return from the query
-         */
-        fields?: string
-    }) => {
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth() + 1; // getMonth() returns 0-based month
-
-    // Check if the month is the current month
-    if (year === currentYear && month === currentMonth) {
-        return getRecentSources({ fields });
-    }
-    // Sanity stores dates in ISO format, so we need to format the month and year for comparison
-    // Ensure month is in two-digit format for consistency
-    const monthPadded = month.toString().padStart(2, "0")
-    // Start of the month
-    const startDate = `${year}-${monthPadded}-01T00:00:00Z`
-    // End of the month - we don't need to calculate the exact last day, just use the start of the next month
-    const nextMonth = month === 12 ? 1 : month + 1
-    const nextMonthPadded = nextMonth.toString().padStart(2, "0")
-    const nextYear = month === 12 ? year + 1 : year
-    const endDate = `${nextYear}-${nextMonthPadded}-01T00:00:00Z`
-
-    const recommendedQuery = !!recommended
-        ? `&& recommended == ${recommended}`
-        : ""
-    const dateQuery = `&& _createdAt >= "${startDate}" && _createdAt < "${endDate}"`
-    return client.fetch(`*[_type == "source" ${dateQuery} ${recommendedQuery} ] | order(_createdAt desc) {
-    ${fields}
-    }`)
-}
 export const getSourcesPage = async ({
     page = 1,
     pageSize = 10,
-    fields = "name, description, type, href, src, author, sponsored, rel, _createdAt",
+    fields = "name, description, type, href, author, sponsored, rel, _createdAt",
   }: {
     page?: number;
     pageSize?: number;
