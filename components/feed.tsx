@@ -24,36 +24,35 @@ export const FeedCard = ({
   description,
   author,
   href,
-  src,
   sponsored,
   rel = "nofollow",
 }: FeedCardProps) => {
+  const isYoutube = href.includes("youtube")
   return (
     <Card className="shadow-none border-none">
       <CardHeader className="flex flex-col md:flex-row items-start h-full sm:items-start md:gap-3 w-full p-0 sm:py-4 sm:px-0">
         {/* --------------------------------YT-Embed */}
-        {src && <YtDialog src={src} href={href} />}
+        {isYoutube && <YtDialog href={href} />}
         <div className="w-full pt-2 grow flex-col-start md:h-full gap-1.5">
-          <CardTitle className="flex-row-between w-full gap-5 dark:text-zinc-300 text-zinc-700">
-            <span className="line-clamp-1">{name}</span>
+          <CardTitle className="flex justify-between items-start w-full gap-5 dark:text-zinc-300 text-zinc-700">
+            <div className="flex flex-col gap-1">
+              <span className="line-clamp-1">{name}</span>
+              <span className="font-light text-sm text-muted-foreground/60">{author}</span>
+            </div>
             {sponsored && <span className="text-xs font-light">Sponsored</span>}
           </CardTitle>
-          <CardDescription
-            className={cn(
-              "mb-1.5 dark:text-zinc-500 text-pretty line-clamp-2 text-zinc-700",
-              src ? "hidden md:line-clamp-2" : "",
-            )}
-          >
-            {description}
-          </CardDescription>
+          {!isYoutube && (
+            <CardDescription className="mb-1.5 dark:text-zinc-500 text-pretty line-clamp-2 text-zinc-700">
+              {description}
+            </CardDescription>
+          )}
         </div>
       </CardHeader>
       {/* <CardContent>
           <p>Card Content</p>
         </CardContent> */}
-      <CardFooter className="flex-row-between gap-2 w-full text-sm pt-0 p-0 sm:pb-4 sm:px-0">
-        <span className="text-muted-foreground/80">{author}</span>
-        {!src && (
+      {!isYoutube && (
+        <CardFooter className="flex justify-end items-center gap-2 w-full text-sm pt-0 p-0 sm:pb-4 sm:px-0">
           <Button
             variant="outline"
             asChild
@@ -65,8 +64,8 @@ export const FeedCard = ({
               <MdOutlineArrowOutward size="14" />
             </a>
           </Button>
-        )}
-      </CardFooter>
+        </CardFooter>
+      )}
     </Card>
   )
 }
