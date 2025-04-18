@@ -45,7 +45,9 @@ export const urls = {
   indieStarter: "https://indie-starter.dev",
   deepReact: "https://deepreact.dev",
   newsletter:"https://nextradar.substack.com",
-  portfolio:"https://ali-hussein.com"
+  portfolio:"https://ali-hussein.com",
+  github:"https://github.com/Ali-Hussein-dev/Nextradar",
+  githubDiscussions:"https://github.com/Ali-Hussein-dev/Nextradar/discussions"
 };
 
 export const urlsSitemap = Object.values(urls).filter(

@@ -13,13 +13,14 @@ import {
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
-import { ChevronRight, InfoIcon } from "lucide-react"
+import { ChevronRight, InfoIcon, XIcon } from "lucide-react"
 import { IntegrationCard } from "@/components/integration-card"
 import { ToggleView, usePreferencesStore } from "../ui/toggle-view"
 import { cn } from "@/lib/utils"
 import { useIsMobile } from "@/hooks/use-mobile"
 import { cmsFilterLabels } from "@/constants/cms-filter"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { urls } from "@/constants/urls"
 
 const TooltipWrapper = ({ description }: { description: string }) => (
   <TooltipProvider delayDuration={100}>
@@ -115,11 +116,11 @@ export function FilterAccordion({
           )
         })}
       </Accordion>
-      <div className="pt-2">
+      <div className="pt-2 space-y-2">
         {urlHasParams && (
           <Button
             size="sm"
-            className="w-full"
+            className="text-sm w-full gap-2"
             type="button"
             onClick={() => {
               setActiveQueryStates({
@@ -128,9 +129,14 @@ export function FilterAccordion({
             }}
             variant={"outline"}
           >
-            Clear Filters
+            Clear Filters <XIcon className="size-4" />
           </Button>
         )}
+        <Button asChild type="button" variant={"ghost"} size="sm" className="text-sm w-full">
+          <a target="_blank" href={urls.githubDiscussions} rel="noreferrer noopener">
+            Report inaccurate info
+          </a>
+        </Button>
       </div>
     </aside>
   )
