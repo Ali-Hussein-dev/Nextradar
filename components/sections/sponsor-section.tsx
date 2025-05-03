@@ -67,7 +67,7 @@ export function TestimonialCard({
   }
 
   return (
-    <Card className="break-inside-avoid mb-4 bg-secondary/50 border-none">
+    <Card className="bg-secondary/50 border-none">
       <CardContent className="pt-6 flex flex-col">
         <div className="text-green-600 mb-2">
           <QuoteIcon className="size-6" />
@@ -227,7 +227,7 @@ export async function SponsorSection() {
         </div>
         <div className="pt-10">
           <h2 className="text-xl md:text-2xl font-bold text-center mb-4">Testimonials</h2>
-          <div className="sm:masonry-cols-2">
+          <div className="grid sm:grid-cols-2 gap-4">
             {testimonials.map((testimonial) => (
               <TestimonialCard key={testimonial.quote} {...testimonial} />
             ))}
