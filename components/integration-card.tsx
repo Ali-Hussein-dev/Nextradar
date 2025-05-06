@@ -136,7 +136,7 @@ export const IntegrationCard = ({
             className="size-8 my-0 rounded-full object-contain"
             loading="lazy"
           />
-          <CardTitle>{name}</CardTitle>
+          <CardTitle><h3>{name}</h3></CardTitle>
         </div>
         {sponsored ? <span className="text-muted-foreground">Sponsored</span> : null}
       </CardHeader>

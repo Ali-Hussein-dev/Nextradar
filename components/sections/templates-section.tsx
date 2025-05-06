@@ -168,7 +168,9 @@ const StandardCard = ({ template, router }: { template: Template; router: AppRou
         />
         <div className="flex-col-start gap-1 pt-1">
           <div className="flex-row-between gap-2 w-full">
-            <CardTitle>{template.name}</CardTitle>
+            <CardTitle>
+              <h3>{template.name}</h3>
+            </CardTitle>
             {/* {template?.sponsored && (
                 <span className="text-light dark:text-zinc-600 px-1 rounded-sm text-zinc-500">
                   Sponsored
@@ -176,7 +178,7 @@ const StandardCard = ({ template, router }: { template: Template; router: AppRou
               )} */}
           </div>
           <CardDescription className="line-clamp-2 tracking-tight leading-5 ">
-            {template.description}
+            <p>{template.description}</p>
           </CardDescription>
         </div>
       </CardHeader>
