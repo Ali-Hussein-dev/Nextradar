@@ -231,7 +231,7 @@ export const templates: Template[] = [
             payment: getPair("payment", "stripe"),
             backend: getPair("backend", "supabase"),
             email: getPair("email", "resend"),
-            analytics: getPair("analytics", ["posthog","googleAnalytics"]),
+            analytics: getPair("analytics", ["posthog", "googleAnalytics"]),
             styling: getPair("styling", "tailwindcss"),
             language: getPair("language", "typescript"),
             others: getPair("others", "sentry"),
@@ -416,7 +416,7 @@ export const templates: Template[] = [
         github: "https://github.com/trpc/trpc",
         name: "tRPC",
         description: "Move fast and break nothing. End-to-end typesafe APIs made easy.",
-        ogImage:"https://og-image.trpc.io/api/landing?cache-buster=10",
+        ogImage: "https://og-image.trpc.io/api/landing?cache-buster=10",
         rel: "nofollow",
         specs: {
             cms: [],
@@ -435,7 +435,7 @@ export const templates: Template[] = [
         github: "https://github.com/upstash/jstack",
         name: "JStack",
         description: "Ship high-performance ⚡ Next.js apps in minutes",
-        ogImage:"https://jstack.app/thumbnail.png",
+        ogImage: "https://jstack.app/thumbnail.png",
         rel: "nofollow",
         specs: {
             cms: [],
@@ -448,7 +448,7 @@ export const templates: Template[] = [
             language: getPair("language", "typescript"),
             others: [],
         },
-    
+
     },
     {
         url: "https://create.t3.gg/",
@@ -739,13 +739,13 @@ export const templates: Template[] = [
     {
         url: "https://starter.schemaui.com/",
         name: "Schema UI",
-        github:"https://github.com/serge-0v/next-js-sanity-starter",
+        github: "https://github.com/serge-0v/next-js-sanity-starter",
         description:
             "This starter is a part of Schema UI project, a comprehensive page builder that provides production-ready React components with pre-built Sanity schemas and GROQ queries, enabling rapid development of content-driven websites with Sanity CMS and Next.js.",
         ogImage: "https://starter.schemaui.com/images/og-image.jpg",
         rel: "nofollow",
         specs: {
-            cms: getPair("cms","sanity"),
+            cms: getPair("cms", "sanity"),
             cost: getPair("cost", "free"),
             payment: getPair("payment", []),
             backend: getPair("backend", []),
@@ -757,7 +757,7 @@ export const templates: Template[] = [
         },
     },
     {
-        url: "https://supastarter.dev?aff=pWOZY",
+        url: "https://supastarter.dev?atp=V2E88S",
         name: "supastarter",
         description:
             "supastarter is a production-ready SaaS boilerplate for Nuxt 3 and Next.js 14. It includes authentication, billing, internationalization, multi-tenancy, and more.",
@@ -815,7 +815,7 @@ export const templates: Template[] = [
             language: getPair("language", "typescript"),
             others: [],
         },
-        
+
     },
     // {
     //     url: "https://coolify.io",
@@ -836,9 +836,9 @@ export const templates: Template[] = [
     //         language: getPair("language", "typescript"),
     //         others: [],
     //     },
-        
+
     // },
-    
+
     // {
     //     url: "next-saas-start.vercel.app",
     //     name: "Next.js SaaS Starter",
