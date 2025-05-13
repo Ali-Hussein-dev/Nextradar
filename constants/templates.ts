@@ -149,75 +149,44 @@ const getPair = (
 
 export const templates: Template[] = [
     {
-        url: "https://makerkit.dev?atp=a5B3Wj",
-        name: "makerkit",
+        url: "https://shipfa.st/?via=nextradar",
+        name: "Shipfa.st",
         description:
-            "Build unlimited SaaS products with any SaaS Starter Kit. Save months of work and focus on building a profitable business.",
-        ogImage: "https://makerkit.dev/assets/images/makerkit.webp",
+            "The NextJS boilerplate with all the stuff you need to get your product in front of customers.",
+        ogImage: "https://shipfa.st/shareMain.png",
         rel: "nofollow",
         specs: {
-            cms: getPair("cms", ["wordpress", "keystatic"]),
+            cms: getPair("cms", []),
             cost: getPair("cost", "premium"),
-            payment: getPair("payment", ["stripe", "lemonSqueezy", "paddle"]),
-            backend: getPair("backend", ["firebase", "supabase"]),
-            email: getPair("email", ["resend", "nodemailer"]),
+            payment: getPair("payment", ["stripe","lemonsqueezy"]),
+            backend: getPair("backend", ["mongodb", "supabase"]),
+            email: getPair("email", [ "resend"]),
 
-            analytics: getPair("analytics", ["googleAnalytics", "umami", "posthog"]),
-            styling: getPair("styling", ["tailwindcss", "shadcn"]),
-            language: getPair("language", "typescript"),
-            others: getPair("others", ["turborepo"]),
+            analytics: getPair("analytics", []),
+            styling: getPair("styling", ["tailwindcss", "daisyui"]),
+            language: getPair("language", ["typescript", "javascript"]),
+            others: getPair("others", [""]),
         },
-        // featured: {
-        //     testimonials: [
-        //         {
-        //             quote: "Makerkit is a pretty nice shortcut for building a SaaS. Code quality and the support Slack channel are excellent",
-        //             name: "Janne Aukia",
-        //             role: "",
-        //             avatar: "https://pbs.twimg.com/profile_images/1276174264551518208/ArwSsAWE_400x400.jpg",
-        //             url: "https://x.com/jaukia/status/1852730134215696410"
-        //         }, {
-        //             quote: "Just started using MakerKit and it's a total game-changer. 🚀 Wish I had this when I was building Phishr. Instant team management and billing? Insane.",
-        //             name: "Harvey Coplestone",
-        //             role: "",
-        //             avatar: "https://pbs.twimg.com/profile_images/1825124651535572992/tXIb4YKR_400x400.jpg",
-        //             url: "https://x.com/hcoplestone/status/1825193478105534676"
-        //         },
-        //         {
-        //             quote: "Honestly @makerkit_dev is great. More for B2B products but really clean and well documented",
-        //             name: "Kiara Bickers",
-        //             role: "",
-        //             avatar: "https://pbs.twimg.com/profile_images/1807544605275017217/TPsj_GHj_400x400.jpg",
-        //             url: "https://x.com/kiarabickers/status/1832034757779005635"
-        //         },
-        //         {
-        //             quote: "Tried most of them, makerkit beats them all 🔥",
-        //             name: "Mehdi Nabhani",
-        //             role: "",
-        //             avatar: "https://pbs.twimg.com/profile_images/1657287624049000448/gASq0syB_400x400.jpg",
-        //             url: "https://x.com/NabhaniMehdi/status/1820878102274437529"
-        //         },
-        //     ]
-        // },
     },
     {
-        url: "https://directorystack.com/?via=nextradar",
-        name: "Directorystack",
-        description:
-            "A highly modular, production-ready Next.js 15 & TypeScript template for building ai-powered, seo-optimized & revenue-generating directories quickly!",
-        ogImage: "https://directorystack.com/img/og_1200x630.png",
+        url: "https://shipped.club?aff=pWOZY",
+        name: "Shipped",
+        description: "Build and ship your Startup in days. And make money.",
+        ogImage: "https://d2bzf0z2yzi3mc.cloudfront.net/Shipped_OG_image.jpg",
         rel: "nofollow",
         specs: {
             cms: [],
             cost: getPair("cost", "premium"),
-            payment: getPair("payment", "stripe"),
-            backend: getPair("backend", "supabase"),
-            email: getPair("email", "resend"),
-            analytics: getPair("analytics", "umami"),
-            styling: getPair("styling", "tailwindcss"),
+            payment: getPair("payment", "lemonSqueezy"),
+            backend: getPair("backend", ["nextAuth", "supabase", "prisma"]),
+            email: getPair("email", ["mailchimp", "loops"]),
+            analytics: getPair("analytics", "pirsch"),
+            styling: getPair("styling", ["tailwindcss", "shadcn", "chakra"]),
             language: getPair("language", "typescript"),
-            others: getPair("others", "sentry"),
+            others: [],
         },
     },
+
     {
         url: "https://usenextbase.com?atp=nextradar",
         name: "Nextbase",
@@ -257,12 +226,12 @@ export const templates: Template[] = [
         },
     },
     {
-        url: "https://chat.vercel.ai/",
+        url: "https://chat-sdk.dev/",
         github: "https://github.com/vercel/ai-chatbot",
-        name: "Next.js AI Chatbot",
-        description: "An AI-powered chatbot template built with Next.js and Vercel",
+        name: "Chat SDK by Vercel",
+        description: "A free, open-source chatbot template that helps you build powerful AI applications.",
         ogImage:
-            "https://chat.vercel.ai/opengraph-image-12cog0.png?2503f1158996a16f",
+            "https://chat-sdk.dev/opengraph-image.png",
         rel: "nofollow",
         specs: {
             cms: [],
@@ -274,6 +243,25 @@ export const templates: Template[] = [
             styling: getPair("styling", ["tailwindcss", "shadcn"]),
             language: getPair("language", "typescript"),
             others: [],
+        },
+    },
+    {
+        url: "https://directorystack.com/?via=nextradar",
+        name: "Directorystack",
+        description:
+            "A highly modular, production-ready Next.js 15 & TypeScript template for building ai-powered, seo-optimized & revenue-generating directories quickly!",
+        ogImage: "https://directorystack.com/img/og_1200x630.png",
+        rel: "nofollow",
+        specs: {
+            cms: [],
+            cost: getPair("cost", "premium"),
+            payment: getPair("payment", "stripe"),
+            backend: getPair("backend", "supabase"),
+            email: getPair("email", "resend"),
+            analytics: getPair("analytics", "umami"),
+            styling: getPair("styling", "tailwindcss"),
+            language: getPair("language", "typescript"),
+            others: getPair("others", "sentry"),
         },
     },
     {
@@ -315,21 +303,23 @@ export const templates: Template[] = [
         },
     },
     {
-        url: "https://shipped.club?aff=pWOZY",
-        name: "Shipped",
-        description: "Build and ship your Startup in days. And make money.",
-        ogImage: "https://d2bzf0z2yzi3mc.cloudfront.net/Shipped_OG_image.jpg",
+        url: "https://makerkit.dev?atp=a5B3Wj",
+        name: "makerkit",
+        description:
+            "Build unlimited SaaS products with any SaaS Starter Kit. Save months of work and focus on building a profitable business.",
+        ogImage: "https://makerkit.dev/assets/images/makerkit.webp",
         rel: "nofollow",
         specs: {
-            cms: [],
+            cms: getPair("cms", ["wordpress", "keystatic"]),
             cost: getPair("cost", "premium"),
-            payment: getPair("payment", "lemonSqueezy"),
-            backend: getPair("backend", ["nextAuth", "supabase", "prisma"]),
-            email: getPair("email", ["mailchimp", "loops"]),
-            analytics: getPair("analytics", "pirsch"),
-            styling: getPair("styling", ["tailwindcss", "shadcn", "chakra"]),
+            payment: getPair("payment", ["stripe", "lemonSqueezy", "paddle"]),
+            backend: getPair("backend", ["firebase", "supabase"]),
+            email: getPair("email", ["resend", "nodemailer"]),
+
+            analytics: getPair("analytics", ["googleAnalytics", "umami", "posthog"]),
+            styling: getPair("styling", ["tailwindcss", "shadcn"]),
             language: getPair("language", "typescript"),
-            others: [],
+            others: getPair("others", ["turborepo"]),
         },
     },
     {
