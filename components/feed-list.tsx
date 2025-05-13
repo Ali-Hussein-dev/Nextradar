@@ -18,11 +18,14 @@ export const FeedList = ({ initialList }: { initialList: FeedCardProps[] }) => {
     initialData: { pages: [initialList], pageParams: [1] },
   })
 
+  const feed = data?.pages?.flat().filter((item) => !item.sponsored)
+  const sponsored = data?.pages?.flat().filter((item) => item.sponsored)
   return (
     <>
       <div className="space-y-2 md:space-y-3 px-2">
+        {sponsored?.map((item, i) => <FeedCard key={i} {...item} />)}
         {Object.entries(
-          data?.pages?.flat()?.reduce(
+          feed?.reduce(
             (result, item) => {
               const date = new Date(item._createdAt)
               const month = date.toLocaleString("default", {
@@ -44,14 +47,14 @@ export const FeedList = ({ initialList }: { initialList: FeedCardProps[] }) => {
             <div className="pb-4 border-b border-dashed">
               <div
                 id={`#${month}`}
-                className="flex items-center font-medium pt-2 text-secondary-foreground/80"
+                className="flex items-center font-medium py-2 text-muted-foreground text-sm"
               >
-                <CalendarIcon className="mr-2 size-5" />
+                <CalendarIcon className="mr-2 size-4" />
                 {month}
               </div>
               <div className="space-y-4">
                 {(items as FeedCardProps[])
-                  .sort((a, b) => (b.sponsored ? 1 : -1) - (a.sponsored ? 1 : -1))
+                  // .sort((a, b) => (b.sponsored ? 1 : -1) - (a.sponsored ? 1 : -1))
                   .map((o, j) => (
                     <FeedCard key={j} {...o} />
                   ))}
