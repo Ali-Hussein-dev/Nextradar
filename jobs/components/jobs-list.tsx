@@ -71,11 +71,7 @@ const JobFilter = ({
             className="border gap-0 rounded-sm divide-x"
           >
             {["Remote", "Onsite", "Hybrid"].map((str, i) => (
-              <ToggleGroupItem
-                key={str}
-                value={str}
-                className="capitalize rounded-none"
-              >
+              <ToggleGroupItem key={str} value={str} className="capitalize rounded-none">
                 {str}
               </ToggleGroupItem>
             ))}
@@ -87,24 +83,15 @@ const JobFilter = ({
             <div key={i} className="flex-row-start gap-2">
               <Checkbox
                 id={o.name}
-                checked={
-                  queryStates[o.name as keyof QueryStates] as unknown as boolean
-                }
-                onCheckedChange={(val) =>
-                  setQueryStates({ [o.name]: val as unknown as boolean })
-                }
+                checked={queryStates[o.name as keyof QueryStates] as unknown as boolean}
+                onCheckedChange={(val) => setQueryStates({ [o.name]: val as unknown as boolean })}
               />
               <Label htmlFor={o.name}>{o.label}</Label>
             </div>
           ))}
         </div>
         <div className="flex-row-between w-full pt-4">
-          <Button
-            variant="outline"
-            type="button"
-            size="sm"
-            onClick={resetFilter}
-          >
+          <Button variant="outline" type="button" size="sm" onClick={resetFilter}>
             Reset filter
           </Button>
           <Button variant="secondary" size="sm" onClick={() => onApplyFilter()}>
@@ -131,8 +118,7 @@ export function JobsList({ initialList }: { initialList: JobPostCardProps[] }) {
 
   const filterQuery = useQuery({
     queryKey: ["jobs", serialized],
-    queryFn: async () =>
-      fetch(`/api/jobs${serialized}`).then((res) => res.json()),
+    queryFn: async () => fetch(`/api/jobs${serialized}`).then((res) => res.json()),
     enabled: false,
   })
   const infiniteQuery = useInfiniteQuery({
@@ -171,10 +157,7 @@ export function JobsList({ initialList }: { initialList: JobPostCardProps[] }) {
     <section>
       <div className="max-w-3xl mx-auto mb-5">
         <div className="flex-row-between w-full px-4 py-4 border-x border-dashed">
-          <Button
-            variant="outline"
-            onClick={() => setIsFilterOpen((prev) => !prev)}
-          >
+          <Button variant="outline" onClick={() => setIsFilterOpen((prev) => !prev)}>
             <VscSettings className="size-4 mr-2" />
             {isFilterOpen ? "Hide filter" : "Filter"}
           </Button>
@@ -193,7 +176,7 @@ export function JobsList({ initialList }: { initialList: JobPostCardProps[] }) {
           )}
         </AnimatePresence>
         {jobs.map((o, i) => (
-          <JobCard key={i+1} isLast={jobs.length - 1 == i} {...o} />
+          <JobCard key={i + 1} isLast={jobs.length - 1 == i} {...o} />
         ))}
       </div>
       <div className="flex-row-center w-full">
@@ -203,7 +186,7 @@ export function JobsList({ initialList }: { initialList: JobPostCardProps[] }) {
             variant={"outline"}
             disabled={isFetchingNextPage}
             onClick={() => fetchNextPage()}
-            data-umami-event={`fetch jobs ${infiniteQuery.data.pageParams.length}`}
+            data-umami-event="fetch jobs"
           >
             {isFetchingNextPage ? "Fetching jobs..." : "Load more jobs"}
           </Button>
