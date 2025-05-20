@@ -69,6 +69,7 @@ export const FeedList = ({ initialList }: { initialList: FeedCardProps[] }) => {
           variant={"outline"}
           disabled={isFetchingNextPage}
           onClick={() => fetchNextPage()}
+          data-umami-event={`load-more-feed-${data?.pageParams.length}`}
         >
           {isFetchingNextPage ? "Loading..." : "Load more"}
         </Button>
