@@ -12,7 +12,7 @@ import {
   AiOutlineCloudServer,
 } from "react-icons/ai"
 import { MdOutlineSchool } from "react-icons/md"
-import { FaWrench } from "react-icons/fa"
+import { FaGithub, FaWrench } from "react-icons/fa"
 import { RiDatabase2Line } from "react-icons/ri"
 import { GitHubLogoIcon } from "@radix-ui/react-icons"
 import { PiShoppingCartLight } from "react-icons/pi"
@@ -108,6 +108,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           <div className="flex-row-end gap-2">
             <Button variant={"link"}>
               <Link href={urls.sponsor}>Sponsor</Link>
+            </Button>
+            <Button variant={"ghost"} size="icon" asChild className="rounded-full">
+              <a href={urls.github} target="_blank" rel="noopener noreferrer">
+                <FaGithub size="20" />
+              </a>
             </Button>
             <ThemeToggle />
           </div>
