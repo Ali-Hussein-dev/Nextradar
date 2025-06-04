@@ -88,9 +88,8 @@ function Sidebar() {
     <div className="space-y-2">
       {sidebarLinks.map((item) => (
         <nav key={item.label}>
-          <SidebarMenutBtn url={item.url}>
-            {item.icon && <div>{item.icon}</div>}
-            <span>{item.label}</span>
+          <SidebarMenutBtn url={item.url} icon={item.icon}>
+            {item.label}
           </SidebarMenutBtn>
         </nav>
       ))}
