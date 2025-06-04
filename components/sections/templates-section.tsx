@@ -156,7 +156,7 @@ const StandardCard = ({ template, router }: { template: Template; router: AppRou
   return (
     <Card
       className={`shadow-none ${
-        template.sponsored ? "dark:border-green-300/30 border-green-300/60 md:col-span-2" : ""
+        template.sponsored ? "dark:border-green-300/30 border-green-300/60" : ""
       }`}
     >
       <CardHeader className="flex-row-start gap-3">
