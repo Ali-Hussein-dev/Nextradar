@@ -35,7 +35,7 @@ export function ExpandableCard({
   return (
     <div
       className={cn(
-        "bg-white dark:bg-zinc-950 dark:from-zinc-950 from-white w-full px-4 pt-8 pb-3",
+        "bg-white dark:bg-zinc-950 dark:from-zinc-950 from-white w-full px-2 sm:px-4 pt-8 pb-1 sm:pb-3",
         className,
       )}
     >
@@ -50,14 +50,14 @@ export function ExpandableCard({
         </div>
         <div
           data-expanded={isExpanded}
-          className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-inherit dark:from-inherit/50 to-transparent pointer-events-none data-[expanded=true]:opacity-0 transition-opacity duration-300 ease-in-out"
+          className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t dark:from-zinc-950 dark:via-zinc-950/70 to-transparent pointer-events-none data-[expanded=true]:opacity-0 transition-opacity duration-300 ease-in-out"
           aria-hidden={isExpanded ? "true" : "false"}
         />
         <div
           className={cn(
             "mx-auto bg-inherit dark:bg-inherit rounded-lg",
             wide ? "w-full" : "w-fit",
-            isExpanded ? "pt-2" : "absolute bottom-4 inset-x-0",
+            isExpanded ? "pt-2" : "absolute bottom-2 md:bottom-4 inset-x-0",
           )}
         >
           <Button
