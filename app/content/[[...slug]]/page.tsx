@@ -179,7 +179,9 @@ export default async function ContentPage(props: { params: Promise<{ slug: strin
         </SharedContainer>
       )
     default:
-      return <div className="p-3 size-full">not found</div>
+      return (
+        <div className="py-10 px-4 size-full text-center text-3xl h-full">Ops, page not found</div>
+      )
   }
 }
 
