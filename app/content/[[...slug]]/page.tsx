@@ -17,6 +17,7 @@ import categoriesIds from "@/constants/categories.json"
 import { templates } from "@/constants/templates"
 import { urls } from "@/constants/urls"
 import { AuthSection } from "@/components/sections/auth-section"
+import { UiCollectionSection } from "@/components/sections/ui-collection"
 
 const SharedContainer = ({
   children,
@@ -164,6 +165,13 @@ export default async function ContentPage(props: { params: Promise<{ slug: strin
           <CommerceSection />
         </SharedContainer>
       )
+    case "ui-components":
+      return (
+        <SharedContainer>
+          <PageHeader name="ui-components" />
+          <UiCollectionSection />
+        </SharedContainer>
+      )
     case "sponsor":
       return (
         <SharedContainer className="max-w-4xl p-2 sm:p-0">
@@ -191,6 +199,7 @@ export async function generateStaticParams() {
     "real-world-apps",
     "jobs",
     "sponsor",
+    "ui-components",
   ].map((slug) => ({
     slug: [slug],
   }))

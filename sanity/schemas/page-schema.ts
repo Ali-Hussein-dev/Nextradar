@@ -18,6 +18,7 @@ const PageSchema = {
                     { title: "Templates", value: "templates" },
                     { title: "Tools", value: "tools" },
                     { title: "Real World Apps", value: "real-world-apps" },
+                    { title: "UI Components Collection", value: "ui-components" },
 
                     { title: "Jobs", value: "jobs" },
                     { title: "Reactjs Jobs", value: "reactjs-jobs" },

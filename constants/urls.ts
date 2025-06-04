@@ -17,6 +17,7 @@ export const urls = {
   nextjsAuth: "/content/nextjs-auth",
   sponsor: "/content/sponsor",
   templates: "/content/templates",
+  ui:"/content/ui-components",
   osProjects: "/content/real-world-apps",
   // Integrations
   hosting: "/content/hosting",

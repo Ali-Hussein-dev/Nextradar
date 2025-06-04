@@ -6,15 +6,17 @@ import SourceSchema from "@/sanity/source-schema"
 import IntegrationSchema from "@/sanity/schemas/integration-schema"
 import CompanySchema from "@/sanity/schemas/company-schema"
 import PageSchema from "@/sanity/schemas/page-schema"
+import UiComponentsSchema from "@/sanity/schemas/ui-schema"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     SourceSchema,
-    JobPost,
     RepoSchema,
     SiteSchema,
     IntegrationSchema,
+    PageSchema,
+    UiComponentsSchema,
     CompanySchema,
-    PageSchema
+    JobPost,
   ],
 }

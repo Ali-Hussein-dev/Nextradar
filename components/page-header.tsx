@@ -16,6 +16,7 @@ type PageHeaderName =
   | "baas"
   | "commerce"
   | "headless-cms"
+  | "ui-components"
 
 export const PageHeader = async ({
   name,
