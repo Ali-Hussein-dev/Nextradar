@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { urls } from "@/constants/urls"
 import Link from "next/link"
 
@@ -100,6 +101,19 @@ export const Footer = () => (
       <LinksCol links={links.quickLinks} title="Quick Links" />
       <LinksCol links={links.legal} title="Legal" />
       <LinksCol links={links.externalProjects} title="Other Projects" />
+      <a
+        href="https://startupfa.me/s/nextradar?utm_source=nextradar.dev"
+        target="_blank"
+        className="w-fit max-w-fit pointer-events-none"
+      >
+        <img
+          src="https://startupfa.me/badges/featured-badge.webp"
+          alt="Featured on Startup Fame"
+          width="171"
+          height="54"
+          className=""
+        />
+      </a>
     </div>
     <div className="pt-2">
       {new Date().getFullYear()} Nextradar. Website may contain affiliate links.
