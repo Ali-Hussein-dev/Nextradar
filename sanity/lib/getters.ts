@@ -186,5 +186,5 @@ export const getPageMetadata = async ({ name }: { name: string }) => {
 }
 
 export const getUiCollection = async () => {
-    return client.fetch(`*[_type == "ui"] | order(_createdAt desc){name, url, tags, thumbnail, description}`)
+    return client.fetch(`*[_type == "ui"] | order(_createdAt desc){name, url, tags, thumbnail, rel}`)
 }
