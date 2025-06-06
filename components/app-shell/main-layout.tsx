@@ -12,7 +12,7 @@ import {
   AiOutlineCloudServer,
 } from "react-icons/ai"
 import { MdOutlineSchool } from "react-icons/md"
-import { FaGithub, FaWrench } from "react-icons/fa"
+import { FaGithub, FaShapes, FaWrench } from "react-icons/fa"
 import { RiDatabase2Line } from "react-icons/ri"
 import { GitHubLogoIcon } from "@radix-ui/react-icons"
 import { PiShoppingCartLight } from "react-icons/pi"
@@ -25,6 +25,7 @@ type SidebarLink = {
   label: string
   url: string
   icon?: React.ReactNode
+  new?: boolean
 }
 export const sidebarLinks: SidebarLink[] = [
   {
@@ -41,6 +42,12 @@ export const sidebarLinks: SidebarLink[] = [
     label: "Templates",
     url: urls.templates,
     icon: <HiOutlineTemplate />,
+  },
+  {
+    label: "UI",
+    url: urls.ui,
+    icon: <FaShapes />,
+    new: true,
   },
   {
     label: "Tools",
@@ -89,7 +96,12 @@ function Sidebar() {
       {sidebarLinks.map((item) => (
         <nav key={item.label}>
           <SidebarMenutBtn url={item.url} icon={item.icon}>
-            {item.label}
+            {item.label}{" "}
+            {item.new && (
+              <span className="text-xs text-orange-500 ml-4 px-1.5 rounded-sm py-0.5 border border-orange-500/30">
+                New
+              </span>
+            )}
           </SidebarMenutBtn>
         </nav>
       ))}

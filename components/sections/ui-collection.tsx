@@ -10,10 +10,10 @@ type UiCardProps = {
   tags: string[]
   thumbnail: string
   description: string
-  isNew?: boolean
   rel: string
+  sponsored?: boolean
 }
-const UiCard = ({ thumbnail, name, url, isNew, rel }: UiCardProps) => (
+const UiCard = ({ thumbnail, name, url, rel, sponsored }: UiCardProps) => (
   <a href={url} target="_blank" rel={rel} className="group">
     <Card className="p-2 bg-secondary/20 hover:bg-secondary/50 transition-colors duration-200">
       <CardContent className="p-0 md:p-0">
@@ -24,7 +24,11 @@ const UiCard = ({ thumbnail, name, url, isNew, rel }: UiCardProps) => (
             alt="opengraph image"
             loading="lazy"
           />
-          {isNew && <Badge className="bg-green-600 text-white absolute top-1 right-2">new</Badge>}
+          {sponsored && (
+            <Badge className="bg-zinc-950/90 backdrop-blur-lg text-zinc-50 absolute top-1 right-2 font-normal">
+              sponsored
+            </Badge>
+          )}
         </CardHeader>
         <CardFooter className="flex justify-between items-center gap-3 py-1 border bg-secondary/40 rounded-lg px-2 mt-3 md:py-1 border-border">
           <CardTitle className="text-lg flex justify-between items-center">{name}</CardTitle>
@@ -40,9 +44,11 @@ export const UiCollectionSection = async () => {
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {uiCollection.map((o: UiCardProps, i: number) => (
-          <UiCard key={i} {...o} isNew={i < 2} />
-        ))}
+        {uiCollection
+          .sort((a: UiCardProps, b: UiCardProps) => (b.sponsored ? 1 : 0) - (a.sponsored ? 1 : 0))
+          .map((o: UiCardProps, i: number) => (
+            <UiCard key={i} {...o} />
+          ))}
       </div>
     </div>
   )
