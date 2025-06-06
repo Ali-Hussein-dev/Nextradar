@@ -16,11 +16,11 @@ type UiCardProps = {
 const UiCard = ({ thumbnail, name, url, rel, sponsored }: UiCardProps) => (
   <a href={url} target="_blank" rel={rel} className="group">
     <Card className="p-2 bg-secondary/20 hover:bg-secondary/50 transition-colors duration-200">
-      <CardContent className="p-0 md:p-0">
-        <CardHeader className="p-0 md:p-0 relative">
+      <CardContent className="p-0 sm:p-0">
+        <CardHeader className="p-0 sm:p-0 relative w-full">
           <img
             src={thumbnail}
-            className="rounded-lg aspect-video m-0 object-fill"
+            className="rounded-lg aspect-video m-0 object-fill w-full"
             alt="opengraph image"
             loading="lazy"
           />
@@ -30,7 +30,7 @@ const UiCard = ({ thumbnail, name, url, rel, sponsored }: UiCardProps) => (
             </Badge>
           )}
         </CardHeader>
-        <CardFooter className="flex justify-between items-center gap-3 py-1 border bg-secondary/40 rounded-lg px-2 mt-3 md:py-1 border-border">
+        <CardFooter className="flex justify-between items-center gap-3 py-1 border bg-secondary/40 rounded-lg px-2 mt-3 sm:py-1 border-border">
           <CardTitle className="text-lg flex justify-between items-center">{name}</CardTitle>
           <MdOutlineArrowOutward />
         </CardFooter>
@@ -43,7 +43,7 @@ export const UiCollectionSection = async () => {
   const uiCollection = await getUiCollection()
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {uiCollection
           .sort((a: UiCardProps, b: UiCardProps) => (b.sponsored ? 1 : 0) - (a.sponsored ? 1 : 0))
           .map((o: UiCardProps, i: number) => (
