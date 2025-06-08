@@ -159,24 +159,17 @@ const StandardCard = ({ template, router }: { template: Template; router: AppRou
         template.sponsored ? "dark:border-green-300/30 border-green-300/60" : ""
       }`}
     >
-      <CardHeader className="flex-row-start gap-3">
+      <CardHeader className="flex flex-col items-center gap-2">
         <img
           src={template.ogImage}
-          className="rounded-md aspect-[8/5] m-0 object-fill max-w-40"
+          className="rounded-md aspect-video m-0 object-fill"
           alt="opengraph image"
           loading="lazy"
         />
-        <div className="flex-col-start gap-1 pt-1">
-          <div className="flex-row-between gap-2 w-full">
-            <CardTitle>
-              <h3>{template.name}</h3>
-            </CardTitle>
-            {/* {template?.sponsored && (
-                <span className="text-light dark:text-zinc-600 px-1 rounded-sm text-zinc-500">
-                  Sponsored
-                </span>
-              )} */}
-          </div>
+        <div className="flex-col-start gap-1 w-full">
+          <CardTitle>
+            <h3>{template.name}</h3>
+          </CardTitle>
           <CardDescription className="line-clamp-2 tracking-tight leading-5 ">
             <p>{template.description}</p>
           </CardDescription>
