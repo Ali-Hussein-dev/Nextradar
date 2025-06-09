@@ -3,9 +3,9 @@
  */
 
 const siteUrl = {
-    development: "http://localhost:3000",
-    preview: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
-    production: "https://nextradar.dev",
+  development: "http://localhost:3000",
+  preview: `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`,
+  production: "https://nextradar.dev",
 };
 export const devEnv = (process.env.NEXT_PUBLIC_VERCEL_ENV ?? "development") as keyof typeof siteUrl;
 
@@ -17,7 +17,7 @@ export const urls = {
   nextjsAuth: "/content/nextjs-auth",
   sponsor: "/content/sponsor",
   templates: "/content/templates",
-  ui:"/content/ui-components",
+  ui: "/content/ui-components",
   osProjects: "/content/real-world-apps",
   // Integrations
   hosting: "/content/hosting",
@@ -44,11 +44,11 @@ export const urls = {
   },
   chatgptAlternatives: "https://chatgptalternatives.app",
   indieStarter: "https://indie-starter.dev",
-  myPrompts: "https://myprompts.dev",
-  newsletter:"https://nextradar.substack.com",
-  portfolio:"https://ali-hussein.com",
-  github:"https://github.com/Ali-Hussein-dev/Nextradar",
-  githubDiscussions:"https://github.com/Ali-Hussein-dev/Nextradar/discussions"
+  myPrompts: "https://myprompts.cc",
+  newsletter: "https://nextradar.substack.com",
+  portfolio: "https://ali-hussein.com",
+  github: "https://github.com/Ali-Hussein-dev/Nextradar",
+  githubDiscussions: "https://github.com/Ali-Hussein-dev/Nextradar/discussions"
 };
 
 export const urlsSitemap = Object.values(urls).filter(
