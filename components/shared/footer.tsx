@@ -5,8 +5,8 @@ import Link from "next/link"
 const links = {
   externalProjects: [
     {
-      label: "DeepReact",
-      url: urls.deepReact,
+      label: "MyPrompts",
+      url: urls.myPrompts,
     },
     {
       label: "Indie Starter",
@@ -115,8 +115,6 @@ export const Footer = () => (
         />
       </a>
     </div>
-    <div className="pt-2">
-      {new Date().getFullYear()} Nextradar. Website may contain affiliate links.
-    </div>
+    <div className="pt-2">{new Date().getFullYear()} Nextradar.</div>
   </footer>
 )

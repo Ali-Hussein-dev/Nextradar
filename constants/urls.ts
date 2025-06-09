@@ -44,7 +44,7 @@ export const urls = {
   },
   chatgptAlternatives: "https://chatgptalternatives.app",
   indieStarter: "https://indie-starter.dev",
-  deepReact: "https://deepreact.dev",
+  myPrompts: "https://myprompts.dev",
   newsletter:"https://nextradar.substack.com",
   portfolio:"https://ali-hussein.com",
   github:"https://github.com/Ali-Hussein-dev/Nextradar",
