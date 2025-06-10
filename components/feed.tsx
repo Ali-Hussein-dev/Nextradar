@@ -1,12 +1,9 @@
 import { Search } from "@/components/search"
 import { FeedList } from "@/components/feed-list"
 import { getPageHeader, getSourcesPage } from "@/sanity/lib/getters"
-import { MdOutlineArrowOutward } from "react-icons/md"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
 import { YtDialog } from "@/components/yt-dialog"
 import * as React from "react"
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 export type FeedCardProps = {
   name: string
@@ -19,14 +16,7 @@ export type FeedCardProps = {
   rel: string
 }
 //======================================
-export const FeedCard = ({
-  name,
-  description,
-  author,
-  href,
-  sponsored,
-  rel = "nofollow",
-}: FeedCardProps) => {
+export const FeedCard = ({ name, author, href, sponsored, rel = "nofollow" }: FeedCardProps) => {
   const isYoutube = href.includes("youtube")
   return (
     <Card className="shadow-none border-none">
@@ -34,7 +24,7 @@ export const FeedCard = ({
         {/* --------------------------------YT-Embed */}
         {isYoutube && <YtDialog href={href} />}
         <div className="w-full pt-2 grow flex-col-start md:h-full gap-1.5 py-2">
-          <CardTitle className="flex justify-between items-start w-full gap-5 dark:text-zinc-300 text-zinc-700">
+          <CardTitle className="flex justify-between items-start w-full gap-5 dark:text-zinc-300/80 text-zinc-700 tracking-normal">
             <div className="flex flex-col gap-1">
               {isYoutube ? (
                 <span className="line-clamp-1">{name}</span>
@@ -48,18 +38,12 @@ export const FeedCard = ({
                   <span className="line-clamp-1">{name}</span>
                 </a>
               )}
-              {isYoutube && (
-                <span className="font-light text-sm text-muted-foreground/60">{author}</span>
-              )}
             </div>
             {sponsored && <span className="text-xs font-light">Sponsored</span>}
           </CardTitle>
-          {!isYoutube && (
-            <CardDescription className="dark:text-zinc-500 text-zinc-700 mb-1.5">
-              <p className="line-clamp-2">{description}</p>
-              <span className="font-light text-sm text-muted-foreground/60 pt-2">{author}</span>
-            </CardDescription>
-          )}
+          <CardDescription className="mb-1.5">
+            <span className="font-light text-sm text-muted-foreground/60">{author}</span>
+          </CardDescription>
         </div>
       </CardHeader>
       {/* <CardContent>
@@ -86,7 +70,7 @@ export const FeedCard = ({
 
 //======================================
 export const Feed = async () => {
-  const page = await getSourcesPage({ page: 1, pageSize: 10 })
+  const page = await getSourcesPage({ page: 1, pageSize: 16 })
   const header = await getPageHeader({ name: "latest" })
   return (
     <div>
