@@ -93,7 +93,7 @@ export const getRecentSources = async ({
 export const getSourcesPage = async ({
     page = 1,
     pageSize = 10,
-    fields = "name, type, href, author, sponsored, rel, _createdAt",
+    fields = "name, type, href, author, description, sponsored, rel, _createdAt",
   }: {
     page?: number;
     pageSize?: number;

@@ -3,7 +3,9 @@ import { FeedList } from "@/components/feed-list"
 import { getPageHeader, getSourcesPage } from "@/sanity/lib/getters"
 import { YtDialog } from "@/components/yt-dialog"
 import * as React from "react"
-import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "./ui/button"
+import { MdOutlineArrowOutward } from "react-icons/md"
 
 export type FeedCardProps = {
   name: string
@@ -16,41 +18,33 @@ export type FeedCardProps = {
   rel: string
 }
 //======================================
-export const FeedCard = ({ name, author, href, sponsored, rel = "nofollow" }: FeedCardProps) => {
+export const FeedCard = ({
+  name,
+  description,
+  author,
+  href,
+  sponsored,
+  rel = "nofollow",
+}: FeedCardProps) => {
   const isYoutube = href.includes("youtube")
   return (
-    <Card className="shadow-none border-none">
+    <Card className="shadow-none p-3 sm:p-4">
       <CardHeader className="flex flex-col md:flex-row items-start h-full sm:items-start md:gap-3 w-full p-0 sm:p-0">
         {/* --------------------------------YT-Embed */}
         {isYoutube && <YtDialog href={href} />}
         <div className="w-full pt-2 grow flex-col-start md:h-full gap-1.5 py-2">
-          <CardTitle className="flex justify-between items-start w-full gap-5 dark:text-zinc-300/80 text-zinc-700 tracking-normal">
-            <div className="flex flex-col gap-1">
-              {isYoutube ? (
-                <span className="line-clamp-1">{name}</span>
-              ) : (
-                <a
-                  href={href}
-                  target="_blank"
-                  rel={rel}
-                  className="no-underline hover:underline underline-offset-2 transition-all duration-500"
-                >
-                  <span className="line-clamp-1">{name}</span>
-                </a>
-              )}
-            </div>
+          <CardTitle className="flex justify-between items-center w-full gap-3 dark:text-zinc-300/80 text-zinc-700 tracking-normal">
+            <h2 className="line-clamp-1">{name}</h2>
             {sponsored && <span className="text-xs font-light">Sponsored</span>}
           </CardTitle>
           <CardDescription className="mb-1.5">
+            {sponsored && <p className="line-clamp-2">{description}</p>}
             <span className="font-light text-sm text-muted-foreground/60">{author}</span>
           </CardDescription>
         </div>
       </CardHeader>
-      {/* <CardContent>
-          <p>Card Content</p>
-        </CardContent> */}
-      {/* {!isYoutube && (
-        <CardFooter className="flex justify-end items-center gap-2 w-full text-sm pt-0 p-0 sm:pb-4 sm:px-4">
+      {!isYoutube && (
+        <CardFooter className="flex justify-end items-center gap-2 w-full sm:p-0 py-0">
           <Button
             variant="outline"
             asChild
@@ -63,7 +57,7 @@ export const FeedCard = ({ name, author, href, sponsored, rel = "nofollow" }: Fe
             </a>
           </Button>
         </CardFooter>
-      )} */}
+      )}
     </Card>
   )
 }
