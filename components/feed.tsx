@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Search } from "@/components/search"
 import { FeedList } from "@/components/feed-list"
 import { getPageHeader, getSourcesPage } from "@/sanity/lib/getters"
@@ -6,6 +7,7 @@ import * as React from "react"
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "./ui/button"
 import { MdOutlineArrowOutward } from "react-icons/md"
+import Image from "next/image"
 
 export type FeedCardProps = {
   name: string
@@ -16,6 +18,8 @@ export type FeedCardProps = {
   href: string
   sponsored: boolean
   rel: string
+  img?: string
+  ogImage?: string
 }
 //======================================
 export const FeedCard = ({
@@ -25,22 +29,37 @@ export const FeedCard = ({
   href,
   sponsored,
   rel = "nofollow",
+  img,
+  ogImage,
 }: FeedCardProps) => {
   const isYoutube = href.includes("youtube")
   return (
-    <Card className="shadow-none p-3 sm:p-4">
-      <CardHeader className="flex flex-col md:flex-row items-start h-full sm:items-start md:gap-3 w-full p-0 sm:p-0">
+    <Card className="shadow-none p-1 sm:p-4">
+      <CardHeader className="p-0 sm:p-0">
+        {sponsored && (img || ogImage) && (
+          <div className="w-full h-42 relative">
+            <Image
+              src={(img || ogImage) as string}
+              alt=""
+              width={500}
+              height={500}
+              className="w-full object-cover rounded-lg"
+            />
+          </div>
+        )}
         {/* --------------------------------YT-Embed */}
         {isYoutube && <YtDialog href={href} />}
-        <div className="w-full pt-2 grow flex-col-start md:h-full gap-1.5 py-2">
-          <CardTitle className="flex justify-between items-center w-full gap-3 dark:text-zinc-300/80 text-zinc-700 tracking-normal">
-            <h2 className="line-clamp-1">{name}</h2>
-            {sponsored && <span className="text-xs font-light">Sponsored</span>}
-          </CardTitle>
-          <CardDescription className="mb-1.5">
-            {sponsored && <p className="line-clamp-2">{description}</p>}
-            <span className="font-light text-sm text-muted-foreground/60">{author}</span>
-          </CardDescription>
+        <div className="flex flex-col md:flex-row items-start h-full sm:items-start md:gap-3 w-full">
+          <div className="w-full pt-2 grow flex-col-start md:h-full gap-1.5 py-2">
+            <CardTitle className="flex justify-between items-center w-full gap-3 dark:text-zinc-300/80 text-zinc-700 tracking-normal md:text-xl text-lg">
+              {name}
+              {sponsored && <span className="text-xs font-light">Sponsored</span>}
+            </CardTitle>
+            <CardDescription className="mb-1.5">
+              {sponsored && <p className="line-clamp-2">{description}</p>}
+              <span className="font-light text-sm text-muted-foreground/60">{author}</span>
+            </CardDescription>
+          </div>
         </div>
       </CardHeader>
       {!isYoutube && (

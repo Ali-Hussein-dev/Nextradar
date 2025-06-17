@@ -22,7 +22,7 @@ export const FeedList = ({ initialList }: { initialList: FeedCardProps[] }) => {
   const sponsored = data?.pages?.flat().filter((item) => item.sponsored)
   return (
     <>
-      <div className="space-y-2 md:space-y-3 px-2">
+      <div className="space-y-2 md:space-y-3">
         {sponsored?.map((item, i) => <FeedCard key={i} {...item} />)}
         {Object.entries(
           feed?.reduce(
