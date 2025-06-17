@@ -93,7 +93,7 @@ export const getRecentSources = async ({
 export const getSourcesPage = async ({
     page = 1,
     pageSize = 10,
-    fields = "name, type, href, author, description, sponsored, rel, _createdAt",
+    fields = "name, type, href, author, description, sponsored, rel, _createdAt, ogImage",
   }: {
     page?: number;
     pageSize?: number;
@@ -108,7 +108,8 @@ export const getSourcesPage = async ({
     const sponsoredSources =
       page < 2
         ? await client.fetch(`*[_type == "source" ${sponsoredQuery}] | order(_createdAt desc) {
-          ${fields}
+          ${fields},
+          "img": img.asset->url
       }`)
         : [];
     const nonSponsoredSources =

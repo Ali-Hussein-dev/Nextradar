@@ -87,6 +87,9 @@ const config: NextConfig = {
       },
     ];
   },
+  images: {
+    domains: ['cdn.sanity.io'],
+  },
 };
 
 export default config;

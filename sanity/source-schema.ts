@@ -1,3 +1,5 @@
+import { defineField } from "sanity"
+
 const SourceSchema = {
     name: 'source',
     title: 'Source',
@@ -14,11 +16,6 @@ const SourceSchema = {
             type: 'url',
         },
         {
-            name: 'src',
-            title: 'Embed src url from YouTube',
-            type: 'url',
-        },
-        {
             name: 'description',
             title: 'Description',
             type: 'text',
@@ -27,7 +24,24 @@ const SourceSchema = {
             name: 'type',
             title: 'Type: article or youtube',
             type: 'string',
+            options: {
+                list: [
+                    { title: "Article", value: "article" },
+                    { title: "YouTube", value: "youtube" },
+                ],
+            },
+            initialValue: "article",
         },
+        defineField({
+            name: 'ogImage',
+            title: 'Open Graph Image',
+            type: 'url',
+        }),
+        defineField({
+            name: 'img',
+            title: 'Image',
+            type: 'image',
+        }),
         {
             name: 'author',
             title: 'Author',
@@ -57,7 +71,12 @@ const SourceSchema = {
                 ],
             },
             initialValue: "nofollow",
-        }
+        },
+        {
+            name: 'src',
+            title: 'Deprecated: Embed src url from YouTube',
+            type: 'url',
+        },
     ]
 }
 
