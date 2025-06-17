@@ -20,6 +20,11 @@ export default function Layout({ children }: { children: ReactNode }) {
         {/* <script src="https://unpkg.com/react-scan/dist/auto.global.js" async /> */}
       </head>
       <body>{children}</body>
+      <script
+        src="https://app.tinyadz.com/scripts/ads.js"
+        site-id="6851984a049be9fafb55c216"
+        async
+      ></script>
     </html>
   )
 }
