@@ -188,6 +188,25 @@ export const templates: Template[] = [
     },
   },
   {
+    url: "https://pro.aceternity.com/?ref=nextradar",
+    name: "Aceternity Pro",
+    description:
+      "Access an ever-growing collection of premium, meticulously crafted templates and component packs.",
+    ogImage: "https://ui.aceternity.com/banner.png",
+    rel: "nofollow",
+    specs: {
+      cms: getPair("cms", []),
+      cost: getPair("cost", "premium"),
+      payment: getPair("payment", []),
+      backend: getPair("backend", []),
+      email: getPair("email", []),
+      analytics: getPair("analytics", []),
+      styling: getPair("styling", ["tailwindcss", "shadcn"]),
+      language: getPair("language", "typescript"),
+      others: getPair("others", []),
+    },
+  },
+  {
     url: "https://makerkit.dev?atp=a5B3Wj",
     name: "makerkit",
     description:
