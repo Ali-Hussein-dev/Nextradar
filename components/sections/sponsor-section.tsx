@@ -1,17 +1,9 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { urls } from "@/constants/urls"
 import { cn } from "@/lib/utils"
 import { getStats } from "@/lib/stats"
 import { Check } from "lucide-react"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { QuoteIcon } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
@@ -214,8 +206,11 @@ export async function SponsorSection() {
         <div className="py-4">
           <h2 className="text-xl md:text-2xl font-bold text-center mb-4">Stats</h2>
           <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-6 ">
-            <StatsCard title="Minimum sales made for products" count={"$2,170"} />
-            <StatsCard title="Page views 2025" count={12_360 + (res?.pageviews?.value || 0)} />
+            <StatsCard
+              title=" in sales achieved by products featured on Nextradar"
+              count={"+$5,095"}
+            />
+            <StatsCard title="Page views 2025" count={14_360 + (res?.pageviews?.value || 0)} />
             <StatsCard title="Average visit duration" count={"3m 47s"} />
           </div>
         </div>

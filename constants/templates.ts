@@ -227,6 +227,25 @@ export const templates: Template[] = [
     },
   },
   {
+    url: "https://anotherwrapper.com?aff=pWOZY",
+    name: "AnotherWrapper",
+    description:
+      "Build and launch your AI app without the headaches and frustration by leveraging customizable demo applications and boilerplate code.",
+    ogImage: "https://anotherwrapper.com/og.png",
+    rel: "nofollow",
+    specs: {
+      cms: [],
+      cost: getPair("cost", "premium"),
+      payment: getPair("payment", "stripe"),
+      backend: getPair("backend", "firebase"),
+      email: getPair("email", "sendgrid"),
+      analytics: getPair("analytics", "googleAnalytics"),
+      styling: getPair("styling", "tailwindcss"),
+      language: getPair("language", "typescript"),
+      others: [],
+    },
+  },
+  {
     url: "https://shipixen.com?aff=pWOZY",
     name: "Shipixen",
     description:
@@ -264,6 +283,25 @@ export const templates: Template[] = [
     },
   },
   {
+    url: "https://achromatic.dev/?ref=nextradar",
+    name: "Achromatic",
+    description:
+      "Get all the tools you need to build and scale your SaaS, AI tool or web application with our comprehensive feature set and straightforward pricing.",
+    ogImage: "https://achromatic.dev/og.jpg",
+    rel: "nofollow",
+    specs: {
+      cms: [],
+      cost: getPair("cost", "premium"),
+      payment: getPair("payment", "stripe"),
+      backend: getPair("backend", ["supabase", "nextAuth", "prisma"]),
+      email: getPair("email", "resend"),
+      analytics: getPair(),
+      styling: getPair("styling", ["tailwindcss", "shadcn"]),
+      language: getPair("language", "typescript"),
+      others: [],
+    },
+  },
+  {
     url: "https://directorystack.com/?via=nextradar",
     name: "Directorystack",
     description:
@@ -280,25 +318,6 @@ export const templates: Template[] = [
       styling: getPair("styling", "tailwindcss"),
       language: getPair("language", "typescript"),
       others: getPair("others", "sentry"),
-    },
-  },
-  {
-    url: "https://anotherwrapper.com?aff=pWOZY",
-    name: "AnotherWrapper",
-    description:
-      "Build and launch your AI app without the headaches and frustration by leveraging customizable demo applications and boilerplate code.",
-    ogImage: "https://anotherwrapper.com/og.png",
-    rel: "nofollow",
-    specs: {
-      cms: [],
-      cost: getPair("cost", "premium"),
-      payment: getPair("payment", "stripe"),
-      backend: getPair("backend", "firebase"),
-      email: getPair("email", "sendgrid"),
-      analytics: getPair("analytics", "googleAnalytics"),
-      styling: getPair("styling", "tailwindcss"),
-      language: getPair("language", "typescript"),
-      others: [],
     },
   },
   {
@@ -337,25 +356,6 @@ export const templates: Template[] = [
       styling: getPair("styling", "tailwindcss"),
       language: getPair("language", "typescript"),
       others: getPair("others", ["turborepo"]),
-    },
-  },
-  {
-    url: "https://achromatic.dev/?ref=nextradar",
-    name: "Achromatic",
-    description:
-      "Get all the tools you need to build and scale your SaaS, AI tool or web application with our comprehensive feature set and straightforward pricing.",
-    ogImage: "https://achromatic.dev/og.jpg",
-    rel: "nofollow",
-    specs: {
-      cms: [],
-      cost: getPair("cost", "premium"),
-      payment: getPair("payment", "stripe"),
-      backend: getPair("backend", ["supabase", "nextAuth", "prisma"]),
-      email: getPair("email", "resend"),
-      analytics: getPair(),
-      styling: getPair("styling", ["tailwindcss", "shadcn"]),
-      language: getPair("language", "typescript"),
-      others: [],
     },
   },
   {
