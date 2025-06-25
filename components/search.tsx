@@ -165,14 +165,14 @@ export function Search() {
         </InputBlock>
       </form>
       {data && (
-        <div className="py-5 md:px-4 animate-in px-2 border border-dashed rounded-2xl mt-5">
+        <div className="py-5 animate-in px-3 bg-secondary/20 border border-dashed rounded-xl mt-5">
           {!data.error ? (
             <div>
-              <div>
+              <div className="mb-2">
                 {data.length == 0 ? (
                   <NoResults query={inputValue} />
                 ) : (
-                  data.length + " results found"
+                  data.length + " quality results found about '" + inputValue + "'"
                 )}
               </div>
               <div className="space-y-4">
