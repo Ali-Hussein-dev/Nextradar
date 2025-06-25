@@ -159,7 +159,7 @@ const StandardCard = ({ template, router }: { template: Template; router: AppRou
         template.sponsored ? "dark:border-green-300/30 border-green-300/60" : ""
       }`}
     >
-      <CardHeader className="flex flex-col items-center gap-2">
+      <CardHeader className="flex flex-col items-start gap-2">
         <img
           src={template.ogImage}
           className="rounded-md aspect-video m-0 object-fill"
