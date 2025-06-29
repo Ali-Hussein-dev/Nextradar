@@ -18,6 +18,7 @@ import { templates } from "@/constants/templates"
 import { urls } from "@/constants/urls"
 import { AuthSection } from "@/components/sections/auth-section"
 import { UiCollectionSection } from "@/components/sections/ui-collection"
+import { QuizGame } from "@/quiz-game"
 
 const SharedContainer = ({
   children,
@@ -69,6 +70,15 @@ export default async function ContentPage(props: { params: Promise<{ slug: strin
           key="latest"
         >
           <Feed />
+        </React.Suspense>
+      )
+    case "quiz-game":
+      return (
+        <React.Suspense
+          fallback={<div className="py-4 flex-row-center text-lg">Loading...</div>}
+          key="quiz-game"
+        >
+          <QuizGame />
         </React.Suspense>
       )
     case "templates":
@@ -192,6 +202,7 @@ export async function generateStaticParams() {
     "headless-cms",
     "db",
     "commerce",
+    "quiz-game",
     // "latest",
     "nextjs",
     "nextjs-auth",

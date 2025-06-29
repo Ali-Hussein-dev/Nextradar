@@ -12,6 +12,7 @@ const PageSchema = {
             options: {
                 list: [
                     { title: "Latest", value: "latest" },
+                    { title: "Quiz Game", value: "quiz-game" },
                     { title: "Nextjs", value: "nextjs" },
                     { title: "Auth", value: "nextjs-auth" },
                     { title: "Learn", value: "learn" },

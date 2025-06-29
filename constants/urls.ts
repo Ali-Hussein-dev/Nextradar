@@ -12,6 +12,7 @@ export const devEnv = (process.env.NEXT_PUBLIC_VERCEL_ENV ?? "development") as k
 export const urls = {
   siteUrl: siteUrl[devEnv],
   learn: "/content/learn",
+  quizGame: "/content/quiz-game",
   tools: "/content/tools",
   latest: "/content/nextjs",
   nextjsAuth: "/content/nextjs-auth",
