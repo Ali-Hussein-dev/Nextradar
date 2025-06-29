@@ -6,6 +6,11 @@ export const quizTopics: QuizTopic[] = [
     label: "Data Fetching",
     description: "client-side, server-side, and API routes",
   },
+  {
+    id: "api-functions",
+    label: "API Functions",
+    description: "server functions, cookies, headers, and more",
+  },
 ]
 
 export function getTopicById(id: string): QuizTopic | undefined {
