@@ -8,6 +8,7 @@ export default {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./jobs/components/**/*.{ts,tsx}",
+    "./quiz-game/components/**/*.{ts,tsx}",
   ],
   theme: {
     extend: {
