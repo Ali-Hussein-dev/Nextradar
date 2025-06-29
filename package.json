@@ -54,7 +54,6 @@
     "cmdk": "1.0.0",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.5.1",
-    "framer-motion": "^11.15.0",
     "ky": "^1.7.2",
     "lucide-react": "^0.456.0",
     "motion": "^12.19.2",
