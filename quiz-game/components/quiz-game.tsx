@@ -9,6 +9,9 @@ import { QuizSetup } from "./quiz-setup"
 import { Button } from "@/components/ui/button"
 import { useCompletion } from "@ai-sdk/react"
 import { FeedbackDisplay } from "./feedback-display"
+import { motion } from "motion/react"
+import { LuChevronRight } from "react-icons/lu"
+import { Card } from "@/components/ui/card"
 
 export function QuizGame() {
   const {
@@ -93,7 +96,44 @@ export function QuizGame() {
   if (!currentQuestion) return null
 
   return (
-    <div className="space-y-6 mx-auto">
+    <div className="gap-3 mx-auto grid grid-cols-1 md:grid-cols-4 pb-6 md:pb-20">
+      <Card className="w-full shadow-none border-0 pb-4 col-span-3">
+        <QuestionCard
+          question={currentQuestion}
+          questionNumber={currentQuestionIndex + 1}
+          totalQuestions={questions.length}
+          onAnswerSelect={selectAnswer}
+          selectedAnswer={selectedAnswer}
+          showFeedback={showFeedback}
+          FeedbackDisplay={
+            showFeedback && selectedAnswer ? (
+              <FeedbackDisplay
+                isCorrect={selectedAnswer?.isRight || false}
+                feedback={completion || ""}
+                isLoading={isLoading}
+                playerName={playerName}
+              />
+            ) : null
+          }
+        />
+        {selectedAnswer && !isLoading && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, delay: 0.5 }}
+            className="w-full px-4"
+          >
+            <Button
+              onClick={nextQuestion}
+              size="lg"
+              className="font-semibold rounded-xl w-full gap-2"
+            >
+              Next Question <LuChevronRight />
+            </Button>
+          </motion.div>
+        )}
+      </Card>
       <ScoreDisplay
         currentScore={score}
         maxPossibleScore={maxPossibleScore}
@@ -102,32 +142,6 @@ export function QuizGame() {
         playerName={playerName}
         resetGame={resetGame}
       />
-      {showFeedback && selectedAnswer && (
-        <FeedbackDisplay
-          isCorrect={selectedAnswer?.isRight || false}
-          feedback={completion || ""}
-          isLoading={isLoading}
-          playerName={playerName}
-        />
-      )}
-      <QuestionCard
-        question={currentQuestion}
-        questionNumber={currentQuestionIndex + 1}
-        totalQuestions={questions.length}
-        onAnswerSelect={selectAnswer}
-        selectedAnswer={selectedAnswer}
-        showFeedback={showFeedback}
-      />
-      <div className="flex items-center justify-end pt-2 gap-2">
-        <Button
-          disabled={isLoading || !selectedAnswer}
-          onClick={nextQuestion}
-          size="lg"
-          className="font-semibold rounded-xl"
-        >
-          Next Question →
-        </Button>
-      </div>
     </div>
   )
 }

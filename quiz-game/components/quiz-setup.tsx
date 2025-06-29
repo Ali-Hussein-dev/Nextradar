@@ -20,7 +20,7 @@ import { getQuestionCountByCategory } from "../lib/utils"
 export function QuizSetup() {
   const { playerName, selectedTopic, setPlayerName, setSelectedTopic, startGame, loadFromStorage } =
     useGameStore()
-  const [localName, setLocalName] = useState("Ali")
+  const [localName, setLocalName] = useState("")
   const [localTopic, setLocalTopic] = useState<string>("data-fetching")
 
   useEffect(() => {
@@ -59,13 +59,13 @@ export function QuizSetup() {
         </p>
       </CardHeader>
       <CardContent className="space-y-8 pb-8">
-        <div className="space-y-6 mb-4">
+        <div className="mb-4 flex gap-4 flex-col w-full">
           {/* Player Name Input */}
-          <div className="space-y-3 mb-3">
+          <div className="space-y-1 w-full">
             <Label htmlFor="playerName" className="font-semibold">
               What should we call you?
             </Label>
-            <InputBlock root={{ variant: "default", className: "" }}>
+            <InputBlock root={{ variant: "default", className: "w-full rounded-lg" }}>
               <Input
                 id="playerName"
                 type="text"
@@ -77,7 +77,7 @@ export function QuizSetup() {
           </div>
 
           {/* Topic Selection */}
-          <div className="space-y-4">
+          <div className="space-y-1 w-full">
             <Label className="font-semibold">Choose your challenge topic</Label>
             <Select value={localTopic} onValueChange={setLocalTopic}>
               <SelectTrigger>
@@ -153,14 +153,13 @@ export function QuizSetup() {
         </div>
 
         {/* Start Button */}
-        <div className="text-center pt-6 pb-3">
+        <div className="pb-2 text-center">
           <Button
             onClick={handleStartQuiz}
             disabled={!isReadyToStart}
             size="lg"
-            className="text-lg px-8 py-4 font-bold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+            className="text-lg px-8 py-4 font-bold shadow-lg transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
           >
-            <HiOutlineTrophy className="size-6 mr-3" />
             {isReadyToStart ? `Start Quiz, ${localName}!` : "Enter your name to start"}
           </Button>
         </div>

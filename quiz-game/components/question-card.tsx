@@ -1,12 +1,13 @@
 "use client"
 
 import type { Question, QuestionOption } from "../types"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Label } from "@/components/ui/label"
-import { Check, X } from "lucide-react"
+import { RadioGroup } from "@/components/ui/radio-group"
+import { CheckCircle, XCircle } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { motion, AnimatePresence } from "motion/react"
+import { Markdown } from "@/components/markdown"
 
 interface QuestionCardProps {
   question: Question
@@ -15,8 +16,48 @@ interface QuestionCardProps {
   onAnswerSelect: (answer: QuestionOption) => void
   selectedAnswer: QuestionOption | null
   showFeedback: boolean
+  FeedbackDisplay: React.ReactNode
 }
 
+const SelectedOption = ({
+  option,
+  isCorrect,
+}: {
+  option: QuestionOption
+  isCorrect: boolean
+}) => {
+  return isCorrect ? (
+    <div className="flex items-center gap-2 p-4 rounded-2xl hover:cursor-pointer hover:border-solid border-dashed border transition-all duration-100 text-wrap bg-green-500 hover:bg-green-600 border-green-500">
+      <div
+        className={cn(
+          `w-6 h-6 rounded-full border-2 flex items-center justify-center bg-green-100 border-green-500`,
+        )}
+      >
+        <CheckCircle className="w-4 h-4 text-green-600" />
+      </div>
+      {option.option}
+    </div>
+  ) : (
+    <div className="flex items-center gap-2 p-4 rounded-2xl hover:cursor-pointer hover:border-solid border-dashed border transition-all duration-100 text-wrap bg-red-500 hover:bg-red-600 border-red-500">
+      <div
+        className={cn(
+          `w-6 h-6 rounded-full border-2 flex items-center justify-center bg-red-100 border-red-500`,
+        )}
+      >
+        <XCircle className="w-4 h-4 text-red-600" />
+      </div>
+      {option.option}
+      {/* <motion.div
+        initial={{ opacity: 0, height: 0 }}
+        animate={{ opacity: 1, height: "auto" }}
+        transition={{ duration: 0.3 }}
+        className="text-sm opacity-90 leading-relaxed pt-2 border-t border-white/20"
+      >
+        {option.description}
+      </motion.div> */}
+    </div>
+  )
+}
 export function QuestionCard({
   question,
   questionNumber,
@@ -24,6 +65,7 @@ export function QuestionCard({
   onAnswerSelect,
   selectedAnswer,
   showFeedback,
+  FeedbackDisplay,
 }: QuestionCardProps) {
   const getScoreForDifficulty = (difficulty: string) => {
     switch (difficulty) {
@@ -53,31 +95,22 @@ export function QuestionCard({
     const index = question.options.findIndex((option) => option.option === selectedAnswer.option)
     return index !== -1 ? index.toString() : ""
   }
-  const getStatusIcon = (option: QuestionOption, index: number) => {
-    // if (!showFeedback) return null
-
-    const isSelected = selectedAnswer?.option === option.option
+  let isSelected = false
+  const getSelectionClasses = (option: QuestionOption, index: number) => {
+    isSelected = selectedAnswer?.option === option.option
     const isCorrect = option.isRight
 
     if (isCorrect) {
-      return (
-        <div className="p-1 rounded-full border border-green-300">
-          <Check className="size-5 text-green-600 dark:text-green-400" />
-        </div>
-      )
+      return "bg-green-100 border-green-500 dark:border-green-700"
     } else if (isSelected) {
-      return (
-        <div className="p-1 rounded-full border border-red-300">
-          <X className="size-5 text-red-600 dark:text-red-400" />
-        </div>
-      )
+      return "bg-red-100 border-red-500 dark:border-red-700"
     }
 
-    return null
+    return "border-gray-300 dark:border-gray-700"
   }
   return (
-    <Card className="w-full shadow-none sm:shadow-lg border-0 pb-4">
-      <CardHeader className="pb-0">
+    <div className="">
+      <CardHeader className="">
         <div className="flex items-center justify-between mb-4">
           <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
             Question {questionNumber} of {totalQuestions}
@@ -100,40 +133,71 @@ export function QuestionCard({
           </div>
         </div>
       </CardHeader>
-      <CardContent className="pt-0">
-        <CardTitle className="text-xl lg:text-2xl font-bold leading-relaxed text-gray-900 dark:text-gray-200 text-pretty mb-4">
-          <h2>{question.question}</h2>
-        </CardTitle>
-        <RadioGroup
-          value={getSelectedValue()}
-          onValueChange={handleValueChange}
-          disabled={showFeedback}
-          className="space-y-2"
+      <AnimatePresence mode="wait">
+        {FeedbackDisplay}
+        <motion.div
+          key={question.question}
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -30 }}
+          transition={{ duration: 0.3 }}
         >
-          {question.options.map((option, index) => (
-            <Label
-              key={index}
-              htmlFor={`option-${index}`}
-              className="flex items-center gap-2 p-4 rounded-2xl hover:cursor-pointer hover:border-solid border-dashed border bg-zinc-50 dark:bg-zinc-900 "
+          <CardContent className="pt-0">
+            <CardTitle className="text-xl font-semibold leading-relaxed text-gray-900 dark:text-gray-200 text-pretty mb-4 typography">
+              <Markdown>{question.question}</Markdown>
+            </CardTitle>
+
+            <RadioGroup
+              value={getSelectedValue()}
+              onValueChange={handleValueChange}
+              disabled={showFeedback}
+              className="space-y-2"
             >
-              <RadioGroupItem
-                value={index.toString()}
-                id={`option-${index}`}
-                className="flex-shrink-0 mt-[6px]"
-                disabled={showFeedback}
-              />
-              <div className="flex items-start gap-4">
-                <div className="flex-1">
-                  <div className="font-semibold text-base leading-relaxed">{option.option}</div>
-                </div>
-              </div>
-              <div className="grow flex justify-end items-center">
-                {showFeedback && getStatusIcon(option, index)}
-              </div>
-            </Label>
-          ))}
-        </RadioGroup>
-      </CardContent>
-    </Card>
+              {question.options.map((option, index) => {
+                const optionSelected = selectedAnswer?.option === option.option
+                if (optionSelected) {
+                  return <SelectedOption key={index} isCorrect={option.isRight} option={option} />
+                }
+                return (
+                  <label
+                    //  variant={isSelected ? (option.isRight ? "default" : "destructive") : "outline"}
+                    key={index}
+                    htmlFor={`option-${index}`}
+                    className={cn(
+                      `flex items-center gap-2 p-4 rounded-2xl hover:cursor-pointer hover:border-solid border-dashed border bg-zinc-50 dark:bg-zinc-900 transition-all duration-100 text-wrap`,
+                    )}
+                  >
+                    <div className="flex items-start gap-4 w-full">
+                      <div className="flex-shrink-0 mt-1">
+                        <input
+                          id={`option-${index}`}
+                          type="radio"
+                          name="option"
+                          value={index}
+                          checked={getSelectedValue() === index.toString()}
+                          onChange={() => onAnswerSelect(option)}
+                          disabled={showFeedback}
+                          className="hidden"
+                        />
+                        <div
+                          className={cn(
+                            `w-6 h-6 rounded-full border-2 flex items-center justify-center`,
+                          )}
+                        ></div>
+                      </div>
+                      <div className="text-left flex-1">
+                        <div className="font-medium text-base mb-2 leading-relaxed">
+                          {option.option}
+                        </div>
+                      </div>
+                    </div>
+                  </label>
+                )
+              })}
+            </RadioGroup>
+          </CardContent>
+        </motion.div>
+      </AnimatePresence>
+    </div>
   )
 }
