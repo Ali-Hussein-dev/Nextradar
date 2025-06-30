@@ -12,7 +12,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { HiOutlineTrophy } from "react-icons/hi2"
 import { useGameStore } from "../hooks/use-game-store"
 import { quizTopics } from "../constants/topics"
 import { getQuestionCountByCategory } from "../lib/utils"
@@ -54,8 +53,9 @@ export function QuizSetup() {
     <Card className="w-full shadow-none border-none">
       <CardHeader className="text-center pb-4">
         <CardTitle className="text-2xl md:text-3xl font-bold mb-4">Quiz Game 🤓</CardTitle>
-        <p className="text-lg text-gray-600 dark:text-gray-300">
-          Test your knowledge in Next & React and learn while you play!
+        <p className="text-gray-600 dark:text-gray-300 text-center max-w-xl mx-auto">
+          Test your knowledge of fundamentals, best practices, performance optimization, and common
+          pitfalls
         </p>
       </CardHeader>
       <CardContent className="space-y-8 pb-8">

@@ -9,7 +9,12 @@ export const quizTopics: QuizTopic[] = [
   {
     id: "api-functions",
     label: "API Functions",
-    description: "server functions, cookies, headers, and more",
+    description: "useRouter, usePathname, redirect, notFound,...etc",
+  },
+  {
+    id: "server-client-components",
+    label: "Server & Client Components",
+    description: "hydration, use client, nesting", 
   },
 ]
 
