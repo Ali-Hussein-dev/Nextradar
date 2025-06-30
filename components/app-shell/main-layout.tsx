@@ -127,11 +127,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             <Button variant={"link"}>
               <Link href={urls.sponsor}>Sponsor</Link>
             </Button>
-            <Button variant={"ghost"} size="icon" asChild className="rounded-full">
+            {/* <Button variant={"ghost"} size="icon" asChild className="rounded-full">
               <a href={urls.github} target="_blank" rel="noopener noreferrer">
                 <FaGithub size="20" />
               </a>
-            </Button>
+            </Button> */}
             <ThemeToggle />
           </div>
         </nav>
