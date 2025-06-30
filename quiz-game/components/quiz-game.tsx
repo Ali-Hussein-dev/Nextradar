@@ -35,17 +35,12 @@ export function QuizGame() {
     const correctAnswer = q.options.find((opt) => opt.isRight)
     return sum + (correctAnswer?.score || 0)
   }, 0)
-  const { complete, completion, isLoading, data } = useCompletion({
+  const { complete, completion, isLoading } = useCompletion({
     api: "/api/roast",
     onFinish: (prompt, completion) => {
-      // setLoadingFeedback(false)
-      console.log("finished roast")
-      console.log(completion)
-      const data = JSON.parse(completion)
-      setFeedback(data.roast || "Well, that wasn't quite right, was it?")
+      setFeedback(completion || "Well, that wasn't quite right, was it?")
     },
     onError: () => {
-      // setLoadingFeedback(false)
       setFeedback("Even my roast generator is disappointed in that answer.")
     },
   })
@@ -58,33 +53,20 @@ export function QuizGame() {
       !currentFeedback &&
       !isLoading
     ) {
+      const correctAnswer = currentQuestion?.options?.find((opt) => opt.isRight)
       complete("", {
         body: {
           question: currentQuestion?.question,
           options: currentQuestion?.options,
-          playerChoice: selectedAnswer,
-          correctAnswer: currentQuestion?.options?.find((opt) => opt.isRight),
+          playerChoice: selectedAnswer.option,
+          correctAnswer: correctAnswer?.option,
           difficulty: currentQuestion?.difficulty,
-          category: currentQuestion?.category,
+          category: currentQuestion?.category.label,
           playerName,
         },
       })
-      const correctAnswer = currentQuestion?.options?.find((opt) => opt.isRight)
-      if (correctAnswer) {
-        // setLoadingFeedback(true)
-      }
     }
-  }, [
-    showFeedback,
-    selectedAnswer,
-    currentQuestion,
-    currentFeedback,
-    isLoading,
-    setFeedback,
-    // setLoadingFeedback,
-    playerName,
-  ])
-  console.log(data)
+  }, [showFeedback, selectedAnswer, currentQuestion, currentFeedback, isLoading, setFeedback, playerName, complete])
   if (gameStatus === "setup") {
     return <QuizSetup />
   }
