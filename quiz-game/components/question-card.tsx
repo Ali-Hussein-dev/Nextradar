@@ -163,11 +163,22 @@ export function QuestionCard({
                           disabled={showFeedback}
                           className="hidden"
                         />
-                        <div
-                          className={cn(
-                            `w-6 h-6 rounded-full border-2 flex items-center justify-center`,
-                          )}
-                        ></div>
+                        {/* Show the right choice if not selected */}
+                        {showFeedback && option.isRight ? (
+                          <div
+                            className={cn(
+                              `size-6 rounded-full border-2 flex items-center justify-center bg-green-100 border-green-500`,
+                            )}
+                          >
+                            <CheckCircle className="w-4 h-4 text-green-600" />
+                          </div>
+                        ) : (
+                          <div
+                            className={cn(
+                              `w-6 h-6 rounded-full border-2 flex items-center justify-center`,
+                            )}
+                          ></div>
+                        )}
                       </div>
                       <div className="text-left flex-1">
                         <div className="font-medium text-base mb-2 leading-relaxed">
