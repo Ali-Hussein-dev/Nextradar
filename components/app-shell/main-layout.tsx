@@ -20,6 +20,7 @@ import { IoBriefcaseOutline } from "react-icons/io5"
 import { HiOutlineTemplate } from "react-icons/hi"
 import Link from "next/link"
 import { Newsletter } from "@/components/newsletter"
+import { HiOutlineTrophy } from "react-icons/hi2"
 
 type SidebarLink = {
   label: string
@@ -32,6 +33,12 @@ export const sidebarLinks: SidebarLink[] = [
     label: "Latest",
     url: urls.latest,
     icon: <AiOutlineClockCircle />,
+  },
+  {
+    label: "Quiz",
+    url: urls.quizGame,
+    icon: <HiOutlineTrophy />,
+    new: true,
   },
   {
     label: "Tutorials",
