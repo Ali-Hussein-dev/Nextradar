@@ -44,14 +44,14 @@ export function FeedbackDisplay({
               </span>
             </div>
           ) : feedback ? (
-            <motion.p
+            <motion.div
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
               className="prose-p:text-red-800 dark:prose-p:text-red-400 font-medium text-base italic leading-relaxed max-w-xl mx-auto text-center"
             >
               <Markdown>{feedback}</Markdown>
-            </motion.p>
+            </motion.div>
           ) : (
             <p className="text-red-700 dark:text-red-300 font-medium">
               {"Oops! That's not quite right."}
