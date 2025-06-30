@@ -19,7 +19,7 @@ import { urls } from "@/constants/urls"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { nullifyObject } from "../lib/utils"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, motion } from "motion/react"
 
 type QueryStates = {
   reactjs: boolean
