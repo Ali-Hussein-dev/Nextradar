@@ -126,7 +126,7 @@ export function QuestionCard({
           exit={{ opacity: 0, x: -30 }}
           transition={{ duration: 0.3 }}
         >
-          <CardContent className="pt-0">
+          <CardContent className="pb-4 pt-0">
             <CardTitle className="text-xl font-semibold leading-relaxed prose-p:text-gray-900 text-pretty mb-4 typography dark:prose-p:text-gray-200">
               <Markdown>{question.question}</Markdown>
             </CardTitle>

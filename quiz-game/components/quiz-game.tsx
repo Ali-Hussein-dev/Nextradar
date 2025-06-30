@@ -66,7 +66,16 @@ export function QuizGame() {
         },
       })
     }
-  }, [showFeedback, selectedAnswer, currentQuestion, currentFeedback, isLoading, setFeedback, playerName, complete])
+  }, [
+    showFeedback,
+    selectedAnswer,
+    currentQuestion,
+    currentFeedback,
+    isLoading,
+    setFeedback,
+    playerName,
+    complete,
+  ])
   if (gameStatus === "setup") {
     return <QuizSetup />
   }
@@ -104,7 +113,7 @@ export function QuizGame() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, delay: 0.5 }}
-            className="w-full px-4"
+            className="w-full sm:px-4"
           >
             <Button
               onClick={nextQuestion}
