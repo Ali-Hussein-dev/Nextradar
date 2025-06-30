@@ -8,6 +8,8 @@ import { CheckCircle, XCircle } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "motion/react"
 import { Markdown } from "@/components/markdown"
+import { shuffle } from "../lib/utils"
+import * as React from "react"
 
 interface QuestionCardProps {
   question: Question
@@ -19,13 +21,7 @@ interface QuestionCardProps {
   FeedbackDisplay: React.ReactNode
 }
 
-const SelectedOption = ({
-  option,
-  isCorrect,
-}: {
-  option: QuestionOption
-  isCorrect: boolean
-}) => {
+const SelectedOption = ({ option, isCorrect }: { option: QuestionOption; isCorrect: boolean }) => {
   return isCorrect ? (
     <div className="flex items-center gap-2 p-4 rounded-2xl hover:cursor-pointer hover:border-solid border-dashed border transition-all duration-100 text-wrap bg-green-500 hover:bg-green-600 border-green-500">
       <div
@@ -95,19 +91,7 @@ export function QuestionCard({
     const index = question.options.findIndex((option) => option.option === selectedAnswer.option)
     return index !== -1 ? index.toString() : ""
   }
-  let isSelected = false
-  const getSelectionClasses = (option: QuestionOption, index: number) => {
-    isSelected = selectedAnswer?.option === option.option
-    const isCorrect = option.isRight
-
-    if (isCorrect) {
-      return "bg-green-100 border-green-500 dark:border-green-700"
-    } else if (isSelected) {
-      return "bg-red-100 border-red-500 dark:border-red-700"
-    }
-
-    return "border-gray-300 dark:border-gray-700"
-  }
+  const memoizedOptions = React.useMemo(() => shuffle(question.options), [question.options])
   return (
     <div className="">
       <CardHeader className="">
@@ -143,7 +127,7 @@ export function QuestionCard({
           transition={{ duration: 0.3 }}
         >
           <CardContent className="pt-0">
-            <CardTitle className="text-xl font-semibold leading-relaxed text-gray-900 dark:text-gray-200 text-pretty mb-4 typography">
+            <CardTitle className="text-xl font-semibold leading-relaxed prose-p:text-gray-900 text-pretty mb-4 typography dark:prose-p:text-gray-200">
               <Markdown>{question.question}</Markdown>
             </CardTitle>
 
@@ -153,7 +137,7 @@ export function QuestionCard({
               disabled={showFeedback}
               className="space-y-2"
             >
-              {question.options.map((option, index) => {
+              {memoizedOptions.map((option, index) => {
                 const optionSelected = selectedAnswer?.option === option.option
                 if (optionSelected) {
                   return <SelectedOption key={index} isCorrect={option.isRight} option={option} />
