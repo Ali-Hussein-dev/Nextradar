@@ -1,5 +1,6 @@
 "use client"
 import { create } from "zustand"
+import { createJSONStorage, persist } from "zustand/middleware"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { BsList } from "react-icons/bs"
@@ -12,13 +13,18 @@ interface PreferencesState {
   setView: (view: "grid" | "list") => void
 }
 
-export const usePreferencesStore = create<PreferencesState>((set) => ({
-  view: (localStorage.getItem(VIEW_PREFERENCE_KEY) as "grid" | "list") || "grid",
-  setView: (view) => {
-    localStorage.setItem(VIEW_PREFERENCE_KEY, view)
-    set({ view })
-  },
-}))
+export const usePreferencesStore = create<PreferencesState>()(
+  persist(
+    (set) => ({
+      view: "grid",
+      setView: (view) => set({ view }),
+    }),
+    {
+      name: VIEW_PREFERENCE_KEY,
+      storage: createJSONStorage(() => localStorage),
+    },
+  ),
+)
 
 interface ToggleViewProps {
   className?: string
